@@ -2,7 +2,7 @@
 
 ## Course Information
 
-**Course Name:** Rapid Application Development for OOSD 
+**Course Name:** Rapid Application Development for OOSD  
 **Course Code:** CPRG-200-A  
 **Instructor:** Samuel Sofela  
 **Project Due Date:** 12-16-2024  
