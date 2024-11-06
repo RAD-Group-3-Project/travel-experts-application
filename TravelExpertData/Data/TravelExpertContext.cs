@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using TravelExpertData.Models;
 
-namespace TravelExpertData;
+namespace TravelExpertData.Data;
 
 public partial class TravelExpertContext : DbContext
 {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace TravelExpertData;
+namespace TravelExpertData.Models;
 
 [Index("ProductId", Name = "ProductId")]
 public partial class Product

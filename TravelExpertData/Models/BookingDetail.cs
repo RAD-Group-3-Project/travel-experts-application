@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace TravelExpertData;
+namespace TravelExpertData.Models;
 
 [Index("FeeId", Name = "Agency Fee Code")]
 [Index("BookingId", Name = "BookingId")]
