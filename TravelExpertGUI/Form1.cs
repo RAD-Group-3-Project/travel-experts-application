@@ -1,4 +1,6 @@
 using TravelExpertData;
+using TravelExpertData.Data;
+using TravelExpertData.Models;
 
 namespace TravelExpertGUI;
 

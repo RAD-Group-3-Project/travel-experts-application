@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace TravelExpertData;
+namespace TravelExpertData.Models;
 
 [Index("AffiliationId", Name = "AffiliationsSupCon")]
 [Index("SupplierId", Name = "SuppliersSupCon")]
