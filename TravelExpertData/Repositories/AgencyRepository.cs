@@ -40,7 +40,7 @@ namespace TravelExpertData.Repositories
             {   
                 // Logs error to console and and then throws it down the line
                 Console.WriteLine($"Database Error: {ex.Message}");
-                throw new Exception("An unexpected error occured while adding a new agency location")
+                throw new Exception("An unexpected error occured while adding a new agency location");
 
             }
         }
@@ -57,12 +57,62 @@ namespace TravelExpertData.Repositories
             }
             catch (Exception dbex) 
             {
-                Console.WriteLine($"An error occured looking for id :{id}");
-                throw new Exception("An Error Occured looking for Agencies via ID)";
+                Console.WriteLine($"An error occured looking for agency id :{id}");
+                throw new Exception("An Error Occured looking for Agencies via ID)");
             }
         }
+        // Creating our update Agency function passing in object Agency and the data as agency
+        public static void UpdateAgency(Agency agency)
+        {
+            // Starting a try for an update
+            try
+            {
+                // Opens up our connection 
+                using (TravelExpertContext conn = new TravelExpertContext())
+                {
+                    // Tries the add ad saves the database 
+                    conn.Agencies.Update(agency);
+                    conn.SaveChanges();
+                }
+            }
+            // Catches specific update error 
+            catch (DbUpdateException dbex)
+            {   // Once again Writes the line and throws exception down the line
+                Console.WriteLine($"Database Error while trying to update agency : {agency.AgencyId}");
+                throw new Exception("There was an error while updating the agencies table");
+            }   
 
+        }
+        // Final Crud operation to delete 
+        public static void DeleteAgencyByID(int id)     
+        {
+            // Starts our try
+            try
+            {   
+                // Opening Connection
+                using (TravelExpertContext conn = new TravelExpertContext())
+                {   
+                    // Declares our agency object based on the input ID number 
+                    Agency agency = conn.Agencies.Find(id);
+                    // If there is no such agency throw an error
+                    if (agency == null)
+                    {
+                        // Bam. Error
+                        throw new Exception($"Couldnt find an agency with the ID of {id}");
+                    }
+                    // Otherwise procedes with the deletion (to be changed to flip valid bit in sql)
+                    conn.Agencies.Remove(agency);
+                    conn.SaveChanges();
+                }
+            }
+            catch (DbUpdateException dbex) 
+            {
+                Console.WriteLine($"There was an error deleting Agency {id}");
+                throw new Exception("There was an error deleting the requested agent");
+            }
 
+        }
+        // CF 
 
 
 
