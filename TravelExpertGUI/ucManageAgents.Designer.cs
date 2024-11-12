@@ -47,6 +47,8 @@ partial class ucManageAgents
         label1 = new Label();
         btnSave = new Button();
         cboAgency = new ComboBox();
+        txtMiddleInit = new TextBox();
+        lblMid = new Label();
         ((System.ComponentModel.ISupportInitialize)dgvAgents).BeginInit();
         SuspendLayout();
         // 
@@ -93,7 +95,7 @@ partial class ucManageAgents
         // label7
         // 
         label7.AutoSize = true;
-        label7.Location = new Point(469, 125);
+        label7.Location = new Point(513, 158);
         label7.Name = "label7";
         label7.Size = new Size(65, 20);
         label7.TabIndex = 30;
@@ -101,7 +103,7 @@ partial class ucManageAgents
         // 
         // txtAgntPosition
         // 
-        txtAgntPosition.Location = new Point(551, 81);
+        txtAgntPosition.Location = new Point(595, 114);
         txtAgntPosition.Name = "txtAgntPosition";
         txtAgntPosition.ReadOnly = true;
         txtAgntPosition.Size = new Size(217, 27);
@@ -110,7 +112,7 @@ partial class ucManageAgents
         // label6
         // 
         label6.AutoSize = true;
-        label6.Location = new Point(469, 82);
+        label6.Location = new Point(513, 115);
         label6.Name = "label6";
         label6.Size = new Size(68, 20);
         label6.TabIndex = 28;
@@ -118,7 +120,7 @@ partial class ucManageAgents
         // 
         // txtAgntEmail
         // 
-        txtAgntEmail.Location = new Point(551, 41);
+        txtAgntEmail.Location = new Point(595, 74);
         txtAgntEmail.Name = "txtAgntEmail";
         txtAgntEmail.ReadOnly = true;
         txtAgntEmail.Size = new Size(217, 27);
@@ -127,7 +129,7 @@ partial class ucManageAgents
         // label5
         // 
         label5.AutoSize = true;
-        label5.Location = new Point(477, 44);
+        label5.Location = new Point(521, 77);
         label5.Name = "label5";
         label5.Size = new Size(53, 20);
         label5.TabIndex = 26;
@@ -135,7 +137,7 @@ partial class ucManageAgents
         // 
         // txtAgntBusPhone
         // 
-        txtAgntBusPhone.Location = new Point(219, 153);
+        txtAgntBusPhone.Location = new Point(595, 41);
         txtAgntBusPhone.Name = "txtAgntBusPhone";
         txtAgntBusPhone.ReadOnly = true;
         txtAgntBusPhone.Size = new Size(205, 27);
@@ -144,7 +146,7 @@ partial class ucManageAgents
         // label4
         // 
         label4.AutoSize = true;
-        label4.Location = new Point(71, 156);
+        label4.Location = new Point(459, 44);
         label4.Name = "label4";
         label4.Size = new Size(116, 20);
         label4.TabIndex = 24;
@@ -152,7 +154,7 @@ partial class ucManageAgents
         // 
         // txtAgntLName
         // 
-        txtAgntLName.Location = new Point(219, 118);
+        txtAgntLName.Location = new Point(219, 155);
         txtAgntLName.Name = "txtAgntLName";
         txtAgntLName.ReadOnly = true;
         txtAgntLName.Size = new Size(205, 27);
@@ -161,7 +163,7 @@ partial class ucManageAgents
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(100, 121);
+        label3.Location = new Point(100, 158);
         label3.Name = "label3";
         label3.Size = new Size(86, 20);
         label3.TabIndex = 22;
@@ -216,15 +218,34 @@ partial class ucManageAgents
         // 
         cboAgency.Enabled = false;
         cboAgency.FormattingEnabled = true;
-        cboAgency.Location = new Point(551, 122);
+        cboAgency.Location = new Point(595, 155);
         cboAgency.Name = "cboAgency";
         cboAgency.Size = new Size(151, 28);
         cboAgency.TabIndex = 38;
+        // 
+        // txtMiddleInit
+        // 
+        txtMiddleInit.Location = new Point(219, 118);
+        txtMiddleInit.Name = "txtMiddleInit";
+        txtMiddleInit.ReadOnly = true;
+        txtMiddleInit.Size = new Size(205, 27);
+        txtMiddleInit.TabIndex = 39;
+        // 
+        // lblMid
+        // 
+        lblMid.AutoSize = true;
+        lblMid.Location = new Point(83, 121);
+        lblMid.Name = "lblMid";
+        lblMid.Size = new Size(104, 20);
+        lblMid.TabIndex = 40;
+        lblMid.Text = "Middle Initial :";
         // 
         // ucManageAgents
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
+        Controls.Add(lblMid);
+        Controls.Add(txtMiddleInit);
         Controls.Add(cboAgency);
         Controls.Add(btnSave);
         Controls.Add(btnDelete);
@@ -273,4 +294,6 @@ partial class ucManageAgents
     private Label label1;
     private Button btnSave;
     private ComboBox cboAgency;
+    private TextBox txtMiddleInit;
+    private Label lblMid;
 }

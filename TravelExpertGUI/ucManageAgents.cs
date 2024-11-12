@@ -21,17 +21,33 @@ public partial class ucManageAgents : UserControl
 
     private void ucManageAgents_Load(object sender, EventArgs e)
     {
+        PopulateAgents();
+    }
+
+    private void PopulateAgents()
+    {
+        dgvAgents.Columns.Clear();
         dgvAgents.DataSource = AgentRepository.GetAgents();
     }
+
     public string function;
 
     private void dgvAgents_SelectionChanged(object sender, EventArgs e)
     {
         if (dgvAgents.CurrentRow != null) // if row selected
-        {
+        {   
+
             loadAgencies();
             txtAgntId.Text = dgvAgents.CurrentRow.Cells["AgentId"].Value.ToString();
             txtAgntFName.Text = dgvAgents.CurrentRow.Cells["AgtFirstName"].Value.ToString();
+            if (dgvAgents.CurrentRow.Cells["AgtMiddleInitial"].Value != null)
+            {
+                txtMiddleInit.Text = dgvAgents.CurrentRow.Cells["AgtMiddleInitial"].Value.ToString();
+            }
+            else
+            {
+                txtMiddleInit.Text = string.Empty; 
+            }
             txtAgntLName.Text = dgvAgents.CurrentRow.Cells["AgtLastName"].Value.ToString();
             txtAgntBusPhone.Text = dgvAgents.CurrentRow.Cells["AgtBusPhone"].Value.ToString();
             txtAgntEmail.Text = dgvAgents.CurrentRow.Cells["AgtEmail"].Value.ToString();
@@ -63,11 +79,13 @@ public partial class ucManageAgents : UserControl
         txtAgntBusPhone.Clear();
         txtAgntEmail.Clear();
         txtAgntPosition.Clear();
+        txtMiddleInit.Clear();
         txtAgntFName.ReadOnly = false;
         txtAgntLName.ReadOnly = false;
         txtAgntBusPhone.ReadOnly = false;
         txtAgntEmail.ReadOnly = false;
         txtAgntPosition.ReadOnly = false;
+        txtMiddleInit.ReadOnly = false;
         cboAgency.Enabled = true;
         btnSave.Enabled = true;
         function = "ADD";
@@ -96,6 +114,17 @@ public partial class ucManageAgents : UserControl
             newAgent.AgtFirstName = txtAgntFName.Text;
             newAgent.AgtLastName = txtAgntLName.Text;
             newAgent.AgtBusPhone = txtAgntBusPhone.Text;
+            newAgent.AgtEmail = txtAgntEmail.Text;
+            newAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
+            newAgent.AgtMiddleInitial = txtMiddleInit.Text;
+            newAgent.AgtPosition = txtAgntPosition.Text;
+            AgentRepository.CreateAgent(newAgent);
+            PopulateAgents();
+
+        }
+
+        if (function == "EDIT")
+        {
 
         }
     }
