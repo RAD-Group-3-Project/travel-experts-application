@@ -72,17 +72,17 @@ public partial class frmMain : Form
             switch (tableName)
             {
                 case "Packages":
-                    controlToLoad = new ucManagePackages(); // Your UserControl
+                    controlToLoad = new ucManagePackages(); 
                     break;
                 case "Products":
-                    //controlToLoad = new ucManageProducts(); // Your UserControl
+                    //controlToLoad = new ucManageProducts(); 
                     break;
                 case "Product Suppliers":
                     // TODO: Implement the ucManageProductSuppliers control
                     // controlToLoad = new ucManageProductSuppliers();
                     break;
                 case "Suppliers":
-                    //controlToLoad = new ucManageSuppliers(); // Your UserControl
+                    //controlToLoad = new ucManageSuppliers(); 
                     break;
                 case "Packages Products Suppliers":
                     // TODO: Implement the ucManagePackagesProductsSuppliers control
