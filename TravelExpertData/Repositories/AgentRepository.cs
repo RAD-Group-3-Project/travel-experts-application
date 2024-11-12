@@ -45,7 +45,8 @@ public class AgentRepository
     {
         using (TravelExpertContext ctx = new TravelExpertContext())
         {
-            return ctx.Agents.ToList();
+            var agents = ctx.Agents.Where(agent => agent.IsActive == true);
+            return agents.ToList();
         }
     }
 
@@ -72,15 +73,16 @@ public class AgentRepository
         try
         {
             using (TravelExpertContext ctx = new TravelExpertContext())
-            {
+            {   
                 Agent agent = ctx.Agents.Find(id);
+                agent.IsActive = false;
                 
                 if (agent == null)
                 {
                     throw new Exception("Agent not found.");
                 }
 
-                ctx.Agents.Remove(agent);
+                ctx.Agents.Update(agent);
                 ctx.SaveChanges();
             }
         }
