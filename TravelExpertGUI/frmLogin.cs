@@ -34,7 +34,7 @@ namespace TravelExpertGUI
             }
             if (currentuser.Username == null)
             {
-                MessageBox.Show("Invalid Username / Password");
+                MessageBox.Show("Invalid Username / Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // Hides our password as we enter it 
