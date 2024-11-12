@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             txtUser = new TextBox();
             label1 = new Label();
             txtPassword = new TextBox();
             label2 = new Label();
             button1 = new Button();
+            picTravelExperts = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picTravelExperts).BeginInit();
             SuspendLayout();
             // 
             // txtUser
@@ -77,18 +80,30 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // picTravelExperts
+            // 
+            picTravelExperts.Image = (Image)resources.GetObject("picTravelExperts.Image");
+            picTravelExperts.Location = new Point(12, 51);
+            picTravelExperts.Name = "picTravelExperts";
+            picTravelExperts.Size = new Size(196, 209);
+            picTravelExperts.SizeMode = PictureBoxSizeMode.StretchImage;
+            picTravelExperts.TabIndex = 5;
+            picTravelExperts.TabStop = false;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(565, 324);
+            ClientSize = new Size(491, 286);
+            Controls.Add(picTravelExperts);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(txtPassword);
             Controls.Add(label1);
             Controls.Add(txtUser);
             Name = "Login";
-            Text = "Login";
+            Text = "Travel Experts Login ";
+            ((System.ComponentModel.ISupportInitialize)picTravelExperts).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -100,5 +115,6 @@
         private TextBox txtPassword;
         private Label label2;
         private Button button1;
+        private PictureBox picTravelExperts;
     }
 }
