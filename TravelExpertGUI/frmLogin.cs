@@ -29,8 +29,9 @@ namespace TravelExpertGUI
                 {
                     currentuser = currentuser,
                 };
+                this.Hide();
                 mainForm.ShowDialog();
-                this.Close();
+                
             }
             if (currentuser.Username == null)
             {

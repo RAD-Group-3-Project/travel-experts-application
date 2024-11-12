@@ -64,6 +64,9 @@ namespace TravelExpertGUI
             txtFax.ReadOnly = true;
             btnSave.Enabled = false;
             btnDiscard.Enabled = false;
+            btnAdd.Enabled = true;
+            btnEdit.Enabled = true;
+            btnDelete.Enabled = true;
 
         }
         // Sets our textboxes to the selected row
@@ -105,6 +108,9 @@ namespace TravelExpertGUI
             txtFax.ReadOnly = false;
             btnSave.Enabled = true;
             btnDiscard.Enabled = true;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = false;
+            btnAdd.Enabled = false;
             // Allows the save button to determine the function of its click
             function = "add";
         }
@@ -156,6 +162,9 @@ namespace TravelExpertGUI
             txtFax.ReadOnly = false;
             btnSave.Enabled = true;
             btnDiscard.Enabled = true;
+            btnAdd.Enabled = false;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
             function = "edit";
 
 

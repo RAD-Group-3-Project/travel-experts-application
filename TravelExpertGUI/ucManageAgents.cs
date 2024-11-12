@@ -28,6 +28,9 @@ public partial class ucManageAgents : UserControl
     {
         btnDisc.Enabled = false;
         btnSave.Enabled = false;
+        btnAdd.Enabled = true;
+        btnEdit.Enabled = true;
+        btnDelete.Enabled = true;
         dgvAgents.Enabled = true;
         dgvAgents.Columns.Clear();
         dgvAgents.DataSource = AgentRepository.GetAgents();
@@ -110,6 +113,9 @@ public partial class ucManageAgents : UserControl
         cboAgency.Enabled = true;
         btnSave.Enabled = true;
         btnDisc.Enabled = true;
+        btnAdd.Enabled = false;
+        btnDelete.Enabled = false;
+        btnEdit.Enabled = false;
         function = "ADD";
 
 
@@ -130,6 +136,9 @@ public partial class ucManageAgents : UserControl
         cboAgency.Enabled = true;
         btnSave.Enabled = true;
         btnDisc.Enabled = true;
+        btnAdd.Enabled = false;
+        btnDelete.Enabled = false;
+        btnEdit.Enabled = false;
         function = "EDIT";
     }
 
