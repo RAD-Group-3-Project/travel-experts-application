@@ -8,13 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TravelExpertGUI
+namespace TravelExpertGUI;
+public partial class ucManageSuppliers : UserControl
 {
-    public partial class ManageProductsForm : Form
+    public ucManageSuppliers()
     {
-        public ManageProductsForm()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
