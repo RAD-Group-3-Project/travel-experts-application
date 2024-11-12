@@ -97,6 +97,7 @@ partial class frmMain
         MainMenuStrip = menuStrip1;
         Margin = new Padding(3, 4, 3, 4);
         Name = "frmMain";
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "Travel Expert Management";
         FormClosed += frmMain_FormClosed;
         Load += frmMain_Load;
