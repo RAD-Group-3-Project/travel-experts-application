@@ -61,6 +61,18 @@ namespace TravelExpertData.Repositories
                 throw new Exception("An Error Occured looking for Agencies via ID)");
             }
         }
+        // Gets a list of all agencies 
+        public static List<Agency> GetAgency()
+        {
+            using TravelExpertContext conn = new TravelExpertContext();
+            {
+
+                var agency = conn.Agencies.Where(agency => agency.IsActive == true);
+                return agency.ToList();
+                
+            }
+        }
+
         // Creating our update Agency function passing in object Agency and the data as agency
         public static void UpdateAgency(Agency agency)
         {

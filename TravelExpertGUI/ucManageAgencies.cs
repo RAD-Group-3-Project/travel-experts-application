@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertData.Repositories;
 
 namespace TravelExpertGUI
 {
@@ -15,6 +16,11 @@ namespace TravelExpertGUI
         public ucManageAgencies()
         {
             InitializeComponent();
+        }
+
+        private void ucManageAgencies_Load(object sender, EventArgs e)
+        {
+            dgvAgencies.DataSource = AgencyRepository.GetAgency();
         }
     }
 }

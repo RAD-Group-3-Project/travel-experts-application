@@ -164,7 +164,7 @@ partial class ucManagePackages
         // dataGridView1
         // 
         dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView1.Location = new Point(56, 249);
+        dataGridView1.Location = new Point(60, 249);
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
         dataGridView1.Size = new Size(809, 236);
