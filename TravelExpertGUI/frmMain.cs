@@ -17,6 +17,7 @@ public partial class frmMain : Form
     {
         InitializeComponent();
     }
+    public CurrentUser currentuser = new();
 
     private void frmMain_Load(object sender, EventArgs e)
     {
@@ -25,7 +26,7 @@ public partial class frmMain : Form
 
         InitTableList(agentMenuItems, adminMenuItems);
 
-        string user = "admin"; // TODO: replace this
+        string user = validateUser();
         switch (user.ToUpper())
         {
             case "ADMIN":
@@ -38,7 +39,24 @@ public partial class frmMain : Form
 
         // add welcome message
         contentPanel.Controls.Clear();
-        contentPanel.Controls.Add(new ucWelcomeMessage());
+        contentPanel.Controls.Add(new ucWelcomeMessage() { currentuser = currentuser});
+    }
+    /// <summary>
+    /// Checks if our user is an admin or not
+    /// </summary>
+    /// <returns>ADMIN or AGENT</returns>
+    private string validateUser()
+    {
+        string result = "AGENT";
+        if (currentuser.IS_Admin)
+        {
+            result = "ADMIN";
+            return result;
+        }
+        else 
+        {
+            return result;    
+        }
     }
 
     private void InitTableList(List<ToolStripMenuItem> agentMenuItems, List<ToolStripMenuItem> adminMenuItems)
@@ -97,7 +115,7 @@ public partial class frmMain : Form
                     break;
                 case "Agencies":
                     // TODO: Implement the ucManageAgencies control
-                    // controlToLoad = new ucManageAgencies();
+                     controlToLoad = new ucManageAgencies();
                     break;
             }
 

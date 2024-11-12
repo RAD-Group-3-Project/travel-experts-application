@@ -61,6 +61,18 @@ namespace TravelExpertData.Repositories
                 throw new Exception("An Error Occured looking for Agencies via ID)");
             }
         }
+        // Gets a list of all agencies 
+        public static List<Agency> GetAgency()
+        {
+            using TravelExpertContext conn = new TravelExpertContext();
+            {
+
+                var agency = conn.Agencies.Where(agency => agency.IsActive == true);
+                return agency.ToList();
+                
+            }
+        }
+
         // Creating our update Agency function passing in object Agency and the data as agency
         public static void UpdateAgency(Agency agency)
         {
@@ -100,8 +112,9 @@ namespace TravelExpertData.Repositories
                         // Bam. Error
                         throw new Exception($"Couldnt find an agency with the ID of {id}");
                     }
+                    agency.IsActive = false;
                     // Otherwise procedes with the deletion (to be changed to flip valid bit in sql)
-                    conn.Agencies.Remove(agency);
+                    conn.Agencies.Update(agency);
                     conn.SaveChanges();
                 }
             }

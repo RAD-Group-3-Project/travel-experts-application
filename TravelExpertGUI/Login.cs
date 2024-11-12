@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,16 @@ using TravelExpertData.Repositories;
 
 namespace TravelExpertGUI
 {
-    public partial class frmLogin : Form
+    public partial class Login : Form
     {
-        public frmLogin()
+        public Login()
         {
             InitializeComponent();
         }
         CurrentUser currentuser = new();
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            currentuser = UserRepository.UserLogin(txtUsername.Text, txtPassword.Text);
+            currentuser = UserRepository.UserLogin(txtUser.Text, txtPassword.Text);
             if (currentuser.Username != null)
             {
                 frmMain mainForm = new frmMain()
@@ -37,10 +37,10 @@ namespace TravelExpertGUI
                 MessageBox.Show("Invalid Username / Password");
             }
         }
-        // Hides our password as we enter it 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
+
+        private void Login_Load(object sender, EventArgs e)
         {
-            txtPassword.UseSystemPasswordChar = true;
+
         }
     }
 }

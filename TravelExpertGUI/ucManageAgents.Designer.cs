@@ -46,6 +46,7 @@ partial class ucManageAgents
         txtAgntId = new TextBox();
         label1 = new Label();
         txtAgntAgencyId = new TextBox();
+        btnSave = new Button();
         ((System.ComponentModel.ISupportInitialize)dgvAgents).BeginInit();
         SuspendLayout();
         // 
@@ -201,10 +202,20 @@ partial class ucManageAgents
         txtAgntAgencyId.Size = new Size(155, 27);
         txtAgntAgencyId.TabIndex = 36;
         // 
+        // btnSave
+        // 
+        btnSave.Location = new Point(669, 500);
+        btnSave.Name = "btnSave";
+        btnSave.Size = new Size(193, 29);
+        btnSave.TabIndex = 37;
+        btnSave.Text = "Save Changes";
+        btnSave.UseVisualStyleBackColor = true;
+        // 
         // ucManageAgents
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
+        Controls.Add(btnSave);
         Controls.Add(txtAgntAgencyId);
         Controls.Add(btnDelete);
         Controls.Add(btnEdit);
@@ -251,4 +262,5 @@ partial class ucManageAgents
     private TextBox txtAgntId;
     private Label label1;
     private TextBox txtAgntAgencyId;
+    private Button btnSave;
 }
