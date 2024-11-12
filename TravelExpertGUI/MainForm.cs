@@ -10,6 +10,7 @@ public partial class MainForm : Form
     {
         InitializeComponent();
     }
+    public CurrentUser currentuser = new();
 
     private void managePackagesToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -25,7 +26,23 @@ public partial class MainForm : Form
 
     private void MainForm_Load(object sender, EventArgs e)
     {
+        if (IsAdmin())
+        {
+            txtTest.Visible = true;
+        }
+    }
 
+    private bool IsAdmin()
+    {
+
+        if (currentuser.IS_Admin)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void manageProductsToolStripMenuItem_Click_1(object sender, EventArgs e)
