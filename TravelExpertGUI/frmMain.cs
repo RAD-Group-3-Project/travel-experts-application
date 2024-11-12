@@ -35,6 +35,10 @@ public partial class frmMain : Form
                 mnuDatabase.DropDownItems.AddRange(agentMenuItems.ToArray());
                 break;
         }
+
+        // add welcome message
+        contentPanel.Controls.Clear();
+        contentPanel.Controls.Add(new ucWelcomeMessage());
     }
 
     private void InitTableList(List<ToolStripMenuItem> agentMenuItems, List<ToolStripMenuItem> adminMenuItems)
