@@ -29,7 +29,7 @@ partial class ucWelcomeMessage
     private void InitializeComponent()
     {
         label1 = new Label();
-        label2 = new Label();
+        lblHello = new Label();
         SuspendLayout();
         // 
         // label1
@@ -43,27 +43,28 @@ partial class ucWelcomeMessage
         label1.TabIndex = 0;
         label1.Text = "Welcome to Travel Expert Management";
         // 
-        // label2
+        // lblHello
         // 
-        label2.AutoSize = true;
-        label2.Font = new Font("Arial", 12F);
-        label2.ForeColor = Color.DarkSlateGray;
-        label2.Location = new Point(379, 254);
-        label2.Name = "label2";
-        label2.Padding = new Padding(0, 0, 10, 0);
-        label2.Size = new Size(128, 23);
-        label2.TabIndex = 1;
-        label2.Text = "Hello, Admin";
+        lblHello.AutoSize = true;
+        lblHello.Font = new Font("Arial", 12F);
+        lblHello.ForeColor = Color.DarkSlateGray;
+        lblHello.Location = new Point(379, 254);
+        lblHello.Name = "lblHello";
+        lblHello.Padding = new Padding(0, 0, 10, 0);
+        lblHello.Size = new Size(128, 23);
+        lblHello.TabIndex = 1;
+        lblHello.Text = "Hello, Admin";
         // 
         // ucWelcomeMessage
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.LightSteelBlue;
-        Controls.Add(label2);
+        Controls.Add(lblHello);
         Controls.Add(label1);
         Name = "ucWelcomeMessage";
         Size = new Size(914, 570);
+        Load += ucWelcomeMessage_Load;
         ResumeLayout(false);
         PerformLayout();
     }
@@ -71,5 +72,5 @@ partial class ucWelcomeMessage
     #endregion
 
     private Label label1;
-    private Label label2;
+    private Label lblHello;
 }

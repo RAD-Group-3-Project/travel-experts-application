@@ -44,6 +44,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(186, 27);
             txtPassword.TabIndex = 3;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // txtUsername
             // 

@@ -25,7 +25,7 @@ namespace TravelExpertGUI
             currentuser = UserRepository.UserLogin(txtUser.Text, txtPassword.Text);
             if (currentuser.Username != null)
             {
-                MainForm mainForm = new MainForm()
+                frmMain mainForm = new frmMain()
                 {
                     currentuser = currentuser,
                 };

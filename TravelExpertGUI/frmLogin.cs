@@ -25,7 +25,7 @@ namespace TravelExpertGUI
             currentuser = UserRepository.UserLogin(txtUsername.Text, txtPassword.Text);
             if (currentuser.Username != null)
             {
-                MainForm mainForm = new MainForm()
+                frmMain mainForm = new frmMain()
                 {
                     currentuser = currentuser,
                 };
@@ -36,6 +36,11 @@ namespace TravelExpertGUI
             {
                 MessageBox.Show("Invalid Username / Password");
             }
+        }
+        // Hides our password as we enter it 
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
         }
     }
 }
