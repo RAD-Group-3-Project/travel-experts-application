@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TravelExpertGUI
 {
-    public partial class frmManageProduct : Form
+    public partial class frmManagePackages : Form
     {
-        public frmManageProduct()
+        public frmManagePackages()
         {
             InitializeComponent();
         }
