@@ -62,7 +62,8 @@ namespace TravelExpertGUI
             txtProv.ReadOnly = true;
             txtPhone.ReadOnly = true;
             txtFax.ReadOnly = true;
-            btnSave.Visible = false;
+            btnSave.Enabled = false;
+            btnDiscard.Enabled = false;
 
         }
         // Sets our textboxes to the selected row
@@ -83,7 +84,7 @@ namespace TravelExpertGUI
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {   
+        {
             dgvAgencies.Enabled = false;
             // Clears all our textboxes
             txtAgencyId.Clear();
@@ -102,7 +103,8 @@ namespace TravelExpertGUI
             txtProv.ReadOnly = false;
             txtPhone.ReadOnly = false;
             txtFax.ReadOnly = false;
-            btnSave.Visible = true;
+            btnSave.Enabled = true;
+            btnDiscard.Enabled = true;
             // Allows the save button to determine the function of its click
             function = "add";
         }
@@ -123,26 +125,27 @@ namespace TravelExpertGUI
                 PopulateAgencies();
             }
             if (function == "edit")
-            {   
+            {
                 Agency updatedAgency = new Agency();
                 updatedAgency.AgencyId = Convert.ToInt32(txtAgencyId.Text);
                 updatedAgency.AgncyAddress = txtAgencyAddress.Text;
                 updatedAgency.AgncyCity = txtCity.Text;
                 updatedAgency.AgncyProv = txtProv.Text;
-                updatedAgency.AgncyCountry= txtCountry.Text;
-                updatedAgency.AgncyFax= txtFax.Text;
-                updatedAgency.AgncyPhone= txtPhone.Text;
-                updatedAgency.AgncyPostal= txtPostal.Text;
+                updatedAgency.AgncyCountry = txtCountry.Text;
+                updatedAgency.AgncyFax = txtFax.Text;
+                updatedAgency.AgncyPhone = txtPhone.Text;
+                updatedAgency.AgncyPostal = txtPostal.Text;
                 updatedAgency.IsActive = true;
                 AgencyRepository.UpdateAgency(updatedAgency);
-                PopulateAgencies() ;
+                PopulateAgencies();
 
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            
+
+
             dgvAgencies.Enabled = false;
             txtAgencyAddress.ReadOnly = false;
             txtCountry.ReadOnly = false;
@@ -151,7 +154,8 @@ namespace TravelExpertGUI
             txtProv.ReadOnly = false;
             txtPhone.ReadOnly = false;
             txtFax.ReadOnly = false;
-            btnSave.Visible = true;
+            btnSave.Enabled = true;
+            btnDiscard.Enabled = true;
             function = "edit";
 
 
@@ -170,13 +174,18 @@ namespace TravelExpertGUI
             if (result == DialogResult.Yes)
             {
                 //DataGridViewRow selectedRow = dgvAgencies.CurrentRow;
-                
+
                 AgencyRepository.DeleteAgencyByID(selectedAgency);
                 PopulateAgencies();
             }
-                
 
 
+
+        }
+
+        private void btnDiscard_Click(object sender, EventArgs e)
+        {
+            PopulateAgencies();
         }
     }
 }

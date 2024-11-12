@@ -49,6 +49,7 @@ partial class ucManageAgents
         cboAgency = new ComboBox();
         txtMiddleInit = new TextBox();
         lblMid = new Label();
+        btnDisc = new Button();
         ((System.ComponentModel.ISupportInitialize)dgvAgents).BeginInit();
         SuspendLayout();
         // 
@@ -64,7 +65,7 @@ partial class ucManageAgents
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(167, 500);
+        btnEdit.Location = new Point(220, 500);
         btnEdit.Name = "btnEdit";
         btnEdit.Size = new Size(94, 29);
         btnEdit.TabIndex = 34;
@@ -140,7 +141,7 @@ partial class ucManageAgents
         txtAgntBusPhone.Location = new Point(595, 41);
         txtAgntBusPhone.Name = "txtAgntBusPhone";
         txtAgntBusPhone.ReadOnly = true;
-        txtAgntBusPhone.Size = new Size(205, 27);
+        txtAgntBusPhone.Size = new Size(217, 27);
         txtAgntBusPhone.TabIndex = 25;
         // 
         // label4
@@ -220,7 +221,7 @@ partial class ucManageAgents
         cboAgency.FormattingEnabled = true;
         cboAgency.Location = new Point(595, 155);
         cboAgency.Name = "cboAgency";
-        cboAgency.Size = new Size(151, 28);
+        cboAgency.Size = new Size(217, 28);
         cboAgency.TabIndex = 38;
         // 
         // txtMiddleInit
@@ -240,10 +241,22 @@ partial class ucManageAgents
         lblMid.TabIndex = 40;
         lblMid.Text = "Middle Initial :";
         // 
+        // btnDisc
+        // 
+        btnDisc.Enabled = false;
+        btnDisc.Location = new Point(470, 500);
+        btnDisc.Name = "btnDisc";
+        btnDisc.Size = new Size(193, 29);
+        btnDisc.TabIndex = 41;
+        btnDisc.Text = "Discard Chan&ges";
+        btnDisc.UseVisualStyleBackColor = true;
+        btnDisc.Click += btnDisc_Click;
+        // 
         // ucManageAgents
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
+        Controls.Add(btnDisc);
         Controls.Add(lblMid);
         Controls.Add(txtMiddleInit);
         Controls.Add(cboAgency);
@@ -296,4 +309,5 @@ partial class ucManageAgents
     private ComboBox cboAgency;
     private TextBox txtMiddleInit;
     private Label lblMid;
+    private Button btnDisc;
 }

@@ -25,7 +25,9 @@ public partial class ucManageAgents : UserControl
     }
 
     private void PopulateAgents()
-    {
+    {   
+        btnDisc.Enabled = false;
+        btnSave.Enabled = false;
         dgvAgents.Enabled = true;
         dgvAgents.Columns.Clear();
         dgvAgents.DataSource = AgentRepository.GetAgents();
@@ -36,7 +38,7 @@ public partial class ucManageAgents : UserControl
     private void dgvAgents_SelectionChanged(object sender, EventArgs e)
     {
         if (dgvAgents.CurrentRow != null) // if row selected
-        {   
+        {
 
             loadAgencies();
             txtAgntId.Text = dgvAgents.CurrentRow.Cells["AgentId"].Value.ToString();
@@ -47,7 +49,7 @@ public partial class ucManageAgents : UserControl
             }
             else
             {
-                txtMiddleInit.Text = string.Empty; 
+                txtMiddleInit.Text = string.Empty;
             }
             txtAgntLName.Text = dgvAgents.CurrentRow.Cells["AgtLastName"].Value.ToString();
             txtAgntBusPhone.Text = dgvAgents.CurrentRow.Cells["AgtBusPhone"].Value.ToString();
@@ -74,6 +76,8 @@ public partial class ucManageAgents : UserControl
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
+        btnSave.Enabled = true;
+        btnDisc.Enabled = true;
         dgvAgents.Enabled = false;
         txtAgntId.Clear();
         txtAgntFName.Clear();
@@ -90,6 +94,7 @@ public partial class ucManageAgents : UserControl
         txtMiddleInit.ReadOnly = false;
         cboAgency.Enabled = true;
         btnSave.Enabled = true;
+        btnDisc.Enabled = true;
         function = "ADD";
 
 
@@ -97,7 +102,9 @@ public partial class ucManageAgents : UserControl
     }
 
     private void btnEdit_Click(object sender, EventArgs e)
-    {   
+    {
+        btnSave.Enabled = true;
+        btnDisc.Enabled = true;
         dgvAgents.Enabled = false;
         txtAgntFName.ReadOnly = false;
         txtAgntLName.ReadOnly = false;
@@ -107,6 +114,7 @@ public partial class ucManageAgents : UserControl
         txtMiddleInit.ReadOnly = false;
         cboAgency.Enabled = true;
         btnSave.Enabled = true;
+        btnDisc.Enabled = true;
         function = "EDIT";
     }
 
@@ -120,11 +128,11 @@ public partial class ucManageAgents : UserControl
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question);
         if (result == DialogResult.Yes)
-        { 
+        {
             AgentRepository.DeleteAgentById(selectedAgent);
             PopulateAgents();
         }
-        
+
     }
 
     private void btnSave_Click(object sender, EventArgs e)
@@ -144,9 +152,9 @@ public partial class ucManageAgents : UserControl
 
         }
 
-        if (function == "EDIT") 
-        {   
-            Agent updatedAgent = new Agent();  
+        if (function == "EDIT")
+        {
+            Agent updatedAgent = new Agent();
             updatedAgent.AgentId = Convert.ToInt32(txtAgntId.Text);
             updatedAgent.AgtFirstName = txtAgntFName.Text;
             updatedAgent.AgtLastName = txtAgntLName.Text;
@@ -157,8 +165,13 @@ public partial class ucManageAgents : UserControl
             updatedAgent.AgtPosition = txtAgntPosition.Text;
             updatedAgent.IsActive = true;
             AgentRepository.UpdateAgent(updatedAgent);
-            PopulateAgents() ;
+            PopulateAgents();
 
         }
+    }
+
+    private void btnDisc_Click(object sender, EventArgs e)
+    {
+        PopulateAgents();
     }
 }
