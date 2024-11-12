@@ -29,19 +29,19 @@ partial class ucManagePackages
     private void InitializeComponent()
     {
         label1 = new Label();
-        textBox1 = new TextBox();
-        textBox2 = new TextBox();
+        txtPkgId = new TextBox();
+        txtPkgName = new TextBox();
         label2 = new Label();
-        textBox3 = new TextBox();
+        txtPkgStartDate = new TextBox();
         label3 = new Label();
-        textBox4 = new TextBox();
+        txtPkgEndDate = new TextBox();
         label4 = new Label();
-        textBox5 = new TextBox();
+        txtPkgDesc = new TextBox();
         label5 = new Label();
         label6 = new Label();
-        textBox6 = new TextBox();
+        txtPkgBasePrice = new TextBox();
         label7 = new Label();
-        textBox7 = new TextBox();
+        txtPkgAgcyCom = new TextBox();
         dataGridView1 = new DataGridView();
         button1 = new Button();
         button2 = new Button();
@@ -58,19 +58,19 @@ partial class ucManagePackages
         label1.TabIndex = 0;
         label1.Text = "Package Id:";
         // 
-        // textBox1
+        // txtPkgId
         // 
-        textBox1.Location = new Point(222, 47);
-        textBox1.Name = "textBox1";
-        textBox1.Size = new Size(125, 27);
-        textBox1.TabIndex = 1;
+        txtPkgId.Location = new Point(222, 47);
+        txtPkgId.Name = "txtPkgId";
+        txtPkgId.Size = new Size(125, 27);
+        txtPkgId.TabIndex = 1;
         // 
-        // textBox2
+        // txtPkgName
         // 
-        textBox2.Location = new Point(222, 87);
-        textBox2.Name = "textBox2";
-        textBox2.Size = new Size(125, 27);
-        textBox2.TabIndex = 3;
+        txtPkgName.Location = new Point(222, 87);
+        txtPkgName.Name = "txtPkgName";
+        txtPkgName.Size = new Size(125, 27);
+        txtPkgName.TabIndex = 3;
         // 
         // label2
         // 
@@ -81,12 +81,12 @@ partial class ucManagePackages
         label2.TabIndex = 2;
         label2.Text = "Package Name:";
         // 
-        // textBox3
+        // txtPkgStartDate
         // 
-        textBox3.Location = new Point(222, 124);
-        textBox3.Name = "textBox3";
-        textBox3.Size = new Size(125, 27);
-        textBox3.TabIndex = 5;
+        txtPkgStartDate.Location = new Point(222, 124);
+        txtPkgStartDate.Name = "txtPkgStartDate";
+        txtPkgStartDate.Size = new Size(125, 27);
+        txtPkgStartDate.TabIndex = 5;
         // 
         // label3
         // 
@@ -97,12 +97,12 @@ partial class ucManagePackages
         label3.TabIndex = 4;
         label3.Text = "Package Start Date:";
         // 
-        // textBox4
+        // txtPkgEndDate
         // 
-        textBox4.Location = new Point(222, 159);
-        textBox4.Name = "textBox4";
-        textBox4.Size = new Size(125, 27);
-        textBox4.TabIndex = 7;
+        txtPkgEndDate.Location = new Point(222, 159);
+        txtPkgEndDate.Name = "txtPkgEndDate";
+        txtPkgEndDate.Size = new Size(125, 27);
+        txtPkgEndDate.TabIndex = 7;
         // 
         // label4
         // 
@@ -113,12 +113,12 @@ partial class ucManagePackages
         label4.TabIndex = 6;
         label4.Text = "Package End Date:";
         // 
-        // textBox5
+        // txtPkgDesc
         // 
-        textBox5.Location = new Point(222, 199);
-        textBox5.Name = "textBox5";
-        textBox5.Size = new Size(217, 27);
-        textBox5.TabIndex = 9;
+        txtPkgDesc.Location = new Point(222, 199);
+        txtPkgDesc.Name = "txtPkgDesc";
+        txtPkgDesc.Size = new Size(217, 27);
+        txtPkgDesc.TabIndex = 9;
         // 
         // label5
         // 
@@ -138,12 +138,12 @@ partial class ucManagePackages
         label6.TabIndex = 10;
         label6.Text = "Package Base Price:";
         // 
-        // textBox6
+        // txtPkgBasePrice
         // 
-        textBox6.Location = new Point(618, 51);
-        textBox6.Name = "textBox6";
-        textBox6.Size = new Size(125, 27);
-        textBox6.TabIndex = 11;
+        txtPkgBasePrice.Location = new Point(618, 51);
+        txtPkgBasePrice.Name = "txtPkgBasePrice";
+        txtPkgBasePrice.Size = new Size(125, 27);
+        txtPkgBasePrice.TabIndex = 11;
         // 
         // label7
         // 
@@ -154,12 +154,12 @@ partial class ucManagePackages
         label7.TabIndex = 12;
         label7.Text = "Package Agency Commission:";
         // 
-        // textBox7
+        // txtPkgAgcyCom
         // 
-        textBox7.Location = new Point(679, 87);
-        textBox7.Name = "textBox7";
-        textBox7.Size = new Size(125, 27);
-        textBox7.TabIndex = 13;
+        txtPkgAgcyCom.Location = new Point(679, 87);
+        txtPkgAgcyCom.Name = "txtPkgAgcyCom";
+        txtPkgAgcyCom.Size = new Size(125, 27);
+        txtPkgAgcyCom.TabIndex = 13;
         // 
         // dataGridView1
         // 
@@ -205,19 +205,19 @@ partial class ucManagePackages
         Controls.Add(button2);
         Controls.Add(button1);
         Controls.Add(dataGridView1);
-        Controls.Add(textBox7);
+        Controls.Add(txtPkgAgcyCom);
         Controls.Add(label7);
-        Controls.Add(textBox6);
+        Controls.Add(txtPkgBasePrice);
         Controls.Add(label6);
-        Controls.Add(textBox5);
+        Controls.Add(txtPkgDesc);
         Controls.Add(label5);
-        Controls.Add(textBox4);
+        Controls.Add(txtPkgEndDate);
         Controls.Add(label4);
-        Controls.Add(textBox3);
+        Controls.Add(txtPkgStartDate);
         Controls.Add(label3);
-        Controls.Add(textBox2);
+        Controls.Add(txtPkgName);
         Controls.Add(label2);
-        Controls.Add(textBox1);
+        Controls.Add(txtPkgId);
         Controls.Add(label1);
         Name = "ucManagePackages";
         Size = new Size(914, 570);
@@ -229,19 +229,19 @@ partial class ucManagePackages
     #endregion
 
     private Label label1;
-    private TextBox textBox1;
-    private TextBox textBox2;
+    private TextBox txtPkgId;
+    private TextBox txtPkgName;
     private Label label2;
-    private TextBox textBox3;
+    private TextBox txtPkgStartDate;
     private Label label3;
-    private TextBox textBox4;
+    private TextBox txtPkgEndDate;
     private Label label4;
-    private TextBox textBox5;
+    private TextBox txtPkgDesc;
     private Label label5;
     private Label label6;
-    private TextBox textBox6;
+    private TextBox txtPkgBasePrice;
     private Label label7;
-    private TextBox textBox7;
+    private TextBox txtPkgAgcyCom;
     private DataGridView dataGridView1;
     private Button button1;
     private Button button2;
