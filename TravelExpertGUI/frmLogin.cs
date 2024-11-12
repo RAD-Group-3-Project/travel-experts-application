@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace TravelExpertGUI
 {
-    public partial class AgenciesForm : Form
+    public partial class frmLogin : Form
     {
-        public AgenciesForm()
+        public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
