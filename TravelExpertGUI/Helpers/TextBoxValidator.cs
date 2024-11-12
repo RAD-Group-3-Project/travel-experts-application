@@ -32,13 +32,13 @@ public static class TextBoxValidator
         if (!decimal.TryParse(txtBasePrice.Text, out decimal basePrice) ||
             !decimal.TryParse(txtAgencyCommission.Text, out decimal agencyCommission))
         {
-            ShowWarringMessageBox("Please enter valid numbers for Base Price and Agency Commission.", "Input Error");
+            ShowWarningMessageBox("Please enter valid numbers for Base Price and Agency Commission.", "Input Error");
             return false;
         }
 
         if (agencyCommission > basePrice)
         {
-            ShowWarringMessageBox("Agency Commission cannot be greater than Base Price.", "Validation Error");
+            ShowWarningMessageBox("Agency Commission cannot be greater than Base Price.", "Validation Error");
             txtAgencyCommission.SelectAll();
             txtAgencyCommission.Focus();
             return false;
@@ -52,13 +52,13 @@ public static class TextBoxValidator
         if (!DateTime.TryParse(txtPackageStartDate.Text, out DateTime packageStartDate) ||
             !DateTime.TryParse(txtPackageEndDate.Text, out DateTime PackageEndDate))
         {
-            ShowWarringMessageBox("Please enter valid numbers for Base Price and Agency Commission.", "Input Error");
+            ShowWarningMessageBox("Please enter valid numbers for Base Price and Agency Commission.", "Input Error");
             return false;
         }
 
         if (PackageEndDate.CompareTo(packageStartDate) < 0) // earlier
         {
-            ShowWarringMessageBox("The Package End Date must be later than Package Start Date", "Validation Error");
+            ShowWarningMessageBox("The Package End Date must be later than Package Start Date", "Validation Error");
             txtPackageEndDate.SelectAll();
             txtPackageEndDate.Focus();
             return false;
@@ -67,7 +67,7 @@ public static class TextBoxValidator
         return true;
     }
 
-    private static void ShowWarringMessageBox(string text, string caption)
+    private static void ShowWarningMessageBox(string text, string caption)
     {
         MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
     }
