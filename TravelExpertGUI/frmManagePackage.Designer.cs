@@ -1,6 +1,6 @@
 ﻿namespace TravelExpertGUI
 {
-    partial class ManagePackagesForm
+    partial class frmManagePackage
     {
         /// <summary>
         /// Required designer variable.
