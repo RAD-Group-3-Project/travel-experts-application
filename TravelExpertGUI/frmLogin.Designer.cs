@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtPassword = new TextBox();
+            txtUsername = new TextBox();
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -37,19 +37,19 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(273, 210);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(163, 23);
-            textBox2.TabIndex = 3;
+            txtPassword.Location = new Point(273, 210);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(163, 23);
+            txtPassword.TabIndex = 3;
             // 
-            // textBox1
+            // txtUsername
             // 
-            textBox1.Location = new Point(273, 180);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(163, 23);
-            textBox1.TabIndex = 2;
+            txtUsername.Location = new Point(273, 180);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(163, 23);
+            txtUsername.TabIndex = 2;
             // 
             // label2
             // 
@@ -68,7 +68,6 @@
             label1.Size = new Size(63, 15);
             label1.TabIndex = 0;
             label1.Text = "Username:";
-            label1.Click += label1_Click;
             // 
             // pictureBox1
             // 
@@ -91,6 +90,7 @@
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // frmLogin
             // 
@@ -98,9 +98,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(629, 318);
             Controls.Add(btnLogin);
-            Controls.Add(textBox2);
+            Controls.Add(txtPassword);
             Controls.Add(pictureBox1);
-            Controls.Add(textBox1);
+            Controls.Add(txtUsername);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frmLogin";
@@ -113,8 +113,8 @@
         #endregion
         private Label label2;
         private Label label1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtPassword;
+        private TextBox txtUsername;
         private PictureBox pictureBox1;
         private Button btnLogin;
     }

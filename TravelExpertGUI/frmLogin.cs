@@ -17,9 +17,15 @@ namespace TravelExpertGUI
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            if ((txtUsername.Text == "admin" && txtPassword.Text == "1234") ||
+                (txtUsername.Text == "agent" && txtPassword.Text == "1234"))
+            {
+                frmMain mainForm = new frmMain();
+                mainForm.Show();
+                this.Hide();
+            }
         }
     }
 }

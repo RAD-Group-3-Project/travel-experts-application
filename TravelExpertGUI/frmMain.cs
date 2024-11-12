@@ -15,4 +15,9 @@ public partial class frmMain : Form
     {
         InitializeComponent();
     }
+
+    private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        Application.Exit(); // Ensure the entire application closes
+    }
 }
