@@ -25,13 +25,28 @@ public partial class ucManageAgents : UserControl
     }
 
     private void PopulateAgents()
-    {   
+    {
         btnDisc.Enabled = false;
         btnSave.Enabled = false;
         dgvAgents.Enabled = true;
         dgvAgents.Columns.Clear();
         dgvAgents.DataSource = AgentRepository.GetAgents();
+        // format the column header
+        dgvAgents.EnableHeadersVisualStyles = false;
+        dgvAgents.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+        dgvAgents.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        dgvAgents.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
+        dgvAgents.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        dgvAgents.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        // Hides the row selection columns
+        dgvAgents.RowHeadersVisible = false;
+        // Hides additional columns we dont need to see 
+        dgvAgents.Columns[7].Visible = false;
+        dgvAgents.Columns[8].Visible = false;
+        dgvAgents.Columns[9].Visible = false;
+        dgvAgents.Columns[10].Visible = false;
     }
+
 
     public string function;
 
