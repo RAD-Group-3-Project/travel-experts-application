@@ -34,7 +34,7 @@
             btnAdd = new Button();
             lblAgencyId = new Label();
             txtAgencyId = new TextBox();
-            textBox1 = new TextBox();
+            txtAgencyAddress = new TextBox();
             lblAddress = new Label();
             lblCity = new Label();
             lblProv = new Label();
@@ -59,6 +59,7 @@
             dgvAgencies.RowHeadersWidth = 51;
             dgvAgencies.Size = new Size(809, 236);
             dgvAgencies.TabIndex = 33;
+            dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
             // 
             // btnDelete
             // 
@@ -104,12 +105,13 @@
             txtAgencyId.Size = new Size(228, 27);
             txtAgencyId.TabIndex = 40;
             // 
-            // textBox1
+            // txtAgencyAddress
             // 
-            textBox1.Location = new Point(186, 97);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(228, 27);
-            textBox1.TabIndex = 41;
+            txtAgencyAddress.Location = new Point(186, 97);
+            txtAgencyAddress.Name = "txtAgencyAddress";
+            txtAgencyAddress.ReadOnly = true;
+            txtAgencyAddress.Size = new Size(228, 27);
+            txtAgencyAddress.TabIndex = 41;
             // 
             // lblAddress
             // 
@@ -178,6 +180,7 @@
             // 
             txtCity.Location = new Point(186, 144);
             txtCity.Name = "txtCity";
+            txtCity.ReadOnly = true;
             txtCity.Size = new Size(228, 27);
             txtCity.TabIndex = 49;
             // 
@@ -185,6 +188,7 @@
             // 
             txtProv.Location = new Point(186, 190);
             txtProv.Name = "txtProv";
+            txtProv.ReadOnly = true;
             txtProv.Size = new Size(228, 27);
             txtProv.TabIndex = 50;
             // 
@@ -192,6 +196,7 @@
             // 
             txtPostal.Location = new Point(605, 53);
             txtPostal.Name = "txtPostal";
+            txtPostal.ReadOnly = true;
             txtPostal.Size = new Size(257, 27);
             txtPostal.TabIndex = 51;
             // 
@@ -199,6 +204,7 @@
             // 
             txtCountry.Location = new Point(605, 97);
             txtCountry.Name = "txtCountry";
+            txtCountry.ReadOnly = true;
             txtCountry.Size = new Size(257, 27);
             txtCountry.TabIndex = 52;
             // 
@@ -206,6 +212,7 @@
             // 
             txtPhone.Location = new Point(605, 140);
             txtPhone.Name = "txtPhone";
+            txtPhone.ReadOnly = true;
             txtPhone.Size = new Size(257, 27);
             txtPhone.TabIndex = 53;
             // 
@@ -213,6 +220,7 @@
             // 
             txtFax.Location = new Point(605, 186);
             txtFax.Name = "txtFax";
+            txtFax.ReadOnly = true;
             txtFax.Size = new Size(257, 27);
             txtFax.TabIndex = 54;
             // 
@@ -233,7 +241,7 @@
             Controls.Add(lblProv);
             Controls.Add(lblCity);
             Controls.Add(lblAddress);
-            Controls.Add(textBox1);
+            Controls.Add(txtAgencyAddress);
             Controls.Add(txtAgencyId);
             Controls.Add(lblAgencyId);
             Controls.Add(btnDelete);
@@ -256,7 +264,7 @@
         private Button btnAdd;
         private Label lblAgencyId;
         private TextBox txtAgencyId;
-        private TextBox textBox1;
+        private TextBox txtAgencyAddress;
         private Label lblAddress;
         private Label lblCity;
         private Label lblProv;
