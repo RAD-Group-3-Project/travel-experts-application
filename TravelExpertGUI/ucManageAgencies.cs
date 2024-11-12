@@ -30,6 +30,8 @@ namespace TravelExpertGUI
         // Function to clear and populate datagrid view 
         private void PopulateAgencies()
         {
+
+            dgvAgencies.Enabled = true;
             dgvAgencies.Columns.Clear();
             dgvAgencies.DataSource = AgencyRepository.GetAgency();
 
@@ -81,7 +83,8 @@ namespace TravelExpertGUI
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
+        {   
+            dgvAgencies.Enabled = false;
             // Clears all our textboxes
             txtAgencyId.Clear();
             txtAgencyAddress.Clear();
@@ -120,14 +123,37 @@ namespace TravelExpertGUI
                 PopulateAgencies();
             }
             if (function == "edit")
-            {
+            {   
+                Agency updatedAgency = new Agency();
+                updatedAgency.AgencyId = Convert.ToInt32(txtAgencyId.Text);
+                updatedAgency.AgncyAddress = txtAgencyAddress.Text;
+                updatedAgency.AgncyCity = txtCity.Text;
+                updatedAgency.AgncyProv = txtProv.Text;
+                updatedAgency.AgncyCountry= txtCountry.Text;
+                updatedAgency.AgncyFax= txtFax.Text;
+                updatedAgency.AgncyPhone= txtPhone.Text;
+                updatedAgency.AgncyPostal= txtPostal.Text;
+                updatedAgency.IsActive = true;
+                AgencyRepository.UpdateAgency(updatedAgency);
+                PopulateAgencies() ;
 
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            
+            dgvAgencies.Enabled = false;
+            txtAgencyAddress.ReadOnly = false;
+            txtCountry.ReadOnly = false;
+            txtPostal.ReadOnly = false;
+            txtCity.ReadOnly = false;
+            txtProv.ReadOnly = false;
+            txtPhone.ReadOnly = false;
+            txtFax.ReadOnly = false;
+            btnSave.Visible = true;
             function = "edit";
+
 
         }
 
