@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertData.Models;
+using TravelExpertData.Repositories;
 
 namespace TravelExpertGUI
 {
@@ -16,15 +18,23 @@ namespace TravelExpertGUI
         {
             InitializeComponent();
         }
+        CurrentUser currentuser = new();
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if ((txtUsername.Text == "admin" && txtPassword.Text == "1234") ||
-                (txtUsername.Text == "agent" && txtPassword.Text == "1234"))
+            currentuser = UserRepository.UserLogin(txtUsername.Text, txtPassword.Text);
+            if (currentuser.Username != null)
             {
-                frmMain mainForm = new frmMain();
-                mainForm.Show();
-                this.Hide();
+                MainForm mainForm = new MainForm()
+                {
+                    currentuser = currentuser,
+                };
+                mainForm.ShowDialog();
+                this.Close();
+            }
+            if (currentuser.Username == null)
+            {
+                MessageBox.Show("Invalid Username / Password");
             }
         }
     }

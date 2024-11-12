@@ -103,6 +103,7 @@
             Controls.Add(txtUser);
             Name = "Login";
             Text = "Travel Experts Login ";
+            Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)picTravelExperts).EndInit();
             ResumeLayout(false);
             PerformLayout();

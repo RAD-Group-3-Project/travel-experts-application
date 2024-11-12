@@ -22,8 +22,8 @@ namespace TravelExpertGUI
         CurrentUser currentuser = new();
         private void button1_Click(object sender, EventArgs e)
         {
-            currentuser = UserRepository.UserLogin(txtUser.Text,txtPassword.Text);
-            if (currentuser.Username != null) 
+            currentuser = UserRepository.UserLogin(txtUser.Text, txtPassword.Text);
+            if (currentuser.Username != null)
             {
                 MainForm mainForm = new MainForm()
                 {
@@ -32,10 +32,15 @@ namespace TravelExpertGUI
                 mainForm.ShowDialog();
                 this.Close();
             }
-            if (currentuser.Username == null) 
+            if (currentuser.Username == null)
             {
                 MessageBox.Show("Invalid Username / Password");
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
