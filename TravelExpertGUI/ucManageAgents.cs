@@ -26,6 +26,7 @@ public partial class ucManageAgents : UserControl
 
     private void PopulateAgents()
     {
+        dgvAgents.Enabled = true;
         dgvAgents.Columns.Clear();
         dgvAgents.DataSource = AgentRepository.GetAgents();
     }
@@ -73,6 +74,7 @@ public partial class ucManageAgents : UserControl
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
+        dgvAgents.Enabled = false;
         txtAgntId.Clear();
         txtAgntFName.Clear();
         txtAgntLName.Clear();
@@ -95,15 +97,34 @@ public partial class ucManageAgents : UserControl
     }
 
     private void btnEdit_Click(object sender, EventArgs e)
-    {
-        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //TODO: Implement here
+    {   
+        dgvAgents.Enabled = false;
+        txtAgntFName.ReadOnly = false;
+        txtAgntLName.ReadOnly = false;
+        txtAgntBusPhone.ReadOnly = false;
+        txtAgntEmail.ReadOnly = false;
+        txtAgntPosition.ReadOnly = false;
+        txtMiddleInit.ReadOnly = false;
+        cboAgency.Enabled = true;
+        btnSave.Enabled = true;
+        function = "EDIT";
     }
 
     private void btnDelete_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //TODO: Implement here
+        DataGridViewRow selectedRow = dgvAgents.CurrentRow;
+        int selectedAgent = Convert.ToInt32(selectedRow.Cells[0].Value);
+        DialogResult result =
+            MessageBox.Show($"Are you sure you would like to delete Agent {selectedRow.Cells[1].Value} {selectedRow.Cells[3].Value}",
+            "Confirm Agent Deletion",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+        if (result == DialogResult.Yes)
+        { 
+            AgentRepository.DeleteAgentById(selectedAgent);
+            PopulateAgents();
+        }
+        
     }
 
     private void btnSave_Click(object sender, EventArgs e)
@@ -123,8 +144,20 @@ public partial class ucManageAgents : UserControl
 
         }
 
-        if (function == "EDIT")
-        {
+        if (function == "EDIT") 
+        {   
+            Agent updatedAgent = new Agent();  
+            updatedAgent.AgentId = Convert.ToInt32(txtAgntId.Text);
+            updatedAgent.AgtFirstName = txtAgntFName.Text;
+            updatedAgent.AgtLastName = txtAgntLName.Text;
+            updatedAgent.AgtBusPhone = txtAgntBusPhone.Text;
+            updatedAgent.AgtEmail = txtAgntEmail.Text;
+            updatedAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
+            updatedAgent.AgtMiddleInitial = txtMiddleInit.Text;
+            updatedAgent.AgtPosition = txtAgntPosition.Text;
+            updatedAgent.IsActive = true;
+            AgentRepository.UpdateAgent(updatedAgent);
+            PopulateAgents() ;
 
         }
     }
