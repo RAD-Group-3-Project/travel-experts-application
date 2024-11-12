@@ -20,7 +20,7 @@ namespace TravelExpertGUI
             InitializeComponent();
         }
         string function;
-        
+
 
         private void ucManageAgencies_Load(object sender, EventArgs e)
         {
@@ -32,7 +32,7 @@ namespace TravelExpertGUI
         {
             dgvAgencies.Columns.Clear();
             dgvAgencies.DataSource = AgencyRepository.GetAgency();
-            
+
 
             // format the column header
             dgvAgencies.EnableHeadersVisualStyles = false;
@@ -49,20 +49,23 @@ namespace TravelExpertGUI
             dgvAgencies.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             // Hides the row selection columns
             dgvAgencies.RowHeadersVisible = false;
+            // Hides additional columns we dont need to see 
             dgvAgencies.Columns[8].Visible = false;
             dgvAgencies.Columns[9].Visible = false;
             txtAgencyAddress.ReadOnly = true;
+            // Makes our fields read only for now 
             txtCountry.ReadOnly = true;
             txtPostal.ReadOnly = true;
             txtCity.ReadOnly = true;
             txtProv.ReadOnly = true;
             txtPhone.ReadOnly = true;
             txtFax.ReadOnly = true;
+            btnSave.Visible = false;
 
         }
-
+        // Sets our textboxes to the selected row
         private void dgvAgencies_SelectionChanged(object sender, EventArgs e)
-        {
+        {   // Changes based upon slected row by table column names 
             if (dgvAgencies.CurrentRow != null)
             {
                 txtAgencyId.Text = dgvAgencies.CurrentRow.Cells["AgencyId"].Value.ToString();
@@ -79,6 +82,7 @@ namespace TravelExpertGUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // Clears all our textboxes
             txtAgencyId.Clear();
             txtAgencyAddress.Clear();
             txtCity.Clear();
@@ -87,6 +91,7 @@ namespace TravelExpertGUI
             txtPostal.Clear();
             txtPhone.Clear();
             txtFax.Clear();
+            // Makes the boxes manipulatable 
             txtAgencyAddress.ReadOnly = false;
             txtCountry.ReadOnly = false;
             txtPostal.ReadOnly = false;
@@ -95,6 +100,7 @@ namespace TravelExpertGUI
             txtPhone.ReadOnly = false;
             txtFax.ReadOnly = false;
             btnSave.Visible = true;
+            // Allows the save button to determine the function of its click
             function = "add";
         }
 
@@ -113,6 +119,38 @@ namespace TravelExpertGUI
                 AgencyRepository.CreateLocation(newagency);
                 PopulateAgencies();
             }
+            if (function == "edit")
+            {
+
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            function = "edit";
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvAgencies.CurrentRow;
+            int selectedAgency = Convert.ToInt32(selectedRow.Cells[0].Value);
+            DialogResult result =
+            // Makes the result whatever we click on the box we pop up 
+            MessageBox.Show($"Delete location number {selectedAgency}?",
+                "Confirm Delete", MessageBoxButtons.YesNo, // gives us some yes/ no values 
+                MessageBoxIcon.Question); // Includes an icon in the message box 
+            // if the button presses is yes 
+            if (result == DialogResult.Yes)
+            {
+                //DataGridViewRow selectedRow = dgvAgencies.CurrentRow;
+                
+                AgencyRepository.DeleteAgencyByID(selectedAgency);
+                PopulateAgencies();
+            }
+                
+
+
         }
     }
 }

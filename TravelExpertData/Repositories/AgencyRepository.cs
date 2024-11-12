@@ -112,8 +112,9 @@ namespace TravelExpertData.Repositories
                         // Bam. Error
                         throw new Exception($"Couldnt find an agency with the ID of {id}");
                     }
+                    agency.IsActive = false;
                     // Otherwise procedes with the deletion (to be changed to flip valid bit in sql)
-                    conn.Agencies.Remove(agency);
+                    conn.Agencies.Update(agency);
                     conn.SaveChanges();
                 }
             }
