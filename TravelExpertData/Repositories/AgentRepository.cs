@@ -45,7 +45,8 @@ public class AgentRepository
     {
         using (TravelExpertContext ctx = new TravelExpertContext())
         {
-            return ctx.Agents.ToList();
+            var agents = ctx.Agents.Where(agent => agent.IsActive == true);
+            return agents.ToList();
         }
     }
 
