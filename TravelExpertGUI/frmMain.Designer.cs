@@ -34,15 +34,18 @@ partial class frmMain
         changePasswordToolStripMenuItem = new ToolStripMenuItem();
         signOutToolStripMenuItem = new ToolStripMenuItem();
         mnuDatabase = new ToolStripMenuItem();
+        contentPanel = new Panel();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
         // menuStrip1
         // 
+        menuStrip1.ImageScalingSize = new Size(20, 20);
         menuStrip1.Items.AddRange(new ToolStripItem[] { mnuUser, mnuDatabase });
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
-        menuStrip1.Size = new Size(800, 24);
+        menuStrip1.Padding = new Padding(7, 3, 0, 3);
+        menuStrip1.Size = new Size(914, 30);
         menuStrip1.TabIndex = 0;
         menuStrip1.Text = "menuStrip1";
         // 
@@ -50,43 +53,54 @@ partial class frmMain
         // 
         mnuUser.DropDownItems.AddRange(new ToolStripItem[] { profileToolStripMenuItem, changePasswordToolStripMenuItem, signOutToolStripMenuItem });
         mnuUser.Name = "mnuUser";
-        mnuUser.Size = new Size(42, 20);
+        mnuUser.Size = new Size(52, 24);
         mnuUser.Text = "User";
         // 
         // profileToolStripMenuItem
         // 
         profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-        profileToolStripMenuItem.Size = new Size(168, 22);
+        profileToolStripMenuItem.Size = new Size(209, 26);
         profileToolStripMenuItem.Text = "Profile";
         // 
         // changePasswordToolStripMenuItem
         // 
         changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-        changePasswordToolStripMenuItem.Size = new Size(168, 22);
+        changePasswordToolStripMenuItem.Size = new Size(209, 26);
         changePasswordToolStripMenuItem.Text = "Change password";
         // 
         // signOutToolStripMenuItem
         // 
         signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-        signOutToolStripMenuItem.Size = new Size(168, 22);
+        signOutToolStripMenuItem.Size = new Size(209, 26);
         signOutToolStripMenuItem.Text = "Sign out";
         // 
         // mnuDatabase
         // 
         mnuDatabase.Name = "mnuDatabase";
-        mnuDatabase.Size = new Size(67, 20);
+        mnuDatabase.Size = new Size(86, 24);
         mnuDatabase.Text = "Database";
+        // 
+        // contentPanel
+        // 
+        contentPanel.Location = new Point(0, 33);
+        contentPanel.Name = "contentPanel";
+        contentPanel.Size = new Size(914, 570);
+        contentPanel.TabIndex = 1;
         // 
         // frmMain
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
+        ClientSize = new Size(914, 600);
+        Controls.Add(contentPanel);
         Controls.Add(menuStrip1);
         MainMenuStrip = menuStrip1;
+        Margin = new Padding(3, 4, 3, 4);
         Name = "frmMain";
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "Travel Expert Management";
         FormClosed += frmMain_FormClosed;
+        Load += frmMain_Load;
         menuStrip1.ResumeLayout(false);
         menuStrip1.PerformLayout();
         ResumeLayout(false);
@@ -101,4 +115,5 @@ partial class frmMain
     private ToolStripMenuItem changePasswordToolStripMenuItem;
     private ToolStripMenuItem signOutToolStripMenuItem;
     private ToolStripMenuItem mnuDatabase;
+    private Panel contentPanel;
 }

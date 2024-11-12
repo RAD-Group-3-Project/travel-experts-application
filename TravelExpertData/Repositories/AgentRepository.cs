@@ -41,6 +41,14 @@ public class AgentRepository
         }
     }
 
+    public static List<Agent> GetAgents()
+    {
+        using (TravelExpertContext ctx = new TravelExpertContext())
+        {
+            return ctx.Agents.ToList();
+        }
+    }
+
     public static void UpdateAgent(Agent agent)
     {
         try

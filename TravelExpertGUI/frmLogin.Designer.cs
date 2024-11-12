@@ -39,42 +39,45 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(273, 210);
+            txtPassword.Location = new Point(312, 280);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(163, 23);
+            txtPassword.Size = new Size(186, 27);
             txtPassword.TabIndex = 3;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(273, 180);
+            txtUsername.Location = new Point(312, 240);
+            txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(163, 23);
+            txtUsername.Size = new Size(186, 27);
             txtUsername.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(207, 213);
+            label2.Location = new Point(237, 284);
             label2.Name = "label2";
-            label2.Size = new Size(60, 15);
+            label2.Size = new Size(73, 20);
             label2.TabIndex = 1;
             label2.Text = "Password:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(204, 183);
+            label1.Location = new Point(233, 244);
             label1.Name = "label1";
-            label1.Size = new Size(63, 15);
+            label1.Size = new Size(78, 20);
             label1.TabIndex = 0;
             label1.Text = "Username:";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.travel_expert_logo;
-            pictureBox1.Location = new Point(183, 12);
+            pictureBox1.Location = new Point(209, 16);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(264, 155);
+            pictureBox1.Size = new Size(302, 207);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -84,9 +87,10 @@
             btnLogin.BackColor = Color.FromArgb(0, 95, 184);
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(183, 254);
+            btnLogin.Location = new Point(209, 339);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(264, 34);
+            btnLogin.Size = new Size(302, 45);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -94,16 +98,19 @@
             // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AcceptButton = btnLogin;
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(629, 318);
+            ClientSize = new Size(719, 424);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(pictureBox1);
             Controls.Add(txtUsername);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
