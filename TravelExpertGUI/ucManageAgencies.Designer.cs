@@ -48,6 +48,7 @@
             txtCountry = new TextBox();
             txtPhone = new TextBox();
             txtFax = new TextBox();
+            btnSave = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).BeginInit();
             SuspendLayout();
             // 
@@ -87,6 +88,7 @@
             btnAdd.TabIndex = 36;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // lblAgencyId
             // 
@@ -224,10 +226,22 @@
             txtFax.Size = new Size(257, 27);
             txtFax.TabIndex = 54;
             // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(687, 500);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(175, 29);
+            btnSave.TabIndex = 55;
+            btnSave.Text = "Save Changes";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Visible = false;
+            btnSave.Click += btnSave_Click;
+            // 
             // ucManageAgencies
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnSave);
             Controls.Add(txtFax);
             Controls.Add(txtPhone);
             Controls.Add(txtCountry);
@@ -278,5 +292,6 @@
         private TextBox txtCountry;
         private TextBox txtPhone;
         private TextBox txtFax;
+        private Button btnSave;
     }
 }
