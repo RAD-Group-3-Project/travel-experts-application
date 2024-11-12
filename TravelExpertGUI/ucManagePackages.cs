@@ -16,4 +16,21 @@ public partial class ucManagePackages : UserControl
         InitializeComponent();
     }
 
+    private void btnAdd_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //TODO: Implement here
+    }
+
+    private void btnEdit_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //TODO: Implement here
+    }
+
+    private void btnDelete_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //TODO: Implement here
+    }
 }

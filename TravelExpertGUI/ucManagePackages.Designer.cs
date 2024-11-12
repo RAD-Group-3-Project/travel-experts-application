@@ -43,9 +43,9 @@ partial class ucManagePackages
         label7 = new Label();
         txtPkgAgcyCom = new TextBox();
         dataGridView1 = new DataGridView();
-        button1 = new Button();
-        button2 = new Button();
-        button3 = new Button();
+        btnAdd = new Button();
+        btnEdit = new Button();
+        btnDelete = new Button();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         SuspendLayout();
         // 
@@ -170,40 +170,43 @@ partial class ucManagePackages
         dataGridView1.Size = new Size(809, 236);
         dataGridView1.TabIndex = 14;
         // 
-        // button1
+        // btnAdd
         // 
-        button1.Location = new Point(60, 506);
-        button1.Name = "button1";
-        button1.Size = new Size(94, 29);
-        button1.TabIndex = 15;
-        button1.Text = "&Add";
-        button1.UseVisualStyleBackColor = true;
+        btnAdd.Location = new Point(60, 506);
+        btnAdd.Name = "btnAdd";
+        btnAdd.Size = new Size(94, 29);
+        btnAdd.TabIndex = 15;
+        btnAdd.Text = "&Add";
+        btnAdd.UseVisualStyleBackColor = true;
+        btnAdd.Click += btnAdd_Click;
         // 
-        // button2
+        // btnEdit
         // 
-        button2.Location = new Point(170, 506);
-        button2.Name = "button2";
-        button2.Size = new Size(94, 29);
-        button2.TabIndex = 16;
-        button2.Text = "&Edit";
-        button2.UseVisualStyleBackColor = true;
+        btnEdit.Location = new Point(170, 506);
+        btnEdit.Name = "btnEdit";
+        btnEdit.Size = new Size(94, 29);
+        btnEdit.TabIndex = 16;
+        btnEdit.Text = "&Edit";
+        btnEdit.UseVisualStyleBackColor = true;
+        btnEdit.Click += btnEdit_Click;
         // 
-        // button3
+        // btnDelete
         // 
-        button3.Location = new Point(323, 506);
-        button3.Name = "button3";
-        button3.Size = new Size(94, 29);
-        button3.TabIndex = 17;
-        button3.Text = "&Delete";
-        button3.UseVisualStyleBackColor = true;
+        btnDelete.Location = new Point(323, 506);
+        btnDelete.Name = "btnDelete";
+        btnDelete.Size = new Size(94, 29);
+        btnDelete.TabIndex = 17;
+        btnDelete.Text = "&Delete";
+        btnDelete.UseVisualStyleBackColor = true;
+        btnDelete.Click += btnDelete_Click;
         // 
         // ucManagePackages
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        Controls.Add(button3);
-        Controls.Add(button2);
-        Controls.Add(button1);
+        Controls.Add(btnDelete);
+        Controls.Add(btnEdit);
+        Controls.Add(btnAdd);
         Controls.Add(dataGridView1);
         Controls.Add(txtPkgAgcyCom);
         Controls.Add(label7);
@@ -243,7 +246,7 @@ partial class ucManagePackages
     private Label label7;
     private TextBox txtPkgAgcyCom;
     private DataGridView dataGridView1;
-    private Button button1;
-    private Button button2;
-    private Button button3;
+    private Button btnAdd;
+    private Button btnEdit;
+    private Button btnDelete;
 }
