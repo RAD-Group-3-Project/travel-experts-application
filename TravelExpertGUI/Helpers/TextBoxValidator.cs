@@ -18,7 +18,7 @@ public static class TextBoxValidator
     {
         if (string.IsNullOrWhiteSpace(textBox.Text))
         {
-            MessageBox.Show($"Please enter a value for {textBox.Tag}.", "Input Required");
+            ShowWarningMessageBox($"Please enter a value for {textBox.Tag}.", "Input Required");
             textBox.SelectAll();
             textBox.Focus();
             return false;
