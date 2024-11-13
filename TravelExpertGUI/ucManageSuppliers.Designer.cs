@@ -50,6 +50,7 @@ partial class ucManageSuppliers
         btnDisc.TabIndex = 37;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
+        btnDisc.Click += btnDisc_Click;
         // 
         // btnSave
         // 
@@ -60,6 +61,7 @@ partial class ucManageSuppliers
         btnSave.TabIndex = 36;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
+        btnSave.Click += btnSave_Click;
         // 
         // btnDelete
         // 
@@ -69,6 +71,7 @@ partial class ucManageSuppliers
         btnDelete.TabIndex = 41;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
+        btnDelete.Click += btnDelete_Click;
         // 
         // btnEdit
         // 
@@ -78,6 +81,7 @@ partial class ucManageSuppliers
         btnEdit.TabIndex = 40;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
+        btnEdit.Click += btnEdit_Click;
         // 
         // btnAdd
         // 
@@ -87,6 +91,7 @@ partial class ucManageSuppliers
         btnAdd.TabIndex = 39;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
+        btnAdd.Click += btnAdd_Click;
         // 
         // dgvSuppliers
         // 
