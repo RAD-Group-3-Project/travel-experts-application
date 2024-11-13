@@ -34,6 +34,12 @@ partial class ucManageProductSuppliers
         btnEdit = new Button();
         btnAdd = new Button();
         dgvAgents = new DataGridView();
+        label1 = new Label();
+        txtProductSupplierId = new TextBox();
+        label2 = new Label();
+        label3 = new Label();
+        cboProductName = new ComboBox();
+        cboSupplierName = new ComboBox();
         ((System.ComponentModel.ISupportInitialize)dgvAgents).BeginInit();
         SuspendLayout();
         // 
@@ -99,10 +105,66 @@ partial class ucManageProductSuppliers
         dgvAgents.Size = new Size(708, 177);
         dgvAgents.TabIndex = 42;
         // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(59, 48);
+        label1.Name = "label1";
+        label1.Size = new Size(20, 15);
+        label1.TabIndex = 48;
+        label1.Text = "Id:";
+        // 
+        // txtProductSupplierId
+        // 
+        txtProductSupplierId.Location = new Point(161, 45);
+        txtProductSupplierId.Name = "txtProductSupplierId";
+        txtProductSupplierId.Size = new Size(100, 23);
+        txtProductSupplierId.TabIndex = 49;
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Location = new Point(59, 87);
+        label2.Name = "label2";
+        label2.Size = new Size(87, 15);
+        label2.TabIndex = 50;
+        label2.Text = "Product Name:";
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(59, 132);
+        label3.Name = "label3";
+        label3.Size = new Size(88, 15);
+        label3.TabIndex = 52;
+        label3.Text = "Supplier Name:";
+        // 
+        // cboProductName
+        // 
+        cboProductName.FormattingEnabled = true;
+        cboProductName.Location = new Point(161, 84);
+        cboProductName.Name = "cboProductName";
+        cboProductName.Size = new Size(205, 23);
+        cboProductName.TabIndex = 54;
+        // 
+        // cboSupplierName
+        // 
+        cboSupplierName.FormattingEnabled = true;
+        cboSupplierName.Location = new Point(161, 129);
+        cboSupplierName.Name = "cboSupplierName";
+        cboSupplierName.Size = new Size(205, 23);
+        cboSupplierName.TabIndex = 55;
+        // 
         // ucManageProductSuppliers
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
+        Controls.Add(cboSupplierName);
+        Controls.Add(cboProductName);
+        Controls.Add(label3);
+        Controls.Add(label2);
+        Controls.Add(txtProductSupplierId);
+        Controls.Add(label1);
         Controls.Add(btnDisc);
         Controls.Add(btnSave);
         Controls.Add(btnDelete);
@@ -113,6 +175,7 @@ partial class ucManageProductSuppliers
         Size = new Size(800, 428);
         ((System.ComponentModel.ISupportInitialize)dgvAgents).EndInit();
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -123,4 +186,10 @@ partial class ucManageProductSuppliers
     private Button btnEdit;
     private Button btnAdd;
     private DataGridView dgvAgents;
+    private Label label1;
+    private TextBox txtProductSupplierId;
+    private Label label2;
+    private Label label3;
+    private ComboBox cboProductName;
+    private ComboBox cboSupplierName;
 }
