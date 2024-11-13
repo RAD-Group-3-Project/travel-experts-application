@@ -11,7 +11,6 @@ namespace TravelExpertData.Repositories
 {
     public class UserRepository
     {
-
         public static CurrentUser UserLogin(string login, string password)
         {
             using (TravelExpertContext ctx = new TravelExpertContext())
@@ -22,13 +21,11 @@ namespace TravelExpertData.Repositories
 
                 if (user != null)
                 {
-                    user1.Username= user.UserLogin;
-                    user1.Password= user.UserPassword;
+                    user1.Username = user.UserLogin;
+                    user1.Password = user.UserPassword;
                     user1.IS_Admin = user.IsAdmin;
-                    
-                    
                 }
-           
+
                 return user1;
             }
         }

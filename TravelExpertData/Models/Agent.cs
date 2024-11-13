@@ -31,6 +31,8 @@ public partial class Agent
 
     public int? AgencyId { get; set; }
 
+    public bool IsActive { get; set; }
+
     [ForeignKey("AgencyId")]
     [InverseProperty("Agents")]
     public virtual Agency? Agency { get; set; }
