@@ -19,12 +19,8 @@ public partial class ucManagePackages : UserControl
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
-        // validate required fields and some business needed
-        if (ValidateRequiredFieldsAndBizLogic())
-        {
-            return;
-        }
-
+        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //TODO: Implement here
     }
 
     private void btnEdit_Click(object sender, EventArgs e)
