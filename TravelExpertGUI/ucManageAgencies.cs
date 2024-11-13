@@ -19,6 +19,7 @@ namespace TravelExpertGUI
         {
             InitializeComponent();
         }
+        // Initialize our string for button functions
         string function;
 
 
@@ -30,8 +31,9 @@ namespace TravelExpertGUI
         // Function to clear and populate datagrid view 
         private void PopulateAgencies()
         {
-
+            // Enables the list for clicking 
             dgvAgencies.Enabled = true;
+            // Populates the list
             dgvAgencies.Columns.Clear();
             dgvAgencies.DataSource = AgencyRepository.GetAgency();
 
@@ -87,7 +89,7 @@ namespace TravelExpertGUI
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
+        {   // Turns off the list so it cant be clicked while adding a new agency
             dgvAgencies.Enabled = false;
             // Clears all our textboxes
             txtAgencyId.Clear();
@@ -116,11 +118,14 @@ namespace TravelExpertGUI
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
+        {   
+            // determines what happens when the save button is clicked
             if (function == "add")
-            {
+            {   
+                // Tries 
                 try
-                {
+                {   
+                    // Makes a new agency and populates it with info from our textboxes
                     Agency newagency = new();
                     newagency.AgncyAddress = txtAgencyAddress.Text;
                     newagency.AgncyCity = txtCity.Text;
@@ -129,20 +134,27 @@ namespace TravelExpertGUI
                     newagency.AgncyPostal = txtPostal.Text;
                     newagency.AgncyPhone = txtPhone.Text;
                     newagency.AgncyCountry = txtCountry.Text;
+                    // Makes the new agency active
                     newagency.is_active = true;
+                    // Calls our add fuction
                     AgencyRepository.CreateLocation(newagency);
+                    //repopulates our list with the new agency present
                     PopulateAgencies();
-                }
+                }  
+                // Catches our errors along the way 
                 catch (Exception ex)
                 {
 
                     MessageBox.Show($"Error: {ex.Message}", "Agency Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            // If our edit has been determined by the function string
             if (function == "edit")
-            {
+            {   
+                // Tries the edit
                 try
-                {
+                {   
+                    // Makes a new agency based on our textboxes 
                     Agency updatedAgency = new Agency();
                     updatedAgency.AgencyId = Convert.ToInt32(txtAgencyId.Text);
                     updatedAgency.AgncyAddress = txtAgencyAddress.Text;
@@ -152,23 +164,26 @@ namespace TravelExpertGUI
                     updatedAgency.AgncyFax = txtFax.Text;
                     updatedAgency.AgncyPhone = txtPhone.Text;
                     updatedAgency.AgncyPostal = txtPostal.Text;
+                    // Makes it active
                     updatedAgency.is_active = true;
+                    // Tries to update the selected agency with the new info
                     AgencyRepository.UpdateAgency(updatedAgency);
+                    // Repopulates our list with the updated info
                     PopulateAgencies();
                 }
+                // Catches any errors along the way
                 catch (Exception ex)
                 {
-
+                    // Shows the error
                     MessageBox.Show($"Error: {ex.Message}", "Agency Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
         }
-
+        // Makes the textboxes manipulatable when edit is clicked 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
-
+            // Makes our textboxes editable
             dgvAgencies.Enabled = false;
             txtAgencyAddress.ReadOnly = false;
             txtCountry.ReadOnly = false;
@@ -182,28 +197,36 @@ namespace TravelExpertGUI
             btnAdd.Enabled = false;
             btnDelete.Enabled = false;
             btnEdit.Enabled = false;
+            // Chancges the save function to edit
             function = "edit";
 
 
         }
-
+        // Function for delete button
         private void btnDelete_Click(object sender, EventArgs e)
-        {
+        {   
+            // Finds the currently selected row 
             DataGridViewRow selectedRow = dgvAgencies.CurrentRow;
+            // Stores the id as an int
             int selectedAgency = Convert.ToInt32(selectedRow.Cells[0].Value);
+            // Names the result of our messagebox
             DialogResult result =
             // Makes the result whatever we click on the box we pop up 
             MessageBox.Show($"Delete location number {selectedAgency}?",
                 "Confirm Delete", MessageBoxButtons.YesNo, // gives us some yes/ no values 
                 MessageBoxIcon.Question); // Includes an icon in the message box 
-            // if the button presses is yes 
+            // if the button presses is yes (as stored in result)
             if (result == DialogResult.Yes)
-            {
+            {   
+                //tries to delete  
                 try
-                {
+                {   
+                    // Deleted based on id
                     AgencyRepository.DeleteAgencyByID(selectedAgency);
+                    // repopulates the list 
                     PopulateAgencies();
-                }
+                }   
+                // Catches and displays any errors 
                 catch (Exception ex)
                 {
 
@@ -214,9 +237,9 @@ namespace TravelExpertGUI
 
 
         }
-
+        // Resets back to default when discard is pushed 
         private void btnDiscard_Click(object sender, EventArgs e)
-        {
+        {   
             PopulateAgencies();
         }
     }
