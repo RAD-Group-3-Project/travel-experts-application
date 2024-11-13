@@ -24,7 +24,7 @@ public class AgentRepository
         {
             // Log error
             Console.WriteLine($"Database update error: {dbEx.Message}");
-            throw new Exception("An error occurred while creating a agent in the database.", dbEx);
+            throw new Exception("An error occurred while creating an agent in the database.", dbEx);
         }
         catch (Exception ex)
         {
