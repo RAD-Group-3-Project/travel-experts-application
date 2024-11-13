@@ -153,8 +153,16 @@ public partial class ucManageAgents : UserControl
             MessageBoxIcon.Question);
         if (result == DialogResult.Yes)
         {
-            AgentRepository.DeleteAgentById(selectedAgent);
-            PopulateAgents();
+            try
+            {
+                AgentRepository.DeleteAgentById(selectedAgent);
+                PopulateAgents();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Error: {ex.Message}", "Agent Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }
@@ -163,33 +171,49 @@ public partial class ucManageAgents : UserControl
     {
         if (function == "ADD")
         {
-            Agent newAgent = new Agent();
-            newAgent.AgtFirstName = txtAgntFName.Text;
-            newAgent.AgtLastName = txtAgntLName.Text;
-            newAgent.AgtBusPhone = txtAgntBusPhone.Text;
-            newAgent.AgtEmail = txtAgntEmail.Text;
-            newAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
-            newAgent.AgtMiddleInitial = txtMiddleInit.Text;
-            newAgent.AgtPosition = txtAgntPosition.Text;
-            AgentRepository.CreateAgent(newAgent);
-            PopulateAgents();
+            try
+            {
+                Agent newAgent = new Agent();
+                newAgent.AgtFirstName = txtAgntFName.Text;
+                newAgent.AgtLastName = txtAgntLName.Text;
+                newAgent.AgtBusPhone = txtAgntBusPhone.Text;
+                newAgent.AgtEmail = txtAgntEmail.Text;
+                newAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
+                newAgent.AgtMiddleInitial = txtMiddleInit.Text;
+                newAgent.AgtPosition = txtAgntPosition.Text;
+                AgentRepository.CreateAgent(newAgent);
+                PopulateAgents();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Error: {ex.Message}", "Agent Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
         if (function == "EDIT")
         {
-            Agent updatedAgent = new Agent();
-            updatedAgent.AgentId = Convert.ToInt32(txtAgntId.Text);
-            updatedAgent.AgtFirstName = txtAgntFName.Text;
-            updatedAgent.AgtLastName = txtAgntLName.Text;
-            updatedAgent.AgtBusPhone = txtAgntBusPhone.Text;
-            updatedAgent.AgtEmail = txtAgntEmail.Text;
-            updatedAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
-            updatedAgent.AgtMiddleInitial = txtMiddleInit.Text;
-            updatedAgent.AgtPosition = txtAgntPosition.Text;
-            updatedAgent.IsActive = true;
-            AgentRepository.UpdateAgent(updatedAgent);
-            PopulateAgents();
+            try
+            {
+                Agent updatedAgent = new Agent();
+                updatedAgent.AgentId = Convert.ToInt32(txtAgntId.Text);
+                updatedAgent.AgtFirstName = txtAgntFName.Text;
+                updatedAgent.AgtLastName = txtAgntLName.Text;
+                updatedAgent.AgtBusPhone = txtAgntBusPhone.Text;
+                updatedAgent.AgtEmail = txtAgntEmail.Text;
+                updatedAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
+                updatedAgent.AgtMiddleInitial = txtMiddleInit.Text;
+                updatedAgent.AgtPosition = txtAgntPosition.Text;
+                updatedAgent.IsActive = true;
+                AgentRepository.UpdateAgent(updatedAgent);
+                PopulateAgents();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Error: {ex.Message}", "Agent Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

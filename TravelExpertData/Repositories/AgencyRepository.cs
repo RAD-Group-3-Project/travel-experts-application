@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// Agency Repository - C Ferguson 
+
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +56,7 @@ namespace TravelExpertData.Repositories
                     // Returns the agencies object via function
                     return conn.Agencies.Find(id);
                 }
-            }
+            }   
             catch (Exception dbex) 
             {
                 Console.WriteLine($"An error occured looking for agency id :{id}");

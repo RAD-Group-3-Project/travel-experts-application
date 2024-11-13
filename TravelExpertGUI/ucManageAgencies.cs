@@ -119,31 +119,47 @@ namespace TravelExpertGUI
         {
             if (function == "add")
             {
-                Agency newagency = new();
-                newagency.AgncyAddress = txtAgencyAddress.Text;
-                newagency.AgncyCity = txtCity.Text;
-                newagency.AgncyProv = txtProv.Text;
-                newagency.AgncyFax = txtFax.Text;
-                newagency.AgncyPostal = txtPostal.Text;
-                newagency.AgncyPhone = txtPhone.Text;
-                newagency.AgncyCountry = txtCountry.Text;
-                AgencyRepository.CreateLocation(newagency);
-                PopulateAgencies();
+                try
+                {
+                    Agency newagency = new();
+                    newagency.AgncyAddress = txtAgencyAddress.Text;
+                    newagency.AgncyCity = txtCity.Text;
+                    newagency.AgncyProv = txtProv.Text;
+                    newagency.AgncyFax = txtFax.Text;
+                    newagency.AgncyPostal = txtPostal.Text;
+                    newagency.AgncyPhone = txtPhone.Text;
+                    newagency.AgncyCountry = txtCountry.Text;
+                    AgencyRepository.CreateLocation(newagency);
+                    PopulateAgencies();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"Error: {ex.Message}", "Agency Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             if (function == "edit")
             {
-                Agency updatedAgency = new Agency();
-                updatedAgency.AgencyId = Convert.ToInt32(txtAgencyId.Text);
-                updatedAgency.AgncyAddress = txtAgencyAddress.Text;
-                updatedAgency.AgncyCity = txtCity.Text;
-                updatedAgency.AgncyProv = txtProv.Text;
-                updatedAgency.AgncyCountry = txtCountry.Text;
-                updatedAgency.AgncyFax = txtFax.Text;
-                updatedAgency.AgncyPhone = txtPhone.Text;
-                updatedAgency.AgncyPostal = txtPostal.Text;
-                updatedAgency.IsActive = true;
-                AgencyRepository.UpdateAgency(updatedAgency);
-                PopulateAgencies();
+                try
+                {
+                    Agency updatedAgency = new Agency();
+                    updatedAgency.AgencyId = Convert.ToInt32(txtAgencyId.Text);
+                    updatedAgency.AgncyAddress = txtAgencyAddress.Text;
+                    updatedAgency.AgncyCity = txtCity.Text;
+                    updatedAgency.AgncyProv = txtProv.Text;
+                    updatedAgency.AgncyCountry = txtCountry.Text;
+                    updatedAgency.AgncyFax = txtFax.Text;
+                    updatedAgency.AgncyPhone = txtPhone.Text;
+                    updatedAgency.AgncyPostal = txtPostal.Text;
+                    updatedAgency.IsActive = true;
+                    AgencyRepository.UpdateAgency(updatedAgency);
+                    PopulateAgencies();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"Error: {ex.Message}", "Agency Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
         }
@@ -182,10 +198,16 @@ namespace TravelExpertGUI
             // if the button presses is yes 
             if (result == DialogResult.Yes)
             {
-                //DataGridViewRow selectedRow = dgvAgencies.CurrentRow;
+                try
+                {
+                    AgencyRepository.DeleteAgencyByID(selectedAgency);
+                    PopulateAgencies();
+                }
+                catch (Exception ex)
+                {
 
-                AgencyRepository.DeleteAgencyByID(selectedAgency);
-                PopulateAgencies();
+                    MessageBox.Show($"Error: {ex.Message}", "Agency Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
 
