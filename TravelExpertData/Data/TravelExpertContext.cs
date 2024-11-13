@@ -74,12 +74,12 @@ public partial class TravelExpertContext : DbContext
 
         modelBuilder.Entity<Agency>(entity =>
         {
-            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.is_active).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<Agent>(entity =>
         {
-            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.is_active).HasDefaultValue(true);
 
             entity.HasOne(d => d.Agency).WithMany(p => p.Agents).HasConstraintName("FK_Agents_Agencies");
         });

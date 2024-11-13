@@ -60,7 +60,7 @@
             dgvAgencies.Name = "dgvAgencies";
             dgvAgencies.RowHeadersWidth = 51;
             dgvAgencies.Size = new Size(809, 236);
-            dgvAgencies.TabIndex = 33;
+            dgvAgencies.TabIndex = 11;
             dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
             // 
             // btnDelete
@@ -108,7 +108,7 @@
             txtAgencyId.Name = "txtAgencyId";
             txtAgencyId.ReadOnly = true;
             txtAgencyId.Size = new Size(228, 27);
-            txtAgencyId.TabIndex = 40;
+            txtAgencyId.TabIndex = 0;
             // 
             // txtAgencyAddress
             // 
@@ -116,7 +116,7 @@
             txtAgencyAddress.Name = "txtAgencyAddress";
             txtAgencyAddress.ReadOnly = true;
             txtAgencyAddress.Size = new Size(228, 27);
-            txtAgencyAddress.TabIndex = 41;
+            txtAgencyAddress.TabIndex = 1;
             // 
             // lblAddress
             // 
@@ -187,7 +187,7 @@
             txtCity.Name = "txtCity";
             txtCity.ReadOnly = true;
             txtCity.Size = new Size(228, 27);
-            txtCity.TabIndex = 49;
+            txtCity.TabIndex = 2;
             // 
             // txtProv
             // 
@@ -195,7 +195,7 @@
             txtProv.Name = "txtProv";
             txtProv.ReadOnly = true;
             txtProv.Size = new Size(228, 27);
-            txtProv.TabIndex = 50;
+            txtProv.TabIndex = 3;
             // 
             // txtPostal
             // 
@@ -203,7 +203,7 @@
             txtPostal.Name = "txtPostal";
             txtPostal.ReadOnly = true;
             txtPostal.Size = new Size(257, 27);
-            txtPostal.TabIndex = 51;
+            txtPostal.TabIndex = 4;
             // 
             // txtCountry
             // 
@@ -211,7 +211,7 @@
             txtCountry.Name = "txtCountry";
             txtCountry.ReadOnly = true;
             txtCountry.Size = new Size(257, 27);
-            txtCountry.TabIndex = 52;
+            txtCountry.TabIndex = 5;
             // 
             // txtPhone
             // 
@@ -219,7 +219,7 @@
             txtPhone.Name = "txtPhone";
             txtPhone.ReadOnly = true;
             txtPhone.Size = new Size(257, 27);
-            txtPhone.TabIndex = 53;
+            txtPhone.TabIndex = 6;
             // 
             // txtFax
             // 
@@ -227,7 +227,7 @@
             txtFax.Name = "txtFax";
             txtFax.ReadOnly = true;
             txtFax.Size = new Size(257, 27);
-            txtFax.TabIndex = 54;
+            txtFax.TabIndex = 7;
             // 
             // btnSave
             // 
@@ -235,7 +235,7 @@
             btnSave.Location = new Point(669, 500);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(193, 29);
-            btnSave.TabIndex = 55;
+            btnSave.TabIndex = 8;
             btnSave.Text = "&Save Changes";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
@@ -246,7 +246,7 @@
             btnDiscard.Location = new Point(470, 500);
             btnDiscard.Name = "btnDiscard";
             btnDiscard.Size = new Size(193, 29);
-            btnDiscard.TabIndex = 56;
+            btnDiscard.TabIndex = 9;
             btnDiscard.Text = "Discard Chan&ges";
             btnDiscard.UseVisualStyleBackColor = true;
             btnDiscard.Click += btnDiscard_Click;

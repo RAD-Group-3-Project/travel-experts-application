@@ -69,7 +69,7 @@ namespace TravelExpertData.Repositories
             using TravelExpertContext conn = new TravelExpertContext();
             {
 
-                var agency = conn.Agencies.Where(agency => agency.IsActive == true);
+                var agency = conn.Agencies.Where(agency => agency.is_active == true);
                 return agency.ToList();
                 
             }
@@ -114,7 +114,7 @@ namespace TravelExpertData.Repositories
                         // Bam. Error
                         throw new Exception($"Couldnt find an agency with the ID of {id}");
                     }
-                    agency.IsActive = false;
+                    agency.is_active = false;
                     // Otherwise procedes with the deletion (to be changed to flip valid bit in sql)
                     conn.Agencies.Update(agency);
                     conn.SaveChanges();

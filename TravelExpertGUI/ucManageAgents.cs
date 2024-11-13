@@ -181,6 +181,7 @@ public partial class ucManageAgents : UserControl
                 newAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
                 newAgent.AgtMiddleInitial = txtMiddleInit.Text;
                 newAgent.AgtPosition = txtAgntPosition.Text;
+                newAgent.is_active = true;
                 AgentRepository.CreateAgent(newAgent);
                 PopulateAgents();
             }
@@ -205,7 +206,7 @@ public partial class ucManageAgents : UserControl
                 updatedAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
                 updatedAgent.AgtMiddleInitial = txtMiddleInit.Text;
                 updatedAgent.AgtPosition = txtAgntPosition.Text;
-                updatedAgent.IsActive = true;
+                updatedAgent.is_active = true;
                 AgentRepository.UpdateAgent(updatedAgent);
                 PopulateAgents();
             }

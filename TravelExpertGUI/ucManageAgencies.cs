@@ -129,6 +129,7 @@ namespace TravelExpertGUI
                     newagency.AgncyPostal = txtPostal.Text;
                     newagency.AgncyPhone = txtPhone.Text;
                     newagency.AgncyCountry = txtCountry.Text;
+                    newagency.is_active = true;
                     AgencyRepository.CreateLocation(newagency);
                     PopulateAgencies();
                 }
@@ -151,7 +152,7 @@ namespace TravelExpertGUI
                     updatedAgency.AgncyFax = txtFax.Text;
                     updatedAgency.AgncyPhone = txtPhone.Text;
                     updatedAgency.AgncyPostal = txtPostal.Text;
-                    updatedAgency.IsActive = true;
+                    updatedAgency.is_active = true;
                     AgencyRepository.UpdateAgency(updatedAgency);
                     PopulateAgencies();
                 }
