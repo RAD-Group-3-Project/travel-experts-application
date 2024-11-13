@@ -39,6 +39,21 @@ public partial class ucManagePackages : UserControl
         //TODO: Implement here
     }
 
+    private void btnSave_Click(object sender, EventArgs e)
+    {
+        // validate required fields and some business needed
+        if (ValidateRequiredFieldsAndBizLogic())
+        {
+            return;
+        }
+    }
+
+    private void btnDiscard_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //TODO: Implement here
+    }
+
     private bool ValidateRequiredFieldsAndBizLogic()
     {
         return !TextBoxValidator.IsPresent(txtPkgId) ||
