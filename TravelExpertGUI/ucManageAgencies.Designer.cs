@@ -49,6 +49,7 @@
             txtPhone = new TextBox();
             txtFax = new TextBox();
             btnSave = new Button();
+            btnDiscard = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).BeginInit();
             SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(167, 500);
+            btnEdit.Location = new Point(220, 500);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(94, 29);
             btnEdit.TabIndex = 37;
@@ -230,19 +231,31 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(687, 500);
+            btnSave.Enabled = false;
+            btnSave.Location = new Point(669, 500);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(175, 29);
+            btnSave.Size = new Size(193, 29);
             btnSave.TabIndex = 55;
-            btnSave.Text = "Save Changes";
+            btnSave.Text = "&Save Changes";
             btnSave.UseVisualStyleBackColor = true;
-            btnSave.Visible = false;
             btnSave.Click += btnSave_Click;
+            // 
+            // btnDiscard
+            // 
+            btnDiscard.Enabled = false;
+            btnDiscard.Location = new Point(470, 500);
+            btnDiscard.Name = "btnDiscard";
+            btnDiscard.Size = new Size(193, 29);
+            btnDiscard.TabIndex = 56;
+            btnDiscard.Text = "Discard Chan&ges";
+            btnDiscard.UseVisualStyleBackColor = true;
+            btnDiscard.Click += btnDiscard_Click;
             // 
             // ucManageAgencies
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnDiscard);
             Controls.Add(btnSave);
             Controls.Add(txtFax);
             Controls.Add(txtPhone);
@@ -295,5 +308,6 @@
         private TextBox txtPhone;
         private TextBox txtFax;
         private Button btnSave;
+        private Button btnDiscard;
     }
 }

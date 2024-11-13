@@ -24,7 +24,7 @@ public class AgentRepository
         {
             // Log error
             Console.WriteLine($"Database update error: {dbEx.Message}");
-            throw new Exception("An error occurred while creating a agent in the database.", dbEx);
+            throw new Exception("An error occurred while creating an agent in the database.", dbEx);
         }
         catch (Exception ex)
         {
@@ -45,7 +45,8 @@ public class AgentRepository
     {
         using (TravelExpertContext ctx = new TravelExpertContext())
         {
-            return ctx.Agents.ToList();
+            var agents = ctx.Agents.Where(agent => agent.IsActive == true);
+            return agents.ToList();
         }
     }
 
@@ -72,15 +73,16 @@ public class AgentRepository
         try
         {
             using (TravelExpertContext ctx = new TravelExpertContext())
-            {
+            {   
                 Agent agent = ctx.Agents.Find(id);
+                agent.IsActive = false;
                 
                 if (agent == null)
                 {
                     throw new Exception("Agent not found.");
                 }
 
-                ctx.Agents.Remove(agent);
+                ctx.Agents.Update(agent);
                 ctx.SaveChanges();
             }
         }
