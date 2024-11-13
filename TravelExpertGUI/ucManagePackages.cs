@@ -20,15 +20,7 @@ public partial class ucManagePackages : UserControl
     private void btnAdd_Click(object sender, EventArgs e)
     {
         // validate required fields and some business needed
-        if (!TextBoxValidator.IsPresent(txtPkgId) ||
-            !TextBoxValidator.IsPresent(txtPkgName) ||
-            !TextBoxValidator.IsPresent(txtPkgDesc) || 
-            !TextBoxValidator.IsPresent(txtPkgBasePrice) || 
-            !TextBoxValidator.IsPresent(txtPkgStartDate) || 
-            !TextBoxValidator.IsPresent(txtPkgEndDate) || 
-            !TextBoxValidator.IsPresent(txtPkgAgcyCom) ||
-            !TextBoxValidator.ValidatePackageEndDate(txtPkgStartDate, txtPkgEndDate) ||
-            !TextBoxValidator.ValidateAgencyCommission(txtPkgAgcyCom, txtPkgBasePrice))
+        if (ValidateRequiredFieldsAndBizLogic())
         {
             return;
         }
@@ -45,5 +37,18 @@ public partial class ucManagePackages : UserControl
     {
         MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
         //TODO: Implement here
+    }
+
+    private bool ValidateRequiredFieldsAndBizLogic()
+    {
+        return !TextBoxValidator.IsPresent(txtPkgId) ||
+               !TextBoxValidator.IsPresent(txtPkgName) ||
+               !TextBoxValidator.IsPresent(txtPkgDesc) ||
+               !TextBoxValidator.IsPresent(txtPkgBasePrice) ||
+               !TextBoxValidator.IsPresent(txtPkgStartDate) ||
+               !TextBoxValidator.IsPresent(txtPkgEndDate) ||
+               !TextBoxValidator.IsPresent(txtPkgAgcyCom) ||
+               !TextBoxValidator.ValidatePackageEndDate(txtPkgStartDate, txtPkgEndDate) ||
+               !TextBoxValidator.ValidateAgencyCommission(txtPkgAgcyCom, txtPkgBasePrice);
     }
 }
