@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertGUI.Helpers;
 
 namespace TravelExpertGUI;
 public partial class ucManagePackages : UserControl
@@ -18,8 +19,20 @@ public partial class ucManagePackages : UserControl
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //TODO: Implement here
+        // validate required fields and some business needed
+        if (!TextBoxValidator.IsPresent(txtPkgId) ||
+            !TextBoxValidator.IsPresent(txtPkgName) ||
+            !TextBoxValidator.IsPresent(txtPkgDesc) || 
+            !TextBoxValidator.IsPresent(txtPkgBasePrice) || 
+            !TextBoxValidator.IsPresent(txtPkgStartDate) || 
+            !TextBoxValidator.IsPresent(txtPkgEndDate) || 
+            !TextBoxValidator.IsPresent(txtPkgAgcyCom) ||
+            !TextBoxValidator.ValidatePackageEndDate(txtPkgStartDate, txtPkgEndDate) ||
+            !TextBoxValidator.ValidateAgencyCommission(txtPkgAgcyCom, txtPkgBasePrice))
+        {
+            return;
+        }
+
     }
 
     private void btnEdit_Click(object sender, EventArgs e)
