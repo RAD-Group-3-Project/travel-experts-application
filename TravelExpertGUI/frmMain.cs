@@ -99,9 +99,8 @@ public partial class frmMain : Form
                 case "Products":
                     //controlToLoad = new ucManageProducts(); 
                     break;
-                case "Product Suppliers":
-                    // TODO: Implement the ucManageProductSuppliers control
-                    // controlToLoad = new ucManageProductSuppliers();
+                case "Products Suppliers":
+                    controlToLoad = new ucManageProductSuppliers();
                     break;
                 case "Suppliers":
                     //controlToLoad = new ucManageSuppliers(); 
@@ -116,6 +115,9 @@ public partial class frmMain : Form
                 case "Agencies":
                     // TODO: Implement the ucManageAgencies control
                      controlToLoad = new ucManageAgencies();
+                    break;
+                default:
+                    Debug.WriteLine($"Couldn't find any table in Switch case: table name {tableName}");
                     break;
             }
 

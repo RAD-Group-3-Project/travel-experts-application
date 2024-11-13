@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -57,7 +58,7 @@ public partial class ucManageAgents : UserControl
     {
         if (dgvAgents.CurrentRow != null) // if row selected
         {
-
+            Debug.WriteLine($"({dgvAgents.CurrentCell.ColumnIndex}, {dgvAgents.CurrentRow.Index})");
             loadAgencies();
             txtAgntId.Text = dgvAgents.CurrentRow.Cells["AgentId"].Value.ToString();
             txtAgntFName.Text = dgvAgents.CurrentRow.Cells["AgtFirstName"].Value.ToString();

@@ -33,14 +33,14 @@ partial class ucManageProductSuppliers
         btnDelete = new Button();
         btnEdit = new Button();
         btnAdd = new Button();
-        dgvAgents = new DataGridView();
         label1 = new Label();
         txtProductSupplierId = new TextBox();
         label2 = new Label();
         label3 = new Label();
         cboProductName = new ComboBox();
         cboSupplierName = new ComboBox();
-        ((System.ComponentModel.ISupportInitialize)dgvAgents).BeginInit();
+        dgvProductSupplier = new DataGridView();
+        ((System.ComponentModel.ISupportInitialize)dgvProductSupplier).BeginInit();
         SuspendLayout();
         // 
         // btnDisc
@@ -53,6 +53,7 @@ partial class ucManageProductSuppliers
         btnDisc.TabIndex = 47;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
+        btnDisc.Click += btnDisc_Click;
         // 
         // btnSave
         // 
@@ -64,6 +65,7 @@ partial class ucManageProductSuppliers
         btnSave.TabIndex = 46;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
+        btnSave.Click += btnSave_Click;
         // 
         // btnDelete
         // 
@@ -74,6 +76,7 @@ partial class ucManageProductSuppliers
         btnDelete.TabIndex = 45;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
+        btnDelete.Click += btnDelete_Click;
         // 
         // btnEdit
         // 
@@ -84,6 +87,7 @@ partial class ucManageProductSuppliers
         btnEdit.TabIndex = 44;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
+        btnEdit.Click += btnEdit_Click;
         // 
         // btnAdd
         // 
@@ -94,29 +98,20 @@ partial class ucManageProductSuppliers
         btnAdd.TabIndex = 43;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
-        // 
-        // dgvAgents
-        // 
-        dgvAgents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvAgents.Location = new Point(50, 184);
-        dgvAgents.Margin = new Padding(3, 2, 3, 2);
-        dgvAgents.Name = "dgvAgents";
-        dgvAgents.RowHeadersWidth = 51;
-        dgvAgents.Size = new Size(708, 177);
-        dgvAgents.TabIndex = 42;
+        btnAdd.Click += btnAdd_Click;
         // 
         // label1
         // 
         label1.AutoSize = true;
         label1.Location = new Point(59, 48);
         label1.Name = "label1";
-        label1.Size = new Size(20, 15);
+        label1.Size = new Size(111, 15);
         label1.TabIndex = 48;
-        label1.Text = "Id:";
+        label1.Text = "Product Supplier Id:";
         // 
         // txtProductSupplierId
         // 
-        txtProductSupplierId.Location = new Point(161, 45);
+        txtProductSupplierId.Location = new Point(178, 45);
         txtProductSupplierId.Name = "txtProductSupplierId";
         txtProductSupplierId.Size = new Size(100, 23);
         txtProductSupplierId.TabIndex = 49;
@@ -142,7 +137,7 @@ partial class ucManageProductSuppliers
         // cboProductName
         // 
         cboProductName.FormattingEnabled = true;
-        cboProductName.Location = new Point(161, 84);
+        cboProductName.Location = new Point(178, 84);
         cboProductName.Name = "cboProductName";
         cboProductName.Size = new Size(205, 23);
         cboProductName.TabIndex = 54;
@@ -150,15 +145,25 @@ partial class ucManageProductSuppliers
         // cboSupplierName
         // 
         cboSupplierName.FormattingEnabled = true;
-        cboSupplierName.Location = new Point(161, 129);
+        cboSupplierName.Location = new Point(178, 129);
         cboSupplierName.Name = "cboSupplierName";
         cboSupplierName.Size = new Size(205, 23);
         cboSupplierName.TabIndex = 55;
+        // 
+        // dgvProductSupplier
+        // 
+        dgvProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvProductSupplier.Location = new Point(54, 179);
+        dgvProductSupplier.Name = "dgvProductSupplier";
+        dgvProductSupplier.Size = new Size(708, 177);
+        dgvProductSupplier.TabIndex = 56;
+        dgvProductSupplier.SelectionChanged += dgvProductSupplier_SelectionChanged;
         // 
         // ucManageProductSuppliers
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
+        Controls.Add(dgvProductSupplier);
         Controls.Add(cboSupplierName);
         Controls.Add(cboProductName);
         Controls.Add(label3);
@@ -170,10 +175,10 @@ partial class ucManageProductSuppliers
         Controls.Add(btnDelete);
         Controls.Add(btnEdit);
         Controls.Add(btnAdd);
-        Controls.Add(dgvAgents);
         Name = "ucManageProductSuppliers";
         Size = new Size(800, 428);
-        ((System.ComponentModel.ISupportInitialize)dgvAgents).EndInit();
+        Load += ucManageProductSuppliers_Load;
+        ((System.ComponentModel.ISupportInitialize)dgvProductSupplier).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -185,11 +190,11 @@ partial class ucManageProductSuppliers
     private Button btnDelete;
     private Button btnEdit;
     private Button btnAdd;
-    private DataGridView dgvAgents;
     private Label label1;
     private TextBox txtProductSupplierId;
     private Label label2;
     private Label label3;
     private ComboBox cboProductName;
     private ComboBox cboSupplierName;
+    private DataGridView dgvProductSupplier;
 }

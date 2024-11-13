@@ -10,6 +10,8 @@ using TravelExpertData.Models;
 namespace TravelExpertData.Repositories;
 public class ProductSuppliersRepository
 {
+    public record ProductSupplierDTO(int ProductSupplierId, int ProductId, string ProductName, int SupplierId, string SupplierName);
+
     public static void CreateProductSupplier(ProductsSupplier productSuppliers)
     {
         try
@@ -44,6 +46,33 @@ public class ProductSuppliersRepository
         using (TravelExpertContext ctx = new TravelExpertContext())
         {
             return ctx.ProductsSuppliers.ToList();
+        }
+    }
+
+    public static List<ProductSupplierDTO> GetProductSuppliersDTO()
+    {
+        using (TravelExpertContext ctx = new TravelExpertContext())
+        {
+            return ctx.ProductsSuppliers
+                .OrderBy(ps => ps.ProductSupplierId)
+                .Join(ctx.Products,
+                    ps => ps.ProductId,
+                    p => p.ProductId,
+                    (ps, p) => new { ps, p })
+                .Join(ctx.Suppliers,
+                    x => x.ps.SupplierId,
+                    s => s.SupplierId,
+                    (pss, s) => new
+                    {
+                        pss.ps.ProductSupplierId,
+                        pss.p.ProductId,
+                        pss.p.ProdName,
+                        s.SupplierId,
+                        s.SupName
+                    })
+                .Select(joined => new ProductSupplierDTO(joined.ProductSupplierId, joined.ProductId,
+                    joined.ProdName, joined.SupplierId, joined.SupName))
+                .ToList(); ;
         }
     }
 
