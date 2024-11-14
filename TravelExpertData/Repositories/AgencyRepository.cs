@@ -116,7 +116,7 @@ namespace TravelExpertData.Repositories
                     }
                     agency.is_active = false;
                     // Otherwise procedes with the deletion (to be changed to flip valid bit in sql)
-                    conn.Agencies.Update(agency);
+                    conn.Agencies.Remove(agency);
                     conn.SaveChanges();
                 }
             }
@@ -127,15 +127,5 @@ namespace TravelExpertData.Repositories
             }
 
         }
-        // CF 
-
-
-
-
-
-
-
-
-
     }
 }

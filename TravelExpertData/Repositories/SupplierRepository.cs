@@ -61,11 +61,9 @@ namespace TravelExpertData.Repositories
             {
                 Supplier supplier = conn.Suppliers.Find(supplierId);
                 supplier.is_active = false;
-                conn.Suppliers.Update(supplier);
+                conn.Suppliers.Remove(supplier);
                 conn.SaveChanges();
-
             }
-            
         }
 
         public static Supplier getSupplierByID(int id)

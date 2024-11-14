@@ -81,7 +81,7 @@ namespace TravelExpertData.Repositories
                         throw new Exception("Package not found.");
                     }
 
-                    ctx.Packages.Update(package);
+                    ctx.Packages.Remove(package);
                     ctx.SaveChanges();
                 }
             }
