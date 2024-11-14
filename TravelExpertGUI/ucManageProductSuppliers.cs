@@ -55,19 +55,9 @@ public partial class ucManageProductSuppliers : UserControl
         // set isAddition to true
         isAddition = true;
 
-        // disable add, edit and delete
-        btnAdd.Enabled = false;
-        btnEdit.Enabled = false;
-        btnDelete.Enabled = false;
+        EnableEditableFields();
 
-        // enable discard and save change
-        btnDisc.Enabled = true;
-        btnSave.Enabled = true;
-
-        // enable combo boxes
-        cboProductName.Enabled = true;
-        cboSupplierName.Enabled = true;
-
+        // reset textbox and combo boxes to empty value
         // set product id to +1
         txtProductSupplierId.Text =
             (Convert.ToInt32(dgvProductSupplier.Rows[dgvProductSupplier.Rows.Count - 1].Cells["ProductSupplierId"].Value.ToString()) + 1).ToString();
@@ -76,10 +66,14 @@ public partial class ucManageProductSuppliers : UserControl
         cboSupplierName.SelectedIndex = -1;
     }
 
+    
+
     private void btnEdit_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //TODO: Implement here
+        // set isAddition to false
+        isAddition = false;
+
+        EnableEditableFields();
     }
 
     private void btnDelete_Click(object sender, EventArgs e)
@@ -138,6 +132,22 @@ public partial class ucManageProductSuppliers : UserControl
         cboProductName.DataSource = ProductRepository.GetProduct();
         cboProductName.ValueMember = "ProductId";
         cboProductName.DisplayMember = "ProdName";
+    }
+
+    private void EnableEditableFields()
+    {
+        // disable add, edit and delete
+        btnAdd.Enabled = false;
+        btnEdit.Enabled = false;
+        btnDelete.Enabled = false;
+
+        // enable discard and save change
+        btnDisc.Enabled = true;
+        btnSave.Enabled = true;
+
+        // enable combo boxes
+        cboProductName.Enabled = true;
+        cboSupplierName.Enabled = true;
     }
 
 }
