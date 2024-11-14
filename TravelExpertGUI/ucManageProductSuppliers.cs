@@ -66,8 +66,6 @@ public partial class ucManageProductSuppliers : UserControl
         cboSupplierName.SelectedIndex = -1;
     }
 
-    
-
     private void btnEdit_Click(object sender, EventArgs e)
     {
         // set isAddition to false
