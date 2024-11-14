@@ -110,7 +110,7 @@ public class AgentRepository
                     throw new Exception("Agent not found.");
                 }
                 // if not, updates or "Deletes" the agent
-                ctx.Agents.Remove(agent);   
+                ctx.Agents.Update(agent);   
                 // Saves db
                 ctx.SaveChanges();
             }
@@ -124,3 +124,4 @@ public class AgentRepository
         }
     }
 }
+// CF
