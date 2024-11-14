@@ -84,7 +84,7 @@ namespace TravelExpertData.Repositories
                     }
 
                     //product.IsActive = false;
-                    ctx.Products.Update(product);
+                    ctx.Products.Remove(product);
                     ctx.SaveChanges();
                 }
             }
