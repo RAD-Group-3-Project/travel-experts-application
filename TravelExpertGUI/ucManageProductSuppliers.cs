@@ -13,14 +13,16 @@ using TravelExpertData.Repositories;
 namespace TravelExpertGUI;
 public partial class ucManageProductSuppliers : UserControl
 {
-    public ucManageProductSuppliers()
-    {
-        InitializeComponent();
-    }
     private string selectedProductSupplierId;
     private int selectedProductId;
     private int selectedSupplierId;
 
+
+    public ucManageProductSuppliers()
+    {
+        InitializeComponent();
+    }
+    
     private void ucManageProductSuppliers_Load(object sender, EventArgs e)
     {
         // init behaviour of buttons and textboxes
