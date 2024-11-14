@@ -135,7 +135,7 @@ namespace TravelExpertGUI
                     newagency.AgncyPhone = txtPhone.Text;
                     newagency.AgncyCountry = txtCountry.Text;
                     // Makes the new agency active
-                    newagency.is_active = true;
+                    newagency.IsActive = true;
                     // Calls our add fuction
                     AgencyRepository.CreateLocation(newagency);
                     //repopulates our list with the new agency present
@@ -165,7 +165,7 @@ namespace TravelExpertGUI
                     updatedAgency.AgncyPhone = txtPhone.Text;
                     updatedAgency.AgncyPostal = txtPostal.Text;
                     // Makes it active
-                    updatedAgency.is_active = true;
+                    updatedAgency.IsActive = true;
                     // Tries to update the selected agency with the new info
                     AgencyRepository.UpdateAgency(updatedAgency);
                     // Repopulates our list with the updated info

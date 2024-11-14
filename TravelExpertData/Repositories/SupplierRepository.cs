@@ -19,7 +19,7 @@ namespace TravelExpertData.Repositories
                 try
                 {   
                     // Stores a list from the databse where they are still active
-                    var supplier = conn.Suppliers.Where(supplier => supplier.is_active == true);
+                    var supplier = conn.Suppliers.Where(supplier => supplier.IsActive == true);
                     // returns the list
                     return supplier.ToList();
                 }   
@@ -100,7 +100,7 @@ namespace TravelExpertData.Repositories
                     {
                         throw new Exception("Cant find Supplier for Deletion");
                     }
-                    supplier.is_active = false;
+                    supplier.IsActive = false;
                     conn.Suppliers.Update(supplier);
                     conn.SaveChanges();
                 }

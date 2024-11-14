@@ -136,7 +136,7 @@ public partial class ucManageSuppliers : UserControl
                 int lastRowColumnValue = lastID_PlusOne();
                 addedSupplier.SupplierId = lastRowColumnValue;
                 addedSupplier.SupName = txtSupName.Text;
-                addedSupplier.is_active = true;
+                addedSupplier.IsActive = true;
                 SupplierRepository.addSupplier(addedSupplier);
                 populateSuppliers();
 
@@ -148,7 +148,7 @@ public partial class ucManageSuppliers : UserControl
 
                 editedSupplier.SupplierId = Convert.ToInt32(txtSupID.Text);
                 editedSupplier.SupName = txtSupName.Text;
-                editedSupplier.is_active = true;
+                editedSupplier.IsActive = true;
                 SupplierRepository.updateSupplier(editedSupplier);
                 populateSuppliers();
 

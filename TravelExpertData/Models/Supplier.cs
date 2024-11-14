@@ -16,7 +16,7 @@ public partial class Supplier
     public string? SupName { get; set; }
 
     [Column("is_active")]
-    public bool? is_active { get; set; }
+    public bool? IsActive { get; set; }
 
     [InverseProperty("Supplier")]
     public virtual ICollection<ProductsSupplier> ProductsSuppliers { get; set; } = new List<ProductsSupplier>();
