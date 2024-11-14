@@ -76,8 +76,24 @@ public partial class ucManageProductSuppliers : UserControl
 
     private void btnDelete_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //TODO: Implement here
+        int currentId = Convert.ToInt32(dgvProductSupplier.CurrentRow.Cells[0].Value);
+        DialogResult result =
+            MessageBox.Show($"Are you sure you would like to delete Product Supplier id {currentId}",
+                "Confirm Deletion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+        if (result == DialogResult.Yes)
+        {
+            try
+            {
+                ProductSuppliersRepository.DeleteProductSupplierById(currentId);
+                InitButtonAndFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Can't delete product supplier id {currentId}\n{ex.Message}", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
     private void btnDisc_Click(object sender, EventArgs e)
     {
