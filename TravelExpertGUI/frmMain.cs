@@ -39,7 +39,7 @@ public partial class frmMain : Form
 
         // add welcome message
         contentPanel.Controls.Clear();
-        contentPanel.Controls.Add(new ucWelcomeMessage() { currentuser = currentuser});
+        contentPanel.Controls.Add(new ucWelcomeMessage() { currentuser = currentuser });
     }
     /// <summary>
     /// Checks if our user is an admin or not
@@ -53,9 +53,9 @@ public partial class frmMain : Form
             result = "ADMIN";
             return result;
         }
-        else 
+        else
         {
-            return result;    
+            return result;
         }
     }
 
@@ -94,7 +94,7 @@ public partial class frmMain : Form
             switch (tableName)
             {
                 case "Packages":
-                    controlToLoad = new ucManagePackages(); 
+                    controlToLoad = new ucManagePackages();
                     break;
                 case "Products":
                     //controlToLoad = new ucManageProducts(); 
@@ -114,7 +114,7 @@ public partial class frmMain : Form
                     break;
                 case "Agencies":
                     // TODO: Implement the ucManageAgencies control
-                     controlToLoad = new ucManageAgencies();
+                    controlToLoad = new ucManageAgencies();
                     break;
                 default:
                     Debug.WriteLine($"Couldn't find any table in Switch case: table name {tableName}");
@@ -124,7 +124,7 @@ public partial class frmMain : Form
             if (controlToLoad != null)
             {
                 controlToLoad.Dock = DockStyle.Fill; // Fill the panel
-                contentPanel.Controls.Add(controlToLoad); 
+                contentPanel.Controls.Add(controlToLoad);
             }
         }
     }
@@ -133,5 +133,19 @@ public partial class frmMain : Form
     {
         Application.Exit(); // Ensure the entire application closes
     }
+    // Logout Function
+    private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        // Logs the current user out
+        frmLogin login = new frmLogin();
+        this.Hide();
+        login.ShowDialog();
 
+    }
+
+    private void profileToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        contentPanel.Controls.Clear();
+        contentPanel.Controls.Add(new ucUserDetails() { currentuser = currentuser });
+    }
 }

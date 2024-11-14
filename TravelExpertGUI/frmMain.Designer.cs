@@ -59,20 +59,22 @@ partial class frmMain
         // profileToolStripMenuItem
         // 
         profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-        profileToolStripMenuItem.Size = new Size(209, 26);
+        profileToolStripMenuItem.Size = new Size(224, 26);
         profileToolStripMenuItem.Text = "Profile";
+        profileToolStripMenuItem.Click += profileToolStripMenuItem_Click;
         // 
         // changePasswordToolStripMenuItem
         // 
         changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-        changePasswordToolStripMenuItem.Size = new Size(209, 26);
+        changePasswordToolStripMenuItem.Size = new Size(224, 26);
         changePasswordToolStripMenuItem.Text = "Change password";
         // 
         // signOutToolStripMenuItem
         // 
         signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-        signOutToolStripMenuItem.Size = new Size(209, 26);
+        signOutToolStripMenuItem.Size = new Size(224, 26);
         signOutToolStripMenuItem.Text = "Sign out";
+        signOutToolStripMenuItem.Click += signOutToolStripMenuItem_Click;
         // 
         // mnuDatabase
         // 
