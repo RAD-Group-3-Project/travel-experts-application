@@ -74,12 +74,12 @@ public partial class TravelExpertContext : DbContext
 
         modelBuilder.Entity<Agency>(entity =>
         {
-            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.is_active).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<Agent>(entity =>
         {
-            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.is_active).HasDefaultValue(true);
 
             entity.HasOne(d => d.Agency).WithMany(p => p.Agents).HasConstraintName("FK_Agents_Agencies");
         });
@@ -179,7 +179,7 @@ public partial class TravelExpertContext : DbContext
 
         modelBuilder.Entity<PackagesProductsSupplier>(entity =>
         {
-            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED997B14926F");
+            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED99A4B633EA");
 
             entity.HasOne(d => d.Package).WithMany(p => p.PackagesProductsSuppliers)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -229,6 +229,8 @@ public partial class TravelExpertContext : DbContext
             entity.HasKey(e => e.SupplierId)
                 .HasName("aaaaaSuppliers_PK")
                 .IsClustered(false);
+
+            entity.Property(e => e.is_active).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<SupplierContact>(entity =>

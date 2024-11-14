@@ -103,7 +103,7 @@ public partial class frmMain : Form
                     controlToLoad = new ucManageProductSuppliers();
                     break;
                 case "Suppliers":
-                    //controlToLoad = new ucManageSuppliers(); 
+                    controlToLoad = new ucManageSuppliers();
                     break;
                 case "Packages Products Suppliers":
                     // TODO: Implement the ucManagePackagesProductsSuppliers control
