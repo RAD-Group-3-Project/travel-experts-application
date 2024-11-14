@@ -17,6 +17,7 @@ public partial class ucManageProductSuppliers : UserControl
     private int selectedProductId;
     private int selectedSupplierId;
 
+    private bool isAddition;
 
     public ucManageProductSuppliers()
     {
@@ -51,6 +52,9 @@ public partial class ucManageProductSuppliers : UserControl
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
+        // set isAddition to true
+        isAddition = true;
+
         // disable add, edit and delete
         btnAdd.Enabled = false;
         btnEdit.Enabled = false;
@@ -63,6 +67,13 @@ public partial class ucManageProductSuppliers : UserControl
         // enable combo boxes
         cboProductName.Enabled = true;
         cboSupplierName.Enabled = true;
+
+        // set product id to +1
+        txtProductSupplierId.Text =
+            (Convert.ToInt32(dgvProductSupplier.Rows[dgvProductSupplier.Rows.Count - 1].Cells["ProductSupplierId"].Value.ToString()) + 1).ToString();
+        // clear all combo boxes
+        cboProductName.SelectedIndex = -1;
+        cboSupplierName.SelectedIndex = -1;
     }
 
     private void btnEdit_Click(object sender, EventArgs e)
