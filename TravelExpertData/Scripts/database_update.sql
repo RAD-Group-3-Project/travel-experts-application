@@ -25,3 +25,11 @@ is_active bit default 1
 
 UPDATE Suppliers
 SET is_active = 1;
+
+-- Nov 14
+
+alter table Packages_Products_Suppliers add 
+is_active bit default 1
+
+UPDATE Packages_Products_Suppliers
+SET is_active = 1;
