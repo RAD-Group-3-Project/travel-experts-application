@@ -27,6 +27,117 @@ public static class TextBoxValidator
         return true;
     }
 
+    public static bool IsDouble(TextBox textBox)
+    {
+        if (!Double.TryParse(textBox.Text, out double output))
+        {
+            ShowWarningMessageBox($"{textBox.Tag} field contains non-numeric characters", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool IsNonNegativeDouble(TextBox textBox)
+    {
+        if (!Double.TryParse(textBox.Text, out double output))
+        {
+            ShowWarningMessageBox($"{textBox.Tag} field contains non-numeric characters", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+        if (output < 0)
+        {
+            ShowWarningMessageBox($"{textBox.Tag} can't be negative value", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool IsDoubleInRange(TextBox textBox, double min, double max)
+    {
+        if (!Double.TryParse(textBox.Text, out double output))
+        {
+            ShowWarningMessageBox($"{textBox.Tag} field contains non-numeric characters", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+        if (output < min || output > max)
+        {
+            ShowWarningMessageBox($"{textBox.Tag} field should be within the range of {min} and {max}", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool IsDecimal(TextBox textBox)
+    {
+        if (!Double.TryParse(textBox.Text, out double output))
+        {
+            ShowWarningMessageBox($"{textBox.Tag} field contains non-numeric characters", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool IsInteger(TextBox textBox)
+    {
+        if (!Int32.TryParse(textBox.Text, out Int32 output))
+        {
+            ShowWarningMessageBox($"{textBox.Tag} field contains non-numeric characters", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool IsNonNegativeInteger(TextBox textBox)
+    {
+        if (!Int32.TryParse(textBox.Text, out Int32 output))
+        {
+            ShowWarningMessageBox($"{textBox.Tag} field contains non-numeric characters", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+        if (output < 0)
+        {
+            ShowWarningMessageBox($"{textBox.Tag} can't be negative value", "Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool IsValidDate(TextBox textBox)
+    {
+        if (!DateTime.TryParse(textBox.Text, out var dateTime))
+        {
+            ShowWarningMessageBox($"Invalid data format in {textBox.Tag}. Please enter a valid date.", "Input Format Error");
+            textBox.SelectAll();
+            textBox.Focus();
+            return false;
+        }
+        return true;
+    }
+
     public static bool ValidateAgencyCommission(TextBox txtAgencyCommission, TextBox txtBasePrice)
     {
         if (!decimal.TryParse(txtBasePrice.Text, out decimal basePrice) ||
