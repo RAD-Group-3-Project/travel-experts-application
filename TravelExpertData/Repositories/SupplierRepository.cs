@@ -42,7 +42,17 @@ namespace TravelExpertData.Repositories
                 return supplier.ToList();
             }
         }
-        // A function that adds a new supplier 
+        public static List<Supplier> GetSortedSuppliers()
+        {
+            using TravelExpertContext conn = new TravelExpertContext();
+            {
+                var supplier = conn.Suppliers;
+                return supplier
+                    .OrderBy(s => s.SupName)
+                    .ToList();
+            }
+        }
+
         public static void addSupplier(Supplier newSupplier)
         {   
             // Opens connection and tries 
