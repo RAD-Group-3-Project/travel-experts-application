@@ -40,7 +40,7 @@ public partial class ucManageSuppliers : UserControl
         // Clears The list
         dgvSuppliers.Columns.Clear();
         // Populates the list
-        dgvSuppliers.DataSource = SupplierRepository.getSupplier();
+        dgvSuppliers.DataSource = SupplierRepository.GetSortedSuppliers();
         // format the column header
         dgvSuppliers.EnableHeadersVisualStyles = false;
         dgvSuppliers.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
