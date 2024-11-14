@@ -106,7 +106,7 @@ public class ProductSuppliersRepository
                     throw new Exception("product supplier not found.");
                 }
 
-                ctx.ProductsSuppliers.Update(productSuppliers);
+                ctx.ProductsSuppliers.Remove(productSuppliers);
                 ctx.SaveChanges();
             }
         }
