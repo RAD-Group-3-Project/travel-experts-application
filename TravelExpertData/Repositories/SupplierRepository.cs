@@ -9,30 +9,55 @@ using TravelExpertData.Models;
 namespace TravelExpertData.Repositories
 {
     public class SupplierRepository
-    {   
+    {   // Returns a list of all suppliers that are active 
         public static List<Supplier> getSupplier()
-        {
+        {   
+            // Opens the connection
             using TravelExpertContext conn = new TravelExpertContext();
-            {
-                var supplier = conn.Suppliers.Where(supplier => supplier.is_active == true);
+            {   
+                // Tries to grab the list 
+                try
+                {   
+                    // Stores a list from the databse where they are still active
+                    var supplier = conn.Suppliers.Where(supplier => supplier.is_active == true);
+                    // returns the list
                     return supplier.ToList();
+                }   
+                // Catches our exceptions 
+                catch (Exception ex)
+                {
+                    // throws exception
+                    throw new Exception("Unable to load suppliers");
+                }
             }
         }
+        // We need a function to get all suppliers including inactive ones. This lets us determine the next id number 
         public static List<Supplier> getAllSuppliers()
-        {
+        {   
+            // opens our connection
             using TravelExpertContext conn = new TravelExpertContext();
-            {
+            {   
+                // Returns ALL suppliers 
                 var supplier = conn.Suppliers;
                 return supplier.ToList();
             }
         }
-
+        // A function that adds a new supplier 
         public static void addSupplier(Supplier newSupplier)
         {   
+            // Opens connection and tries 
             using(TravelExpertContext conn = new TravelExpertContext())
             {
-                conn.Suppliers.Add(newSupplier);
-                conn.SaveChanges();
+                try
+                {
+                    conn.Suppliers.Add(newSupplier);
+                    conn.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error Adding Supplier to database");
+                }
             }
         }
 
@@ -40,8 +65,16 @@ namespace TravelExpertData.Repositories
         {
             using(TravelExpertContext conn = new TravelExpertContext())
             {
-                conn.Suppliers.Update(editedSupplier);
-                conn.SaveChanges();
+                try
+                {
+                    conn.Suppliers.Update(editedSupplier);
+                    conn.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error updating selected supplier");
+                }
             }
         }
 
@@ -49,10 +82,23 @@ namespace TravelExpertData.Repositories
         {   
             using(TravelExpertContext conn = new TravelExpertContext())
             {
-                Supplier supplier = conn.Suppliers.Find(supplierId);
-                supplier.is_active = false;
-                conn.Suppliers.Update(supplier);
-                conn.SaveChanges();
+
+                try
+                {
+                    Supplier supplier = conn.Suppliers.Find(supplierId);
+                    if (supplier == null)
+                    {
+                        throw new Exception("Cant find Supplier for Deletion");
+                    }
+                    supplier.is_active = false;
+                    conn.Suppliers.Update(supplier);
+                    conn.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error deleting the supplier");
+                }
 
             }
             
