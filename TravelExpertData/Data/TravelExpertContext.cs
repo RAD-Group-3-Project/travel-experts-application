@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using TravelExpertData.Models;
 
@@ -56,9 +57,11 @@ public partial class TravelExpertContext : DbContext
 
     public virtual DbSet<TripType> TripTypes { get; set; }
 
+    public virtual DbSet<User> Users { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExpertsConnection"].ConnectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -69,8 +72,15 @@ public partial class TravelExpertContext : DbContext
                 .IsClustered(false);
         });
 
+        modelBuilder.Entity<Agency>(entity =>
+        {
+            entity.Property(e => e.is_active).HasDefaultValue(true);
+        });
+
         modelBuilder.Entity<Agent>(entity =>
         {
+            entity.Property(e => e.is_active).HasDefaultValue(true);
+
             entity.HasOne(d => d.Agency).WithMany(p => p.Agents).HasConstraintName("FK_Agents_Agencies");
         });
 
@@ -169,7 +179,7 @@ public partial class TravelExpertContext : DbContext
 
         modelBuilder.Entity<PackagesProductsSupplier>(entity =>
         {
-            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED99F79C0943");
+            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED99A4B633EA");
 
             entity.HasOne(d => d.Package).WithMany(p => p.PackagesProductsSuppliers)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -219,6 +229,8 @@ public partial class TravelExpertContext : DbContext
             entity.HasKey(e => e.SupplierId)
                 .HasName("aaaaaSuppliers_PK")
                 .IsClustered(false);
+
+            entity.Property(e => e.is_active).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<SupplierContact>(entity =>
@@ -240,6 +252,11 @@ public partial class TravelExpertContext : DbContext
             entity.HasKey(e => e.TripTypeId)
                 .HasName("aaaaaTripTypes_PK")
                 .IsClustered(false);
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.Userid).ValueGeneratedOnAdd();
         });
 
         OnModelCreatingPartial(modelBuilder);
