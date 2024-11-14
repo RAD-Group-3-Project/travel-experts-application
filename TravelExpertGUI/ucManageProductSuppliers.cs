@@ -17,10 +17,23 @@ public partial class ucManageProductSuppliers : UserControl
     {
         InitializeComponent();
     }
+    private string selectedProductSupplierId;
+    private int selectedProductId;
+    private int selectedSupplierId;
 
     private void ucManageProductSuppliers_Load(object sender, EventArgs e)
     {
+        // init behaviour of buttons and textboxes
+        InitButtonAndFields();
 
+        // get list of product supplier
+        GetProductSuppliers();
+        LoadProducts();
+        LoadSupplier();
+    }
+
+    private void InitButtonAndFields()
+    {
         // disable all textbox and combo box
         txtProductSupplierId.Enabled = false;
         cboProductName.Enabled = false;
@@ -30,10 +43,10 @@ public partial class ucManageProductSuppliers : UserControl
         btnDisc.Enabled = false;
         btnSave.Enabled = false;
 
-        // get list of product supplier
-        GetProductSuppliers();
-        LoadProducts();
-        LoadSupplier();
+        // enable add, edit and delete
+        btnAdd.Enabled = true;
+        btnEdit.Enabled = true;
+        btnDelete.Enabled = true;
     }
 
     private void GetProductSuppliers()
@@ -76,9 +89,14 @@ public partial class ucManageProductSuppliers : UserControl
     {
         if (dgvProductSupplier.CurrentRow != null) // check not equal to column
         {
-            txtProductSupplierId.Text = dgvProductSupplier.CurrentRow.Cells["ProductSupplierId"].Value.ToString();
-            cboProductName.SelectedValue = int.Parse(dgvProductSupplier.CurrentRow.Cells["ProductId"].Value.ToString());
-            cboSupplierName.SelectedValue = int.Parse(dgvProductSupplier.CurrentRow.Cells["SupplierId"].Value.ToString());
+
+            selectedProductSupplierId = dgvProductSupplier.CurrentRow.Cells["ProductSupplierId"].Value.ToString();
+            selectedProductId = Convert.ToInt32(dgvProductSupplier.CurrentRow.Cells["ProductId"].Value.ToString());
+            selectedSupplierId = Convert.ToInt32(dgvProductSupplier.CurrentRow.Cells["SupplierId"].Value.ToString());
+
+            txtProductSupplierId.Text = selectedProductSupplierId;
+            cboProductName.SelectedValue = selectedProductId;
+            cboSupplierName.SelectedValue = selectedSupplierId;
         }
     }
 
@@ -95,8 +113,11 @@ public partial class ucManageProductSuppliers : UserControl
     }
     private void btnDisc_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //TODO: Implement here
+        txtProductSupplierId.Text = selectedProductSupplierId;
+        cboProductName.SelectedValue = selectedProductId;
+        cboSupplierName.SelectedValue = selectedSupplierId;
+
+        InitButtonAndFields();
     }
 
     private void btnSave_Click(object sender, EventArgs e)
