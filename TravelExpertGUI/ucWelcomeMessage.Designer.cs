@@ -37,9 +37,9 @@ partial class ucWelcomeMessage
         label1.AutoSize = true;
         label1.Font = new Font("Arial", 16F, FontStyle.Bold);
         label1.ForeColor = Color.DarkSlateBlue;
-        label1.Location = new Point(186, 294);
+        label1.Location = new Point(163, 220);
         label1.Name = "label1";
-        label1.Size = new Size(526, 32);
+        label1.Size = new Size(411, 26);
         label1.TabIndex = 0;
         label1.Text = "Welcome to Travel Expert Management";
         // 
@@ -47,23 +47,24 @@ partial class ucWelcomeMessage
         // 
         lblHello.AutoSize = true;
         lblHello.Font = new Font("Arial", 12F);
-        lblHello.ForeColor = Color.DarkSlateGray;
-        lblHello.Location = new Point(379, 254);
+        lblHello.ForeColor = Color.DarkBlue;
+        lblHello.Location = new Point(316, 190);
         lblHello.Name = "lblHello";
-        lblHello.Padding = new Padding(0, 0, 10, 0);
-        lblHello.Size = new Size(128, 23);
+        lblHello.Padding = new Padding(0, 0, 9, 0);
+        lblHello.Size = new Size(104, 18);
         lblHello.TabIndex = 1;
         lblHello.Text = "Hello, Admin";
         // 
         // ucWelcomeMessage
         // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        BackColor = Color.LightSteelBlue;
+        BackColor = SystemColors.GradientInactiveCaption;
         Controls.Add(lblHello);
         Controls.Add(label1);
+        Margin = new Padding(3, 2, 3, 2);
         Name = "ucWelcomeMessage";
-        Size = new Size(914, 570);
+        Size = new Size(800, 428);
         Load += ucWelcomeMessage_Load;
         ResumeLayout(false);
         PerformLayout();
