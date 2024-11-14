@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertData.Models;
 using TravelExpertData.Repositories;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TravelExpertGUI;
 public partial class ucManageProductSuppliers : UserControl
@@ -88,6 +90,7 @@ public partial class ucManageProductSuppliers : UserControl
             {
                 ProductSuppliersRepository.DeleteProductSupplierById(currentId);
                 InitButtonAndFields();
+                GetProductSuppliers();
             }
             catch (Exception ex)
             {
@@ -107,8 +110,46 @@ public partial class ucManageProductSuppliers : UserControl
 
     private void btnSave_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("This function is not implemented yet", "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //TODO: Implement here
+        
+
+        if (isAddition)
+        {
+            try
+            {
+                ProductsSupplier newProductsSupplier = new ProductsSupplier
+                {
+                    ProductId = Convert.ToInt32(cboProductName.SelectedValue),
+                    SupplierId = Convert.ToInt32(cboSupplierName.SelectedValue)
+                };
+                ProductSuppliersRepository.CreateProductSupplier(newProductsSupplier);
+                InitButtonAndFields();
+                GetProductSuppliers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Can't add product supplier\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        else
+        {
+            try
+            {
+                ProductsSupplier newProductsSupplier = new ProductsSupplier
+                {
+                    ProductSupplierId = Convert.ToInt32(txtProductSupplierId.Text),
+                    ProductId = Convert.ToInt32(cboProductName.SelectedValue),
+                    SupplierId = Convert.ToInt32(cboSupplierName.SelectedValue)
+                };
+                ProductSuppliersRepository.UpdateProductSupplier(newProductsSupplier);
+                InitButtonAndFields();
+                GetProductSuppliers();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Can't update product supplier\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
     private void InitButtonAndFields()
@@ -136,7 +177,7 @@ public partial class ucManageProductSuppliers : UserControl
 
     private void LoadSupplier()
     {
-        cboSupplierName.DataSource = SupplierRepository.getAllSuppliers();
+        cboSupplierName.DataSource = SupplierRepository.GetSortedSuppliers();
         cboSupplierName.ValueMember = "SupplierId";
         cboSupplierName.DisplayMember = "SupName";
     }
