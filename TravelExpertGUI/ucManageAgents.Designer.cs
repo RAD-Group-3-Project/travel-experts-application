@@ -108,7 +108,7 @@ partial class ucManageAgents
         txtAgntPosition.Name = "txtAgntPosition";
         txtAgntPosition.ReadOnly = true;
         txtAgntPosition.Size = new Size(217, 27);
-        txtAgntPosition.TabIndex = 29;
+        txtAgntPosition.TabIndex = 6;
         // 
         // label6
         // 
@@ -125,7 +125,7 @@ partial class ucManageAgents
         txtAgntEmail.Name = "txtAgntEmail";
         txtAgntEmail.ReadOnly = true;
         txtAgntEmail.Size = new Size(217, 27);
-        txtAgntEmail.TabIndex = 27;
+        txtAgntEmail.TabIndex = 5;
         // 
         // label5
         // 
@@ -142,7 +142,7 @@ partial class ucManageAgents
         txtAgntBusPhone.Name = "txtAgntBusPhone";
         txtAgntBusPhone.ReadOnly = true;
         txtAgntBusPhone.Size = new Size(217, 27);
-        txtAgntBusPhone.TabIndex = 25;
+        txtAgntBusPhone.TabIndex = 4;
         // 
         // label4
         // 
@@ -159,7 +159,7 @@ partial class ucManageAgents
         txtAgntLName.Name = "txtAgntLName";
         txtAgntLName.ReadOnly = true;
         txtAgntLName.Size = new Size(205, 27);
-        txtAgntLName.TabIndex = 23;
+        txtAgntLName.TabIndex = 3;
         // 
         // label3
         // 
@@ -176,7 +176,7 @@ partial class ucManageAgents
         txtAgntFName.Name = "txtAgntFName";
         txtAgntFName.ReadOnly = true;
         txtAgntFName.Size = new Size(205, 27);
-        txtAgntFName.TabIndex = 21;
+        txtAgntFName.TabIndex = 1;
         // 
         // label2
         // 
@@ -193,7 +193,7 @@ partial class ucManageAgents
         txtAgntId.Name = "txtAgntId";
         txtAgntId.ReadOnly = true;
         txtAgntId.Size = new Size(205, 27);
-        txtAgntId.TabIndex = 19;
+        txtAgntId.TabIndex = 0;
         // 
         // label1
         // 
@@ -210,7 +210,7 @@ partial class ucManageAgents
         btnSave.Location = new Point(669, 500);
         btnSave.Name = "btnSave";
         btnSave.Size = new Size(193, 29);
-        btnSave.TabIndex = 37;
+        btnSave.TabIndex = 8;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
         btnSave.Click += btnSave_Click;
@@ -222,7 +222,7 @@ partial class ucManageAgents
         cboAgency.Location = new Point(595, 155);
         cboAgency.Name = "cboAgency";
         cboAgency.Size = new Size(217, 28);
-        cboAgency.TabIndex = 38;
+        cboAgency.TabIndex = 7;
         // 
         // txtMiddleInit
         // 
@@ -230,7 +230,7 @@ partial class ucManageAgents
         txtMiddleInit.Name = "txtMiddleInit";
         txtMiddleInit.ReadOnly = true;
         txtMiddleInit.Size = new Size(205, 27);
-        txtMiddleInit.TabIndex = 39;
+        txtMiddleInit.TabIndex = 2;
         // 
         // lblMid
         // 
@@ -247,7 +247,7 @@ partial class ucManageAgents
         btnDisc.Location = new Point(470, 500);
         btnDisc.Name = "btnDisc";
         btnDisc.Size = new Size(193, 29);
-        btnDisc.TabIndex = 41;
+        btnDisc.TabIndex = 9;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
         btnDisc.Click += btnDisc_Click;
