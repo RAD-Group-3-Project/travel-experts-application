@@ -31,6 +31,8 @@ public partial class ucManageProductSuppliers : UserControl
         // init behaviour of buttons and textboxes
         InitButtonAndFields();
 
+        dgvProductSupplier.ReadOnly = true;
+
         // get list of product supplier
         GetProductSuppliers();
         LoadProducts();
