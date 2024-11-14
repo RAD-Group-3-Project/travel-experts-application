@@ -41,7 +41,6 @@ public partial class ucManageProductSuppliers : UserControl
     {
         if (dgvProductSupplier.CurrentRow != null) // check not equal to column
         {
-
             selectedProductSupplierId = dgvProductSupplier.CurrentRow.Cells["ProductSupplierId"].Value.ToString();
             selectedProductId = Convert.ToInt32(dgvProductSupplier.CurrentRow.Cells["ProductId"].Value.ToString());
             selectedSupplierId = Convert.ToInt32(dgvProductSupplier.CurrentRow.Cells["SupplierId"].Value.ToString());
