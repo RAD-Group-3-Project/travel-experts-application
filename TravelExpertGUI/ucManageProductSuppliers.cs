@@ -89,6 +89,7 @@ public partial class ucManageProductSuppliers : UserControl
     }
     private void btnDisc_Click(object sender, EventArgs e)
     {
+        // set value back
         txtProductSupplierId.Text = selectedProductSupplierId;
         cboProductName.SelectedValue = selectedProductId;
         cboSupplierName.SelectedValue = selectedSupplierId;
