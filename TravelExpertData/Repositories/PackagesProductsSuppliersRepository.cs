@@ -13,17 +13,34 @@ namespace TravelExpertData.Repositories
         public static List<PackagesProductsSupplier> GetPPSList()
         {
             using TravelExpertContext conn = new TravelExpertContext();
-            {   
-                var ppslist = conn.PackagesProductsSuppliers;
-                return  ppslist.ToList();
+            {
+                try
+                {
+                    var ppslist = conn.PackagesProductsSuppliers;
+                    return ppslist.ToList();
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error Getting PPS List");
+                }
             }
         }
         public static void CreatePPS(PackagesProductsSupplier newPPS)
         {
             using TravelExpertContext conn = new TravelExpertContext();
-            { 
-                conn.PackagesProductsSuppliers.Add(newPPS);
-                conn.SaveChanges();
+            {
+                try
+                {
+
+                    conn.PackagesProductsSuppliers.Add(newPPS);
+                    conn.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error Adding PPS");
+                }
             }
         }
 
@@ -31,8 +48,16 @@ namespace TravelExpertData.Repositories
         {
             using TravelExpertContext conn = new TravelExpertContext();
             {
-                conn.PackagesProductsSuppliers.Update(editedPPS);
-                conn.SaveChanges();
+                try
+                {
+                    conn.PackagesProductsSuppliers.Update(editedPPS);
+                    conn.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error Updating PPS");
+                }
             }
         }
 
@@ -45,9 +70,17 @@ namespace TravelExpertData.Repositories
                 {
                     throw new Exception("Cant find PPS for deletion");
                 }
-                pps.IsActive = false;
-                conn.PackagesProductsSuppliers.Update(pps);
-                conn.SaveChanges();
+                try
+                {
+                    pps.IsActive = false;
+                    conn.PackagesProductsSuppliers.Update(pps);
+                    conn.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error Deleting PPS");
+                }
             }
         }   
     }
