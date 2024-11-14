@@ -44,7 +44,9 @@ public partial class ucManageProductSuppliers : UserControl
 
     private void LoadSupplier()
     {
-        //cboSupplierName.DataSource = ProductSuppliersRepository.GetProductSuppliers();
+        cboSupplierName.DataSource = SupplierRepository.getAllSuppliers();
+        cboSupplierName.ValueMember = "SupplierId";
+        cboSupplierName.DisplayMember = "SupName";
     }
 
     private void LoadProducts()
