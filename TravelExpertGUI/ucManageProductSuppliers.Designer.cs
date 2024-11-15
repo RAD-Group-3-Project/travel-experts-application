@@ -46,7 +46,8 @@ partial class ucManageProductSuppliers
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(474, 503);
+        btnDisc.Location = new Point(384, 377);
+        btnDisc.Margin = new Padding(3, 2, 3, 2);
         btnDisc.Name = "btnDisc";
         btnDisc.Size = new Size(193, 29);
         btnDisc.TabIndex = 47;
@@ -57,7 +58,8 @@ partial class ucManageProductSuppliers
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(673, 503);
+        btnSave.Location = new Point(583, 377);
+        btnSave.Margin = new Padding(3, 2, 3, 2);
         btnSave.Name = "btnSave";
         btnSave.Size = new Size(193, 29);
         btnSave.TabIndex = 46;
@@ -67,7 +69,8 @@ partial class ucManageProductSuppliers
         // 
         // btnDelete
         // 
-        btnDelete.Location = new Point(325, 503);
+        btnDelete.Location = new Point(272, 377);
+        btnDelete.Margin = new Padding(3, 2, 3, 2);
         btnDelete.Name = "btnDelete";
         btnDelete.Size = new Size(94, 29);
         btnDelete.TabIndex = 45;
@@ -77,7 +80,8 @@ partial class ucManageProductSuppliers
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(224, 503);
+        btnEdit.Location = new Point(160, 377);
+        btnEdit.Margin = new Padding(3, 2, 3, 2);
         btnEdit.Name = "btnEdit";
         btnEdit.Size = new Size(94, 29);
         btnEdit.TabIndex = 44;
@@ -87,7 +91,8 @@ partial class ucManageProductSuppliers
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(62, 503);
+        btnAdd.Location = new Point(48, 377);
+        btnAdd.Margin = new Padding(3, 2, 3, 2);
         btnAdd.Name = "btnAdd";
         btnAdd.Size = new Size(94, 29);
         btnAdd.TabIndex = 43;
@@ -106,8 +111,8 @@ partial class ucManageProductSuppliers
         // 
         // txtProductSupplierId
         // 
-        txtProductSupplierId.Location = new Point(212, 60);
-        txtProductSupplierId.Margin = new Padding(3, 4, 3, 4);
+        txtProductSupplierId.BackColor = SystemColors.Control;
+        txtProductSupplierId.Location = new Point(178, 45);
         txtProductSupplierId.Name = "txtProductSupplierId";
         txtProductSupplierId.Size = new Size(234, 27);
         txtProductSupplierId.TabIndex = 49;
@@ -132,30 +137,31 @@ partial class ucManageProductSuppliers
         // 
         // cboProductName
         // 
+        cboProductName.BackColor = SystemColors.Control;
         cboProductName.FormattingEnabled = true;
         cboProductName.Location = new Point(212, 113);
         cboProductName.Margin = new Padding(3, 4, 3, 4);
         cboProductName.Name = "cboProductName";
-        cboProductName.Size = new Size(234, 28);
+        cboProductName.Size = new Size(100, 23);
         cboProductName.TabIndex = 54;
         // 
         // cboSupplierName
         // 
+        cboSupplierName.BackColor = SystemColors.Control;
         cboSupplierName.FormattingEnabled = true;
         cboSupplierName.Location = new Point(212, 173);
         cboSupplierName.Margin = new Padding(3, 4, 3, 4);
         cboSupplierName.Name = "cboSupplierName";
-        cboSupplierName.Size = new Size(234, 28);
+        cboSupplierName.Size = new Size(100, 23);
         cboSupplierName.TabIndex = 55;
         // 
         // dgvProductSupplier
         // 
+        dgvProductSupplier.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvProductSupplier.Location = new Point(62, 239);
-        dgvProductSupplier.Margin = new Padding(3, 4, 3, 4);
+        dgvProductSupplier.Location = new Point(48, 179);
         dgvProductSupplier.Name = "dgvProductSupplier";
-        dgvProductSupplier.RowHeadersWidth = 51;
-        dgvProductSupplier.Size = new Size(809, 236);
+        dgvProductSupplier.Size = new Size(704, 175);
         dgvProductSupplier.TabIndex = 56;
         dgvProductSupplier.SelectionChanged += dgvProductSupplier_SelectionChanged;
         // 
@@ -163,6 +169,7 @@ partial class ucManageProductSuppliers
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
+        BackColor = SystemColors.GradientInactiveCaption;
         Controls.Add(dgvProductSupplier);
         Controls.Add(cboSupplierName);
         Controls.Add(cboProductName);

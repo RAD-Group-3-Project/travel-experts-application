@@ -55,19 +55,22 @@
             // 
             // dgvAgencies
             // 
+            dgvAgencies.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvAgencies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAgencies.Location = new Point(53, 243);
+            dgvAgencies.Location = new Point(46, 182);
+            dgvAgencies.Margin = new Padding(3, 2, 3, 2);
             dgvAgencies.Name = "dgvAgencies";
             dgvAgencies.RowHeadersWidth = 51;
-            dgvAgencies.Size = new Size(809, 236);
+            dgvAgencies.Size = new Size(708, 177);
             dgvAgencies.TabIndex = 11;
             dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(320, 500);
+            btnDelete.Location = new Point(272, 375);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
+            btnDelete.Size = new Size(82, 22);
             btnDelete.TabIndex = 38;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -75,9 +78,10 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(220, 500);
+            btnEdit.Location = new Point(160, 375);
+            btnEdit.Margin = new Padding(3, 2, 3, 2);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(94, 29);
+            btnEdit.Size = new Size(82, 22);
             btnEdit.TabIndex = 37;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
@@ -85,9 +89,10 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(57, 500);
+            btnAdd.Location = new Point(48, 375);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(94, 29);
+            btnAdd.Size = new Size(82, 22);
             btnAdd.TabIndex = 36;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -96,145 +101,154 @@
             // lblAgencyId
             // 
             lblAgencyId.AutoSize = true;
-            lblAgencyId.Location = new Point(94, 56);
+            lblAgencyId.Location = new Point(82, 42);
             lblAgencyId.Name = "lblAgencyId";
-            lblAgencyId.Size = new Size(86, 20);
+            lblAgencyId.Size = new Size(69, 15);
             lblAgencyId.TabIndex = 39;
             lblAgencyId.Text = "Agency Id : ";
             // 
             // txtAgencyId
             // 
-            txtAgencyId.Location = new Point(186, 53);
+            txtAgencyId.Location = new Point(163, 40);
+            txtAgencyId.Margin = new Padding(3, 2, 3, 2);
             txtAgencyId.Name = "txtAgencyId";
             txtAgencyId.ReadOnly = true;
-            txtAgencyId.Size = new Size(228, 27);
+            txtAgencyId.Size = new Size(200, 23);
             txtAgencyId.TabIndex = 0;
             // 
             // txtAgencyAddress
             // 
-            txtAgencyAddress.Location = new Point(186, 97);
+            txtAgencyAddress.Location = new Point(163, 73);
+            txtAgencyAddress.Margin = new Padding(3, 2, 3, 2);
             txtAgencyAddress.Name = "txtAgencyAddress";
             txtAgencyAddress.ReadOnly = true;
-            txtAgencyAddress.Size = new Size(228, 27);
+            txtAgencyAddress.Size = new Size(200, 23);
             txtAgencyAddress.TabIndex = 1;
             // 
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(107, 100);
+            lblAddress.Location = new Point(94, 75);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(73, 20);
+            lblAddress.Size = new Size(58, 15);
             lblAddress.TabIndex = 42;
             lblAddress.Text = "Address : ";
             // 
             // lblCity
             // 
             lblCity.AutoSize = true;
-            lblCity.Location = new Point(129, 147);
+            lblCity.Location = new Point(113, 110);
             lblCity.Name = "lblCity";
-            lblCity.Size = new Size(41, 20);
+            lblCity.Size = new Size(34, 15);
             lblCity.TabIndex = 43;
             lblCity.Text = "City :";
             // 
             // lblProv
             // 
             lblProv.AutoSize = true;
-            lblProv.Location = new Point(98, 193);
+            lblProv.Location = new Point(86, 145);
             lblProv.Name = "lblProv";
-            lblProv.Size = new Size(72, 20);
+            lblProv.Size = new Size(59, 15);
             lblProv.TabIndex = 44;
             lblProv.Text = "Province :";
             // 
             // lblPostal
             // 
             lblPostal.AutoSize = true;
-            lblPostal.Location = new Point(505, 56);
+            lblPostal.Location = new Point(442, 42);
             lblPostal.Name = "lblPostal";
-            lblPostal.Size = new Size(94, 20);
+            lblPostal.Size = new Size(76, 15);
             lblPostal.TabIndex = 45;
             lblPostal.Text = "Postal Code :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(528, 100);
+            label4.Location = new Point(462, 75);
             label4.Name = "label4";
-            label4.Size = new Size(71, 20);
+            label4.Size = new Size(59, 15);
             label4.TabIndex = 46;
             label4.Text = "Country : ";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(538, 147);
+            label5.Location = new Point(471, 110);
             label5.Name = "label5";
-            label5.Size = new Size(61, 20);
+            label5.Size = new Size(50, 15);
             label5.TabIndex = 47;
             label5.Text = "Phone : ";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(562, 189);
+            label6.Location = new Point(492, 142);
             label6.Name = "label6";
-            label6.Size = new Size(37, 20);
+            label6.Size = new Size(31, 15);
             label6.TabIndex = 48;
             label6.Text = "Fax :";
             // 
             // txtCity
             // 
-            txtCity.Location = new Point(186, 144);
+            txtCity.Location = new Point(163, 108);
+            txtCity.Margin = new Padding(3, 2, 3, 2);
             txtCity.Name = "txtCity";
             txtCity.ReadOnly = true;
-            txtCity.Size = new Size(228, 27);
+            txtCity.Size = new Size(200, 23);
             txtCity.TabIndex = 2;
             // 
             // txtProv
             // 
-            txtProv.Location = new Point(186, 190);
+            txtProv.Location = new Point(163, 142);
+            txtProv.Margin = new Padding(3, 2, 3, 2);
             txtProv.Name = "txtProv";
             txtProv.ReadOnly = true;
-            txtProv.Size = new Size(228, 27);
+            txtProv.Size = new Size(200, 23);
             txtProv.TabIndex = 3;
             // 
             // txtPostal
             // 
-            txtPostal.Location = new Point(605, 53);
+            txtPostal.Location = new Point(529, 40);
+            txtPostal.Margin = new Padding(3, 2, 3, 2);
             txtPostal.Name = "txtPostal";
             txtPostal.ReadOnly = true;
-            txtPostal.Size = new Size(257, 27);
+            txtPostal.Size = new Size(225, 23);
             txtPostal.TabIndex = 4;
             // 
             // txtCountry
             // 
-            txtCountry.Location = new Point(605, 97);
+            txtCountry.Location = new Point(529, 73);
+            txtCountry.Margin = new Padding(3, 2, 3, 2);
             txtCountry.Name = "txtCountry";
             txtCountry.ReadOnly = true;
-            txtCountry.Size = new Size(257, 27);
+            txtCountry.Size = new Size(225, 23);
             txtCountry.TabIndex = 5;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(605, 140);
+            txtPhone.Location = new Point(529, 105);
+            txtPhone.Margin = new Padding(3, 2, 3, 2);
             txtPhone.Name = "txtPhone";
             txtPhone.ReadOnly = true;
-            txtPhone.Size = new Size(257, 27);
+            txtPhone.Size = new Size(225, 23);
             txtPhone.TabIndex = 6;
             // 
             // txtFax
             // 
-            txtFax.Location = new Point(605, 186);
+            txtFax.Location = new Point(529, 140);
+            txtFax.Margin = new Padding(3, 2, 3, 2);
             txtFax.Name = "txtFax";
             txtFax.ReadOnly = true;
-            txtFax.Size = new Size(257, 27);
+            txtFax.Size = new Size(225, 23);
             txtFax.TabIndex = 7;
             // 
             // btnSave
             // 
             btnSave.Enabled = false;
-            btnSave.Location = new Point(669, 500);
+            btnSave.Location = new Point(583, 375);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(193, 29);
+            btnSave.Size = new Size(169, 22);
             btnSave.TabIndex = 8;
             btnSave.Text = "&Save Changes";
             btnSave.UseVisualStyleBackColor = true;
@@ -243,9 +257,10 @@
             // btnDiscard
             // 
             btnDiscard.Enabled = false;
-            btnDiscard.Location = new Point(470, 500);
+            btnDiscard.Location = new Point(384, 375);
+            btnDiscard.Margin = new Padding(3, 2, 3, 2);
             btnDiscard.Name = "btnDiscard";
-            btnDiscard.Size = new Size(193, 29);
+            btnDiscard.Size = new Size(169, 22);
             btnDiscard.TabIndex = 9;
             btnDiscard.Text = "Discard Chan&ges";
             btnDiscard.UseVisualStyleBackColor = true;
@@ -253,8 +268,9 @@
             // 
             // ucManageAgencies
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientInactiveCaption;
             Controls.Add(btnDiscard);
             Controls.Add(btnSave);
             Controls.Add(txtFax);
@@ -277,8 +293,9 @@
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
             Controls.Add(dgvAgencies);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ucManageAgencies";
-            Size = new Size(914, 570);
+            Size = new Size(795, 402);
             Load += ucManageAgencies_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).EndInit();
             ResumeLayout(false);
