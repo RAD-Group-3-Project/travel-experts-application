@@ -106,14 +106,12 @@ public partial class frmMain : Form
                     controlToLoad = new ucManageSuppliers();
                     break;
                 case "Packages Products Suppliers":
-                    // TODO: Implement the ucManagePackagesProductsSuppliers control
-                    //controlToLoad = new uc();
+                    controlToLoad = new ucManagePackageProductSupplier();
                     break;
                 case "Agents":
                     controlToLoad = new ucManageAgents();
                     break;
                 case "Agencies":
-                    // TODO: Implement the ucManageAgencies control
                     controlToLoad = new ucManageAgencies();
                     break;
                 default:

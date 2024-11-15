@@ -56,7 +56,7 @@
             lblPackageProductSupplierID.AutoSize = true;
             lblPackageProductSupplierID.Location = new Point(81, 89);
             lblPackageProductSupplierID.Name = "lblPackageProductSupplierID";
-            lblPackageProductSupplierID.Size = new Size(200, 20);
+            lblPackageProductSupplierID.Size = new Size(199, 20);
             lblPackageProductSupplierID.TabIndex = 50;
             lblPackageProductSupplierID.Text = "Package Product Supplier ID:";
             // 
@@ -65,7 +65,7 @@
             lblPackageID.AutoSize = true;
             lblPackageID.Location = new Point(195, 133);
             lblPackageID.Name = "lblPackageID";
-            lblPackageID.Size = new Size(86, 20);
+            lblPackageID.Size = new Size(85, 20);
             lblPackageID.TabIndex = 52;
             lblPackageID.Text = "Package ID:";
             // 
@@ -87,6 +87,7 @@
             dgvPackageProductSupplier.RowHeadersWidth = 51;
             dgvPackageProductSupplier.Size = new Size(809, 236);
             dgvPackageProductSupplier.TabIndex = 57;
+            dgvPackageProductSupplier.SelectionChanged += dgvPackageProductSupplier_SelectionChanged;
             // 
             // btnDisc
             // 
@@ -107,6 +108,7 @@
             btnSave.TabIndex = 61;
             btnSave.Text = "Save Changes";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnDelete
             // 
@@ -134,6 +136,7 @@
             btnAdd.TabIndex = 58;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // cmbPackageID
             // 

@@ -7,17 +7,29 @@ using TravelExpertData.Data;
 using TravelExpertData.Models;
 
 namespace TravelExpertData.Repositories
-{
+{   
     public class PackagesProductsSuppliersRepository
     {   
-        public static List<PackagesProductsSupplier> GetPPSList()
+        public static List<PackagesProductsSupplierView> GetPPSList()
         {
             using TravelExpertContext conn = new TravelExpertContext();
             {
                 try
                 {
-                    var ppslist = conn.PackagesProductsSuppliers;
-                    return ppslist.ToList();
+                    var query = from pps in conn.PackagesProductsSuppliers
+                                join p in conn.Packages on pps.PackageId equals p.PackageId
+                                join sup in conn.ProductsSuppliers on pps.PackageProductSupplierId equals sup.ProductSupplierId
+                                join s in conn.Suppliers on sup.SupplierId equals s.SupplierId
+                                select new PackagesProductsSupplierView
+                                {
+                                    PackageProductSupplierId = pps.PackageProductSupplierId,
+                                    PackageId = p.PackageId,
+                                    PkgName = p.PkgName,
+                                    ProductSupplierId = sup.ProductSupplierId,
+                                    SupName = s.SupName
+                                };
+
+                    return query.ToList();
                 }
                 catch (Exception ex)
                 {
