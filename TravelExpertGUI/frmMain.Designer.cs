@@ -29,14 +29,14 @@ partial class frmMain
     private void InitializeComponent()
     {
         menuStrip1 = new MenuStrip();
+        toolStripMenuItem1 = new ToolStripMenuItem();
+        exitToolStripMenuItem = new ToolStripMenuItem();
         mnuUser = new ToolStripMenuItem();
         profileToolStripMenuItem = new ToolStripMenuItem();
         changePasswordToolStripMenuItem = new ToolStripMenuItem();
         signOutToolStripMenuItem = new ToolStripMenuItem();
         mnuDatabase = new ToolStripMenuItem();
         contentPanel = new Panel();
-        toolStripMenuItem1 = new ToolStripMenuItem();
-        exitToolStripMenuItem = new ToolStripMenuItem();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
@@ -53,6 +53,20 @@ partial class frmMain
         menuStrip1.Size = new Size(914, 65);
         menuStrip1.TabIndex = 0;
         menuStrip1.Text = "menuStrip1";
+        // 
+        // toolStripMenuItem1
+        // 
+        toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+        toolStripMenuItem1.Name = "toolStripMenuItem1";
+        toolStripMenuItem1.Size = new Size(55, 59);
+        toolStripMenuItem1.Text = "File";
+        // 
+        // exitToolStripMenuItem
+        // 
+        exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+        exitToolStripMenuItem.Size = new Size(224, 30);
+        exitToolStripMenuItem.Text = "Exit";
+        exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
         // 
         // mnuUser
         // 
@@ -92,28 +106,14 @@ partial class frmMain
         contentPanel.BackgroundImageLayout = ImageLayout.Zoom;
         contentPanel.Location = new Point(0, 68);
         contentPanel.Name = "contentPanel";
-        contentPanel.Size = new Size(914, 536);
+        contentPanel.Size = new Size(914, 562);
         contentPanel.TabIndex = 1;
-        // 
-        // toolStripMenuItem1
-        // 
-        toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
-        toolStripMenuItem1.Name = "toolStripMenuItem1";
-        toolStripMenuItem1.Size = new Size(55, 59);
-        toolStripMenuItem1.Text = "File";
-        // 
-        // exitToolStripMenuItem
-        // 
-        exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-        exitToolStripMenuItem.Size = new Size(224, 30);
-        exitToolStripMenuItem.Text = "Exit";
-        exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
         // 
         // frmMain
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(914, 600);
+        ClientSize = new Size(914, 627);
         ControlBox = false;
         Controls.Add(contentPanel);
         Controls.Add(menuStrip1);
