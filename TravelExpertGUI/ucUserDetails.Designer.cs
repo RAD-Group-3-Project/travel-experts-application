@@ -77,7 +77,7 @@
             Controls.Add(txtUsername);
             Controls.Add(label1);
             Name = "ucUserDetails";
-            Size = new Size(914, 570);
+            Size = new Size(914, 571);
             Load += ucUserDetails_Load;
             ResumeLayout(false);
             PerformLayout();

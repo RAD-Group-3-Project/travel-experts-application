@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
+using TravelExpertGUI.Helpers;
 
 namespace TravelExpertGUI;
 public partial class ucManageSuppliers : UserControl
@@ -125,52 +126,108 @@ public partial class ucManageSuppliers : UserControl
     {
         populateSuppliers();
     }
-
+    // Functions for our save changes button 
     private void btnSave_Click(object sender, EventArgs e)
     {
         switch (function)
-        {
+        {   
+            // Checks our function 
             case "ADD":
+                // Validates the text box for id and name
+                if (TextBoxValidator.IsPresent(txtSupName) && TextBoxValidator.IsInteger(txtSupID))
+                {   
+                    // Makes new supplier and applies attributes
+                    Supplier addedSupplier = new Supplier();
+                    // Finds our last id again in case it has changed 
+                    int lastRowColumnValue = lastID_PlusOne();
+                    addedSupplier.SupplierId = lastRowColumnValue;
+                    addedSupplier.SupName = txtSupName.Text;
+                    addedSupplier.IsActive = true;
+                    // Tries to add
+                    try
+                    {
+                        SupplierRepository.addSupplier(addedSupplier);
+                    }   
+                    // Catches and displays error 
+                    catch (Exception ex )
+                    {
 
-                Supplier addedSupplier = new Supplier();
-                int lastRowColumnValue = lastID_PlusOne();
-                addedSupplier.SupplierId = lastRowColumnValue;
-                addedSupplier.SupName = txtSupName.Text;
-                addedSupplier.IsActive = true;
-                SupplierRepository.addSupplier(addedSupplier);
-                populateSuppliers();
-
-                break;
-
+                        MessageBox.Show($"Error: {ex.Message}", "Supplier Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    // Reloads our list 
+                    populateSuppliers();
+                    // Escapes the switch
+                    break; 
+                }
+                // Gives error if validation has failed 
+                else 
+                {
+                    MessageBox.Show("Please input a Supplier Name");
+                    break;
+                }
+            // Our edit case 
             case "EDIT":
+                // Validates Our Text boxes 
+                if (TextBoxValidator.IsPresent(txtSupName) && TextBoxValidator.IsInteger(txtSupID))
+                {   
+                    // Makes a new supplier and sets attributes 
+                    Supplier editedSupplier = new Supplier();
+                    editedSupplier.SupplierId = Convert.ToInt32(txtSupID.Text);
+                    editedSupplier.SupName = txtSupName.Text;
+                    editedSupplier.IsActive = true;
+                    // Tries our update function
+                    try
+                    {
+                        SupplierRepository.updateSupplier(editedSupplier);
+                    }  
+                    // Catch and display Edit error
+                    catch (Exception ex)
+                    {
 
-                Supplier editedSupplier = new Supplier();
-
-                editedSupplier.SupplierId = Convert.ToInt32(txtSupID.Text);
-                editedSupplier.SupName = txtSupName.Text;
-                editedSupplier.IsActive = true;
-                SupplierRepository.updateSupplier(editedSupplier);
-                populateSuppliers();
-
-                break;
+                        MessageBox.Show($"Error: {ex.Message}", "Supplier Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }   
+                    // Refresh List
+                    populateSuppliers();
+                    // Escape switch
+                    break; 
+                }
+                // Catches error for validation
+                else
+                {
+                    MessageBox.Show("Please input a Supplier Name");
+                    break;
+                }
 
         }
     }
-
+    // Delete Function 
     private void btnDelete_Click(object sender, EventArgs e)
-    {
+    {   
+        // Finds our selected row and supplier
         DataGridViewRow selectedRow = dgvSuppliers.CurrentRow;
         int selectedSupplier = Convert.ToInt32(selectedRow.Cells[0].Value);
+        // Pops Our Message box to ensure deletion
         DialogResult result =
             MessageBox.Show($"Are you sure you want to delete Supplier {selectedRow.Cells[1].Value} ",
             "Delete Supplier",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question);
-        if (result == DialogResult.Yes) 
-        {
-            SupplierRepository.deleteSupplier(selectedSupplier);
-            populateSuppliers() ;
+        // If they say yes : 
+        if (result == DialogResult.Yes)
+        {       
+        // Try delete 
+            try
+            {
+                    SupplierRepository.deleteSupplier(selectedSupplier);
+            }
+            catch (Exception ex )
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Supplier Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // Refresh List
+            populateSuppliers();
         }
+        
     }
 }
 
