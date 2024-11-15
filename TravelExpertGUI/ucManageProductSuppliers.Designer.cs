@@ -46,7 +46,7 @@ partial class ucManageProductSuppliers
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(415, 377);
+        btnDisc.Location = new Point(384, 377);
         btnDisc.Margin = new Padding(3, 2, 3, 2);
         btnDisc.Name = "btnDisc";
         btnDisc.Size = new Size(169, 22);
@@ -58,7 +58,7 @@ partial class ucManageProductSuppliers
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(589, 377);
+        btnSave.Location = new Point(583, 377);
         btnSave.Margin = new Padding(3, 2, 3, 2);
         btnSave.Name = "btnSave";
         btnSave.Size = new Size(169, 22);
@@ -69,7 +69,7 @@ partial class ucManageProductSuppliers
         // 
         // btnDelete
         // 
-        btnDelete.Location = new Point(284, 377);
+        btnDelete.Location = new Point(272, 377);
         btnDelete.Margin = new Padding(3, 2, 3, 2);
         btnDelete.Name = "btnDelete";
         btnDelete.Size = new Size(82, 22);
@@ -80,7 +80,7 @@ partial class ucManageProductSuppliers
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(196, 377);
+        btnEdit.Location = new Point(160, 377);
         btnEdit.Margin = new Padding(3, 2, 3, 2);
         btnEdit.Name = "btnEdit";
         btnEdit.Size = new Size(82, 22);
@@ -91,7 +91,7 @@ partial class ucManageProductSuppliers
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(54, 377);
+        btnAdd.Location = new Point(48, 377);
         btnAdd.Margin = new Padding(3, 2, 3, 2);
         btnAdd.Name = "btnAdd";
         btnAdd.Size = new Size(82, 22);
@@ -111,6 +111,7 @@ partial class ucManageProductSuppliers
         // 
         // txtProductSupplierId
         // 
+        txtProductSupplierId.BackColor = SystemColors.Control;
         txtProductSupplierId.Location = new Point(178, 45);
         txtProductSupplierId.Name = "txtProductSupplierId";
         txtProductSupplierId.Size = new Size(100, 23);
@@ -136,26 +137,29 @@ partial class ucManageProductSuppliers
         // 
         // cboProductName
         // 
+        cboProductName.BackColor = SystemColors.Control;
         cboProductName.FormattingEnabled = true;
         cboProductName.Location = new Point(178, 84);
         cboProductName.Name = "cboProductName";
-        cboProductName.Size = new Size(205, 23);
+        cboProductName.Size = new Size(100, 23);
         cboProductName.TabIndex = 54;
         // 
         // cboSupplierName
         // 
+        cboSupplierName.BackColor = SystemColors.Control;
         cboSupplierName.FormattingEnabled = true;
         cboSupplierName.Location = new Point(178, 129);
         cboSupplierName.Name = "cboSupplierName";
-        cboSupplierName.Size = new Size(205, 23);
+        cboSupplierName.Size = new Size(100, 23);
         cboSupplierName.TabIndex = 55;
         // 
         // dgvProductSupplier
         // 
+        dgvProductSupplier.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvProductSupplier.Location = new Point(54, 179);
+        dgvProductSupplier.Location = new Point(48, 179);
         dgvProductSupplier.Name = "dgvProductSupplier";
-        dgvProductSupplier.Size = new Size(708, 177);
+        dgvProductSupplier.Size = new Size(704, 175);
         dgvProductSupplier.TabIndex = 56;
         dgvProductSupplier.SelectionChanged += dgvProductSupplier_SelectionChanged;
         // 
@@ -163,6 +167,7 @@ partial class ucManageProductSuppliers
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
+        BackColor = SystemColors.GradientInactiveCaption;
         Controls.Add(dgvProductSupplier);
         Controls.Add(cboSupplierName);
         Controls.Add(cboProductName);
