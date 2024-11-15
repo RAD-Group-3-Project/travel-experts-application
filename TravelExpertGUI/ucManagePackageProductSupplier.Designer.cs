@@ -80,6 +80,7 @@
             // 
             // dgvPackageProductSupplier
             // 
+            dgvPackageProductSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPackageProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPackageProductSupplier.Location = new Point(62, 239);
             dgvPackageProductSupplier.Margin = new Padding(3, 4, 3, 4);

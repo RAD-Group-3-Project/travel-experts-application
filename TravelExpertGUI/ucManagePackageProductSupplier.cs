@@ -39,21 +39,32 @@ namespace TravelExpertGUI
             txtPackageProductSupplierId.ReadOnly = true;
             cmbPackageID.Enabled = false;
             cmbProductSupplierID.Enabled = false;
+            // Clears The list
+            dgvPackageProductSupplier.Columns.Clear();
+            // Populates the list
+            dgvPackageProductSupplier.DataSource = PackagesProductsSuppliersRepository.GetPPSList();
+            // format the column header
+            dgvPackageProductSupplier.EnableHeadersVisualStyles = false;
+            dgvPackageProductSupplier.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+            dgvPackageProductSupplier.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvPackageProductSupplier.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
+            dgvPackageProductSupplier.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            // Manually change our column width, alignment, and header text
+            dgvPackageProductSupplier.Columns[0].HeaderText = "Id";
+            dgvPackageProductSupplier.Columns[1].HeaderText = "Package ID";
+            dgvPackageProductSupplier.Columns[2].HeaderText = "Package Name";
+            dgvPackageProductSupplier.Columns[3].HeaderText = "Prod Sup ID";
+
+            dgvPackageProductSupplier.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            // Hides the row selection columns
+            dgvPackageProductSupplier.RowHeadersVisible = false;
             // Activates and deactivates appropriate buttons
             btnAdd.Enabled = true;
             btnDelete.Enabled = true;
             btnEdit.Enabled = true;
             btnDisc.Enabled = false;
             btnSave.Enabled = false;
-            // Clears The list
-            dgvPackageProductSupplier.Columns.Clear();
-            // Populates the list
-            dgvPackageProductSupplier.DataSource = PackagesProductsSuppliersRepository.GetPPSList();
-
-
-
-
-
+       
         }
         // Gets our current row and changes selected PPS
         private void dgvPackageProductSupplier_SelectionChanged(object sender, EventArgs e)

@@ -45,11 +45,15 @@ namespace TravelExpertGUI
             dgvAgencies.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
             dgvAgencies.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             // Manually change our column width, alignment, and header text
-            //dgvAgencies.Columns[0].Width = 100;
-            //dgvAgencies.Columns[0].HeaderText = "Code";
+            dgvAgencies.Columns[0].HeaderText = "ID";
+            dgvAgencies.Columns[1].HeaderText = "Address";
+            dgvAgencies.Columns[2].HeaderText = "City";
+            dgvAgencies.Columns[3].HeaderText = "Province";
+            dgvAgencies.Columns[4].HeaderText = "Postal";
+            dgvAgencies.Columns[5].HeaderText = "Country";
+            dgvAgencies.Columns[6].HeaderText = "Phone";
+            dgvAgencies.Columns[7].HeaderText = "Fax";
             //dgvAgencies.Columns[1].Width = 250;
-            //dgvAgencies.Columns[2].Width = 50;
-            //dgvAgencies.Columns[2].HeaderText = "Ver.";
             dgvAgencies.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             // Hides the row selection columns
             dgvAgencies.RowHeadersVisible = false;

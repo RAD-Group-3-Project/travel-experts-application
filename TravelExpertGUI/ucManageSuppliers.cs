@@ -49,7 +49,10 @@ public partial class ucManageSuppliers : UserControl
         dgvSuppliers.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
         dgvSuppliers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         dgvSuppliers.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        // Hides the row selection columns
+        // Manually change our column width, alignment, and header text
+        dgvSuppliers.Columns[0].HeaderText = "ID";
+        dgvSuppliers.Columns[1].HeaderText = "Supplier Name";
+        // Hides header column
         dgvSuppliers.RowHeadersVisible = false;
         // Hides additional columns we dont need to see 
         dgvSuppliers.Columns[2].Visible = false;
