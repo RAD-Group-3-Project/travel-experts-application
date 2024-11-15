@@ -38,17 +38,15 @@ partial class ucManageProducts
         label1 = new Label();
         txtSupID = new TextBox();
         label2 = new Label();
-        btnExit = new Button();
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
         SuspendLayout();
         // 
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(412, 375);
-        btnDisc.Margin = new Padding(3, 2, 3, 2);
+        btnDisc.Location = new Point(476, 500);
         btnDisc.Name = "btnDisc";
-        btnDisc.Size = new Size(98, 22);
+        btnDisc.Size = new Size(189, 29);
         btnDisc.TabIndex = 43;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
@@ -56,10 +54,9 @@ partial class ucManageProducts
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(552, 375);
-        btnSave.Margin = new Padding(3, 2, 3, 2);
+        btnSave.Location = new Point(681, 500);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(98, 22);
+        btnSave.Size = new Size(189, 29);
         btnSave.TabIndex = 42;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -67,30 +64,27 @@ partial class ucManageProducts
         // btnDelete
         // 
         btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
-        btnDelete.Location = new Point(288, 375);
-        btnDelete.Margin = new Padding(3, 2, 3, 2);
+        btnDelete.Location = new Point(313, 500);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(82, 22);
+        btnDelete.Size = new Size(94, 29);
         btnDelete.TabIndex = 47;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(164, 375);
-        btnEdit.Margin = new Padding(3, 2, 3, 2);
+        btnEdit.Location = new Point(201, 500);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(82, 22);
+        btnEdit.Size = new Size(94, 29);
         btnEdit.TabIndex = 46;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(40, 375);
-        btnAdd.Margin = new Padding(3, 2, 3, 2);
+        btnAdd.Location = new Point(46, 500);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(82, 22);
+        btnAdd.Size = new Size(94, 29);
         btnAdd.TabIndex = 45;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -99,66 +93,51 @@ partial class ucManageProducts
         // 
         dgvSuppliers.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvSuppliers.Location = new Point(40, 103);
-        dgvSuppliers.Margin = new Padding(3, 2, 3, 2);
+        dgvSuppliers.Location = new Point(46, 137);
         dgvSuppliers.Name = "dgvSuppliers";
         dgvSuppliers.RowHeadersWidth = 51;
-        dgvSuppliers.Size = new Size(721, 251);
+        dgvSuppliers.Size = new Size(824, 335);
         dgvSuppliers.TabIndex = 44;
         // 
         // txtSupName
         // 
-        txtSupName.Location = new Point(538, 52);
-        txtSupName.Margin = new Padding(3, 2, 3, 2);
+        txtSupName.Location = new Point(615, 69);
         txtSupName.Name = "txtSupName";
         txtSupName.ReadOnly = true;
-        txtSupName.Size = new Size(176, 23);
+        txtSupName.Size = new Size(201, 27);
         txtSupName.TabIndex = 53;
         // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(432, 54);
+        label1.Location = new Point(494, 72);
         label1.Name = "label1";
-        label1.Size = new Size(90, 15);
+        label1.Size = new Size(111, 20);
         label1.TabIndex = 52;
         label1.Text = "Product Name :";
         // 
         // txtSupID
         // 
-        txtSupID.Location = new Point(158, 52);
-        txtSupID.Margin = new Padding(3, 2, 3, 2);
+        txtSupID.Location = new Point(181, 69);
         txtSupID.Name = "txtSupID";
         txtSupID.ReadOnly = true;
-        txtSupID.Size = new Size(176, 23);
+        txtSupID.Size = new Size(201, 27);
         txtSupID.TabIndex = 51;
         // 
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(74, 54);
+        label2.Location = new Point(85, 72);
         label2.Name = "label2";
-        label2.Size = new Size(69, 15);
+        label2.Size = new Size(86, 20);
         label2.TabIndex = 50;
         label2.Text = "Product ID :";
         // 
-        // btnExit
-        // 
-        btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        btnExit.Location = new Point(692, 375);
-        btnExit.Margin = new Padding(3, 2, 3, 2);
-        btnExit.Name = "btnExit";
-        btnExit.Size = new Size(69, 22);
-        btnExit.TabIndex = 54;
-        btnExit.Text = "&Exit";
-        btnExit.UseVisualStyleBackColor = true;
-        // 
         // ucManageProducts
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
-        Controls.Add(btnExit);
         Controls.Add(txtSupName);
         Controls.Add(label1);
         Controls.Add(txtSupID);
@@ -169,9 +148,8 @@ partial class ucManageProducts
         Controls.Add(btnEdit);
         Controls.Add(btnAdd);
         Controls.Add(dgvSuppliers);
-        Margin = new Padding(3, 2, 3, 2);
         Name = "ucManageProducts";
-        Size = new Size(800, 428);
+        Size = new Size(914, 562);
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
         ResumeLayout(false);
         PerformLayout();
@@ -189,5 +167,4 @@ partial class ucManageProducts
     private Label label1;
     private TextBox txtSupID;
     private Label label2;
-    private Button btnExit;
 }

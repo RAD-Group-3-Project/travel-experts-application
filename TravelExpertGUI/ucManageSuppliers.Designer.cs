@@ -38,17 +38,15 @@ partial class ucManageSuppliers
         txtSupID = new TextBox();
         lblSupName = new Label();
         txtSupName = new TextBox();
-        btnExit = new Button();
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
         SuspendLayout();
         // 
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(383, 375);
-        btnDisc.Margin = new Padding(3, 2, 3, 2);
+        btnDisc.Location = new Point(464, 500);
         btnDisc.Name = "btnDisc";
-        btnDisc.Size = new Size(107, 22);
+        btnDisc.Size = new Size(189, 29);
         btnDisc.TabIndex = 37;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
@@ -57,10 +55,9 @@ partial class ucManageSuppliers
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(532, 375);
-        btnSave.Margin = new Padding(3, 2, 3, 2);
+        btnSave.Location = new Point(668, 500);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(107, 22);
+        btnSave.Size = new Size(189, 29);
         btnSave.TabIndex = 36;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -69,10 +66,9 @@ partial class ucManageSuppliers
         // btnDelete
         // 
         btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
-        btnDelete.Location = new Point(272, 375);
-        btnDelete.Margin = new Padding(3, 2, 3, 2);
+        btnDelete.Location = new Point(291, 500);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(69, 22);
+        btnDelete.Size = new Size(79, 29);
         btnDelete.TabIndex = 41;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
@@ -80,10 +76,9 @@ partial class ucManageSuppliers
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(161, 375);
-        btnEdit.Margin = new Padding(3, 2, 3, 2);
+        btnEdit.Location = new Point(197, 500);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(69, 22);
+        btnEdit.Size = new Size(79, 29);
         btnEdit.TabIndex = 40;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
@@ -91,10 +86,9 @@ partial class ucManageSuppliers
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(50, 375);
-        btnAdd.Margin = new Padding(3, 2, 3, 2);
+        btnAdd.Location = new Point(57, 500);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(69, 22);
+        btnAdd.Size = new Size(79, 29);
         btnAdd.TabIndex = 39;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -104,67 +98,52 @@ partial class ucManageSuppliers
         // 
         dgvSuppliers.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvSuppliers.Location = new Point(50, 108);
-        dgvSuppliers.Margin = new Padding(3, 2, 3, 2);
+        dgvSuppliers.Location = new Point(57, 144);
         dgvSuppliers.Name = "dgvSuppliers";
         dgvSuppliers.RowHeadersWidth = 51;
-        dgvSuppliers.Size = new Size(700, 251);
+        dgvSuppliers.Size = new Size(800, 335);
         dgvSuppliers.TabIndex = 38;
         dgvSuppliers.SelectionChanged += dgvSuppliers_SelectionChanged;
         // 
         // lblSupID
         // 
         lblSupID.AutoSize = true;
-        lblSupID.Location = new Point(81, 50);
+        lblSupID.Location = new Point(93, 67);
         lblSupID.Name = "lblSupID";
-        lblSupID.Size = new Size(70, 15);
+        lblSupID.Size = new Size(90, 20);
         lblSupID.TabIndex = 42;
         lblSupID.Text = "Supplier ID :";
         // 
         // txtSupID
         // 
-        txtSupID.Location = new Point(165, 48);
-        txtSupID.Margin = new Padding(3, 2, 3, 2);
+        txtSupID.Location = new Point(189, 64);
         txtSupID.Name = "txtSupID";
         txtSupID.ReadOnly = true;
-        txtSupID.Size = new Size(176, 23);
+        txtSupID.Size = new Size(201, 27);
         txtSupID.TabIndex = 43;
         // 
         // lblSupName
         // 
         lblSupName.AutoSize = true;
-        lblSupName.Location = new Point(439, 50);
+        lblSupName.Location = new Point(502, 67);
         lblSupName.Name = "lblSupName";
-        lblSupName.Size = new Size(91, 15);
+        lblSupName.Size = new Size(115, 20);
         lblSupName.TabIndex = 44;
         lblSupName.Text = "Supplier Name :";
         // 
         // txtSupName
         // 
-        txtSupName.Location = new Point(545, 48);
-        txtSupName.Margin = new Padding(3, 2, 3, 2);
+        txtSupName.Location = new Point(623, 64);
         txtSupName.Name = "txtSupName";
         txtSupName.ReadOnly = true;
-        txtSupName.Size = new Size(176, 23);
+        txtSupName.Size = new Size(201, 27);
         txtSupName.TabIndex = 45;
-        // 
-        // btnExit
-        // 
-        btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        btnExit.Location = new Point(681, 375);
-        btnExit.Margin = new Padding(3, 2, 3, 2);
-        btnExit.Name = "btnExit";
-        btnExit.Size = new Size(69, 22);
-        btnExit.TabIndex = 51;
-        btnExit.Text = "&Exit";
-        btnExit.UseVisualStyleBackColor = true;
         // 
         // ucManageSuppliers
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
-        Controls.Add(btnExit);
         Controls.Add(txtSupName);
         Controls.Add(lblSupName);
         Controls.Add(txtSupID);
@@ -175,9 +154,8 @@ partial class ucManageSuppliers
         Controls.Add(btnEdit);
         Controls.Add(btnAdd);
         Controls.Add(dgvSuppliers);
-        Margin = new Padding(3, 2, 3, 2);
         Name = "ucManageSuppliers";
-        Size = new Size(800, 428);
+        Size = new Size(914, 562);
         Load += ucManageSuppliers_Load;
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
         ResumeLayout(false);
@@ -196,5 +174,4 @@ partial class ucManageSuppliers
     private TextBox txtSupID;
     private Label lblSupName;
     private TextBox txtSupName;
-    private Button btnExit;
 }
