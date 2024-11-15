@@ -12,6 +12,6 @@ namespace TravelExpertData.Models
         public int PackageId { get; set; }
         public string PkgName { get; set; }
         public int ProductSupplierId { get; set; }
-        public string SupName { get; set; }
+       
     }
 }

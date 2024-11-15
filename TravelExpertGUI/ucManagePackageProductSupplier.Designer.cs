@@ -98,6 +98,7 @@
             btnDisc.TabIndex = 62;
             btnDisc.Text = "Discard Chan&ges";
             btnDisc.UseVisualStyleBackColor = true;
+            btnDisc.Click += btnDisc_Click;
             // 
             // btnSave
             // 
@@ -118,6 +119,7 @@
             btnDelete.TabIndex = 60;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnEdit
             // 
@@ -127,6 +129,7 @@
             btnEdit.TabIndex = 59;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnAdd
             // 

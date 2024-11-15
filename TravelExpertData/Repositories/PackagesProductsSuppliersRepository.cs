@@ -19,14 +19,15 @@ namespace TravelExpertData.Repositories
                     var query = from pps in conn.PackagesProductsSuppliers
                                 join p in conn.Packages on pps.PackageId equals p.PackageId
                                 join sup in conn.ProductsSuppliers on pps.PackageProductSupplierId equals sup.ProductSupplierId
-                                join s in conn.Suppliers on sup.SupplierId equals s.SupplierId
+                                where pps.IsActive == true
+                                orderby pps.PackageProductSupplierId
                                 select new PackagesProductsSupplierView
-                                {
+                                {   
                                     PackageProductSupplierId = pps.PackageProductSupplierId,
                                     PackageId = p.PackageId,
                                     PkgName = p.PkgName,
-                                    ProductSupplierId = sup.ProductSupplierId,
-                                    SupName = s.SupName
+                                    ProductSupplierId = pps.ProductSupplierId,
+                                    
                                 };
 
                     return query.ToList();

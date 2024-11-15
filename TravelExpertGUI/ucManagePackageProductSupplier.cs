@@ -34,6 +34,7 @@ namespace TravelExpertGUI
 
         private void populatePPS()
         {
+            dgvPackageProductSupplier.Enabled = true;
             // Sets textboxes and buttons to appropriate status
             txtPackageProductSupplierId.ReadOnly = true;
             cmbPackageID.Enabled = false;
@@ -88,6 +89,10 @@ namespace TravelExpertGUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            dgvPackageProductSupplier.Enabled = false;
+            cmbPackageID.SelectedIndex = -1;
+            cmbProductSupplierID.SelectedIndex = -1;
+            txtPackageProductSupplierId.Clear();
             txtPackageProductSupplierId.ReadOnly = true;
             cmbPackageID.Enabled = true;
             cmbProductSupplierID.Enabled = true;
@@ -101,6 +106,69 @@ namespace TravelExpertGUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (isAddition)
+            {
+                PackagesProductsSupplier addedPPS = new PackagesProductsSupplier();
+                addedPPS.PackageId = Int32.Parse(cmbPackageID.SelectedValue.ToString());
+                addedPPS.ProductSupplierId = Int32.Parse(cmbProductSupplierID.SelectedValue.ToString());
+                addedPPS.IsActive = true;
+                PackagesProductsSuppliersRepository.CreatePPS(addedPPS);
+                populatePPS();
+
+            }
+            else
+            {
+                PackagesProductsSupplier updatedPPS = new PackagesProductsSupplier();
+                updatedPPS.PackageProductSupplierId = Int32.Parse(txtPackageProductSupplierId.Text.ToString());
+                updatedPPS.PackageId = Int32.Parse(cmbPackageID.SelectedValue.ToString());
+                updatedPPS.ProductSupplierId = Int32.Parse(cmbProductSupplierID.SelectedValue.ToString());
+                updatedPPS.IsActive = true;
+                PackagesProductsSuppliersRepository.UpdatePPS(updatedPPS);
+                populatePPS();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            dgvPackageProductSupplier.Enabled = false;
+            txtPackageProductSupplierId.ReadOnly = true;
+            cmbPackageID.Enabled = true;
+            cmbProductSupplierID.Enabled = true;
+            btnAdd.Enabled = false;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
+            btnDisc.Enabled = true;
+            btnSave.Enabled = true;
+            isAddition = false;
+        }
+
+        private void btnDisc_Click(object sender, EventArgs e)
+        {
+            populatePPS();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvPackageProductSupplier.CurrentRow;
+            int selectedPPS = Convert.ToInt32(selectedRow.Cells[0].Value);
+            DialogResult result =
+           MessageBox.Show($"Are you sure you would like to delete PPS #{selectedRow.Cells[0].Value} ",
+           "Confirm Agent Deletion",
+           MessageBoxButtons.YesNo,
+           MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    PackagesProductsSuppliersRepository.DeletePPS(selectedPPS);
+                    populatePPS();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"Error: {ex.Message}", "PPS Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
         }
     }
