@@ -48,6 +48,7 @@ partial class ucManagePackages
         btnDelete = new Button();
         btnDiscard = new Button();
         btnSave = new Button();
+        btnExit = new Button();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         SuspendLayout();
         // 
@@ -185,7 +186,7 @@ partial class ucManagePackages
         dataGridView1.Margin = new Padding(3, 2, 3, 2);
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
-        dataGridView1.Size = new Size(708, 189);
+        dataGridView1.Size = new Size(705, 189);
         dataGridView1.TabIndex = 14;
         // 
         // btnAdd
@@ -193,7 +194,7 @@ partial class ucManagePackages
         btnAdd.Location = new Point(43, 380);
         btnAdd.Margin = new Padding(3, 2, 3, 2);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(82, 22);
+        btnAdd.Size = new Size(69, 22);
         btnAdd.TabIndex = 15;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -201,10 +202,10 @@ partial class ucManagePackages
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(156, 380);
+        btnEdit.Location = new Point(155, 380);
         btnEdit.Margin = new Padding(3, 2, 3, 2);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(82, 22);
+        btnEdit.Size = new Size(69, 22);
         btnEdit.TabIndex = 16;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
@@ -212,10 +213,11 @@ partial class ucManagePackages
         // 
         // btnDelete
         // 
-        btnDelete.Location = new Point(269, 380);
+        btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+        btnDelete.Location = new Point(267, 380);
         btnDelete.Margin = new Padding(3, 2, 3, 2);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(82, 22);
+        btnDelete.Size = new Size(69, 22);
         btnDelete.TabIndex = 17;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
@@ -224,10 +226,10 @@ partial class ucManagePackages
         // btnDiscard
         // 
         btnDiscard.Enabled = false;
-        btnDiscard.Location = new Point(382, 380);
+        btnDiscard.Location = new Point(379, 380);
         btnDiscard.Margin = new Padding(3, 2, 3, 2);
         btnDiscard.Name = "btnDiscard";
-        btnDiscard.Size = new Size(169, 22);
+        btnDiscard.Size = new Size(107, 22);
         btnDiscard.TabIndex = 58;
         btnDiscard.Text = "Discard Chan&ges";
         btnDiscard.UseVisualStyleBackColor = true;
@@ -236,20 +238,32 @@ partial class ucManagePackages
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(582, 380);
+        btnSave.Location = new Point(529, 380);
         btnSave.Margin = new Padding(3, 2, 3, 2);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(169, 22);
+        btnSave.Size = new Size(107, 22);
         btnSave.TabIndex = 57;
         btnSave.Text = "&Save Changes";
         btnSave.UseVisualStyleBackColor = true;
         btnSave.Click += btnSave_Click;
+        // 
+        // btnExit
+        // 
+        btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        btnExit.Location = new Point(679, 380);
+        btnExit.Margin = new Padding(3, 2, 3, 2);
+        btnExit.Name = "btnExit";
+        btnExit.Size = new Size(69, 22);
+        btnExit.TabIndex = 59;
+        btnExit.Text = "&Exit";
+        btnExit.UseVisualStyleBackColor = true;
         // 
         // ucManagePackages
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(btnExit);
         Controls.Add(btnDiscard);
         Controls.Add(btnSave);
         Controls.Add(btnDelete);
@@ -300,4 +314,5 @@ partial class ucManagePackages
     private Button btnDelete;
     private Button btnDiscard;
     private Button btnSave;
+    private Button btnExit;
 }

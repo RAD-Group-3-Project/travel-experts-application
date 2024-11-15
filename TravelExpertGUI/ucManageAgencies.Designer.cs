@@ -50,6 +50,7 @@
             txtFax = new TextBox();
             btnSave = new Button();
             btnDiscard = new Button();
+            btnExit = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).BeginInit();
             SuspendLayout();
             // 
@@ -57,20 +58,21 @@
             // 
             dgvAgencies.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvAgencies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAgencies.Location = new Point(46, 182);
+            dgvAgencies.Location = new Point(31, 182);
             dgvAgencies.Margin = new Padding(3, 2, 3, 2);
             dgvAgencies.Name = "dgvAgencies";
             dgvAgencies.RowHeadersWidth = 51;
-            dgvAgencies.Size = new Size(708, 177);
+            dgvAgencies.Size = new Size(728, 177);
             dgvAgencies.TabIndex = 11;
             dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(272, 375);
+            btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+            btnDelete.Location = new Point(263, 375);
             btnDelete.Margin = new Padding(3, 2, 3, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(82, 22);
+            btnDelete.Size = new Size(69, 22);
             btnDelete.TabIndex = 38;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -78,10 +80,10 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(160, 375);
+            btnEdit.Location = new Point(147, 375);
             btnEdit.Margin = new Padding(3, 2, 3, 2);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(82, 22);
+            btnEdit.Size = new Size(69, 22);
             btnEdit.TabIndex = 37;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
@@ -89,10 +91,10 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(48, 375);
+            btnAdd.Location = new Point(31, 375);
             btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(82, 22);
+            btnAdd.Size = new Size(69, 22);
             btnAdd.TabIndex = 36;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -245,10 +247,10 @@
             // btnSave
             // 
             btnSave.Enabled = false;
-            btnSave.Location = new Point(583, 375);
+            btnSave.Location = new Point(533, 375);
             btnSave.Margin = new Padding(3, 2, 3, 2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(169, 22);
+            btnSave.Size = new Size(107, 22);
             btnSave.TabIndex = 8;
             btnSave.Text = "&Save Changes";
             btnSave.UseVisualStyleBackColor = true;
@@ -257,20 +259,32 @@
             // btnDiscard
             // 
             btnDiscard.Enabled = false;
-            btnDiscard.Location = new Point(384, 375);
+            btnDiscard.Location = new Point(379, 375);
             btnDiscard.Margin = new Padding(3, 2, 3, 2);
             btnDiscard.Name = "btnDiscard";
-            btnDiscard.Size = new Size(169, 22);
+            btnDiscard.Size = new Size(107, 22);
             btnDiscard.TabIndex = 9;
             btnDiscard.Text = "Discard Chan&ges";
             btnDiscard.UseVisualStyleBackColor = true;
             btnDiscard.Click += btnDiscard_Click;
+            // 
+            // btnExit
+            // 
+            btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.Location = new Point(687, 375);
+            btnExit.Margin = new Padding(3, 2, 3, 2);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(69, 22);
+            btnExit.TabIndex = 49;
+            btnExit.Text = "&Exit";
+            btnExit.UseVisualStyleBackColor = true;
             // 
             // ucManageAgencies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
+            Controls.Add(btnExit);
             Controls.Add(btnDiscard);
             Controls.Add(btnSave);
             Controls.Add(txtFax);
@@ -326,5 +340,6 @@
         private TextBox txtFax;
         private Button btnSave;
         private Button btnDiscard;
+        private Button btnExit;
     }
 }

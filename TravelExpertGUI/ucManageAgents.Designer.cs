@@ -50,12 +50,14 @@ partial class ucManageAgents
         txtMiddleInit = new TextBox();
         lblMid = new Label();
         btnDisc = new Button();
+        btnExit = new Button();
         ((System.ComponentModel.ISupportInitialize)dgvAgents).BeginInit();
         SuspendLayout();
         // 
         // btnDelete
         // 
-        btnDelete.Location = new Point(272, 375);
+        btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+        btnDelete.Location = new Point(277, 375);
         btnDelete.Margin = new Padding(3, 2, 3, 2);
         btnDelete.Name = "btnDelete";
         btnDelete.Size = new Size(82, 22);
@@ -66,7 +68,7 @@ partial class ucManageAgents
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(160, 375);
+        btnEdit.Location = new Point(161, 375);
         btnEdit.Margin = new Padding(3, 2, 3, 2);
         btnEdit.Name = "btnEdit";
         btnEdit.Size = new Size(82, 22);
@@ -77,7 +79,7 @@ partial class ucManageAgents
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(48, 375);
+        btnAdd.Location = new Point(45, 375);
         btnAdd.Margin = new Padding(3, 2, 3, 2);
         btnAdd.Name = "btnAdd";
         btnAdd.Size = new Size(82, 22);
@@ -90,11 +92,11 @@ partial class ucManageAgents
         // 
         dgvAgents.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvAgents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvAgents.Location = new Point(46, 182);
+        dgvAgents.Location = new Point(43, 182);
         dgvAgents.Margin = new Padding(3, 2, 3, 2);
         dgvAgents.Name = "dgvAgents";
         dgvAgents.RowHeadersWidth = 51;
-        dgvAgents.Size = new Size(708, 177);
+        dgvAgents.Size = new Size(705, 177);
         dgvAgents.TabIndex = 32;
         dgvAgents.SelectionChanged += dgvAgents_SelectionChanged;
         // 
@@ -218,10 +220,10 @@ partial class ucManageAgents
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(583, 375);
+        btnSave.Location = new Point(534, 375);
         btnSave.Margin = new Padding(3, 2, 3, 2);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(169, 22);
+        btnSave.Size = new Size(107, 22);
         btnSave.TabIndex = 8;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -259,20 +261,32 @@ partial class ucManageAgents
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(384, 375);
+        btnDisc.Location = new Point(393, 375);
         btnDisc.Margin = new Padding(3, 2, 3, 2);
         btnDisc.Name = "btnDisc";
-        btnDisc.Size = new Size(169, 22);
+        btnDisc.Size = new Size(107, 22);
         btnDisc.TabIndex = 9;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
         btnDisc.Click += btnDisc_Click;
+        // 
+        // btnExit
+        // 
+        btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        btnExit.Location = new Point(675, 375);
+        btnExit.Margin = new Padding(3, 2, 3, 2);
+        btnExit.Name = "btnExit";
+        btnExit.Size = new Size(69, 22);
+        btnExit.TabIndex = 50;
+        btnExit.Text = "&Exit";
+        btnExit.UseVisualStyleBackColor = true;
         // 
         // ucManageAgents
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(btnExit);
         Controls.Add(btnDisc);
         Controls.Add(lblMid);
         Controls.Add(txtMiddleInit);
@@ -329,4 +343,5 @@ partial class ucManageAgents
     private TextBox txtMiddleInit;
     private Label lblMid;
     private Button btnDisc;
+    private Button btnExit;
 }

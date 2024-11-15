@@ -39,7 +39,8 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(273, 250);
+            txtPassword.BackColor = SystemColors.Control;
+            txtPassword.Location = new Point(305, 252);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(163, 23);
             txtPassword.TabIndex = 3;
@@ -47,7 +48,8 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(273, 220);
+            txtUsername.BackColor = SystemColors.Control;
+            txtUsername.Location = new Point(305, 222);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(163, 23);
             txtUsername.TabIndex = 2;
@@ -55,7 +57,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(183, 253);
+            label2.Location = new Point(215, 255);
             label2.Name = "label2";
             label2.Size = new Size(60, 15);
             label2.TabIndex = 1;
@@ -64,7 +66,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(183, 223);
+            label1.Location = new Point(215, 225);
             label1.Name = "label1";
             label1.Size = new Size(63, 15);
             label1.TabIndex = 0;
@@ -73,7 +75,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.travel_expert_logo;
-            pictureBox1.Location = new Point(183, 52);
+            pictureBox1.Location = new Point(215, 30);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(264, 155);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -82,13 +84,12 @@
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.DodgerBlue;
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(183, 294);
+            btnLogin.BackColor = SystemColors.GradientActiveCaption;
+            btnLogin.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.ForeColor = SystemColors.ControlText;
+            btnLogin.Location = new Point(339, 298);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(264, 34);
+            btnLogin.Size = new Size(100, 34);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -99,7 +100,7 @@
             AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientActiveCaption;
+            BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(695, 381);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
