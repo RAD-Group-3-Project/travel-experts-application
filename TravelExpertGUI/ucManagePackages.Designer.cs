@@ -54,146 +54,137 @@ partial class ucManagePackages
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(64, 38);
+        label1.Location = new Point(73, 51);
         label1.Name = "label1";
-        label1.Size = new Size(67, 15);
+        label1.Size = new Size(83, 20);
         label1.TabIndex = 0;
         label1.Text = "Package Id:";
         // 
         // txtPkgId
         // 
         txtPkgId.BackColor = SystemColors.Control;
-        txtPkgId.Location = new Point(194, 35);
-        txtPkgId.Margin = new Padding(3, 2, 3, 2);
+        txtPkgId.Location = new Point(222, 47);
         txtPkgId.Name = "txtPkgId";
-        txtPkgId.Size = new Size(110, 23);
+        txtPkgId.Size = new Size(125, 27);
         txtPkgId.TabIndex = 1;
         // 
         // txtPkgName
         // 
         txtPkgName.BackColor = SystemColors.Control;
-        txtPkgName.Location = new Point(194, 63);
-        txtPkgName.Margin = new Padding(3, 2, 3, 2);
+        txtPkgName.Location = new Point(222, 84);
         txtPkgName.Name = "txtPkgName";
-        txtPkgName.Size = new Size(110, 23);
+        txtPkgName.Size = new Size(125, 27);
         txtPkgName.TabIndex = 3;
         // 
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(64, 65);
+        label2.Location = new Point(73, 87);
         label2.Name = "label2";
-        label2.Size = new Size(89, 15);
+        label2.Size = new Size(110, 20);
         label2.TabIndex = 2;
         label2.Text = "Package Name:";
         // 
         // txtPkgStartDate
         // 
         txtPkgStartDate.BackColor = SystemColors.Control;
-        txtPkgStartDate.Location = new Point(194, 91);
-        txtPkgStartDate.Margin = new Padding(3, 2, 3, 2);
+        txtPkgStartDate.Location = new Point(222, 121);
         txtPkgStartDate.Name = "txtPkgStartDate";
-        txtPkgStartDate.Size = new Size(110, 23);
+        txtPkgStartDate.Size = new Size(125, 27);
         txtPkgStartDate.TabIndex = 5;
         // 
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(64, 95);
+        label3.Location = new Point(73, 127);
         label3.Name = "label3";
-        label3.Size = new Size(108, 15);
+        label3.Size = new Size(137, 20);
         label3.TabIndex = 4;
         label3.Text = "Package Start Date:";
         // 
         // txtPkgEndDate
         // 
         txtPkgEndDate.BackColor = SystemColors.Control;
-        txtPkgEndDate.Location = new Point(194, 119);
-        txtPkgEndDate.Margin = new Padding(3, 2, 3, 2);
+        txtPkgEndDate.Location = new Point(222, 159);
         txtPkgEndDate.Name = "txtPkgEndDate";
-        txtPkgEndDate.Size = new Size(110, 23);
+        txtPkgEndDate.Size = new Size(125, 27);
         txtPkgEndDate.TabIndex = 7;
         // 
         // label4
         // 
         label4.AutoSize = true;
-        label4.Location = new Point(64, 124);
+        label4.Location = new Point(73, 165);
         label4.Name = "label4";
-        label4.Size = new Size(104, 15);
+        label4.Size = new Size(131, 20);
         label4.TabIndex = 6;
         label4.Text = "Package End Date:";
         // 
         // txtPkgDesc
         // 
         txtPkgDesc.BackColor = SystemColors.Control;
-        txtPkgDesc.Location = new Point(194, 147);
-        txtPkgDesc.Margin = new Padding(3, 2, 3, 2);
+        txtPkgDesc.Location = new Point(222, 196);
         txtPkgDesc.Name = "txtPkgDesc";
-        txtPkgDesc.Size = new Size(110, 23);
+        txtPkgDesc.Size = new Size(125, 27);
         txtPkgDesc.TabIndex = 9;
         // 
         // label5
         // 
         label5.AutoSize = true;
-        label5.Location = new Point(64, 152);
+        label5.Location = new Point(73, 203);
         label5.Name = "label5";
-        label5.Size = new Size(117, 15);
+        label5.Size = new Size(146, 20);
         label5.TabIndex = 8;
         label5.Text = "Package Description:";
         // 
         // label6
         // 
         label6.AutoSize = true;
-        label6.Location = new Point(399, 41);
+        label6.Location = new Point(456, 55);
         label6.Name = "label6";
-        label6.Size = new Size(110, 15);
+        label6.Size = new Size(137, 20);
         label6.TabIndex = 10;
         label6.Text = "Package Base Price:";
         // 
         // txtPkgBasePrice
         // 
         txtPkgBasePrice.BackColor = SystemColors.Control;
-        txtPkgBasePrice.Location = new Point(582, 38);
-        txtPkgBasePrice.Margin = new Padding(3, 2, 3, 2);
+        txtPkgBasePrice.Location = new Point(665, 51);
         txtPkgBasePrice.Name = "txtPkgBasePrice";
-        txtPkgBasePrice.Size = new Size(110, 23);
+        txtPkgBasePrice.Size = new Size(125, 27);
         txtPkgBasePrice.TabIndex = 11;
         // 
         // label7
         // 
         label7.AutoSize = true;
-        label7.Location = new Point(399, 71);
+        label7.Location = new Point(456, 95);
         label7.Name = "label7";
-        label7.Size = new Size(167, 15);
+        label7.Size = new Size(204, 20);
         label7.TabIndex = 12;
         label7.Text = "Package Agency Commission:";
         // 
         // txtPkgAgcyCom
         // 
         txtPkgAgcyCom.BackColor = SystemColors.Control;
-        txtPkgAgcyCom.Location = new Point(582, 65);
-        txtPkgAgcyCom.Margin = new Padding(3, 2, 3, 2);
+        txtPkgAgcyCom.Location = new Point(665, 87);
         txtPkgAgcyCom.Name = "txtPkgAgcyCom";
-        txtPkgAgcyCom.Size = new Size(110, 23);
+        txtPkgAgcyCom.Size = new Size(125, 27);
         txtPkgAgcyCom.TabIndex = 13;
         // 
         // dataGridView1
         // 
         dataGridView1.BackgroundColor = SystemColors.GradientActiveCaption;
         dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView1.Location = new Point(43, 187);
-        dataGridView1.Margin = new Padding(3, 2, 3, 2);
+        dataGridView1.Location = new Point(49, 249);
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
-        dataGridView1.Size = new Size(708, 189);
+        dataGridView1.Size = new Size(802, 236);
         dataGridView1.TabIndex = 14;
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(43, 380);
-        btnAdd.Margin = new Padding(3, 2, 3, 2);
+        btnAdd.Location = new Point(49, 507);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(82, 22);
+        btnAdd.Size = new Size(79, 29);
         btnAdd.TabIndex = 15;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -201,10 +192,9 @@ partial class ucManagePackages
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(156, 380);
-        btnEdit.Margin = new Padding(3, 2, 3, 2);
+        btnEdit.Location = new Point(202, 507);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(82, 22);
+        btnEdit.Size = new Size(79, 29);
         btnEdit.TabIndex = 16;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
@@ -212,10 +202,10 @@ partial class ucManagePackages
         // 
         // btnDelete
         // 
-        btnDelete.Location = new Point(269, 380);
-        btnDelete.Margin = new Padding(3, 2, 3, 2);
+        btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+        btnDelete.Location = new Point(300, 507);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(82, 22);
+        btnDelete.Size = new Size(79, 29);
         btnDelete.TabIndex = 17;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
@@ -224,10 +214,9 @@ partial class ucManagePackages
         // btnDiscard
         // 
         btnDiscard.Enabled = false;
-        btnDiscard.Location = new Point(382, 380);
-        btnDiscard.Margin = new Padding(3, 2, 3, 2);
+        btnDiscard.Location = new Point(456, 507);
         btnDiscard.Name = "btnDiscard";
-        btnDiscard.Size = new Size(169, 22);
+        btnDiscard.Size = new Size(189, 29);
         btnDiscard.TabIndex = 58;
         btnDiscard.Text = "Discard Chan&ges";
         btnDiscard.UseVisualStyleBackColor = true;
@@ -236,10 +225,9 @@ partial class ucManagePackages
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(582, 380);
-        btnSave.Margin = new Padding(3, 2, 3, 2);
+        btnSave.Location = new Point(662, 507);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(169, 22);
+        btnSave.Size = new Size(189, 29);
         btnSave.TabIndex = 57;
         btnSave.Text = "&Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -247,7 +235,7 @@ partial class ucManagePackages
         // 
         // ucManagePackages
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
         Controls.Add(btnDiscard);
@@ -270,9 +258,8 @@ partial class ucManagePackages
         Controls.Add(label2);
         Controls.Add(txtPkgId);
         Controls.Add(label1);
-        Margin = new Padding(3, 2, 3, 2);
         Name = "ucManagePackages";
-        Size = new Size(795, 409);
+        Size = new Size(914, 562);
         ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
         ResumeLayout(false);
         PerformLayout();
