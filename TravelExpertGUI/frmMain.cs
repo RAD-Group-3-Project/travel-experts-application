@@ -137,4 +137,19 @@ public partial class frmMain : Form
     {
         Application.Exit();
     }
+
+    private void profileToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        contentPanel.Controls.Clear();
+        contentPanel.Controls.Add(new ucUserDetails() { currentuser = currentuser });
+
+    }
+
+    private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        this.Hide();
+        frmLogin frmLogin = new frmLogin();
+        frmLogin.ShowDialog();
+        
+    }
 }
