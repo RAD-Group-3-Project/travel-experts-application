@@ -145,5 +145,10 @@ public partial class frmMain : Form
     {
         contentPanel.Controls.Clear();
         contentPanel.Controls.Add(new ucUserDetails() { currentuser = currentuser });
+
+    private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        Application.Exit();
+
     }
 }

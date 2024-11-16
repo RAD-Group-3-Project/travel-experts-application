@@ -55,7 +55,8 @@ partial class ucManageAgents
         // 
         // btnDelete
         // 
-        btnDelete.Location = new Point(311, 500);
+        btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+        btnDelete.Location = new Point(305, 500);
         btnDelete.Name = "btnDelete";
         btnDelete.Size = new Size(94, 29);
         btnDelete.TabIndex = 35;
@@ -65,7 +66,7 @@ partial class ucManageAgents
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(183, 500);
+        btnEdit.Location = new Point(196, 500);
         btnEdit.Name = "btnEdit";
         btnEdit.Size = new Size(94, 29);
         btnEdit.TabIndex = 34;
@@ -75,7 +76,7 @@ partial class ucManageAgents
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(55, 500);
+        btnAdd.Location = new Point(51, 500);
         btnAdd.Name = "btnAdd";
         btnAdd.Size = new Size(94, 29);
         btnAdd.TabIndex = 33;
@@ -87,10 +88,10 @@ partial class ucManageAgents
         // 
         dgvAgents.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvAgents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvAgents.Location = new Point(53, 243);
+        dgvAgents.Location = new Point(49, 243);
         dgvAgents.Name = "dgvAgents";
         dgvAgents.RowHeadersWidth = 51;
-        dgvAgents.Size = new Size(809, 236);
+        dgvAgents.Size = new Size(806, 236);
         dgvAgents.TabIndex = 32;
         dgvAgents.SelectionChanged += dgvAgents_SelectionChanged;
         // 
@@ -210,7 +211,7 @@ partial class ucManageAgents
         btnSave.Enabled = false;
         btnSave.Location = new Point(666, 500);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(193, 29);
+        btnSave.Size = new Size(189, 29);
         btnSave.TabIndex = 8;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -246,9 +247,9 @@ partial class ucManageAgents
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(439, 500);
+        btnDisc.Location = new Point(459, 500);
         btnDisc.Name = "btnDisc";
-        btnDisc.Size = new Size(193, 29);
+        btnDisc.Size = new Size(189, 29);
         btnDisc.TabIndex = 9;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
@@ -283,7 +284,7 @@ partial class ucManageAgents
         Controls.Add(label1);
         ForeColor = SystemColors.ControlText;
         Name = "ucManageAgents";
-        Size = new Size(914, 571);
+        Size = new Size(914, 562);
         Load += ucManageAgents_Load;
         ((System.ComponentModel.ISupportInitialize)dgvAgents).EndInit();
         ResumeLayout(false);

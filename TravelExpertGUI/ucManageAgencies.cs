@@ -118,13 +118,13 @@ namespace TravelExpertGUI
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {   
+        {
             // determines what happens when the save button is clicked
             if (function == "add")
-            {   
+            {
                 // Tries 
                 try
-                {   
+                {
                     // Makes a new agency and populates it with info from our textboxes
                     Agency newagency = new();
                     newagency.AgncyAddress = txtAgencyAddress.Text;
@@ -140,7 +140,7 @@ namespace TravelExpertGUI
                     AgencyRepository.CreateLocation(newagency);
                     //repopulates our list with the new agency present
                     PopulateAgencies();
-                }  
+                }
                 // Catches our errors along the way 
                 catch (Exception ex)
                 {
@@ -150,10 +150,10 @@ namespace TravelExpertGUI
             }
             // If our edit has been determined by the function string
             if (function == "edit")
-            {   
+            {
                 // Tries the edit
                 try
-                {   
+                {
                     // Makes a new agency based on our textboxes 
                     Agency updatedAgency = new Agency();
                     updatedAgency.AgencyId = Convert.ToInt32(txtAgencyId.Text);
@@ -204,7 +204,7 @@ namespace TravelExpertGUI
         }
         // Function for delete button
         private void btnDelete_Click(object sender, EventArgs e)
-        {   
+        {
             // Finds the currently selected row 
             DataGridViewRow selectedRow = dgvAgencies.CurrentRow;
             // Stores the id as an int
@@ -217,15 +217,15 @@ namespace TravelExpertGUI
                 MessageBoxIcon.Question); // Includes an icon in the message box 
             // if the button presses is yes (as stored in result)
             if (result == DialogResult.Yes)
-            {   
+            {
                 //tries to delete  
                 try
-                {   
+                {
                     // Deleted based on id
                     AgencyRepository.DeleteAgencyByID(selectedAgency);
                     // repopulates the list 
                     PopulateAgencies();
-                }   
+                }
                 // Catches and displays any errors 
                 catch (Exception ex)
                 {
@@ -239,7 +239,7 @@ namespace TravelExpertGUI
         }
         // Resets back to default when discard is pushed 
         private void btnDiscard_Click(object sender, EventArgs e)
-        {   
+        {
             PopulateAgencies();
         }
     }

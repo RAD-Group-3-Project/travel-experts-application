@@ -177,14 +177,14 @@ partial class ucManagePackages
         dataGridView1.Location = new Point(49, 249);
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
-        dataGridView1.Size = new Size(809, 252);
+        dataGridView1.Size = new Size(802, 236);
         dataGridView1.TabIndex = 14;
         // 
         // btnAdd
         // 
         btnAdd.Location = new Point(49, 507);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(94, 29);
+        btnAdd.Size = new Size(79, 29);
         btnAdd.TabIndex = 15;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -192,9 +192,9 @@ partial class ucManagePackages
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(178, 507);
+        btnEdit.Location = new Point(202, 507);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(94, 29);
+        btnEdit.Size = new Size(79, 29);
         btnEdit.TabIndex = 16;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
@@ -202,9 +202,10 @@ partial class ucManagePackages
         // 
         // btnDelete
         // 
-        btnDelete.Location = new Point(307, 507);
+        btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+        btnDelete.Location = new Point(300, 507);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(94, 29);
+        btnDelete.Size = new Size(79, 29);
         btnDelete.TabIndex = 17;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
@@ -213,9 +214,9 @@ partial class ucManagePackages
         // btnDiscard
         // 
         btnDiscard.Enabled = false;
-        btnDiscard.Location = new Point(437, 507);
+        btnDiscard.Location = new Point(456, 507);
         btnDiscard.Name = "btnDiscard";
-        btnDiscard.Size = new Size(193, 29);
+        btnDiscard.Size = new Size(189, 29);
         btnDiscard.TabIndex = 58;
         btnDiscard.Text = "Discard Chan&ges";
         btnDiscard.UseVisualStyleBackColor = true;
@@ -224,9 +225,9 @@ partial class ucManagePackages
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(665, 507);
+        btnSave.Location = new Point(662, 507);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(193, 29);
+        btnSave.Size = new Size(189, 29);
         btnSave.TabIndex = 57;
         btnSave.Text = "&Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -258,7 +259,7 @@ partial class ucManagePackages
         Controls.Add(txtPkgId);
         Controls.Add(label1);
         Name = "ucManagePackages";
-        Size = new Size(914, 571);
+        Size = new Size(914, 562);
         ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
         ResumeLayout(false);
         PerformLayout();
