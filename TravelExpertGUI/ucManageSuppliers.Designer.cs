@@ -96,6 +96,7 @@ partial class ucManageSuppliers
         // 
         // dgvSuppliers
         // 
+        dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvSuppliers.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dgvSuppliers.Location = new Point(57, 144);

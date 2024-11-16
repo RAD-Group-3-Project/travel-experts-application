@@ -86,6 +86,7 @@ partial class ucManageAgents
         // 
         // dgvAgents
         // 
+        dgvAgents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvAgents.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvAgents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dgvAgents.Location = new Point(49, 243);

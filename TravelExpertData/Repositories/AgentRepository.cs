@@ -66,7 +66,7 @@ public class AgentRepository
         using (TravelExpertContext ctx = new TravelExpertContext())
         {   
             // linq code to find active agents only
-            var agents = ctx.Agents.Where(agent => agent.is_active == true);
+            var agents = ctx.Agents.Where(agent => agent.IsActive == true);
             // adds found user to list 
             return agents.ToList();
         }
@@ -102,7 +102,7 @@ public class AgentRepository
             {   
                 // Finds Id and changes is_active to false 
                 Agent agent = ctx.Agents.Find(id);
-                agent.is_active = false;
+                agent.IsActive = false;
                 // If no agent is found 
                 if (agent == null)
                 {   

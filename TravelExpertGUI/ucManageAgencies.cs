@@ -44,12 +44,16 @@ namespace TravelExpertGUI
             dgvAgencies.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAgencies.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
             dgvAgencies.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            // Manually change our column width, alignment, and header text
-            //dgvAgencies.Columns[0].Width = 100;
-            //dgvAgencies.Columns[0].HeaderText = "Code";
+            //Manually change our column width, alignment, and header text
+            dgvAgencies.Columns[0].HeaderText = "ID";
+            dgvAgencies.Columns[1].HeaderText = "Address";
+            dgvAgencies.Columns[2].HeaderText = "City";
+            dgvAgencies.Columns[3].HeaderText = "Province";
+            dgvAgencies.Columns[4].HeaderText = "Postal";
+            dgvAgencies.Columns[5].HeaderText = "Country";
+            dgvAgencies.Columns[6].HeaderText = "Phone";
+            dgvAgencies.Columns[7].HeaderText = "Fax";
             //dgvAgencies.Columns[1].Width = 250;
-            //dgvAgencies.Columns[2].Width = 50;
-            //dgvAgencies.Columns[2].HeaderText = "Ver.";
             dgvAgencies.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             // Hides the row selection columns
             dgvAgencies.RowHeadersVisible = false;
@@ -135,7 +139,7 @@ namespace TravelExpertGUI
                     newagency.AgncyPhone = txtPhone.Text;
                     newagency.AgncyCountry = txtCountry.Text;
                     // Makes the new agency active
-                    newagency.is_active = true;
+                    newagency.IsActive = true;
                     // Calls our add fuction
                     AgencyRepository.CreateLocation(newagency);
                     //repopulates our list with the new agency present
@@ -165,7 +169,7 @@ namespace TravelExpertGUI
                     updatedAgency.AgncyPhone = txtPhone.Text;
                     updatedAgency.AgncyPostal = txtPostal.Text;
                     // Makes it active
-                    updatedAgency.is_active = true;
+                    updatedAgency.IsActive = true;
                     // Tries to update the selected agency with the new info
                     AgencyRepository.UpdateAgency(updatedAgency);
                     // Repopulates our list with the updated info

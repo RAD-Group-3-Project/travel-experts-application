@@ -20,6 +20,9 @@ public partial class PackagesProductsSupplier
 
     public int ProductSupplierId { get; set; }
 
+    [Column("is_active")]
+    public bool? IsActive { get; set; }
+
     [ForeignKey("PackageId")]
     [InverseProperty("PackagesProductsSuppliers")]
     public virtual Package Package { get; set; } = null!;

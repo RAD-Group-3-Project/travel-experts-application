@@ -31,7 +31,7 @@ namespace TravelExpertGUI
                 };
                 this.Hide();
                 mainForm.ShowDialog();
-                
+
             }
             if (currentuser.Username == null)
             {
@@ -42,6 +42,11 @@ namespace TravelExpertGUI
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); 
         }
     }
 }

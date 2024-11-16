@@ -41,45 +41,42 @@
             // txtUser
             // 
             txtUser.BackColor = SystemColors.Control;
-            txtUser.Location = new Point(284, 65);
-            txtUser.Margin = new Padding(3, 2, 3, 2);
+            txtUser.Location = new Point(325, 87);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(110, 23);
+            txtUser.Size = new Size(125, 27);
             txtUser.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(195, 70);
+            label1.Location = new Point(223, 93);
             label1.Name = "label1";
-            label1.Size = new Size(66, 15);
+            label1.Size = new Size(82, 20);
             label1.TabIndex = 1;
             label1.Text = "Username: ";
             // 
             // txtPassword
             // 
             txtPassword.BackColor = SystemColors.Control;
-            txtPassword.Location = new Point(284, 111);
-            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Location = new Point(325, 148);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(110, 23);
+            txtPassword.Size = new Size(125, 27);
             txtPassword.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(195, 116);
+            label2.Location = new Point(223, 155);
             label2.Name = "label2";
-            label2.Size = new Size(63, 15);
+            label2.Size = new Size(77, 20);
             label2.TabIndex = 3;
             label2.Text = "Password: ";
             // 
             // button1
             // 
-            button1.Location = new Point(284, 154);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(325, 205);
             button1.Name = "button1";
-            button1.Size = new Size(82, 22);
+            button1.Size = new Size(94, 29);
             button1.TabIndex = 4;
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
@@ -88,28 +85,27 @@
             // picTravelExperts
             // 
             picTravelExperts.Image = (Image)resources.GetObject("picTravelExperts.Image");
-            picTravelExperts.Location = new Point(10, 38);
-            picTravelExperts.Margin = new Padding(3, 2, 3, 2);
+            picTravelExperts.Location = new Point(11, 51);
             picTravelExperts.Name = "picTravelExperts";
-            picTravelExperts.Size = new Size(172, 157);
+            picTravelExperts.Size = new Size(197, 209);
             picTravelExperts.SizeMode = PictureBoxSizeMode.StretchImage;
             picTravelExperts.TabIndex = 5;
             picTravelExperts.TabStop = false;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(430, 214);
+            ClientSize = new Size(491, 285);
             Controls.Add(picTravelExperts);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(txtPassword);
             Controls.Add(label1);
             Controls.Add(txtUser);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Login";
             Text = "Travel Experts Login ";
+            FormClosing += Login_FormClosing;
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)picTravelExperts).EndInit();
             ResumeLayout(false);

@@ -81,6 +81,7 @@
             // 
             // dgvPackageProductSupplier
             // 
+            dgvPackageProductSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPackageProductSupplier.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvPackageProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPackageProductSupplier.Location = new Point(57, 239);
@@ -89,6 +90,7 @@
             dgvPackageProductSupplier.RowHeadersWidth = 51;
             dgvPackageProductSupplier.Size = new Size(802, 236);
             dgvPackageProductSupplier.TabIndex = 57;
+            dgvPackageProductSupplier.SelectionChanged += dgvPackageProductSupplier_SelectionChanged;
             // 
             // btnDisc
             // 
@@ -99,6 +101,7 @@
             btnDisc.TabIndex = 62;
             btnDisc.Text = "Discard Chan&ges";
             btnDisc.UseVisualStyleBackColor = true;
+            btnDisc.Click += btnDisc_Click;
             // 
             // btnSave
             // 
@@ -109,6 +112,7 @@
             btnSave.TabIndex = 61;
             btnSave.Text = "Save Changes";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnDelete
             // 
@@ -119,6 +123,7 @@
             btnDelete.TabIndex = 60;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnEdit
             // 
@@ -128,6 +133,7 @@
             btnEdit.TabIndex = 59;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnAdd
             // 
@@ -137,6 +143,7 @@
             btnAdd.TabIndex = 58;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // cmbPackageID
             // 
