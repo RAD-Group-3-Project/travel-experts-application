@@ -29,6 +29,8 @@ partial class frmMain
     private void InitializeComponent()
     {
         menuStrip1 = new MenuStrip();
+        toolStripMenuItem1 = new ToolStripMenuItem();
+        exitToolStripMenuItem = new ToolStripMenuItem();
         mnuUser = new ToolStripMenuItem();
         profileToolStripMenuItem = new ToolStripMenuItem();
         changePasswordToolStripMenuItem = new ToolStripMenuItem();
@@ -44,42 +46,57 @@ partial class frmMain
         menuStrip1.BackColor = Color.DodgerBlue;
         menuStrip1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         menuStrip1.ImageScalingSize = new Size(20, 20);
-        menuStrip1.Items.AddRange(new ToolStripItem[] { mnuUser, mnuDatabase });
+        menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, mnuUser, mnuDatabase });
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
-        menuStrip1.Size = new Size(800, 49);
+        menuStrip1.Padding = new Padding(7, 3, 0, 3);
+        menuStrip1.Size = new Size(914, 65);
         menuStrip1.TabIndex = 0;
         menuStrip1.Text = "menuStrip1";
+        // 
+        // toolStripMenuItem1
+        // 
+        toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+        toolStripMenuItem1.Name = "toolStripMenuItem1";
+        toolStripMenuItem1.Size = new Size(55, 59);
+        toolStripMenuItem1.Text = "File";
+        // 
+        // exitToolStripMenuItem
+        // 
+        exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+        exitToolStripMenuItem.Size = new Size(224, 30);
+        exitToolStripMenuItem.Text = "Exit";
+        exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
         // 
         // mnuUser
         // 
         mnuUser.DropDownItems.AddRange(new ToolStripItem[] { profileToolStripMenuItem, changePasswordToolStripMenuItem, signOutToolStripMenuItem });
         mnuUser.Name = "mnuUser";
-        mnuUser.Size = new Size(42, 20);
+        mnuUser.Size = new Size(64, 59);
         mnuUser.Text = "User";
         // 
         // profileToolStripMenuItem
         // 
         profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-        profileToolStripMenuItem.Size = new Size(168, 22);
+        profileToolStripMenuItem.Size = new Size(248, 30);
         profileToolStripMenuItem.Text = "Profile";
         // 
         // changePasswordToolStripMenuItem
         // 
         changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-        changePasswordToolStripMenuItem.Size = new Size(168, 22);
+        changePasswordToolStripMenuItem.Size = new Size(248, 30);
         changePasswordToolStripMenuItem.Text = "Change password";
         // 
         // signOutToolStripMenuItem
         // 
         signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-        signOutToolStripMenuItem.Size = new Size(168, 22);
+        signOutToolStripMenuItem.Size = new Size(248, 30);
         signOutToolStripMenuItem.Text = "Sign out";
         // 
         // mnuDatabase
         // 
         mnuDatabase.Name = "mnuDatabase";
-        mnuDatabase.Size = new Size(67, 20);
+        mnuDatabase.Size = new Size(104, 59);
         mnuDatabase.Text = "Database";
         // 
         // contentPanel
@@ -87,22 +104,22 @@ partial class frmMain
         contentPanel.BackColor = SystemColors.GradientInactiveCaption;
         contentPanel.BackgroundImage = Properties.Resources.travel_expert_logo;
         contentPanel.BackgroundImageLayout = ImageLayout.Zoom;
-        contentPanel.Location = new Point(0, 51);
-        contentPanel.Margin = new Padding(3, 2, 3, 2);
+        contentPanel.Location = new Point(0, 68);
         contentPanel.Name = "contentPanel";
-        contentPanel.Size = new Size(800, 402);
+        contentPanel.Size = new Size(914, 562);
         contentPanel.TabIndex = 1;
         // 
         // frmMain
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
+        ClientSize = new Size(914, 627);
         ControlBox = false;
         Controls.Add(contentPanel);
         Controls.Add(menuStrip1);
         FormBorderStyle = FormBorderStyle.None;
         MainMenuStrip = menuStrip1;
+        Margin = new Padding(3, 4, 3, 4);
         Name = "frmMain";
         ShowIcon = false;
         StartPosition = FormStartPosition.CenterScreen;
@@ -124,4 +141,6 @@ partial class frmMain
     private ToolStripMenuItem signOutToolStripMenuItem;
     private ToolStripMenuItem mnuDatabase;
     private Panel contentPanel;
+    private ToolStripMenuItem toolStripMenuItem1;
+    private ToolStripMenuItem exitToolStripMenuItem;
 }
