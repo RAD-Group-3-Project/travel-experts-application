@@ -52,6 +52,7 @@ partial class ucManageAgents
         btnDisc = new Button();
         btnSearch = new Button();
         lblSearchIcon = new Label();
+        lblClearIcon = new Label();
         ((System.ComponentModel.ISupportInitialize)dgvAgents).BeginInit();
         SuspendLayout();
         // 
@@ -285,7 +286,7 @@ partial class ucManageAgents
         // 
         lblSearchIcon.AutoSize = true;
         lblSearchIcon.Font = new Font("Segoe UI", 15F);
-        lblSearchIcon.Location = new Point(705, 150);
+        lblSearchIcon.Location = new Point(672, 152);
         lblSearchIcon.Name = "lblSearchIcon";
         lblSearchIcon.Size = new Size(39, 28);
         lblSearchIcon.TabIndex = 42;
@@ -294,11 +295,25 @@ partial class ucManageAgents
         lblSearchIcon.MouseLeave += lblSearchIcon_MouseLeave;
         lblSearchIcon.MouseHover += lblSearchIcon_MouseHover;
         // 
+        // lblClearIcon
+        // 
+        lblClearIcon.AutoSize = true;
+        lblClearIcon.Font = new Font("Segoe UI", 15F);
+        lblClearIcon.Location = new Point(709, 152);
+        lblClearIcon.Name = "lblClearIcon";
+        lblClearIcon.Size = new Size(39, 28);
+        lblClearIcon.TabIndex = 43;
+        lblClearIcon.Text = "✖";
+        lblClearIcon.Click += lblClearIcon_Click;
+        lblClearIcon.MouseLeave += lblClearIcon_MouseLeave;
+        lblClearIcon.MouseHover += lblClearIcon_MouseHover;
+        // 
         // ucManageAgents
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(lblClearIcon);
         Controls.Add(lblSearchIcon);
         Controls.Add(btnSearch);
         Controls.Add(btnDisc);
@@ -359,4 +374,5 @@ partial class ucManageAgents
     private Button btnDisc;
     private Button btnSearch;
     private Label lblSearchIcon;
+    private Label lblClearIcon;
 }

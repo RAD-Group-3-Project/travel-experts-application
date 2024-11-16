@@ -24,12 +24,23 @@ public partial class ucManageAgents : UserControl
 
     private void ucManageAgents_Load(object sender, EventArgs e)
     {
-        lblSearchIcon.Visible = false;
         PopulateAgents();
     }
 
     private void PopulateAgents()
     {
+        lblSearchIcon.Visible = false;
+
+        // disable all input fields
+        txtAgntId.ReadOnly = true;
+        txtAgntFName.ReadOnly = true;
+        txtMiddleInit.ReadOnly = true;
+        txtAgntLName.ReadOnly = true;
+        txtAgntBusPhone.ReadOnly = true;
+        txtAgntEmail.ReadOnly = true;
+        txtAgntPosition.ReadOnly = true;
+        cboAgency.Enabled = false;
+
         btnDisc.Enabled = false;
         btnSave.Enabled = false;
         btnAdd.Enabled = true;
@@ -210,27 +221,6 @@ public partial class ucManageAgents : UserControl
         }
     }
 
-    private void EnableEditableFields()
-    {
-        // clear all value in textboxes
-        txtAgntId.Clear();
-        txtAgntFName.Clear();
-        txtMiddleInit.Clear();
-        txtAgntLName.Clear();
-        txtAgntBusPhone.Clear();
-        txtAgntEmail.Clear();
-        txtAgntPosition.Clear();
-
-        // make it editable
-        txtAgntFName.ReadOnly = false;
-        txtMiddleInit.ReadOnly = false;
-        txtAgntLName.ReadOnly = false;
-        txtAgntBusPhone.ReadOnly = false;
-        txtAgntEmail.ReadOnly = false;
-        txtAgntPosition.ReadOnly = false;
-        cboAgency.Enabled = true;
-    }
-
     private void btnDisc_Click(object sender, EventArgs e)
     {
         PopulateAgents();
@@ -249,7 +239,6 @@ public partial class ucManageAgents : UserControl
         btnAdd.Enabled = false;
         btnDelete.Enabled = false;
         btnEdit.Enabled = false;
-
         btnDisc.Enabled = true;
     }
 
@@ -261,6 +250,16 @@ public partial class ucManageAgents : UserControl
     private void lblSearchIcon_MouseLeave(object sender, EventArgs e)
     {
         lblSearchIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblClearIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblClearIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Default;
     }
 
     private void lblSearchIcon_Click(object sender, EventArgs e)
@@ -287,4 +286,37 @@ public partial class ucManageAgents : UserControl
 
         dgvAgents.DataSource = filteredList;
     }
+
+    private void lblClearIcon_Click(object sender, EventArgs e)
+    {
+        ClearAllInputFields();
+    }
+
+    private void EnableEditableFields()
+    {
+        // clear all value in textboxes
+        ClearAllInputFields();
+
+        // make it editable
+        txtAgntFName.ReadOnly = false;
+        txtMiddleInit.ReadOnly = false;
+        txtAgntLName.ReadOnly = false;
+        txtAgntBusPhone.ReadOnly = false;
+        txtAgntEmail.ReadOnly = false;
+        txtAgntPosition.ReadOnly = false;
+        cboAgency.Enabled = true;
+    }
+
+    private void ClearAllInputFields()
+    {
+        txtAgntId.Clear();
+        txtAgntFName.Clear();
+        txtMiddleInit.Clear();
+        txtAgntLName.Clear();
+        txtAgntBusPhone.Clear();
+        txtAgntEmail.Clear();
+        txtAgntPosition.Clear();
+        cboAgency.SelectedIndex = -1; // select empty slot
+    }
+
 }
