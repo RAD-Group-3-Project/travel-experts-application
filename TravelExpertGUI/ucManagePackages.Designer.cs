@@ -172,6 +172,7 @@ partial class ucManagePackages
         // 
         // dataGridView1
         // 
+        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dataGridView1.BackgroundColor = SystemColors.GradientActiveCaption;
         dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dataGridView1.Location = new Point(49, 249);

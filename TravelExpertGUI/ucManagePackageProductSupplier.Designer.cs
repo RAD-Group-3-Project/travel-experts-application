@@ -81,6 +81,7 @@
             // 
             // dgvPackageProductSupplier
             // 
+            dgvPackageProductSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPackageProductSupplier.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvPackageProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPackageProductSupplier.Location = new Point(57, 239);

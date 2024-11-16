@@ -39,28 +39,28 @@ namespace TravelExpertGUI
 
 
             // format the column header
-            //dgvAgencies.EnableHeadersVisualStyles = false;
-            //dgvAgencies.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
-            //dgvAgencies.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dgvAgencies.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
-            //dgvAgencies.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            // Manually change our column width, alignment, and header text
-            //dgvAgencies.Columns[0].HeaderText = "ID";
-            //dgvAgencies.Columns[1].HeaderText = "Address";
-            //dgvAgencies.Columns[2].HeaderText = "City";
-            //dgvAgencies.Columns[3].HeaderText = "Province";
-            //dgvAgencies.Columns[4].HeaderText = "Postal";
-            //dgvAgencies.Columns[5].HeaderText = "Country";
-            //dgvAgencies.Columns[6].HeaderText = "Phone";
-            //dgvAgencies.Columns[7].HeaderText = "Fax";
+            dgvAgencies.EnableHeadersVisualStyles = false;
+            dgvAgencies.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+            dgvAgencies.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAgencies.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
+            dgvAgencies.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            //Manually change our column width, alignment, and header text
+            dgvAgencies.Columns[0].HeaderText = "ID";
+            dgvAgencies.Columns[1].HeaderText = "Address";
+            dgvAgencies.Columns[2].HeaderText = "City";
+            dgvAgencies.Columns[3].HeaderText = "Province";
+            dgvAgencies.Columns[4].HeaderText = "Postal";
+            dgvAgencies.Columns[5].HeaderText = "Country";
+            dgvAgencies.Columns[6].HeaderText = "Phone";
+            dgvAgencies.Columns[7].HeaderText = "Fax";
             //dgvAgencies.Columns[1].Width = 250;
             dgvAgencies.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             // Hides the row selection columns
             dgvAgencies.RowHeadersVisible = false;
             // Hides additional columns we dont need to see 
-            //dgvAgencies.Columns[8].Visible = false;
-            //dgvAgencies.Columns[9].Visible = false;
-            //txtAgencyAddress.ReadOnly = true;
+            dgvAgencies.Columns[8].Visible = false;
+            dgvAgencies.Columns[9].Visible = false;
+            txtAgencyAddress.ReadOnly = true;
             // Makes our fields read only for now 
             txtCountry.ReadOnly = true;
             txtPostal.ReadOnly = true;

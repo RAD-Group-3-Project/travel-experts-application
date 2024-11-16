@@ -55,9 +55,9 @@
             // 
             // dgvAgencies
             // 
+            dgvAgencies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAgencies.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvAgencies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
             dgvAgencies.Location = new Point(35, 243);
             dgvAgencies.Name = "dgvAgencies";
             dgvAgencies.RowHeadersWidth = 51;
@@ -78,7 +78,6 @@
             // 
             // btnEdit
             // 
-
             btnEdit.Location = new Point(186, 500);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(79, 29);
@@ -89,9 +88,6 @@
             // 
             // btnAdd
             // 
-
-            btnAdd.Location = new Point(55, 500);
-            btnAdd.Name = "btnAdd";
             btnAdd.Location = new Point(35, 500);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(79, 29);
