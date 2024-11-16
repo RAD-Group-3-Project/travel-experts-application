@@ -59,7 +59,7 @@ partial class ucManageProductSuppliers
         btnSave.Enabled = false;
         btnSave.Location = new Point(677, 503);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(169, 22);
+        btnSave.Size = new Size(189, 29);
         btnSave.TabIndex = 46;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@ partial class ucManageProductSuppliers
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(67, 113);
+        label2.Location = new Point(67, 116);
         label2.Name = "label2";
         label2.Size = new Size(107, 20);
         label2.TabIndex = 50;
@@ -126,7 +126,7 @@ partial class ucManageProductSuppliers
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(67, 156);
+        label3.Location = new Point(67, 176);
         label3.Name = "label3";
         label3.Size = new Size(111, 20);
         label3.TabIndex = 52;
@@ -154,7 +154,6 @@ partial class ucManageProductSuppliers
         // 
         // dgvProductSupplier
         // 
-        dgvProductSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvProductSupplier.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dgvProductSupplier.Location = new Point(49, 239);
@@ -184,7 +183,7 @@ partial class ucManageProductSuppliers
         Controls.Add(btnAdd);
         Margin = new Padding(3, 4, 3, 4);
         Name = "ucManageProductSuppliers";
-        Size = new Size(800, 428);
+        Size = new Size(914, 562);
         Load += ucManageProductSuppliers_Load;
         ((System.ComponentModel.ISupportInitialize)dgvProductSupplier).EndInit();
         ResumeLayout(false);

@@ -112,7 +112,6 @@ public partial class frmMain : Form
                     controlToLoad = new ucManageAgents();
                     break;
                 case "Agencies":
-                    // TODO: Implement the ucManageAgencies control
                     controlToLoad = new ucManageAgencies();
                     break;
                 default:
@@ -132,10 +131,14 @@ public partial class frmMain : Form
     {
         Application.Exit(); // Ensure the entire application closes
     }
-
-    private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+    // Logout Function
+    private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        Application.Exit();
+        // Logs the current user out
+        frmLogin login = new frmLogin();
+        this.Hide();
+        login.ShowDialog();
+
     }
 
     private void profileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,13 +146,9 @@ public partial class frmMain : Form
         contentPanel.Controls.Clear();
         contentPanel.Controls.Add(new ucUserDetails() { currentuser = currentuser });
 
-    }
-
-    private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+    private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        this.Hide();
-        frmLogin frmLogin = new frmLogin();
-        frmLogin.ShowDialog();
-        
+        Application.Exit();
+
     }
 }
