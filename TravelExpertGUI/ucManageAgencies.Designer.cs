@@ -58,38 +58,41 @@
             dgvAgencies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAgencies.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvAgencies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAgencies.Location = new Point(53, 243);
-            dgvAgencies.Name = "dgvAgencies";
+            dgvAgencies.Location = new Point(46, 182);
+            dgvAgencies.Margin = new Padding(3, 2, 3, 2);
+            dgvAgencies.Margin = new Padding(3, 2, 3, 2);
+            dgvAgencies.Size = new Size(832, 236);
             dgvAgencies.RowHeadersWidth = 51;
-            dgvAgencies.Size = new Size(809, 236);
+            dgvAgencies.Size = new Size(708, 177);
             dgvAgencies.TabIndex = 11;
             dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
             // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(311, 500);
+            btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+            btnDelete.Location = new Point(285, 500);
+            btnDelete.Location = new Point(272, 375);
+            btnDelete.Size = new Size(79, 29);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
+            btnDelete.Size = new Size(82, 22);
             btnDelete.TabIndex = 38;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
-            // btnEdit
-            // 
-            btnEdit.Location = new Point(183, 500);
+            btnEdit.Location = new Point(186, 500);
+            btnEdit.Location = new Point(160, 375);
+            btnEdit.Size = new Size(79, 29);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(94, 29);
+            btnEdit.Size = new Size(82, 22);
             btnEdit.TabIndex = 37;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
             btnEdit.Click += btnEdit_Click;
             // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(55, 500);
+            btnAdd.Location = new Point(35, 500);
+            btnAdd.Location = new Point(48, 375);
+            btnAdd.Size = new Size(79, 29);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(94, 29);
+            btnAdd.Size = new Size(82, 22);
             btnAdd.TabIndex = 36;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -232,22 +235,22 @@
             txtFax.TabIndex = 7;
             // 
             // btnSave
-            // 
-            btnSave.Enabled = false;
-            btnSave.Location = new Point(666, 500);
+            btnSave.Location = new Point(678, 500);
+            btnSave.Location = new Point(583, 375);
+            btnSave.Size = new Size(189, 29);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(193, 29);
+            btnSave.Size = new Size(169, 22);
             btnSave.TabIndex = 8;
             btnSave.Text = "&Save Changes";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
             // btnDiscard
-            // 
-            btnDiscard.Enabled = false;
-            btnDiscard.Location = new Point(439, 500);
+            btnDiscard.Location = new Point(465, 500);
+            btnDiscard.Location = new Point(384, 375);
+            btnDiscard.Size = new Size(189, 29);
             btnDiscard.Name = "btnDiscard";
-            btnDiscard.Size = new Size(193, 29);
+            btnDiscard.Size = new Size(169, 22);
             btnDiscard.TabIndex = 9;
             btnDiscard.Text = "Discard Chan&ges";
             btnDiscard.UseVisualStyleBackColor = true;
@@ -279,9 +282,9 @@
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
-            Controls.Add(dgvAgencies);
+            Size = new Size(914, 562);
             Name = "ucManageAgencies";
-            Size = new Size(914, 571);
+            Size = new Size(795, 402);
             Load += ucManageAgencies_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).EndInit();
             ResumeLayout(false);

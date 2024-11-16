@@ -29,6 +29,8 @@ partial class frmMain
     private void InitializeComponent()
     {
         menuStrip1 = new MenuStrip();
+        toolStripMenuItem1 = new ToolStripMenuItem();
+        exitToolStripMenuItem = new ToolStripMenuItem();
         mnuUser = new ToolStripMenuItem();
         profileToolStripMenuItem = new ToolStripMenuItem();
         changePasswordToolStripMenuItem = new ToolStripMenuItem();
@@ -44,13 +46,27 @@ partial class frmMain
         menuStrip1.BackColor = Color.DodgerBlue;
         menuStrip1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
         menuStrip1.ImageScalingSize = new Size(20, 20);
-        menuStrip1.Items.AddRange(new ToolStripItem[] { mnuUser, mnuDatabase });
+        menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, mnuUser, mnuDatabase });
         menuStrip1.Location = new Point(0, 0);
         menuStrip1.Name = "menuStrip1";
         menuStrip1.Padding = new Padding(7, 3, 0, 3);
         menuStrip1.Size = new Size(914, 65);
         menuStrip1.TabIndex = 0;
         menuStrip1.Text = "menuStrip1";
+        // 
+        // toolStripMenuItem1
+        // 
+        toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+        toolStripMenuItem1.Name = "toolStripMenuItem1";
+        toolStripMenuItem1.Size = new Size(55, 59);
+        toolStripMenuItem1.Text = "File";
+        // 
+        // exitToolStripMenuItem
+        // 
+        exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+        exitToolStripMenuItem.Size = new Size(224, 30);
+        exitToolStripMenuItem.Text = "Exit";
+        exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
         // 
         // mnuUser
         // 
@@ -92,14 +108,14 @@ partial class frmMain
         contentPanel.BackgroundImageLayout = ImageLayout.Zoom;
         contentPanel.Location = new Point(0, 68);
         contentPanel.Name = "contentPanel";
-        contentPanel.Size = new Size(914, 570);
+        contentPanel.Size = new Size(914, 562);
         contentPanel.TabIndex = 1;
         // 
         // frmMain
         // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(914, 636);
+        ClientSize = new Size(914, 627);
         ControlBox = false;
         Controls.Add(contentPanel);
         Controls.Add(menuStrip1);
@@ -127,4 +143,6 @@ partial class frmMain
     private ToolStripMenuItem signOutToolStripMenuItem;
     private ToolStripMenuItem mnuDatabase;
     private Panel contentPanel;
+    private ToolStripMenuItem toolStripMenuItem1;
+    private ToolStripMenuItem exitToolStripMenuItem;
 }

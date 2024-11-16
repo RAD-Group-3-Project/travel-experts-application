@@ -44,9 +44,9 @@ partial class ucManageSuppliers
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(441, 500);
+        btnDisc.Location = new Point(464, 500);
         btnDisc.Name = "btnDisc";
-        btnDisc.Size = new Size(193, 29);
+        btnDisc.Size = new Size(189, 29);
         btnDisc.TabIndex = 37;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
@@ -55,9 +55,9 @@ partial class ucManageSuppliers
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(669, 500);
+        btnSave.Location = new Point(668, 500);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(193, 29);
+        btnSave.Size = new Size(189, 29);
         btnSave.TabIndex = 36;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -65,9 +65,10 @@ partial class ucManageSuppliers
         // 
         // btnDelete
         // 
-        btnDelete.Location = new Point(313, 500);
+        btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+        btnDelete.Location = new Point(291, 500);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(94, 29);
+        btnDelete.Size = new Size(79, 29);
         btnDelete.TabIndex = 41;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
@@ -75,9 +76,9 @@ partial class ucManageSuppliers
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(185, 500);
+        btnEdit.Location = new Point(197, 500);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(94, 29);
+        btnEdit.Size = new Size(79, 29);
         btnEdit.TabIndex = 40;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
@@ -87,7 +88,7 @@ partial class ucManageSuppliers
         // 
         btnAdd.Location = new Point(57, 500);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(94, 29);
+        btnAdd.Size = new Size(79, 29);
         btnAdd.TabIndex = 39;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -98,10 +99,10 @@ partial class ucManageSuppliers
         dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvSuppliers.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvSuppliers.Location = new Point(53, 144);
+        dgvSuppliers.Location = new Point(57, 144);
         dgvSuppliers.Name = "dgvSuppliers";
         dgvSuppliers.RowHeadersWidth = 51;
-        dgvSuppliers.Size = new Size(809, 335);
+        dgvSuppliers.Size = new Size(800, 335);
         dgvSuppliers.TabIndex = 38;
         dgvSuppliers.SelectionChanged += dgvSuppliers_SelectionChanged;
         // 
@@ -155,7 +156,7 @@ partial class ucManageSuppliers
         Controls.Add(btnAdd);
         Controls.Add(dgvSuppliers);
         Name = "ucManageSuppliers";
-        Size = new Size(914, 571);
+        Size = new Size(914, 562);
         Load += ucManageSuppliers_Load;
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
         ResumeLayout(false);

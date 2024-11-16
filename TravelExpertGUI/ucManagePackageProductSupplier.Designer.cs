@@ -45,7 +45,8 @@
             // 
             // txtPackageProductSupplierId
             // 
-            txtPackageProductSupplierId.Location = new Point(287, 86);
+            txtPackageProductSupplierId.BackColor = SystemColors.Control;
+            txtPackageProductSupplierId.Location = new Point(287, 85);
             txtPackageProductSupplierId.Margin = new Padding(3, 4, 3, 4);
             txtPackageProductSupplierId.Name = "txtPackageProductSupplierId";
             txtPackageProductSupplierId.Size = new Size(114, 27);
@@ -63,7 +64,7 @@
             // lblPackageID
             // 
             lblPackageID.AutoSize = true;
-            lblPackageID.Location = new Point(195, 133);
+            lblPackageID.Location = new Point(185, 129);
             lblPackageID.Name = "lblPackageID";
             lblPackageID.Size = new Size(85, 20);
             lblPackageID.TabIndex = 52;
@@ -72,7 +73,7 @@
             // lblProductSupplierID
             // 
             lblProductSupplierID.AutoSize = true;
-            lblProductSupplierID.Location = new Point(140, 173);
+            lblProductSupplierID.Location = new Point(135, 173);
             lblProductSupplierID.Name = "lblProductSupplierID";
             lblProductSupplierID.Size = new Size(141, 20);
             lblProductSupplierID.TabIndex = 54;
@@ -80,22 +81,22 @@
             // 
             // dgvPackageProductSupplier
             // 
-            dgvPackageProductSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPackageProductSupplier.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvPackageProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPackageProductSupplier.Location = new Point(62, 239);
+            dgvPackageProductSupplier.Location = new Point(57, 239);
             dgvPackageProductSupplier.Margin = new Padding(3, 4, 3, 4);
             dgvPackageProductSupplier.Name = "dgvPackageProductSupplier";
             dgvPackageProductSupplier.RowHeadersWidth = 51;
-            dgvPackageProductSupplier.Size = new Size(809, 236);
+            dgvPackageProductSupplier.Size = new Size(802, 236);
             dgvPackageProductSupplier.TabIndex = 57;
             dgvPackageProductSupplier.SelectionChanged += dgvPackageProductSupplier_SelectionChanged;
             // 
             // btnDisc
             // 
             btnDisc.Enabled = false;
-            btnDisc.Location = new Point(474, 503);
+            btnDisc.Location = new Point(465, 504);
             btnDisc.Name = "btnDisc";
-            btnDisc.Size = new Size(193, 29);
+            btnDisc.Size = new Size(189, 29);
             btnDisc.TabIndex = 62;
             btnDisc.Text = "Discard Chan&ges";
             btnDisc.UseVisualStyleBackColor = true;
@@ -104,9 +105,9 @@
             // btnSave
             // 
             btnSave.Enabled = false;
-            btnSave.Location = new Point(673, 503);
+            btnSave.Location = new Point(670, 504);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(193, 29);
+            btnSave.Size = new Size(189, 29);
             btnSave.TabIndex = 61;
             btnSave.Text = "Save Changes";
             btnSave.UseVisualStyleBackColor = true;
@@ -114,9 +115,10 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(325, 504);
+            btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
+            btnDelete.Location = new Point(296, 504);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
+            btnDelete.Size = new Size(79, 29);
             btnDelete.TabIndex = 60;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -124,9 +126,9 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(224, 503);
+            btnEdit.Location = new Point(201, 504);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(94, 29);
+            btnEdit.Size = new Size(79, 29);
             btnEdit.TabIndex = 59;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
@@ -134,9 +136,9 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(62, 503);
+            btnAdd.Location = new Point(57, 504);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(94, 29);
+            btnAdd.Size = new Size(79, 29);
             btnAdd.TabIndex = 58;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -144,24 +146,27 @@
             // 
             // cmbPackageID
             // 
+            cmbPackageID.BackColor = SystemColors.Control;
             cmbPackageID.FormattingEnabled = true;
-            cmbPackageID.Location = new Point(287, 130);
+            cmbPackageID.Location = new Point(287, 129);
             cmbPackageID.Name = "cmbPackageID";
-            cmbPackageID.Size = new Size(151, 28);
+            cmbPackageID.Size = new Size(114, 28);
             cmbPackageID.TabIndex = 63;
             // 
             // cmbProductSupplierID
             // 
+            cmbProductSupplierID.BackColor = SystemColors.Control;
             cmbProductSupplierID.FormattingEnabled = true;
             cmbProductSupplierID.Location = new Point(287, 173);
             cmbProductSupplierID.Name = "cmbProductSupplierID";
-            cmbProductSupplierID.Size = new Size(151, 28);
+            cmbProductSupplierID.Size = new Size(114, 28);
             cmbProductSupplierID.TabIndex = 64;
             // 
             // ucManagePackageProductSupplier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientInactiveCaption;
             Controls.Add(cmbProductSupplierID);
             Controls.Add(cmbPackageID);
             Controls.Add(btnDisc);
@@ -175,7 +180,7 @@
             Controls.Add(txtPackageProductSupplierId);
             Controls.Add(lblPackageProductSupplierID);
             Name = "ucManagePackageProductSupplier";
-            Size = new Size(914, 571);
+            Size = new Size(914, 562);
             Load += ucManagePackageProductSupplier_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPackageProductSupplier).EndInit();
             ResumeLayout(false);
