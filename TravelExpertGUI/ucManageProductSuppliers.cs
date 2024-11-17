@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
+using TravelExpertGUI.Helpers;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static TravelExpertData.Repositories.ProductSuppliersRepository;
 
 namespace TravelExpertGUI;
 public partial class ucManageProductSuppliers : UserControl
@@ -21,16 +23,19 @@ public partial class ucManageProductSuppliers : UserControl
 
     private bool isAddition;
 
+    private List<ProductSupplierDTO> productsSupplierList = null;
+
     public ucManageProductSuppliers()
     {
         InitializeComponent();
     }
-    
+
     private void ucManageProductSuppliers_Load(object sender, EventArgs e)
     {
         // init behaviour of buttons and textboxes
         InitButtonAndFields();
 
+        lblSearchIcon.Visible = false;
         dgvProductSupplier.ReadOnly = true;
 
         // get list of product supplier
@@ -102,16 +107,20 @@ public partial class ucManageProductSuppliers : UserControl
     private void btnDisc_Click(object sender, EventArgs e)
     {
         // set value back
-        txtProductSupplierId.Text = selectedProductSupplierId;
-        cboProductName.SelectedValue = selectedProductId;
-        cboSupplierName.SelectedValue = selectedSupplierId;
+        // Nov 17, 2024 - (James) Might not need this anymore
+        //txtProductSupplierId.Text = selectedProductSupplierId;
+        //cboProductName.SelectedValue = selectedProductId;
+        //cboSupplierName.SelectedValue = selectedSupplierId;
 
         InitButtonAndFields();
+
+        // set datasource back
+        dgvProductSupplier.DataSource = productsSupplierList;
     }
 
     private void btnSave_Click(object sender, EventArgs e)
     {
-        
+
 
         if (isAddition)
         {
@@ -156,7 +165,7 @@ public partial class ucManageProductSuppliers : UserControl
     private void InitButtonAndFields()
     {
         // disable all textbox and combo box
-        txtProductSupplierId.Enabled = false;
+        txtProductSupplierId.ReadOnly = true;
         cboProductName.Enabled = false;
         cboSupplierName.Enabled = false;
 
@@ -172,7 +181,8 @@ public partial class ucManageProductSuppliers : UserControl
 
     private void GetProductSuppliers()
     {
-        dgvProductSupplier.DataSource = ProductSuppliersRepository.GetProductSuppliersDTO();
+        productsSupplierList = ProductSuppliersRepository.GetProductSuppliersDTO();
+        dgvProductSupplier.DataSource = productsSupplierList;
         dgvProductSupplier.ClearSelection();
     }
 
@@ -204,6 +214,77 @@ public partial class ucManageProductSuppliers : UserControl
         // enable combo boxes
         cboProductName.Enabled = true;
         cboSupplierName.Enabled = true;
+    }
+
+    private void btnSearch_Click(object sender, EventArgs e)
+    {
+        // make search icon visible
+        lblSearchIcon.Visible = true;
+
+        EnableEditableFields();
+        txtProductSupplierId.ReadOnly = false; // allow to search by key
+
+        // clear all input fields
+        ClearAllInputFields();
+
+
+        btnSave.Enabled = false;
+        btnAdd.Enabled = false;
+        btnDelete.Enabled = false;
+        btnEdit.Enabled = false;
+        btnDisc.Enabled = true;
+    }
+
+    private void ClearAllInputFields()
+    {
+        txtProductSupplierId.Clear();
+        cboProductName.SelectedIndex = -1;
+        cboSupplierName.SelectedIndex = -1;
+    }
+
+    private void lblSearchIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblSearchIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblSearchIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblSearchIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblClearIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblClearIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblSearchIcon_Click(object sender, EventArgs e)
+    {
+        // if ProductSupplierId is not empty, check the textbox
+        if (!string.IsNullOrWhiteSpace(txtProductSupplierId.Text) &&
+            !TextBoxValidator.IsInteger(txtProductSupplierId))
+        {
+            return;
+        }
+
+        // If all fields are empty, no filters are applied in the Where clause,
+        // mean that we're going to query all instead.
+        var filteredList = productsSupplierList.Where(productsSupplier =>
+            (string.IsNullOrWhiteSpace(txtProductSupplierId.Text) || productsSupplier.ProductSupplierId == Convert.ToInt32(txtProductSupplierId.Text)) &&
+            (cboProductName.SelectedValue == null || productsSupplier.ProductId == Convert.ToInt32(cboProductName.SelectedValue)) &&
+            (cboSupplierName.SelectedValue == null || productsSupplier.SupplierId == Convert.ToInt32(cboSupplierName.SelectedValue))
+        ).ToList();
+
+        dgvProductSupplier.DataSource = filteredList;
+    }
+
+    private void lblClearIcon_Click(object sender, EventArgs e)
+    {
+        ClearAllInputFields();
     }
 
 }

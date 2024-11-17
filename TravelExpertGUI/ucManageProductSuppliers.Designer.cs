@@ -176,6 +176,7 @@ partial class ucManageProductSuppliers
         btnSearch.TabIndex = 69;
         btnSearch.Text = "&Search";
         btnSearch.UseVisualStyleBackColor = true;
+        btnSearch.Click += btnSearch_Click;
         // 
         // lblClearIcon
         // 
@@ -186,6 +187,9 @@ partial class ucManageProductSuppliers
         lblClearIcon.Size = new Size(39, 28);
         lblClearIcon.TabIndex = 72;
         lblClearIcon.Text = "✖";
+        lblClearIcon.Click += lblClearIcon_Click;
+        lblClearIcon.MouseLeave += lblClearIcon_MouseLeave;
+        lblClearIcon.MouseHover += lblClearIcon_MouseHover;
         // 
         // lblSearchIcon
         // 
@@ -196,6 +200,9 @@ partial class ucManageProductSuppliers
         lblSearchIcon.Size = new Size(39, 28);
         lblSearchIcon.TabIndex = 71;
         lblSearchIcon.Text = "🔍";
+        lblSearchIcon.Click += lblSearchIcon_Click;
+        lblSearchIcon.MouseLeave += lblSearchIcon_MouseLeave;
+        lblSearchIcon.MouseHover += lblSearchIcon_MouseHover;
         // 
         // ucManageProductSuppliers
         // 
