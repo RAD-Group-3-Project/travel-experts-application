@@ -279,6 +279,9 @@
             lblClearIcon.Size = new Size(39, 28);
             lblClearIcon.TabIndex = 50;
             lblClearIcon.Text = "✖";
+            lblClearIcon.Click += lblClearIcon_Click;
+            lblClearIcon.MouseLeave += lblClearIcon_MouseLeave;
+            lblClearIcon.MouseHover += lblClearIcon_MouseHover;
             // 
             // lblSearchIcon
             // 
@@ -289,6 +292,9 @@
             lblSearchIcon.Size = new Size(39, 28);
             lblSearchIcon.TabIndex = 49;
             lblSearchIcon.Text = "🔍";
+            lblSearchIcon.Click += lblSearchIcon_Click;
+            lblSearchIcon.MouseLeave += lblSearchIcon_MouseLeave;
+            lblSearchIcon.MouseHover += lblSearchIcon_MouseHover;
             // 
             // btnSearch
             // 
@@ -298,6 +304,7 @@
             btnSearch.TabIndex = 51;
             btnSearch.Text = "&Search";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // ucManageAgencies
             // 
