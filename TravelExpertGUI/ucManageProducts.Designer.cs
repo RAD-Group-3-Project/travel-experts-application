@@ -173,7 +173,6 @@ partial class ucManageProducts
         lblSearchIcon.Size = new Size(39, 28);
         lblSearchIcon.TabIndex = 69;
         lblSearchIcon.Text = "🔍";
-        lblSearchIcon.Click += this.lblSearchIcon_Click;
         // 
         // ucManageProducts
         // 
