@@ -15,4 +15,9 @@ public partial class ucManageProducts : UserControl
     {
         InitializeComponent();
     }
+
+    private void lblClearIcon_Click(object sender, EventArgs e)
+    {
+
+    }
 }

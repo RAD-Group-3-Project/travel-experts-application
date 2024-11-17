@@ -38,15 +38,19 @@ partial class ucManageSuppliers
         txtSupID = new TextBox();
         lblSupName = new Label();
         txtSupName = new TextBox();
+        lblClearIcon = new Label();
+        lblSearchIcon = new Label();
+        btnSearch = new Button();
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
         SuspendLayout();
         // 
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(464, 500);
+        btnDisc.Location = new Point(458, 375);
+        btnDisc.Margin = new Padding(3, 2, 3, 2);
         btnDisc.Name = "btnDisc";
-        btnDisc.Size = new Size(189, 29);
+        btnDisc.Size = new Size(143, 22);
         btnDisc.TabIndex = 37;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
@@ -55,9 +59,10 @@ partial class ucManageSuppliers
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(668, 500);
+        btnSave.Location = new Point(607, 375);
+        btnSave.Margin = new Padding(3, 2, 3, 2);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(189, 29);
+        btnSave.Size = new Size(143, 22);
         btnSave.TabIndex = 36;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -66,9 +71,10 @@ partial class ucManageSuppliers
         // btnDelete
         // 
         btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
-        btnDelete.Location = new Point(291, 500);
+        btnDelete.Location = new Point(220, 375);
+        btnDelete.Margin = new Padding(3, 2, 3, 2);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(79, 29);
+        btnDelete.Size = new Size(69, 22);
         btnDelete.TabIndex = 41;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
@@ -76,9 +82,10 @@ partial class ucManageSuppliers
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(197, 500);
+        btnEdit.Location = new Point(145, 375);
+        btnEdit.Margin = new Padding(3, 2, 3, 2);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(79, 29);
+        btnEdit.Size = new Size(69, 22);
         btnEdit.TabIndex = 40;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
@@ -86,9 +93,10 @@ partial class ucManageSuppliers
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(57, 500);
+        btnAdd.Location = new Point(50, 375);
+        btnAdd.Margin = new Padding(3, 2, 3, 2);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(79, 29);
+        btnAdd.Size = new Size(69, 22);
         btnAdd.TabIndex = 39;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -98,52 +106,87 @@ partial class ucManageSuppliers
         // 
         dgvSuppliers.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvSuppliers.Location = new Point(57, 144);
+        dgvSuppliers.Location = new Point(50, 125);
+        dgvSuppliers.Margin = new Padding(3, 2, 3, 2);
         dgvSuppliers.Name = "dgvSuppliers";
         dgvSuppliers.RowHeadersWidth = 51;
-        dgvSuppliers.Size = new Size(800, 335);
+        dgvSuppliers.Size = new Size(700, 234);
         dgvSuppliers.TabIndex = 38;
         dgvSuppliers.SelectionChanged += dgvSuppliers_SelectionChanged;
         // 
         // lblSupID
         // 
         lblSupID.AutoSize = true;
-        lblSupID.Location = new Point(93, 67);
+        lblSupID.Location = new Point(81, 50);
         lblSupID.Name = "lblSupID";
-        lblSupID.Size = new Size(90, 20);
+        lblSupID.Size = new Size(70, 15);
         lblSupID.TabIndex = 42;
         lblSupID.Text = "Supplier ID :";
         // 
         // txtSupID
         // 
-        txtSupID.Location = new Point(189, 64);
+        txtSupID.Location = new Point(165, 48);
+        txtSupID.Margin = new Padding(3, 2, 3, 2);
         txtSupID.Name = "txtSupID";
         txtSupID.ReadOnly = true;
-        txtSupID.Size = new Size(201, 27);
+        txtSupID.Size = new Size(176, 23);
         txtSupID.TabIndex = 43;
         // 
         // lblSupName
         // 
         lblSupName.AutoSize = true;
-        lblSupName.Location = new Point(502, 67);
+        lblSupName.Location = new Point(439, 50);
         lblSupName.Name = "lblSupName";
-        lblSupName.Size = new Size(115, 20);
+        lblSupName.Size = new Size(91, 15);
         lblSupName.TabIndex = 44;
         lblSupName.Text = "Supplier Name :";
         // 
         // txtSupName
         // 
-        txtSupName.Location = new Point(623, 64);
+        txtSupName.Location = new Point(545, 48);
+        txtSupName.Margin = new Padding(3, 2, 3, 2);
         txtSupName.Name = "txtSupName";
         txtSupName.ReadOnly = true;
-        txtSupName.Size = new Size(201, 27);
+        txtSupName.Size = new Size(176, 23);
         txtSupName.TabIndex = 45;
+        // 
+        // lblClearIcon
+        // 
+        lblClearIcon.AutoSize = true;
+        lblClearIcon.Font = new Font("Segoe UI", 15F);
+        lblClearIcon.Location = new Point(710, 95);
+        lblClearIcon.Name = "lblClearIcon";
+        lblClearIcon.Size = new Size(39, 28);
+        lblClearIcon.TabIndex = 72;
+        lblClearIcon.Text = "✖";
+        // 
+        // lblSearchIcon
+        // 
+        lblSearchIcon.AutoSize = true;
+        lblSearchIcon.Font = new Font("Segoe UI", 15F);
+        lblSearchIcon.Location = new Point(673, 95);
+        lblSearchIcon.Name = "lblSearchIcon";
+        lblSearchIcon.Size = new Size(39, 28);
+        lblSearchIcon.TabIndex = 71;
+        lblSearchIcon.Text = "🔍";
+        // 
+        // btnSearch
+        // 
+        btnSearch.Location = new Point(318, 375);
+        btnSearch.Name = "btnSearch";
+        btnSearch.Size = new Size(111, 23);
+        btnSearch.TabIndex = 73;
+        btnSearch.Text = "&Search";
+        btnSearch.UseVisualStyleBackColor = true;
         // 
         // ucManageSuppliers
         // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(btnSearch);
+        Controls.Add(lblClearIcon);
+        Controls.Add(lblSearchIcon);
         Controls.Add(txtSupName);
         Controls.Add(lblSupName);
         Controls.Add(txtSupID);
@@ -154,8 +197,9 @@ partial class ucManageSuppliers
         Controls.Add(btnEdit);
         Controls.Add(btnAdd);
         Controls.Add(dgvSuppliers);
+        Margin = new Padding(3, 2, 3, 2);
         Name = "ucManageSuppliers";
-        Size = new Size(914, 562);
+        Size = new Size(800, 422);
         Load += ucManageSuppliers_Load;
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
         ResumeLayout(false);
@@ -174,4 +218,7 @@ partial class ucManageSuppliers
     private TextBox txtSupID;
     private Label lblSupName;
     private TextBox txtSupName;
+    private Label lblClearIcon;
+    private Label lblSearchIcon;
+    private Button btnSearch;
 }
