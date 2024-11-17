@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
+using TravelExpertGUI.Helpers;
 
 namespace TravelExpertGUI;
 public partial class ucManageSuppliers : UserControl
 {
+    private List<Supplier> suppliers = null;
+
     public ucManageSuppliers()
     {
         InitializeComponent();
@@ -27,6 +30,8 @@ public partial class ucManageSuppliers : UserControl
 
     private void populateSuppliers()
     {
+        lblSearchIcon.Visible = false;
+
         txtSupID.ReadOnly = true;
         txtSupName.ReadOnly = true;
         btnAdd.Enabled = true;
@@ -36,7 +41,9 @@ public partial class ucManageSuppliers : UserControl
         btnSave.Enabled = false;
 
         dgvSuppliers.Columns.Clear();
-        dgvSuppliers.DataSource = SupplierRepository.getSupplier();
+        dgvSuppliers.ReadOnly = true;
+        suppliers = SupplierRepository.getSupplier();
+        dgvSuppliers.DataSource = suppliers;
         // format the column header
         dgvSuppliers.EnableHeadersVisualStyles = false;
         dgvSuppliers.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
@@ -65,10 +72,10 @@ public partial class ucManageSuppliers : UserControl
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
-        txtSupID.Clear();
-        txtSupName.Clear();
         txtSupID.ReadOnly = true;
-        txtSupName.ReadOnly = false;
+
+        EnableEditableFields();
+
         txtSupName.Focus();
         btnAdd.Enabled = false;
         btnEdit.Enabled = false;
@@ -154,6 +161,81 @@ public partial class ucManageSuppliers : UserControl
             SupplierRepository.deleteSupplier(selectedSupplier);
             populateSuppliers() ;
         }
+    }
+
+    private void btnSearch_Click(object sender, EventArgs e)
+    {
+        // make search icon visible
+        lblSearchIcon.Visible = true;
+
+        EnableEditableFields();
+
+        txtSupID.ReadOnly = false; // for searching purpose
+
+        btnSave.Enabled = false;
+        btnAdd.Enabled = false;
+        btnDelete.Enabled = false;
+        btnEdit.Enabled = false;
+        btnDisc.Enabled = true;
+    }
+
+    private void lblSearchIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblSearchIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblSearchIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblSearchIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblClearIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblClearIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblSearchIcon_Click(object sender, EventArgs e)
+    {
+        // if SupplierId is not empty, check the textbox
+        if (!string.IsNullOrWhiteSpace(txtSupID.Text) &&
+            !TextBoxValidator.IsInteger(txtSupID))
+        {
+            return;
+        }
+
+        // If all fields are empty, no filters are applied in the Where clause,
+        // mean that we're going to query all instead.
+        var filteredList = suppliers.Where(supplier =>
+            (string.IsNullOrWhiteSpace(txtSupID.Text) || supplier.SupplierId == Convert.ToInt32(txtSupID.Text)) &&
+            (string.IsNullOrWhiteSpace(txtSupName.Text) || supplier.SupName.ToLower().Contains(txtSupName.Text.ToLower()))
+        ).ToList();
+
+        dgvSuppliers.DataSource = filteredList;
+    }
+
+    private void lblClearIcon_Click(object sender, EventArgs e)
+    {
+        ClearAllInputFields();
+    }
+
+    private void EnableEditableFields()
+    {
+        // clear all value in textboxes
+        ClearAllInputFields();
+
+        // make it editable
+        txtSupName.ReadOnly = false;
+    }
+
+    private void ClearAllInputFields()
+    {
+        txtSupID.Clear();
+        txtSupName.Clear();
     }
 }
 

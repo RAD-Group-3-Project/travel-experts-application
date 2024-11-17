@@ -159,6 +159,9 @@ partial class ucManageSuppliers
         lblClearIcon.Size = new Size(39, 28);
         lblClearIcon.TabIndex = 72;
         lblClearIcon.Text = "✖";
+        lblClearIcon.Click += lblClearIcon_Click;
+        lblClearIcon.MouseLeave += lblClearIcon_MouseLeave;
+        lblClearIcon.MouseHover += lblClearIcon_MouseHover;
         // 
         // lblSearchIcon
         // 
@@ -169,6 +172,9 @@ partial class ucManageSuppliers
         lblSearchIcon.Size = new Size(39, 28);
         lblSearchIcon.TabIndex = 71;
         lblSearchIcon.Text = "🔍";
+        lblSearchIcon.Click += lblSearchIcon_Click;
+        lblSearchIcon.MouseLeave += lblSearchIcon_MouseLeave;
+        lblSearchIcon.MouseHover += lblSearchIcon_MouseHover;
         // 
         // btnSearch
         // 
@@ -178,6 +184,7 @@ partial class ucManageSuppliers
         btnSearch.TabIndex = 73;
         btnSearch.Text = "&Search";
         btnSearch.UseVisualStyleBackColor = true;
+        btnSearch.Click += btnSearch_Click;
         // 
         // ucManageSuppliers
         // 
