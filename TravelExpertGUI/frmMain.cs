@@ -106,14 +106,12 @@ public partial class frmMain : Form
                     controlToLoad = new ucManageSuppliers();
                     break;
                 case "Packages Products Suppliers":
-                    // TODO: Implement the ucManagePackagesProductsSuppliers control
-                    // controlToLoad = new ucManagePackagesProductsSuppliers();
+                    controlToLoad = new ucManagePackageProductSupplier();
                     break;
                 case "Agents":
                     controlToLoad = new ucManageAgents();
                     break;
                 case "Agencies":
-                    // TODO: Implement the ucManageAgencies control
                     controlToLoad = new ucManageAgencies();
                     break;
                 default:
@@ -133,9 +131,24 @@ public partial class frmMain : Form
     {
         Application.Exit(); // Ensure the entire application closes
     }
+    // Logout Function
+    private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        // Logs the current user out
+        frmLogin login = new frmLogin();
+        this.Hide();
+        login.ShowDialog();
 
+    }
+
+    private void profileToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        contentPanel.Controls.Clear();
+        contentPanel.Controls.Add(new ucUserDetails() { currentuser = currentuser });
+    }
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
         Application.Exit();
+
     }
 }

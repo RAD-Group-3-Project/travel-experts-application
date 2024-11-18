@@ -57,6 +57,16 @@ public partial class ucManageAgents : UserControl
         dgvAgents.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
         dgvAgents.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         dgvAgents.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        // Manually change our column width, alignment, and header text
+        dgvAgents.Columns[0].HeaderText = "ID";
+        dgvAgents.Columns[1].HeaderText = "First Name";
+        dgvAgents.Columns[2].HeaderText = "Initial";
+        dgvAgents.Columns[3].HeaderText = "Last Name";
+        dgvAgents.Columns[4].HeaderText = "Phone";
+        dgvAgents.Columns[5].HeaderText = "Email";
+        dgvAgents.Columns[6].HeaderText = "Position";
+        //dgvAgents.Columns[1].Width = 250;
+        //dgvAgents.Columns[2].Width = 50;
         // Hides the row selection columns
         dgvAgents.RowHeadersVisible = false;
         // Hides additional columns we dont need to see 
@@ -183,7 +193,7 @@ public partial class ucManageAgents : UserControl
                 newAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
                 newAgent.AgtMiddleInitial = txtMiddleInit.Text;
                 newAgent.AgtPosition = txtAgntPosition.Text;
-                newAgent.is_active = true;
+                newAgent.IsActive = true;
                 AgentRepository.CreateAgent(newAgent);
                 PopulateAgents();
             }
@@ -208,7 +218,7 @@ public partial class ucManageAgents : UserControl
                 updatedAgent.AgencyId = Convert.ToInt32(cboAgency.SelectedValue);
                 updatedAgent.AgtMiddleInitial = txtMiddleInit.Text;
                 updatedAgent.AgtPosition = txtAgntPosition.Text;
-                updatedAgent.is_active = true;
+                updatedAgent.IsActive = true;
                 AgentRepository.UpdateAgent(updatedAgent);
                 PopulateAgents();
             }

@@ -191,6 +191,8 @@ public partial class ucManageProductSuppliers : UserControl
         cboSupplierName.DataSource = SupplierRepository.GetSortedSuppliers();
         cboSupplierName.ValueMember = "SupplierId";
         cboSupplierName.DisplayMember = "SupName";
+        // Hides the row selection columns
+        dgvProductSupplier.RowHeadersVisible = false;
     }
 
     private void LoadProducts()

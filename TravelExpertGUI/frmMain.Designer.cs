@@ -80,6 +80,7 @@ partial class frmMain
         profileToolStripMenuItem.Name = "profileToolStripMenuItem";
         profileToolStripMenuItem.Size = new Size(248, 30);
         profileToolStripMenuItem.Text = "Profile";
+        profileToolStripMenuItem.Click += profileToolStripMenuItem_Click;
         // 
         // changePasswordToolStripMenuItem
         // 
@@ -92,6 +93,7 @@ partial class frmMain
         signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
         signOutToolStripMenuItem.Size = new Size(248, 30);
         signOutToolStripMenuItem.Text = "Sign out";
+        signOutToolStripMenuItem.Click += signOutToolStripMenuItem_Click;
         // 
         // mnuDatabase
         // 
@@ -106,13 +108,16 @@ partial class frmMain
         contentPanel.BackgroundImageLayout = ImageLayout.Zoom;
         contentPanel.Location = new Point(0, 68);
         contentPanel.Name = "contentPanel";
+
         contentPanel.Size = new Size(914, 562);
+
         contentPanel.TabIndex = 1;
         // 
         // frmMain
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
+
         ClientSize = new Size(914, 627);
         ControlBox = false;
         Controls.Add(contentPanel);

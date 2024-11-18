@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using TravelExpertData.Models;
 
@@ -61,7 +60,7 @@ public partial class TravelExpertContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExpertsConnection"].ConnectionString);
+        => optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -74,12 +73,12 @@ public partial class TravelExpertContext : DbContext
 
         modelBuilder.Entity<Agency>(entity =>
         {
-            entity.Property(e => e.is_active).HasDefaultValue(true);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<Agent>(entity =>
         {
-            entity.Property(e => e.is_active).HasDefaultValue(true);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
 
             entity.HasOne(d => d.Agency).WithMany(p => p.Agents).HasConstraintName("FK_Agents_Agencies");
         });
@@ -181,6 +180,8 @@ public partial class TravelExpertContext : DbContext
         {
             entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED997B14926F");
 
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+
             entity.HasOne(d => d.Package).WithMany(p => p.PackagesProductsSuppliers)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Packages_Products_Supplie_FK00");
@@ -230,7 +231,7 @@ public partial class TravelExpertContext : DbContext
                 .HasName("aaaaaSuppliers_PK")
                 .IsClustered(false);
 
-            entity.Property(e => e.is_active).HasDefaultValue(true);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<SupplierContact>(entity =>
