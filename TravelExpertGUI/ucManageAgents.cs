@@ -78,9 +78,15 @@ public partial class ucManageAgents : UserControl
 
 
     public string function;
+    private bool suppressSelectionChanged;
 
     private void dgvAgents_SelectionChanged(object sender, EventArgs e)
     {
+        if (suppressSelectionChanged)
+        {
+            return;
+        }
+
         if (dgvAgents.CurrentRow != null) // if row selected
         {
             Debug.WriteLine($"({dgvAgents.CurrentCell.ColumnIndex}, {dgvAgents.CurrentRow.Index})");
@@ -293,6 +299,11 @@ public partial class ucManageAgents : UserControl
             (string.IsNullOrWhiteSpace(txtAgntPosition.Text) || agent.AgtPosition.ToLower().Contains(txtAgntPosition.Text.ToLower())) &&
             (cboAgency.SelectedValue == null || agent.AgencyId == Convert.ToInt32(cboAgency.SelectedValue))
         ).ToList();
+
+        if (filteredList.Count == 0)
+        {
+            suppressSelectionChanged = true;
+        }
 
         dgvAgents.DataSource = filteredList;
     }

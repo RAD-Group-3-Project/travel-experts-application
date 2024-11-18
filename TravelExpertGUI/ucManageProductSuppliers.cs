@@ -20,6 +20,7 @@ public partial class ucManageProductSuppliers : UserControl
     private string selectedProductSupplierId;
     private int selectedProductId;
     private int selectedSupplierId;
+    private bool suppressSelectionChanged;
 
     private bool isAddition;
 
@@ -46,6 +47,11 @@ public partial class ucManageProductSuppliers : UserControl
 
     private void dgvProductSupplier_SelectionChanged(object sender, EventArgs e)
     {
+        if (suppressSelectionChanged)
+        {
+            return;
+        }
+
         if (dgvProductSupplier.CurrentRow != null) // check not equal to column
         {
             selectedProductSupplierId = dgvProductSupplier.CurrentRow.Cells["ProductSupplierId"].Value.ToString();
@@ -280,6 +286,11 @@ public partial class ucManageProductSuppliers : UserControl
             (cboProductName.SelectedValue == null || productsSupplier.ProductId == Convert.ToInt32(cboProductName.SelectedValue)) &&
             (cboSupplierName.SelectedValue == null || productsSupplier.SupplierId == Convert.ToInt32(cboSupplierName.SelectedValue))
         ).ToList();
+
+        if (filteredList.Count == 0)
+        {
+            suppressSelectionChanged = true;
+        }
 
         dgvProductSupplier.DataSource = filteredList;
     }

@@ -19,6 +19,7 @@ namespace TravelExpertGUI
     {
         private List<PackagesProductsSupplierView> ppsList = null;
         private bool isAddition;
+        private bool suppressSelectionChanged;
 
         public ucManagePackageProductSupplier()
         {
@@ -72,7 +73,12 @@ namespace TravelExpertGUI
         }
         // Gets our current row and changes selected PPS
         private void dgvPackageProductSupplier_SelectionChanged(object sender, EventArgs e)
-        {   // If a row is actually selected 
+        {
+            if (suppressSelectionChanged)
+            {
+                return;
+            }
+            // If a row is actually selected 
             if (dgvPackageProductSupplier.CurrentRow != null) // if row selected
             {
                 try
@@ -284,6 +290,11 @@ namespace TravelExpertGUI
                 (cmbPackageID.SelectedValue == null || pps.PackageId == Convert.ToInt32(cmbPackageID.SelectedValue)) &&
                 (cmbProductSupplierID.SelectedValue == null || pps.ProductSupplierId == Convert.ToInt32(cmbProductSupplierID.SelectedValue))
             ).ToList();
+
+            if (filteredList.Count == 0)
+            {
+                suppressSelectionChanged = true;
+            }
 
             dgvPackageProductSupplier.DataSource = filteredList;
         }

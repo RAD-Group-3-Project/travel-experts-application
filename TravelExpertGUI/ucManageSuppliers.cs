@@ -15,7 +15,7 @@ namespace TravelExpertGUI;
 public partial class ucManageSuppliers : UserControl
 {
     private List<Supplier> suppliers = null;
-
+    private bool suppressSelectionChanged;
     public ucManageSuppliers()
     {
         InitializeComponent();
@@ -70,7 +70,11 @@ public partial class ucManageSuppliers : UserControl
     }
     // Changes our selected object id based on where we click within the dgv
     private void dgvSuppliers_SelectionChanged(object sender, EventArgs e)
-    {   
+    {
+        if (suppressSelectionChanged)
+        {
+            return;
+        }
         if (dgvSuppliers.SelectedRows != null)
         {   
             // Sets our textboxes to what we have selected 
@@ -287,6 +291,11 @@ public partial class ucManageSuppliers : UserControl
             (string.IsNullOrWhiteSpace(txtSupID.Text) || supplier.SupplierId == Convert.ToInt32(txtSupID.Text)) &&
             (string.IsNullOrWhiteSpace(txtSupName.Text) || supplier.SupName.ToLower().Contains(txtSupName.Text.ToLower()))
         ).ToList();
+
+        if (filteredList.Count == 0)
+        {
+            suppressSelectionChanged = true;
+        }
 
         dgvSuppliers.DataSource = filteredList;
     }
