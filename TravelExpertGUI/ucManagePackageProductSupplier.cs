@@ -17,7 +17,7 @@ namespace TravelExpertGUI
 {
     public partial class ucManagePackageProductSupplier : UserControl
     {
-        
+        private List<PackagesProductsSupplierView> ppsList = null;
         private bool isAddition;
 
         public ucManagePackageProductSupplier()
@@ -32,7 +32,10 @@ namespace TravelExpertGUI
         }
         // Function to poulate our DGV
         private void populatePPS()
-        {   
+        {
+            // make search icon invisible
+            lblSearchIcon.Visible = false;
+
             // Makes it clickable
             dgvPackageProductSupplier.Enabled = true;
             // Sets textboxes and buttons to appropriate status
@@ -42,7 +45,8 @@ namespace TravelExpertGUI
             // Clears The list
             dgvPackageProductSupplier.Columns.Clear();
             // Populates the list
-            dgvPackageProductSupplier.DataSource = PackagesProductsSuppliersRepository.GetPPSList();
+            ppsList = PackagesProductsSuppliersRepository.GetPPSList();
+            dgvPackageProductSupplier.DataSource = ppsList;
             // format the column header
             dgvPackageProductSupplier.EnableHeadersVisualStyles = false;
             dgvPackageProductSupplier.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
@@ -111,15 +115,10 @@ namespace TravelExpertGUI
         {   
             // Makes our dgv inactive and allows us to enter new values 
             dgvPackageProductSupplier.Enabled = false;
-            // Resets combo boxes 
-            cmbPackageID.SelectedIndex = -1;
-            cmbProductSupplierID.SelectedIndex = -1;
-            // Clears boxes 
-            txtPackageProductSupplierId.Clear();
-            txtPackageProductSupplierId.ReadOnly = true;
-            // Enables dropdown
-            cmbPackageID.Enabled = true;
-            cmbProductSupplierID.Enabled = true;
+            dgvPackageProductSupplier.ReadOnly = true;
+
+            EnableEditableFields();
+
             // Sets buttons 
             btnAdd.Enabled = false;
             btnDelete.Enabled = false;
@@ -129,6 +128,7 @@ namespace TravelExpertGUI
             // Changes function
             isAddition = true;
         }
+
         // Saves our changes 
         private void btnSave_Click(object sender, EventArgs e)
         {   
@@ -229,7 +229,88 @@ namespace TravelExpertGUI
                         MessageBox.Show($"Error: {ex.Message}", "PPS Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+        }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            // make search icon visible
+            lblSearchIcon.Visible = true;
+            
+            EnableEditableFields();
+
+            txtPackageProductSupplierId.ReadOnly = false;  // for searching purpose
+
+            // disable all buttons except disc button
+            btnSave.Enabled = false;
+            btnAdd.Enabled = false;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
+            btnDisc.Enabled = true;
+        }
+
+        private void lblSearchIcon_MouseHover(object sender, EventArgs e)
+        {
+            lblSearchIcon.Cursor = Cursors.Hand;
+        }
+
+        private void lblSearchIcon_MouseLeave(object sender, EventArgs e)
+        {
+            lblSearchIcon.Cursor = Cursors.Default;
+        }
+
+        private void lblClearIcon_MouseHover(object sender, EventArgs e)
+        {
+            lblClearIcon.Cursor = Cursors.Hand;
+        }
+
+        private void lblClearIcon_MouseLeave(object sender, EventArgs e)
+        {
+            lblClearIcon.Cursor = Cursors.Default;
+        }
+
+        private void lblSearchIcon_Click(object sender, EventArgs e)
+        {
+            // if SupplierId is not empty, check the textbox
+            if (!string.IsNullOrWhiteSpace(txtPackageProductSupplierId.Text) &&
+                !TextBoxValidator.IsInteger(txtPackageProductSupplierId))
+            {
+                return;
+            }
+
+            // If all fields are empty, no filters are applied in the Where clause,
+            // mean that we're going to query all instead.
+            var filteredList = ppsList.Where(pps =>
+                (string.IsNullOrWhiteSpace(txtPackageProductSupplierId.Text) || pps.PackageProductSupplierId == Convert.ToInt32(txtPackageProductSupplierId.Text)) &&
+                (cmbPackageID.SelectedValue == null || pps.PackageId == Convert.ToInt32(cmbPackageID.SelectedValue)) &&
+                (cmbProductSupplierID.SelectedValue == null || pps.ProductSupplierId == Convert.ToInt32(cmbProductSupplierID.SelectedValue))
+            ).ToList();
+
+            dgvPackageProductSupplier.DataSource = filteredList;
+        }
+
+        private void lblClearIcon_Click(object sender, EventArgs e)
+        {
+            ClearAllInputFields();
+        }
+
+        private void EnableEditableFields()
+        {
+            ClearAllInputFields();
+
+            // Enables dropdown
+            cmbPackageID.Enabled = true;
+            cmbProductSupplierID.Enabled = true;
+            txtPackageProductSupplierId.ReadOnly = true;
+        }
+
+        private void ClearAllInputFields()
+        {
+            // Clears boxes 
+            txtPackageProductSupplierId.Clear();
+
+            // Resets combo boxes 
+            cmbPackageID.SelectedIndex = -1;
+            cmbProductSupplierID.SelectedIndex = -1;
         }
     }
 }
