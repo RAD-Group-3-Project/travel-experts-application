@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace TravelExpertGUI
     public partial class ucManageAgencies : UserControl
     {
         private List<Agency> agencies = null;
+        private bool suppressSelectionChanged = false;
+
 
         public ucManageAgencies()
         {
@@ -86,9 +89,17 @@ namespace TravelExpertGUI
 
         // Sets our textboxes to the selected row
         private void dgvAgencies_SelectionChanged(object sender, EventArgs e)
-        {   // Changes based upon slected row by table column names 
+        { 
+            // Suppress the event if the flag is set
+            if (suppressSelectionChanged)
+            {
+                return;
+            }
+
+            // Changes based upon slected row by table column names 
             if (dgvAgencies.CurrentRow != null)
             {
+                Debug.WriteLine($"I'm hereeee\t Rows count {dgvAgencies.RowCount}");
                 txtAgencyId.Text = dgvAgencies.CurrentRow.Cells["AgencyId"].Value.ToString();
                 txtAgencyAddress.Text = dgvAgencies.CurrentRow.Cells["AgncyAddress"].Value.ToString();
                 txtCity.Text = dgvAgencies.CurrentRow.Cells["AgncyCity"].Value.ToString();
@@ -303,6 +314,12 @@ namespace TravelExpertGUI
                 (string.IsNullOrWhiteSpace(txtFax.Text) || agency.AgncyFax.ToLower().Contains(txtFax.Text.ToLower()))
             ).ToList();
 
+            // Check if there are no results
+            if (filteredList.Count == 0)
+            {
+                suppressSelectionChanged = true;
+            }
+
             dgvAgencies.DataSource = filteredList;
         }
 
@@ -337,6 +354,17 @@ namespace TravelExpertGUI
             txtFax.Clear();
         }
 
-        
+        private void dgvAgencies_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            // Clear selection if there are no rows or no valid data
+            if (dgvAgencies.Rows.Count == 0)
+            {
+                Debug.WriteLine("Hereeee");
+                dgvAgencies.ClearSelection();
+
+            }
+
+            // Deselect all rows
+        }
     }
 }

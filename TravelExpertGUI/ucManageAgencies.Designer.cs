@@ -67,6 +67,7 @@
             dgvAgencies.RowHeadersWidth = 51;
             dgvAgencies.Size = new Size(728, 172);
             dgvAgencies.TabIndex = 11;
+            dgvAgencies.DataBindingComplete += dgvAgencies_DataBindingComplete;
             dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
             // 
             // btnDelete
