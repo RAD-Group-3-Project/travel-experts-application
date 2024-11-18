@@ -33,7 +33,7 @@ public partial class Agency
     public string? AgncyFax { get; set; }
 
     [Column("is_active")]
-    public bool? is_active { get; set; }
+    public bool IsActive { get; set; }
 
     [InverseProperty("Agency")]
     public virtual ICollection<Agent> Agents { get; set; } = new List<Agent>();
