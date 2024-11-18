@@ -14,6 +14,8 @@ using TravelExpertGUI.Helpers;
 namespace TravelExpertGUI;
 public partial class ucManageSuppliers : UserControl
 {
+    private List<Supplier> suppliers = null;
+    private bool suppressSelectionChanged;
     public ucManageSuppliers()
     {
         InitializeComponent();
@@ -30,8 +32,10 @@ public partial class ucManageSuppliers : UserControl
     // populates the starting point for our list
     private void populateSuppliers()
     {   
+        
+        lblSearchIcon.Visible = false;
         // Sets textboxes and buttons to appropriate status
-        txtSupID.ReadOnly = true;
+            txtSupID.ReadOnly = true;
         txtSupName.ReadOnly = true;
         btnAdd.Enabled = true;
         btnDelete.Enabled = true;
@@ -40,8 +44,9 @@ public partial class ucManageSuppliers : UserControl
         btnSave.Enabled = false;
         // Clears The list
         dgvSuppliers.Columns.Clear();
-        // Populates the list
-        dgvSuppliers.DataSource = SupplierRepository.GetSortedSuppliers();
+        dgvSuppliers.ReadOnly = true;
+        suppliers = SupplierRepository.getSupplier();
+        dgvSuppliers.DataSource = suppliers;
         // format the column header
         dgvSuppliers.EnableHeadersVisualStyles = false;
         dgvSuppliers.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
@@ -65,7 +70,11 @@ public partial class ucManageSuppliers : UserControl
     }
     // Changes our selected object id based on where we click within the dgv
     private void dgvSuppliers_SelectionChanged(object sender, EventArgs e)
-    {   
+    {
+        if (suppressSelectionChanged)
+        {
+            return;
+        }
         if (dgvSuppliers.SelectedRows != null)
         {   
             // Sets our textboxes to what we have selected 
@@ -75,12 +84,11 @@ public partial class ucManageSuppliers : UserControl
     }
     // Sets up our form to add a new supplier
     private void btnAdd_Click(object sender, EventArgs e)
-    {   
-        // Clears the windows and allows us to enter data into our textboxes
-        txtSupID.Clear();
-        txtSupName.Clear();
+    {
         txtSupID.ReadOnly = true;
-        txtSupName.ReadOnly = false;
+
+        EnableEditableFields();
+
         txtSupName.Focus();
         btnAdd.Enabled = false;
         btnEdit.Enabled = false;
@@ -230,7 +238,86 @@ public partial class ucManageSuppliers : UserControl
             // Refresh List
             populateSuppliers();
         }
-        
+    }
+
+    private void btnSearch_Click(object sender, EventArgs e)
+    {
+        // make search icon visible
+        lblSearchIcon.Visible = true;
+
+        EnableEditableFields();
+
+        txtSupID.ReadOnly = false; // for searching purpose
+
+        btnSave.Enabled = false;
+        btnAdd.Enabled = false;
+        btnDelete.Enabled = false;
+        btnEdit.Enabled = false;
+        btnDisc.Enabled = true;
+    }
+
+    private void lblSearchIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblSearchIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblSearchIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblSearchIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblClearIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblClearIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblSearchIcon_Click(object sender, EventArgs e)
+    {
+        // if SupplierId is not empty, check the textbox
+        if (!string.IsNullOrWhiteSpace(txtSupID.Text) &&
+            !TextBoxValidator.IsInteger(txtSupID))
+        {
+            return;
+        }
+
+        // If all fields are empty, no filters are applied in the Where clause,
+        // mean that we're going to query all instead.
+        var filteredList = suppliers.Where(supplier =>
+            (string.IsNullOrWhiteSpace(txtSupID.Text) || supplier.SupplierId == Convert.ToInt32(txtSupID.Text)) &&
+            (string.IsNullOrWhiteSpace(txtSupName.Text) || supplier.SupName.ToLower().Contains(txtSupName.Text.ToLower()))
+        ).ToList();
+
+        if (filteredList.Count == 0)
+        {
+            suppressSelectionChanged = true;
+        }
+
+        dgvSuppliers.DataSource = filteredList;
+    }
+
+    private void lblClearIcon_Click(object sender, EventArgs e)
+    {
+        ClearAllInputFields();
+    }
+
+    private void EnableEditableFields()
+    {
+        // clear all value in textboxes
+        ClearAllInputFields();
+
+        // make it editable
+        txtSupName.ReadOnly = false;
+    }
+
+    private void ClearAllInputFields()
+    {
+        txtSupID.Clear();
+        txtSupName.Clear();
     }
 }
 

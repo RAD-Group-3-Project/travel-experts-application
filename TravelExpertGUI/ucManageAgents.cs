@@ -10,11 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
+using TravelExpertGUI.Helpers;
 using static System.Windows.Forms.AxHost;
 
 namespace TravelExpertGUI;
 public partial class ucManageAgents : UserControl
 {
+    private List<Agent> agents = null;
     public ucManageAgents()
     {
         InitializeComponent();
@@ -27,6 +29,18 @@ public partial class ucManageAgents : UserControl
 
     private void PopulateAgents()
     {
+        lblSearchIcon.Visible = false;
+
+        // disable all input fields
+        txtAgntId.ReadOnly = true;
+        txtAgntFName.ReadOnly = true;
+        txtMiddleInit.ReadOnly = true;
+        txtAgntLName.ReadOnly = true;
+        txtAgntBusPhone.ReadOnly = true;
+        txtAgntEmail.ReadOnly = true;
+        txtAgntPosition.ReadOnly = true;
+        cboAgency.Enabled = false;
+
         btnDisc.Enabled = false;
         btnSave.Enabled = false;
         btnAdd.Enabled = true;
@@ -34,7 +48,8 @@ public partial class ucManageAgents : UserControl
         btnDelete.Enabled = true;
         dgvAgents.Enabled = true;
         dgvAgents.Columns.Clear();
-        dgvAgents.DataSource = AgentRepository.GetAgents();
+        agents = AgentRepository.GetAgents();
+        dgvAgents.DataSource = agents;
         // format the column header
         dgvAgents.EnableHeadersVisualStyles = false;
         dgvAgents.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
@@ -63,9 +78,15 @@ public partial class ucManageAgents : UserControl
 
 
     public string function;
+    private bool suppressSelectionChanged;
 
     private void dgvAgents_SelectionChanged(object sender, EventArgs e)
     {
+        if (suppressSelectionChanged)
+        {
+            return;
+        }
+
         if (dgvAgents.CurrentRow != null) // if row selected
         {
             Debug.WriteLine($"({dgvAgents.CurrentCell.ColumnIndex}, {dgvAgents.CurrentRow.Index})");
@@ -108,29 +129,15 @@ public partial class ucManageAgents : UserControl
         btnSave.Enabled = true;
         btnDisc.Enabled = true;
         dgvAgents.Enabled = false;
-        txtAgntId.Clear();
-        txtAgntFName.Clear();
-        txtAgntLName.Clear();
-        txtAgntBusPhone.Clear();
-        txtAgntEmail.Clear();
-        txtAgntPosition.Clear();
-        txtMiddleInit.Clear();
-        txtAgntFName.ReadOnly = false;
-        txtAgntLName.ReadOnly = false;
-        txtAgntBusPhone.ReadOnly = false;
-        txtAgntEmail.ReadOnly = false;
-        txtAgntPosition.ReadOnly = false;
-        txtMiddleInit.ReadOnly = false;
-        cboAgency.Enabled = true;
+
+        EnableEditableFields();
+
         btnSave.Enabled = true;
         btnDisc.Enabled = true;
         btnAdd.Enabled = false;
         btnDelete.Enabled = false;
         btnEdit.Enabled = false;
         function = "ADD";
-
-
-
     }
 
     private void btnEdit_Click(object sender, EventArgs e)
@@ -234,4 +241,103 @@ public partial class ucManageAgents : UserControl
     {
         PopulateAgents();
     }
+
+    private void btnSearch_Click(object sender, EventArgs e)
+    {
+        // make search icon visible
+        lblSearchIcon.Visible = true;
+
+        EnableEditableFields();
+
+        txtAgntId.ReadOnly = false; // for searching purpose
+
+        btnSave.Enabled = false;
+        btnAdd.Enabled = false;
+        btnDelete.Enabled = false;
+        btnEdit.Enabled = false;
+        btnDisc.Enabled = true;
+    }
+
+    private void lblSearchIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblSearchIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblSearchIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblSearchIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblClearIcon_MouseHover(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Hand;
+    }
+
+    private void lblClearIcon_MouseLeave(object sender, EventArgs e)
+    {
+        lblClearIcon.Cursor = Cursors.Default;
+    }
+
+    private void lblSearchIcon_Click(object sender, EventArgs e)
+    {
+        // if AgentId is not empty, check the textbox
+        if (!string.IsNullOrWhiteSpace(txtAgntId.Text) &&
+            !TextBoxValidator.IsInteger(txtAgntId))
+        {
+            return;
+        }
+
+        // If all fields are empty, no filters are applied in the Where clause,
+        // mean that we're going to query all instead.
+        var filteredList = agents.Where(agent =>
+            (string.IsNullOrWhiteSpace(txtAgntId.Text) || agent.AgentId == Convert.ToInt32(txtAgntId.Text)) &&
+            (string.IsNullOrWhiteSpace(txtAgntFName.Text) || agent.AgtFirstName.ToLower().Contains(txtAgntFName.Text.ToLower())) &&
+            (string.IsNullOrWhiteSpace(txtAgntLName.Text) || agent.AgtLastName.ToLower().Contains(txtAgntLName.Text.ToLower())) &&
+            (string.IsNullOrWhiteSpace(txtAgntBusPhone.Text) || agent.AgtBusPhone.ToLower().Contains(txtAgntBusPhone.Text.ToLower())) &&
+            (string.IsNullOrWhiteSpace(txtAgntEmail.Text) || agent.AgtEmail.ToLower().Contains(txtAgntEmail.Text.ToLower())) &&
+            (string.IsNullOrWhiteSpace(txtMiddleInit.Text) || agent.AgtMiddleInitial.ToLower().Contains(txtMiddleInit.Text.ToLower())) &&
+            (string.IsNullOrWhiteSpace(txtAgntPosition.Text) || agent.AgtPosition.ToLower().Contains(txtAgntPosition.Text.ToLower())) &&
+            (cboAgency.SelectedValue == null || agent.AgencyId == Convert.ToInt32(cboAgency.SelectedValue))
+        ).ToList();
+
+        if (filteredList.Count == 0)
+        {
+            suppressSelectionChanged = true;
+        }
+
+        dgvAgents.DataSource = filteredList;
+    }
+
+    private void lblClearIcon_Click(object sender, EventArgs e)
+    {
+        ClearAllInputFields();
+    }
+
+    private void EnableEditableFields()
+    {
+        // clear all value in textboxes
+        ClearAllInputFields();
+
+        // make it editable
+        txtAgntFName.ReadOnly = false;
+        txtMiddleInit.ReadOnly = false;
+        txtAgntLName.ReadOnly = false;
+        txtAgntBusPhone.ReadOnly = false;
+        txtAgntEmail.ReadOnly = false;
+        txtAgntPosition.ReadOnly = false;
+        cboAgency.Enabled = true;
+    }
+
+    private void ClearAllInputFields()
+    {
+        txtAgntId.Clear();
+        txtAgntFName.Clear();
+        txtMiddleInit.Clear();
+        txtAgntLName.Clear();
+        txtAgntBusPhone.Clear();
+        txtAgntEmail.Clear();
+        txtAgntPosition.Clear();
+        cboAgency.SelectedIndex = -1; // select empty slot
+    }
+
 }

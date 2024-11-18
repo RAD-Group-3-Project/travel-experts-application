@@ -178,7 +178,7 @@ public partial class TravelExpertContext : DbContext
 
         modelBuilder.Entity<PackagesProductsSupplier>(entity =>
         {
-            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED99A4B633EA");
+            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED997B14926F");
 
             entity.Property(e => e.IsActive).HasDefaultValue(true);
 

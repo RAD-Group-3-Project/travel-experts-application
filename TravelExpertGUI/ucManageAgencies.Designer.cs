@@ -50,6 +50,9 @@
             txtFax = new TextBox();
             btnSave = new Button();
             btnDiscard = new Button();
+            lblClearIcon = new Label();
+            lblSearchIcon = new Label();
+            btnSearch = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).BeginInit();
             SuspendLayout();
             // 
@@ -58,19 +61,22 @@
             dgvAgencies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAgencies.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvAgencies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAgencies.Location = new Point(35, 243);
+            dgvAgencies.Location = new Point(31, 187);
+            dgvAgencies.Margin = new Padding(3, 2, 3, 2);
             dgvAgencies.Name = "dgvAgencies";
             dgvAgencies.RowHeadersWidth = 51;
-            dgvAgencies.Size = new Size(832, 236);
+            dgvAgencies.Size = new Size(728, 172);
             dgvAgencies.TabIndex = 11;
+            dgvAgencies.DataBindingComplete += dgvAgencies_DataBindingComplete;
             dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
             // 
             // btnDelete
             // 
             btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
-            btnDelete.Location = new Point(285, 500);
+            btnDelete.Location = new Point(206, 375);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(79, 29);
+            btnDelete.Size = new Size(69, 22);
             btnDelete.TabIndex = 38;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -78,9 +84,10 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(186, 500);
+            btnEdit.Location = new Point(131, 375);
+            btnEdit.Margin = new Padding(3, 2, 3, 2);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(79, 29);
+            btnEdit.Size = new Size(69, 22);
             btnEdit.TabIndex = 37;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
@@ -88,9 +95,10 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(35, 500);
+            btnAdd.Location = new Point(31, 375);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(79, 29);
+            btnAdd.Size = new Size(69, 22);
             btnAdd.TabIndex = 36;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -99,145 +107,154 @@
             // lblAgencyId
             // 
             lblAgencyId.AutoSize = true;
-            lblAgencyId.Location = new Point(94, 56);
+            lblAgencyId.Location = new Point(64, 22);
             lblAgencyId.Name = "lblAgencyId";
-            lblAgencyId.Size = new Size(86, 20);
+            lblAgencyId.Size = new Size(69, 15);
             lblAgencyId.TabIndex = 39;
             lblAgencyId.Text = "Agency Id : ";
             // 
             // txtAgencyId
             // 
-            txtAgencyId.Location = new Point(186, 53);
+            txtAgencyId.Location = new Point(145, 20);
+            txtAgencyId.Margin = new Padding(3, 2, 3, 2);
             txtAgencyId.Name = "txtAgencyId";
             txtAgencyId.ReadOnly = true;
-            txtAgencyId.Size = new Size(228, 27);
+            txtAgencyId.Size = new Size(200, 23);
             txtAgencyId.TabIndex = 0;
             // 
             // txtAgencyAddress
             // 
-            txtAgencyAddress.Location = new Point(186, 97);
+            txtAgencyAddress.Location = new Point(145, 53);
+            txtAgencyAddress.Margin = new Padding(3, 2, 3, 2);
             txtAgencyAddress.Name = "txtAgencyAddress";
             txtAgencyAddress.ReadOnly = true;
-            txtAgencyAddress.Size = new Size(228, 27);
+            txtAgencyAddress.Size = new Size(200, 23);
             txtAgencyAddress.TabIndex = 1;
             // 
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(107, 100);
+            lblAddress.Location = new Point(76, 55);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(73, 20);
+            lblAddress.Size = new Size(58, 15);
             lblAddress.TabIndex = 42;
             lblAddress.Text = "Address : ";
             // 
             // lblCity
             // 
             lblCity.AutoSize = true;
-            lblCity.Location = new Point(129, 147);
+            lblCity.Location = new Point(95, 90);
             lblCity.Name = "lblCity";
-            lblCity.Size = new Size(41, 20);
+            lblCity.Size = new Size(34, 15);
             lblCity.TabIndex = 43;
             lblCity.Text = "City :";
             // 
             // lblProv
             // 
             lblProv.AutoSize = true;
-            lblProv.Location = new Point(98, 193);
+            lblProv.Location = new Point(68, 125);
             lblProv.Name = "lblProv";
-            lblProv.Size = new Size(72, 20);
+            lblProv.Size = new Size(59, 15);
             lblProv.TabIndex = 44;
             lblProv.Text = "Province :";
             // 
             // lblPostal
             // 
             lblPostal.AutoSize = true;
-            lblPostal.Location = new Point(505, 56);
+            lblPostal.Location = new Point(424, 22);
             lblPostal.Name = "lblPostal";
-            lblPostal.Size = new Size(94, 20);
+            lblPostal.Size = new Size(76, 15);
             lblPostal.TabIndex = 45;
             lblPostal.Text = "Postal Code :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(528, 100);
+            label4.Location = new Point(444, 55);
             label4.Name = "label4";
-            label4.Size = new Size(71, 20);
+            label4.Size = new Size(59, 15);
             label4.TabIndex = 46;
             label4.Text = "Country : ";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(538, 147);
+            label5.Location = new Point(453, 90);
             label5.Name = "label5";
-            label5.Size = new Size(61, 20);
+            label5.Size = new Size(50, 15);
             label5.TabIndex = 47;
             label5.Text = "Phone : ";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(562, 189);
+            label6.Location = new Point(474, 122);
             label6.Name = "label6";
-            label6.Size = new Size(37, 20);
+            label6.Size = new Size(31, 15);
             label6.TabIndex = 48;
             label6.Text = "Fax :";
             // 
             // txtCity
             // 
-            txtCity.Location = new Point(186, 144);
+            txtCity.Location = new Point(145, 88);
+            txtCity.Margin = new Padding(3, 2, 3, 2);
             txtCity.Name = "txtCity";
             txtCity.ReadOnly = true;
-            txtCity.Size = new Size(228, 27);
+            txtCity.Size = new Size(200, 23);
             txtCity.TabIndex = 2;
             // 
             // txtProv
             // 
-            txtProv.Location = new Point(186, 189);
+            txtProv.Location = new Point(145, 122);
+            txtProv.Margin = new Padding(3, 2, 3, 2);
             txtProv.Name = "txtProv";
             txtProv.ReadOnly = true;
-            txtProv.Size = new Size(228, 27);
+            txtProv.Size = new Size(200, 23);
             txtProv.TabIndex = 3;
             // 
             // txtPostal
             // 
-            txtPostal.Location = new Point(605, 53);
+            txtPostal.Location = new Point(511, 20);
+            txtPostal.Margin = new Padding(3, 2, 3, 2);
             txtPostal.Name = "txtPostal";
             txtPostal.ReadOnly = true;
-            txtPostal.Size = new Size(257, 27);
+            txtPostal.Size = new Size(225, 23);
             txtPostal.TabIndex = 4;
             // 
             // txtCountry
             // 
-            txtCountry.Location = new Point(605, 97);
+            txtCountry.Location = new Point(511, 53);
+            txtCountry.Margin = new Padding(3, 2, 3, 2);
             txtCountry.Name = "txtCountry";
             txtCountry.ReadOnly = true;
-            txtCountry.Size = new Size(257, 27);
+            txtCountry.Size = new Size(225, 23);
             txtCountry.TabIndex = 5;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(605, 140);
+            txtPhone.Location = new Point(511, 85);
+            txtPhone.Margin = new Padding(3, 2, 3, 2);
             txtPhone.Name = "txtPhone";
             txtPhone.ReadOnly = true;
-            txtPhone.Size = new Size(257, 27);
+            txtPhone.Size = new Size(225, 23);
             txtPhone.TabIndex = 6;
             // 
             // txtFax
             // 
-            txtFax.Location = new Point(605, 187);
+            txtFax.Location = new Point(511, 120);
+            txtFax.Margin = new Padding(3, 2, 3, 2);
             txtFax.Name = "txtFax";
             txtFax.ReadOnly = true;
-            txtFax.Size = new Size(257, 27);
+            txtFax.Size = new Size(225, 23);
             txtFax.TabIndex = 7;
             // 
             // btnSave
             // 
             btnSave.Enabled = false;
-            btnSave.Location = new Point(678, 500);
+            btnSave.Location = new Point(616, 375);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(189, 29);
+            btnSave.Size = new Size(143, 22);
             btnSave.TabIndex = 8;
             btnSave.Text = "&Save Changes";
             btnSave.UseVisualStyleBackColor = true;
@@ -246,19 +263,59 @@
             // btnDiscard
             // 
             btnDiscard.Enabled = false;
-            btnDiscard.Location = new Point(465, 500);
+            btnDiscard.Location = new Point(453, 374);
+            btnDiscard.Margin = new Padding(3, 2, 3, 2);
             btnDiscard.Name = "btnDiscard";
-            btnDiscard.Size = new Size(189, 29);
+            btnDiscard.Size = new Size(143, 22);
             btnDiscard.TabIndex = 9;
             btnDiscard.Text = "Discard Chan&ges";
             btnDiscard.UseVisualStyleBackColor = true;
             btnDiscard.Click += btnDiscard_Click;
             // 
+            // lblClearIcon
+            // 
+            lblClearIcon.AutoSize = true;
+            lblClearIcon.Font = new Font("Segoe UI", 15F);
+            lblClearIcon.Location = new Point(720, 157);
+            lblClearIcon.Name = "lblClearIcon";
+            lblClearIcon.Size = new Size(39, 28);
+            lblClearIcon.TabIndex = 50;
+            lblClearIcon.Text = "✖";
+            lblClearIcon.Click += lblClearIcon_Click;
+            lblClearIcon.MouseLeave += lblClearIcon_MouseLeave;
+            lblClearIcon.MouseHover += lblClearIcon_MouseHover;
+            // 
+            // lblSearchIcon
+            // 
+            lblSearchIcon.AutoSize = true;
+            lblSearchIcon.Font = new Font("Segoe UI", 15F);
+            lblSearchIcon.Location = new Point(683, 157);
+            lblSearchIcon.Name = "lblSearchIcon";
+            lblSearchIcon.Size = new Size(39, 28);
+            lblSearchIcon.TabIndex = 49;
+            lblSearchIcon.Text = "🔍";
+            lblSearchIcon.Click += lblSearchIcon_Click;
+            lblSearchIcon.MouseLeave += lblSearchIcon_MouseLeave;
+            lblSearchIcon.MouseHover += lblSearchIcon_MouseHover;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(308, 374);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(111, 23);
+            btnSearch.TabIndex = 51;
+            btnSearch.Text = "&Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
             // ucManageAgencies
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
+            Controls.Add(btnSearch);
+            Controls.Add(lblClearIcon);
+            Controls.Add(lblSearchIcon);
             Controls.Add(btnDiscard);
             Controls.Add(btnSave);
             Controls.Add(txtFax);
@@ -281,8 +338,9 @@
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
             Controls.Add(dgvAgencies);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ucManageAgencies";
-            Size = new Size(914, 562);
+            Size = new Size(800, 422);
             Load += ucManageAgencies_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).EndInit();
             ResumeLayout(false);
@@ -313,5 +371,8 @@
         private TextBox txtFax;
         private Button btnSave;
         private Button btnDiscard;
+        private Label lblClearIcon;
+        private Label lblSearchIcon;
+        private Button btnSearch;
     }
 }

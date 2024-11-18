@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,16 @@ using System.Windows.Forms;
 using TravelExpertData.Data;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
+using TravelExpertGUI.Helpers;
 
 namespace TravelExpertGUI
 {
     public partial class ucManageAgencies : UserControl
     {
+        private List<Agency> agencies = null;
+        private bool suppressSelectionChanged = false;
+
+
         public ucManageAgencies()
         {
             InitializeComponent();
@@ -31,12 +37,31 @@ namespace TravelExpertGUI
         // Function to clear and populate datagrid view 
         private void PopulateAgencies()
         {
+            lblSearchIcon.Visible = false;
+
+            // Makes our fields read only for now 
+            txtAgencyId.ReadOnly = true;
+            txtAgencyAddress.ReadOnly = true;
+            txtCity.ReadOnly = true;
+            txtProv.ReadOnly = true;
+            txtCountry.ReadOnly = true;
+            txtPostal.ReadOnly = true;
+            txtPhone.ReadOnly = true;
+            txtFax.ReadOnly = true;
+
+            btnSave.Enabled = false;
+            btnDiscard.Enabled = false;
+            btnAdd.Enabled = true;
+            btnEdit.Enabled = true;
+            btnDelete.Enabled = true;
+
             // Enables the list for clicking 
             dgvAgencies.Enabled = true;
+            dgvAgencies.ReadOnly = true;
             // Populates the list
             dgvAgencies.Columns.Clear();
-            dgvAgencies.DataSource = AgencyRepository.GetAgency();
-
+            agencies = AgencyRepository.GetAgency();
+            dgvAgencies.DataSource = agencies;
 
             // format the column header
             dgvAgencies.EnableHeadersVisualStyles = false;
@@ -60,26 +85,21 @@ namespace TravelExpertGUI
             // Hides additional columns we dont need to see 
             dgvAgencies.Columns[8].Visible = false;
             dgvAgencies.Columns[9].Visible = false;
-            txtAgencyAddress.ReadOnly = true;
-            // Makes our fields read only for now 
-            txtCountry.ReadOnly = true;
-            txtPostal.ReadOnly = true;
-            txtCity.ReadOnly = true;
-            txtProv.ReadOnly = true;
-            txtPhone.ReadOnly = true;
-            txtFax.ReadOnly = true;
-            btnSave.Enabled = false;
-            btnDiscard.Enabled = false;
-            btnAdd.Enabled = true;
-            btnEdit.Enabled = true;
-            btnDelete.Enabled = true;
-
         }
+
         // Sets our textboxes to the selected row
         private void dgvAgencies_SelectionChanged(object sender, EventArgs e)
-        {   // Changes based upon slected row by table column names 
+        { 
+            // Suppress the event if the flag is set
+            if (suppressSelectionChanged)
+            {
+                return;
+            }
+
+            // Changes based upon slected row by table column names 
             if (dgvAgencies.CurrentRow != null)
             {
+                Debug.WriteLine($"I'm hereeee\t Rows count {dgvAgencies.RowCount}");
                 txtAgencyId.Text = dgvAgencies.CurrentRow.Cells["AgencyId"].Value.ToString();
                 txtAgencyAddress.Text = dgvAgencies.CurrentRow.Cells["AgncyAddress"].Value.ToString();
                 txtCity.Text = dgvAgencies.CurrentRow.Cells["AgncyCity"].Value.ToString();
@@ -95,23 +115,10 @@ namespace TravelExpertGUI
         private void btnAdd_Click(object sender, EventArgs e)
         {   // Turns off the list so it cant be clicked while adding a new agency
             dgvAgencies.Enabled = false;
-            // Clears all our textboxes
-            txtAgencyId.Clear();
-            txtAgencyAddress.Clear();
-            txtCity.Clear();
-            txtProv.Clear();
-            txtCountry.Clear();
-            txtPostal.Clear();
-            txtPhone.Clear();
-            txtFax.Clear();
+
             // Makes the boxes manipulatable 
-            txtAgencyAddress.ReadOnly = false;
-            txtCountry.ReadOnly = false;
-            txtPostal.ReadOnly = false;
-            txtCity.ReadOnly = false;
-            txtProv.ReadOnly = false;
-            txtPhone.ReadOnly = false;
-            txtFax.ReadOnly = false;
+            EnableEditableFields();
+
             btnSave.Enabled = true;
             btnDiscard.Enabled = true;
             btnEdit.Enabled = false;
@@ -120,6 +127,7 @@ namespace TravelExpertGUI
             // Allows the save button to determine the function of its click
             function = "add";
         }
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -245,6 +253,118 @@ namespace TravelExpertGUI
         private void btnDiscard_Click(object sender, EventArgs e)
         {
             PopulateAgencies();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            // make search icon visible
+            lblSearchIcon.Visible = true;
+
+            EnableEditableFields();
+
+            txtAgencyId.ReadOnly = false;
+
+            // disable all buttons except disc button
+            btnSave.Enabled = false;
+            btnAdd.Enabled = false;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
+            btnDiscard.Enabled = true;
+        }
+
+        private void lblSearchIcon_MouseHover(object sender, EventArgs e)
+        {
+            lblSearchIcon.Cursor = Cursors.Hand;
+        }
+
+        private void lblSearchIcon_MouseLeave(object sender, EventArgs e)
+        {
+            lblSearchIcon.Cursor = Cursors.Default;
+        }
+
+        private void lblClearIcon_MouseHover(object sender, EventArgs e)
+        {
+            lblClearIcon.Cursor = Cursors.Hand;
+        }
+
+        private void lblClearIcon_MouseLeave(object sender, EventArgs e)
+        {
+            lblClearIcon.Cursor = Cursors.Default;
+        }
+
+        private void lblSearchIcon_Click(object sender, EventArgs e)
+        {
+            // if AgencyId is not empty, check the textbox
+            if (!string.IsNullOrWhiteSpace(txtAgencyId.Text) &&
+                !TextBoxValidator.IsInteger(txtAgencyId))
+            {
+                return;
+            }
+
+            // If all fields are empty, no filters are applied in the Where clause,
+            // mean that we're going to query all instead.
+            var filteredList = agencies.Where(agency =>
+                (string.IsNullOrWhiteSpace(txtAgencyId.Text) || agency.AgencyId == Convert.ToInt32(txtAgencyId.Text)) &&
+                (string.IsNullOrWhiteSpace(txtAgencyAddress.Text) || agency.AgncyAddress.ToLower().Contains(txtAgencyAddress.Text.ToLower())) &&
+                (string.IsNullOrWhiteSpace(txtCity.Text) || agency.AgncyCity.ToLower().Contains(txtCity.Text.ToLower())) &&
+                (string.IsNullOrWhiteSpace(txtProv.Text) || agency.AgncyProv.ToLower().Contains(txtProv.Text.ToLower())) &&
+                (string.IsNullOrWhiteSpace(txtPostal.Text) || agency.AgncyPostal.ToLower().Contains(txtPostal.Text.ToLower())) &&
+                (string.IsNullOrWhiteSpace(txtCountry.Text) || agency.AgncyCountry.ToLower().Contains(txtCountry.Text.ToLower())) &&
+                (string.IsNullOrWhiteSpace(txtPhone.Text) || agency.AgncyPhone.ToLower().Contains(txtPhone.Text.ToLower())) &&
+                (string.IsNullOrWhiteSpace(txtFax.Text) || agency.AgncyFax.ToLower().Contains(txtFax.Text.ToLower()))
+            ).ToList();
+
+            // Check if there are no results
+            if (filteredList.Count == 0)
+            {
+                suppressSelectionChanged = true;
+            }
+
+            dgvAgencies.DataSource = filteredList;
+        }
+
+        private void lblClearIcon_Click(object sender, EventArgs e)
+        {
+            ClearAllInputFields();
+        }
+
+        private void EnableEditableFields()
+        {
+            // Clears all our textboxes
+            ClearAllInputFields();
+
+            txtAgencyAddress.ReadOnly = false;
+            txtCountry.ReadOnly = false;
+            txtPostal.ReadOnly = false;
+            txtCity.ReadOnly = false;
+            txtProv.ReadOnly = false;
+            txtPhone.ReadOnly = false;
+            txtFax.ReadOnly = false;
+        }
+
+        private void ClearAllInputFields()
+        {
+            txtAgencyId.Clear();
+            txtAgencyAddress.Clear();
+            txtCity.Clear();
+            txtProv.Clear();
+            txtCountry.Clear();
+            txtPostal.Clear();
+            txtPhone.Clear();
+            txtFax.Clear();
+        }
+
+        private void dgvAgencies_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            // Clear selection if there are no rows or no valid data
+            if (dgvAgencies.Rows.Count == 0)
+            {
+                Debug.WriteLine("Hereeee");
+                dgvAgencies.ClearSelection();
+
+            }
+
+            // Deselect all rows
         }
     }
 }
