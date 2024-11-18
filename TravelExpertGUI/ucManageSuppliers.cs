@@ -33,7 +33,6 @@ public partial class ucManageSuppliers : UserControl
     private void populateSuppliers()
     {   
         
-    {
         lblSearchIcon.Visible = false;
         // Sets textboxes and buttons to appropriate status
             txtSupID.ReadOnly = true;
