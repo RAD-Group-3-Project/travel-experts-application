@@ -47,10 +47,9 @@ partial class ucManageProducts
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(469, 375);
-        btnDisc.Margin = new Padding(3, 2, 3, 2);
+        btnDisc.Location = new Point(536, 500);
         btnDisc.Name = "btnDisc";
-        btnDisc.Size = new Size(143, 22);
+        btnDisc.Size = new Size(163, 29);
         btnDisc.TabIndex = 43;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
@@ -58,10 +57,9 @@ partial class ucManageProducts
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(618, 375);
-        btnSave.Margin = new Padding(3, 2, 3, 2);
+        btnSave.Location = new Point(706, 500);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(143, 22);
+        btnSave.Size = new Size(163, 29);
         btnSave.TabIndex = 42;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -69,30 +67,27 @@ partial class ucManageProducts
         // btnDelete
         // 
         btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
-        btnDelete.Location = new Point(230, 375);
-        btnDelete.Margin = new Padding(3, 2, 3, 2);
+        btnDelete.Location = new Point(263, 500);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(82, 22);
+        btnDelete.Size = new Size(94, 29);
         btnDelete.TabIndex = 47;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(142, 375);
-        btnEdit.Margin = new Padding(3, 2, 3, 2);
+        btnEdit.Location = new Point(162, 500);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(82, 22);
+        btnEdit.Size = new Size(94, 29);
         btnEdit.TabIndex = 46;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(40, 375);
-        btnAdd.Margin = new Padding(3, 2, 3, 2);
+        btnAdd.Location = new Point(46, 500);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(82, 22);
+        btnAdd.Size = new Size(94, 29);
         btnAdd.TabIndex = 45;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -102,54 +97,53 @@ partial class ucManageProducts
         dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvSuppliers.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvSuppliers.Location = new Point(40, 121);
-        dgvSuppliers.Margin = new Padding(3, 2, 3, 2);
+        dgvSuppliers.Location = new Point(46, 161);
         dgvSuppliers.Name = "dgvSuppliers";
+        dgvSuppliers.ReadOnly = true;
         dgvSuppliers.RowHeadersWidth = 51;
-        dgvSuppliers.Size = new Size(721, 233);
+        dgvSuppliers.Size = new Size(824, 311);
         dgvSuppliers.TabIndex = 44;
         // 
         // txtSupName
         // 
-        txtSupName.Location = new Point(538, 52);
-        txtSupName.Margin = new Padding(3, 2, 3, 2);
+        txtSupName.Location = new Point(615, 69);
         txtSupName.Name = "txtSupName";
         txtSupName.ReadOnly = true;
-        txtSupName.Size = new Size(176, 23);
+        txtSupName.Size = new Size(201, 27);
         txtSupName.TabIndex = 53;
         // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(432, 54);
+        label1.Location = new Point(494, 72);
         label1.Name = "label1";
-        label1.Size = new Size(90, 15);
+        label1.Size = new Size(111, 20);
         label1.TabIndex = 52;
         label1.Text = "Product Name :";
         // 
         // txtSupID
         // 
-        txtSupID.Location = new Point(158, 52);
-        txtSupID.Margin = new Padding(3, 2, 3, 2);
+        txtSupID.Location = new Point(181, 69);
         txtSupID.Name = "txtSupID";
         txtSupID.ReadOnly = true;
-        txtSupID.Size = new Size(176, 23);
+        txtSupID.Size = new Size(201, 27);
         txtSupID.TabIndex = 51;
         // 
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(74, 54);
+        label2.Location = new Point(85, 72);
         label2.Name = "label2";
-        label2.Size = new Size(69, 15);
+        label2.Size = new Size(86, 20);
         label2.TabIndex = 50;
         label2.Text = "Product ID :";
         // 
         // btnSearch
         // 
-        btnSearch.Location = new Point(333, 375);
+        btnSearch.Location = new Point(381, 500);
+        btnSearch.Margin = new Padding(3, 4, 3, 4);
         btnSearch.Name = "btnSearch";
-        btnSearch.Size = new Size(111, 23);
+        btnSearch.Size = new Size(127, 31);
         btnSearch.TabIndex = 68;
         btnSearch.Text = "&Search";
         btnSearch.UseVisualStyleBackColor = true;
@@ -158,9 +152,9 @@ partial class ucManageProducts
         // 
         lblClearIcon.AutoSize = true;
         lblClearIcon.Font = new Font("Segoe UI", 15F);
-        lblClearIcon.Location = new Point(722, 91);
+        lblClearIcon.Location = new Point(825, 121);
         lblClearIcon.Name = "lblClearIcon";
-        lblClearIcon.Size = new Size(39, 28);
+        lblClearIcon.Size = new Size(49, 35);
         lblClearIcon.TabIndex = 70;
         lblClearIcon.Text = "✖";
         lblClearIcon.Click += lblClearIcon_Click;
@@ -169,15 +163,15 @@ partial class ucManageProducts
         // 
         lblSearchIcon.AutoSize = true;
         lblSearchIcon.Font = new Font("Segoe UI", 15F);
-        lblSearchIcon.Location = new Point(685, 91);
+        lblSearchIcon.Location = new Point(783, 121);
         lblSearchIcon.Name = "lblSearchIcon";
-        lblSearchIcon.Size = new Size(39, 28);
+        lblSearchIcon.Size = new Size(49, 35);
         lblSearchIcon.TabIndex = 69;
         lblSearchIcon.Text = "🔍";
         // 
         // ucManageProducts
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
         Controls.Add(lblClearIcon);
@@ -193,9 +187,8 @@ partial class ucManageProducts
         Controls.Add(btnEdit);
         Controls.Add(btnAdd);
         Controls.Add(dgvSuppliers);
-        Margin = new Padding(3, 2, 3, 2);
         Name = "ucManageProducts";
-        Size = new Size(800, 422);
+        Size = new Size(914, 563);
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
         ResumeLayout(false);
         PerformLayout();

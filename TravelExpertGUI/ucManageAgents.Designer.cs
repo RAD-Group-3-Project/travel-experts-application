@@ -59,10 +59,9 @@ partial class ucManageAgents
         // btnDelete
         // 
         btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
-        btnDelete.Location = new Point(219, 375);
-        btnDelete.Margin = new Padding(3, 2, 3, 2);
+        btnDelete.Location = new Point(250, 500);
         btnDelete.Name = "btnDelete";
-        btnDelete.Size = new Size(82, 22);
+        btnDelete.Size = new Size(94, 29);
         btnDelete.TabIndex = 35;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
@@ -70,10 +69,9 @@ partial class ucManageAgents
         // 
         // btnEdit
         // 
-        btnEdit.Location = new Point(131, 375);
-        btnEdit.Margin = new Padding(3, 2, 3, 2);
+        btnEdit.Location = new Point(150, 500);
         btnEdit.Name = "btnEdit";
-        btnEdit.Size = new Size(82, 22);
+        btnEdit.Size = new Size(94, 29);
         btnEdit.TabIndex = 34;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
@@ -81,10 +79,9 @@ partial class ucManageAgents
         // 
         // btnAdd
         // 
-        btnAdd.Location = new Point(43, 375);
-        btnAdd.Margin = new Padding(3, 2, 3, 2);
+        btnAdd.Location = new Point(49, 500);
         btnAdd.Name = "btnAdd";
-        btnAdd.Size = new Size(82, 22);
+        btnAdd.Size = new Size(94, 29);
         btnAdd.TabIndex = 33;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
@@ -95,138 +92,131 @@ partial class ucManageAgents
         dgvAgents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvAgents.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvAgents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvAgents.Location = new Point(43, 182);
-        dgvAgents.Margin = new Padding(3, 2, 3, 2);
+        dgvAgents.Location = new Point(49, 243);
         dgvAgents.Name = "dgvAgents";
+        dgvAgents.ReadOnly = true;
         dgvAgents.RowHeadersWidth = 51;
-        dgvAgents.Size = new Size(705, 177);
+        dgvAgents.Size = new Size(806, 236);
         dgvAgents.TabIndex = 32;
         dgvAgents.SelectionChanged += dgvAgents_SelectionChanged;
         // 
         // label7
         // 
         label7.AutoSize = true;
-        label7.Location = new Point(449, 118);
+        label7.Location = new Point(513, 157);
         label7.Name = "label7";
-        label7.Size = new Size(53, 15);
+        label7.Size = new Size(65, 20);
         label7.TabIndex = 30;
         label7.Text = "Agency :";
         // 
         // txtAgntPosition
         // 
-        txtAgntPosition.Location = new Point(521, 87);
-        txtAgntPosition.Margin = new Padding(3, 2, 3, 2);
+        txtAgntPosition.Location = new Point(595, 116);
         txtAgntPosition.Name = "txtAgntPosition";
         txtAgntPosition.ReadOnly = true;
-        txtAgntPosition.Size = new Size(190, 23);
+        txtAgntPosition.Size = new Size(217, 27);
         txtAgntPosition.TabIndex = 6;
         // 
         // label6
         // 
         label6.AutoSize = true;
-        label6.Location = new Point(449, 86);
+        label6.Location = new Point(513, 115);
         label6.Name = "label6";
-        label6.Size = new Size(56, 15);
+        label6.Size = new Size(68, 20);
         label6.TabIndex = 28;
         label6.Text = "Position :";
         // 
         // txtAgntEmail
         // 
-        txtAgntEmail.Location = new Point(521, 59);
-        txtAgntEmail.Margin = new Padding(3, 2, 3, 2);
+        txtAgntEmail.Location = new Point(595, 79);
         txtAgntEmail.Name = "txtAgntEmail";
         txtAgntEmail.ReadOnly = true;
-        txtAgntEmail.Size = new Size(190, 23);
+        txtAgntEmail.Size = new Size(217, 27);
         txtAgntEmail.TabIndex = 5;
         // 
         // label5
         // 
         label5.AutoSize = true;
-        label5.Location = new Point(460, 59);
+        label5.Location = new Point(526, 79);
         label5.Name = "label5";
-        label5.Size = new Size(42, 15);
+        label5.Size = new Size(53, 20);
         label5.TabIndex = 26;
         label5.Text = "Email :";
         // 
         // txtAgntBusPhone
         // 
-        txtAgntBusPhone.Location = new Point(521, 31);
-        txtAgntBusPhone.Margin = new Padding(3, 2, 3, 2);
+        txtAgntBusPhone.Location = new Point(595, 41);
         txtAgntBusPhone.Name = "txtAgntBusPhone";
         txtAgntBusPhone.ReadOnly = true;
-        txtAgntBusPhone.Size = new Size(190, 23);
+        txtAgntBusPhone.Size = new Size(217, 27);
         txtAgntBusPhone.TabIndex = 4;
         // 
         // label4
         // 
         label4.AutoSize = true;
-        label4.Location = new Point(410, 39);
+        label4.Location = new Point(469, 52);
         label4.Name = "label4";
-        label4.Size = new Size(95, 15);
+        label4.Size = new Size(116, 20);
         label4.TabIndex = 24;
         label4.Text = "Business Phone :";
         // 
         // txtAgntLName
         // 
-        txtAgntLName.Location = new Point(192, 115);
-        txtAgntLName.Margin = new Padding(3, 2, 3, 2);
+        txtAgntLName.Location = new Point(219, 153);
         txtAgntLName.Name = "txtAgntLName";
         txtAgntLName.ReadOnly = true;
-        txtAgntLName.Size = new Size(190, 23);
+        txtAgntLName.Size = new Size(217, 27);
         txtAgntLName.TabIndex = 3;
         // 
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(88, 118);
+        label3.Location = new Point(101, 157);
         label3.Name = "label3";
-        label3.Size = new Size(69, 15);
+        label3.Size = new Size(86, 20);
         label3.TabIndex = 22;
         label3.Text = "Last Name :";
         // 
         // txtAgntFName
         // 
-        txtAgntFName.Location = new Point(192, 59);
-        txtAgntFName.Margin = new Padding(3, 2, 3, 2);
+        txtAgntFName.Location = new Point(219, 79);
         txtAgntFName.Name = "txtAgntFName";
         txtAgntFName.ReadOnly = true;
-        txtAgntFName.Size = new Size(190, 23);
+        txtAgntFName.Size = new Size(217, 27);
         txtAgntFName.TabIndex = 1;
         // 
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(88, 63);
+        label2.Location = new Point(101, 84);
         label2.Name = "label2";
-        label2.Size = new Size(70, 15);
+        label2.Size = new Size(87, 20);
         label2.TabIndex = 20;
         label2.Text = "First Name :";
         // 
         // txtAgntId
         // 
-        txtAgntId.Location = new Point(192, 31);
-        txtAgntId.Margin = new Padding(3, 2, 3, 2);
+        txtAgntId.Location = new Point(219, 41);
         txtAgntId.Name = "txtAgntId";
         txtAgntId.ReadOnly = true;
-        txtAgntId.Size = new Size(190, 23);
+        txtAgntId.Size = new Size(217, 27);
         txtAgntId.TabIndex = 0;
         // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(99, 33);
+        label1.Location = new Point(113, 44);
         label1.Name = "label1";
-        label1.Size = new Size(58, 15);
+        label1.Size = new Size(73, 20);
         label1.TabIndex = 18;
         label1.Text = "Agent Id :";
         // 
         // btnSave
         // 
         btnSave.Enabled = false;
-        btnSave.Location = new Point(605, 375);
-        btnSave.Margin = new Padding(3, 2, 3, 2);
+        btnSave.Location = new Point(691, 500);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(143, 22);
+        btnSave.Size = new Size(163, 29);
         btnSave.TabIndex = 8;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
@@ -237,37 +227,34 @@ partial class ucManageAgents
         cboAgency.BackColor = SystemColors.Control;
         cboAgency.Enabled = false;
         cboAgency.FormattingEnabled = true;
-        cboAgency.Location = new Point(521, 115);
-        cboAgency.Margin = new Padding(3, 2, 3, 2);
+        cboAgency.Location = new Point(595, 153);
         cboAgency.Name = "cboAgency";
-        cboAgency.Size = new Size(190, 23);
+        cboAgency.Size = new Size(217, 28);
         cboAgency.TabIndex = 7;
         // 
         // txtMiddleInit
         // 
-        txtMiddleInit.Location = new Point(192, 87);
-        txtMiddleInit.Margin = new Padding(3, 2, 3, 2);
+        txtMiddleInit.Location = new Point(219, 116);
         txtMiddleInit.Name = "txtMiddleInit";
         txtMiddleInit.ReadOnly = true;
-        txtMiddleInit.Size = new Size(190, 23);
+        txtMiddleInit.Size = new Size(217, 27);
         txtMiddleInit.TabIndex = 2;
         // 
         // lblMid
         // 
         lblMid.AutoSize = true;
-        lblMid.Location = new Point(73, 91);
+        lblMid.Location = new Point(83, 121);
         lblMid.Name = "lblMid";
-        lblMid.Size = new Size(82, 15);
+        lblMid.Size = new Size(104, 20);
         lblMid.TabIndex = 40;
         lblMid.Text = "Middle Initial :";
         // 
         // btnDisc
         // 
         btnDisc.Enabled = false;
-        btnDisc.Location = new Point(456, 375);
-        btnDisc.Margin = new Padding(3, 2, 3, 2);
+        btnDisc.Location = new Point(521, 500);
         btnDisc.Name = "btnDisc";
-        btnDisc.Size = new Size(143, 22);
+        btnDisc.Size = new Size(163, 29);
         btnDisc.TabIndex = 9;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
@@ -275,9 +262,10 @@ partial class ucManageAgents
         // 
         // btnSearch
         // 
-        btnSearch.Location = new Point(324, 375);
+        btnSearch.Location = new Point(370, 500);
+        btnSearch.Margin = new Padding(3, 4, 3, 4);
         btnSearch.Name = "btnSearch";
-        btnSearch.Size = new Size(111, 23);
+        btnSearch.Size = new Size(127, 31);
         btnSearch.TabIndex = 41;
         btnSearch.Text = "&Search";
         btnSearch.UseVisualStyleBackColor = true;
@@ -287,9 +275,9 @@ partial class ucManageAgents
         // 
         lblSearchIcon.AutoSize = true;
         lblSearchIcon.Font = new Font("Segoe UI", 15F);
-        lblSearchIcon.Location = new Point(672, 152);
+        lblSearchIcon.Location = new Point(768, 203);
         lblSearchIcon.Name = "lblSearchIcon";
-        lblSearchIcon.Size = new Size(39, 28);
+        lblSearchIcon.Size = new Size(49, 35);
         lblSearchIcon.TabIndex = 42;
         lblSearchIcon.Text = "🔍";
         lblSearchIcon.Click += lblSearchIcon_Click;
@@ -300,9 +288,9 @@ partial class ucManageAgents
         // 
         lblClearIcon.AutoSize = true;
         lblClearIcon.Font = new Font("Segoe UI", 15F);
-        lblClearIcon.Location = new Point(709, 152);
+        lblClearIcon.Location = new Point(810, 203);
         lblClearIcon.Name = "lblClearIcon";
-        lblClearIcon.Size = new Size(39, 28);
+        lblClearIcon.Size = new Size(49, 35);
         lblClearIcon.TabIndex = 43;
         lblClearIcon.Text = "✖";
         lblClearIcon.Click += lblClearIcon_Click;
@@ -311,7 +299,7 @@ partial class ucManageAgents
         // 
         // ucManageAgents
         // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
         Controls.Add(lblClearIcon);
@@ -340,9 +328,8 @@ partial class ucManageAgents
         Controls.Add(txtAgntId);
         Controls.Add(label1);
         ForeColor = SystemColors.ControlText;
-        Margin = new Padding(3, 2, 3, 2);
         Name = "ucManageAgents";
-        Size = new Size(800, 422);
+        Size = new Size(914, 563);
         Load += ucManageAgents_Load;
         ((System.ComponentModel.ISupportInitialize)dgvAgents).EndInit();
         ResumeLayout(false);
