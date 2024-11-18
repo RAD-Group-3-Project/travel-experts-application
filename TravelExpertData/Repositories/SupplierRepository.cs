@@ -46,7 +46,7 @@ namespace TravelExpertData.Repositories
         {
             using TravelExpertContext conn = new TravelExpertContext();
             {
-                var supplier = conn.Suppliers;
+                var supplier = conn.Suppliers.Where(s => s.IsActive == true).ToList();
                 return supplier
                     .OrderBy(s => s.SupName)
                     .ToList();
