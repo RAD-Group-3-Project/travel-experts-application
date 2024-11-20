@@ -53,6 +53,7 @@ partial class ucManageProducts
         btnDisc.TabIndex = 43;
         btnDisc.Text = "Discard Chan&ges";
         btnDisc.UseVisualStyleBackColor = true;
+        btnDisc.Click += btnDisc_Click;
         // 
         // btnSave
         // 
@@ -63,6 +64,7 @@ partial class ucManageProducts
         btnSave.TabIndex = 42;
         btnSave.Text = "Save Changes";
         btnSave.UseVisualStyleBackColor = true;
+        btnSave.Click += btnSave_Click;
         // 
         // btnDelete
         // 
@@ -73,6 +75,7 @@ partial class ucManageProducts
         btnDelete.TabIndex = 47;
         btnDelete.Text = "&Delete";
         btnDelete.UseVisualStyleBackColor = true;
+        btnDelete.Click += btnDelete_Click;
         // 
         // btnEdit
         // 
@@ -82,6 +85,7 @@ partial class ucManageProducts
         btnEdit.TabIndex = 46;
         btnEdit.Text = "&Edit";
         btnEdit.UseVisualStyleBackColor = true;
+        btnEdit.Click += btnEdit_Click;
         // 
         // btnAdd
         // 
@@ -91,6 +95,7 @@ partial class ucManageProducts
         btnAdd.TabIndex = 45;
         btnAdd.Text = "&Add";
         btnAdd.UseVisualStyleBackColor = true;
+        btnAdd.Click += btnAdd_Click;
         // 
         // dgvSuppliers
         // 
@@ -147,6 +152,7 @@ partial class ucManageProducts
         btnSearch.TabIndex = 68;
         btnSearch.Text = "&Search";
         btnSearch.UseVisualStyleBackColor = true;
+        btnSearch.Click += btnSearch_Click;
         // 
         // lblClearIcon
         // 
@@ -168,6 +174,7 @@ partial class ucManageProducts
         lblSearchIcon.Size = new Size(49, 35);
         lblSearchIcon.TabIndex = 69;
         lblSearchIcon.Text = "🔍";
+        lblSearchIcon.Click += lblSearchIcon_Click;
         // 
         // ucManageProducts
         // 
@@ -188,7 +195,7 @@ partial class ucManageProducts
         Controls.Add(btnAdd);
         Controls.Add(dgvSuppliers);
         Name = "ucManageProducts";
-        Size = new Size(914, 563);
+        Size = new Size(800, 422);
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
         ResumeLayout(false);
         PerformLayout();

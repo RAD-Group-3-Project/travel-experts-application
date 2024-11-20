@@ -50,6 +50,31 @@ namespace TravelExpertData.Repositories
             }
         }
 
+        public static List<Package> GetAllPackages()
+        {
+            using (TravelExpertContext ctx = new TravelExpertContext())
+            {
+                var package = ctx.Packages;
+                return package.ToList();
+            }
+        }
+
+        public static void AddPackage(Package addPackage)
+        {
+            using (TravelExpertContext ctx = new TravelExpertContext())
+            {
+                try
+                {
+                    ctx.Packages.Add(addPackage);
+                    ctx.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error Adding Package to Database");
+                }
+            }
+        }
+
         public static void UpdatePackage(Package package)
         {
             try

@@ -42,7 +42,7 @@ partial class ucManagePackages
         txtPkgBasePrice = new TextBox();
         label7 = new Label();
         txtPkgAgcyCom = new TextBox();
-        dataGridView1 = new DataGridView();
+        dgvPackages = new DataGridView();
         btnAdd = new Button();
         btnEdit = new Button();
         btnDelete = new Button();
@@ -51,7 +51,7 @@ partial class ucManagePackages
         lblClearIcon = new Label();
         lblSearchIcon = new Label();
         btnSearch = new Button();
-        ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
         SuspendLayout();
         // 
         // label1
@@ -59,7 +59,7 @@ partial class ucManagePackages
         label1.AutoSize = true;
         label1.Location = new Point(73, 51);
         label1.Name = "label1";
-        label1.Size = new Size(83, 20);
+        label1.Size = new Size(84, 20);
         label1.TabIndex = 0;
         label1.Text = "Package Id:";
         // 
@@ -84,7 +84,7 @@ partial class ucManagePackages
         label2.AutoSize = true;
         label2.Location = new Point(73, 87);
         label2.Name = "label2";
-        label2.Size = new Size(110, 20);
+        label2.Size = new Size(111, 20);
         label2.TabIndex = 2;
         label2.Text = "Package Name:";
         // 
@@ -101,7 +101,7 @@ partial class ucManagePackages
         label3.AutoSize = true;
         label3.Location = new Point(73, 127);
         label3.Name = "label3";
-        label3.Size = new Size(137, 20);
+        label3.Size = new Size(138, 20);
         label3.TabIndex = 4;
         label3.Text = "Package Start Date:";
         // 
@@ -118,7 +118,7 @@ partial class ucManagePackages
         label4.AutoSize = true;
         label4.Location = new Point(73, 165);
         label4.Name = "label4";
-        label4.Size = new Size(131, 20);
+        label4.Size = new Size(132, 20);
         label4.TabIndex = 6;
         label4.Text = "Package End Date:";
         // 
@@ -135,7 +135,7 @@ partial class ucManagePackages
         label5.AutoSize = true;
         label5.Location = new Point(73, 203);
         label5.Name = "label5";
-        label5.Size = new Size(146, 20);
+        label5.Size = new Size(147, 20);
         label5.TabIndex = 8;
         label5.Text = "Package Description:";
         // 
@@ -144,7 +144,7 @@ partial class ucManagePackages
         label6.AutoSize = true;
         label6.Location = new Point(456, 55);
         label6.Name = "label6";
-        label6.Size = new Size(137, 20);
+        label6.Size = new Size(138, 20);
         label6.TabIndex = 10;
         label6.Text = "Package Base Price:";
         // 
@@ -161,7 +161,7 @@ partial class ucManagePackages
         label7.AutoSize = true;
         label7.Location = new Point(456, 95);
         label7.Name = "label7";
-        label7.Size = new Size(204, 20);
+        label7.Size = new Size(205, 20);
         label7.TabIndex = 12;
         label7.Text = "Package Agency Commission:";
         // 
@@ -173,17 +173,16 @@ partial class ucManagePackages
         txtPkgAgcyCom.Size = new Size(125, 27);
         txtPkgAgcyCom.TabIndex = 13;
         // 
-        // dataGridView1
+        // dgvPackages
         // 
-        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        dataGridView1.BackgroundColor = SystemColors.GradientActiveCaption;
-        dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView1.Location = new Point(49, 249);
-        dataGridView1.Name = "dataGridView1";
-        dataGridView1.ReadOnly = true;
-        dataGridView1.RowHeadersWidth = 51;
-        dataGridView1.Size = new Size(802, 236);
-        dataGridView1.TabIndex = 14;
+        dgvPackages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvPackages.BackgroundColor = SystemColors.GradientActiveCaption;
+        dgvPackages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvPackages.Location = new Point(49, 249);
+        dgvPackages.Name = "dgvPackages";
+        dgvPackages.RowHeadersWidth = 51;
+        dgvPackages.Size = new Size(802, 236);
+        dgvPackages.TabIndex = 14;
         // 
         // btnAdd
         // 
@@ -247,6 +246,7 @@ partial class ucManagePackages
         lblClearIcon.Size = new Size(49, 35);
         lblClearIcon.TabIndex = 60;
         lblClearIcon.Text = "✖";
+        lblClearIcon.Click += lblClearIcon_Click;
         // 
         // lblSearchIcon
         // 
@@ -267,6 +267,7 @@ partial class ucManagePackages
         btnSearch.TabIndex = 68;
         btnSearch.Text = "&Search";
         btnSearch.UseVisualStyleBackColor = true;
+        btnSearch.Click += btnSearch_Click;
         // 
         // ucManagePackages
         // 
@@ -281,7 +282,7 @@ partial class ucManagePackages
         Controls.Add(btnDelete);
         Controls.Add(btnEdit);
         Controls.Add(btnAdd);
-        Controls.Add(dataGridView1);
+        Controls.Add(dgvPackages);
         Controls.Add(txtPkgAgcyCom);
         Controls.Add(label7);
         Controls.Add(txtPkgBasePrice);
@@ -298,7 +299,8 @@ partial class ucManagePackages
         Controls.Add(label1);
         Name = "ucManagePackages";
         Size = new Size(914, 563);
-        ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+        Load += ucManagePackages_Load;
+        ((System.ComponentModel.ISupportInitialize)dgvPackages).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -319,7 +321,7 @@ partial class ucManagePackages
     private TextBox txtPkgBasePrice;
     private Label label7;
     private TextBox txtPkgAgcyCom;
-    private DataGridView dataGridView1;
+    private DataGridView dgvPackages;
     private Button btnAdd;
     private Button btnEdit;
     private Button btnDelete;
