@@ -97,7 +97,7 @@ public partial class frmMain : Form
                     controlToLoad = new ucManagePackages();
                     break;
                 case "Products":
-                    //controlToLoad = new ucManageProducts(); 
+                    controlToLoad = new ucManageProducts();
                     break;
                 case "Products Suppliers":
                     controlToLoad = new ucManageProductSuppliers();

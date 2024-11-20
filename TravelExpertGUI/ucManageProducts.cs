@@ -23,8 +23,7 @@ public partial class ucManageProducts : UserControl
     {
         InitializeComponent();
     }
-
-    private void ucManageProducts_Load(object sender, EventArgs e)
+    private void ucManageProducts_Load_1(object sender, EventArgs e)
     {
         populateProducts();
     }
@@ -33,8 +32,8 @@ public partial class ucManageProducts : UserControl
     {
         // Sets the textboxes and buttons to the appropriate status
         lblSearchIcon.Visible = false;
-        txtSupID.ReadOnly = true;
-        txtSupName.ReadOnly = true;
+        txtProdId.ReadOnly = true;
+        txtProdName.ReadOnly = true;
         btnAdd.Enabled = true;
         btnDelete.Enabled = true;
         btnEdit.Enabled = true;
@@ -42,57 +41,41 @@ public partial class ucManageProducts : UserControl
         btnSave.Enabled = false;
 
         // Clears the list
-        dgvSuppliers.Columns.Clear();
-        dgvSuppliers.ReadOnly = true;
+        dgvProducts.Columns.Clear();
+        dgvProducts.ReadOnly = true;
         products = ProductRepository.GetProduct();
-        dgvSuppliers.DataSource = products;
+        dgvProducts.DataSource = products;
 
         // Formating the column header
-        dgvSuppliers.EnableHeadersVisualStyles = false;
-        dgvSuppliers.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
-        dgvSuppliers.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        dgvSuppliers.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
-        dgvSuppliers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        dgvSuppliers.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        dgvProducts.EnableHeadersVisualStyles = false;
+        dgvProducts.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+        dgvProducts.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        dgvProducts.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
+        dgvProducts.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        dgvProducts.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         // Manually change the column width, alignment, and header text
-        dgvSuppliers.Columns[0].HeaderText = "ID";
-        dgvSuppliers.Columns[1].HeaderText = "Product Name";
+        dgvProducts.Columns[0].HeaderText = "ID";
+        dgvProducts.Columns[1].HeaderText = "Product Name";
 
         // Hide header column
-        dgvSuppliers.RowHeadersVisible = false;
+        dgvProducts.RowHeadersVisible = false;
 
         // Hide additional columns
-        dgvSuppliers.Columns[2].Visible = false;
-        dgvSuppliers.Columns[3].Visible = false;
-        dgvSuppliers.Columns[4].Visible = false;
-        dgvSuppliers.Columns[1].Width = 350;
+        dgvProducts.Columns[2].Visible = false;
+        dgvProducts.Columns[3].Visible = false;
 
         // Unlocks database grid view to be able to click
-        dgvSuppliers.Enabled = true;
+        dgvProducts.Enabled = true;
     }
 
-    private void dgvSuppliers_SelectionChanged(object sender, EventArgs e)
+     private void btnAdd_Click(object sender, EventArgs e)
     {
-        if (suppressSelectionChanged)
-        {
-            return;
-        }
-
-        if (dgvSuppliers.SelectedRows != null)
-        {
-            txtSupID.Text = dgvSuppliers.CurrentRow.Cells["ProductId"].Value.ToString();
-            txtSupName.Text = dgvSuppliers.CurrentRow.Cells["ProdName"].Value.ToString();
-        }
-    }
-
-    private void btnAdd_Click(object sender, EventArgs e)
-    {
-        txtSupID.ReadOnly = true;
+        txtProdId.ReadOnly = true;
 
         EnableEditableFields();
 
-        txtSupName.Focus();
+        txtProdName.Focus();
         btnAdd.Enabled = false;
         btnEdit.Enabled = false;
         btnDelete.Enabled = false;
@@ -101,21 +84,21 @@ public partial class ucManageProducts : UserControl
 
         // Find the last product id and adds one to populate and box
         int lastRowColumnValue = lastID_PlusOne();
-        txtSupID.Text = lastRowColumnValue.ToString();
+        txtProdId.Text = lastRowColumnValue.ToString();
 
         // Edit the save button to "add"
         function = "ADD";
 
         // Locks the dgv so it cannot be clicked
-        dgvSuppliers.Enabled = false;
+        dgvProducts.Enabled = false;
     }
 
     private void btnEdit_Click(object sender, EventArgs e)
     {
         // Enables form manipulation/editting
-        txtSupID.ReadOnly = true;
-        txtSupName.ReadOnly = false;
-        txtSupName.Focus();
+        txtProdId.ReadOnly = true;
+        txtProdName.ReadOnly = false;
+        txtProdName.Focus();
         btnAdd.Enabled = false;
         btnEdit.Enabled = false;
         btnDelete.Enabled = false;
@@ -124,13 +107,13 @@ public partial class ucManageProducts : UserControl
         function = "EDIT";
 
         // Locks the database grid view
-        dgvSuppliers.Enabled = false;
+        dgvProducts.Enabled = false;
     }
 
     private void btnDelete_Click(object sender, EventArgs e)
     {
         // Finds the selected row and product
-        DataGridViewRow selectedRow = dgvSuppliers.CurrentRow;
+        DataGridViewRow selectedRow = dgvProducts.CurrentRow;
         int selectedProduct = Convert.ToInt32(selectedRow.Cells[0].Value);
 
         // Pops out message box to ensure deletion
@@ -161,7 +144,7 @@ public partial class ucManageProducts : UserControl
 
         EnableEditableFields();
 
-        txtSupID.ReadOnly = false;
+        txtProdId.ReadOnly = false;
 
         btnSave.Enabled = false;
         btnAdd.Enabled = false;
@@ -182,16 +165,13 @@ public partial class ucManageProducts : UserControl
             // Checks function
             case "ADD":
                 // Validates the text box for ID and name
-                if (TextBoxValidator.IsPresent(txtSupName) && TextBoxValidator.IsInteger(txtSupID))
+                if (TextBoxValidator.IsPresent(txtProdName) && TextBoxValidator.IsInteger(txtProdId))
                 {
                     // Makes new product and apply the attributes
                     Product addedProduct = new Product();
-
-                    // Finds the last ID again in case it changes
-                    int lastRowColumnValue = lastID_PlusOne();
-                    addedProduct.ProductId = lastRowColumnValue;
-                    addedProduct.ProdName = txtSupName.Text;
-                    //addedProduct.IsActive = true;
+                                   
+                    addedProduct.ProdName = txtProdName.Text;
+                    addedProduct.IsActive = true;
 
                     try
                     {
@@ -215,19 +195,20 @@ public partial class ucManageProducts : UserControl
 
             case "EDIT":
                 // Validate text boxes
-                if (TextBoxValidator.IsPresent(txtSupName) && TextBoxValidator.IsInteger(txtSupID))
+                if (TextBoxValidator.IsPresent(txtProdName) && TextBoxValidator.IsInteger(txtProdId))
                 {
                     // Creates a new product and sets attributes
                     Product editedProduct = new Product();
-                    editedProduct.ProductId = Convert.ToInt32(txtSupID.Text);
-                    editedProduct.ProdName = txtSupName.Text;
+                    editedProduct.ProductId = Convert.ToInt32(txtProdId.Text);
+                    editedProduct.ProdName = txtProdName.Text;
+                    editedProduct.IsActive = true;
 
                     // Try-catch the edit function
                     try
                     {
                         ProductRepository.UpdateProduct(editedProduct);
                     }
-                    catch (Exception ex) 
+                    catch (Exception ex)
                     {
                         MessageBox.Show($"Error: {ex.Message}", "Product Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -247,21 +228,21 @@ public partial class ucManageProducts : UserControl
 
     private void lblSearchIcon_Click(object sender, EventArgs e)
     {
-        if (!string.IsNullOrWhiteSpace(txtSupID.Text) && !TextBoxValidator.IsInteger(txtSupID))
+        if (!string.IsNullOrWhiteSpace(txtProdId.Text) && !TextBoxValidator.IsInteger(txtProdId))
         {
             return;
         }
 
-        var filteredList = products.Where(product => (string.IsNullOrWhiteSpace(txtSupID.Text) ||
-        product.ProductId == Convert.ToInt32(txtSupID.Text)) && (string.IsNullOrWhiteSpace(txtSupName.Text) ||
-        product.ProdName.ToLower().Contains(txtSupName.Text.ToLower()))).ToList();
+        var filteredList = products.Where(product => (string.IsNullOrWhiteSpace(txtProdId.Text) ||
+        product.ProductId == Convert.ToInt32(txtProdId.Text)) && (string.IsNullOrWhiteSpace(txtProdName.Text) ||
+        product.ProdName.ToLower().Contains(txtProdName.Text.ToLower()))).ToList();
 
         if (filteredList.Count == 0)
         {
             suppressSelectionChanged = true;
         }
 
-        dgvSuppliers.DataSource = filteredList;
+        dgvProducts.DataSource = filteredList;
     }
 
     private void lblSearchIcon_MouseHover(object sender, MouseEventArgs e)
@@ -305,12 +286,26 @@ public partial class ucManageProducts : UserControl
     {
         ClearAllInputFields();
 
-        txtSupName.ReadOnly = false;
+        txtProdName.ReadOnly = false;
     }
 
     private void ClearAllInputFields()
     {
-        txtSupID.Clear();
-        txtSupName.Clear();
+        txtProdId.Clear();
+        txtProdName.Clear();
+    }
+
+    private void dgvProducts_SelectionChanged(object sender, EventArgs e)
+    {
+        if (suppressSelectionChanged)
+        {
+            return;
+        }
+
+        if (dgvProducts.SelectedRows != null)
+        {
+            txtProdId.Text = dgvProducts.CurrentRow.Cells["ProductId"].Value.ToString();
+            txtProdName.Text = dgvProducts.CurrentRow.Cells["ProdName"].Value.ToString();
+        }
     }
 }

@@ -178,7 +178,7 @@ public partial class TravelExpertContext : DbContext
 
         modelBuilder.Entity<PackagesProductsSupplier>(entity =>
         {
-            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED997B14926F");
+            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED99A4B633EA");
 
             entity.Property(e => e.IsActive).HasDefaultValue(true);
 
@@ -196,6 +196,8 @@ public partial class TravelExpertContext : DbContext
             entity.HasKey(e => e.ProductId)
                 .HasName("aaaaaProducts_PK")
                 .IsClustered(false);
+
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<ProductsSupplier>(entity =>

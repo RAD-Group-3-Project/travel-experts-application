@@ -15,6 +15,9 @@ public partial class Product
     [StringLength(50)]
     public string ProdName { get; set; } = null!;
 
+    [Column("is_active")]
+    public bool? IsActive { get; set; }
+
     [InverseProperty("Product")]
     public virtual ICollection<ProductsSupplier> ProductsSuppliers { get; set; } = new List<ProductsSupplier>();
 }
