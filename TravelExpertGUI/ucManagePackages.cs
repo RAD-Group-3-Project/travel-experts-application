@@ -132,72 +132,64 @@ public partial class ucManagePackages : UserControl
         txtPkgAgcyCom.Text = baseCommFormat;
         switch (function)
         {
-
             case "ADD":
-                if (ValidateRequiredFieldsAndBizLogic())
+                if (!ValidateRequiredFieldsAndBizLogic())
                 {
-                    Package addedPackage = new Package();
-
-
-                    addedPackage.PkgName = txtPkgName.Text;
-                    addedPackage.PkgStartDate = dtpPkgStartDate.Value;
-                    addedPackage.PkgEndDate = dtpPkgEndDate.Value;
-                    addedPackage.PkgDesc = txtPkgDesc.Text;
-                    addedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-                    addedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
-                    addedPackage.IsActive = true;
-
-                    try
-                    {
-                        PackageRepository.AddPackage(addedPackage);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error: {ex.Message}", "Package Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    // Refresh list
-                    populatePackages();
-                    break;
+                    return;
                 }
-                else
+
+                Package addedPackage = new Package();
+
+
+                addedPackage.PkgName = txtPkgName.Text;
+                addedPackage.PkgStartDate = dtpPkgStartDate.Value;
+                addedPackage.PkgEndDate = dtpPkgEndDate.Value;
+                addedPackage.PkgDesc = txtPkgDesc.Text;
+                addedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
+                addedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
+                addedPackage.IsActive = true;
+
+                try
                 {
-                    MessageBox.Show("Please input a Package Name");
-                    break;
+                    PackageRepository.AddPackage(addedPackage);
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Package Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Refresh list
+                populatePackages();
+                break;
 
             case "EDIT":
-                if (ValidateRequiredFieldsAndBizLogic())
+                if (!ValidateRequiredFieldsAndBizLogic())
                 {
-                    Package editedPackage = new Package();
-                    editedPackage.PackageId = Convert.ToInt32(txtPkgId.Text);
-                    editedPackage.PkgName = txtPkgName.Text;
-                    editedPackage.PkgStartDate = dtpPkgStartDate.Value;
-                    editedPackage.PkgEndDate = dtpPkgEndDate.Value;
-                    editedPackage.PkgDesc = txtPkgDesc.Text;
-                    editedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-                    editedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
-                    editedPackage.IsActive = true;
-
-                    try
-                    {
-                        PackageRepository.UpdatePackage(editedPackage);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error: {ex.Message}", "Package Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    // Refresh list
-                    populatePackages();
-
-                    break;
+                    return;
                 }
-                else
+                Package editedPackage = new Package();
+                editedPackage.PackageId = Convert.ToInt32(txtPkgId.Text);
+                editedPackage.PkgName = txtPkgName.Text;
+                editedPackage.PkgStartDate = dtpPkgStartDate.Value;
+                editedPackage.PkgEndDate = dtpPkgEndDate.Value;
+                editedPackage.PkgDesc = txtPkgDesc.Text;
+                editedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
+                editedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
+                editedPackage.IsActive = true;
+
+                try
                 {
-                    MessageBox.Show("Please input a Package Name");
-                    break;
+                    PackageRepository.UpdatePackage(editedPackage);
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Package Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Refresh list
+                populatePackages();
+
+                break;
         }
     }
 
