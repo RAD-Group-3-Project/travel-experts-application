@@ -32,9 +32,9 @@ public partial class ucManagePackages : UserControl
             txtPkgId.Text = dgvPackages.CurrentRow.Cells["PackageId"].Value.ToString();
             txtPkgName.Text = dgvPackages.CurrentRow.Cells["PkgName"].Value.ToString();
             DateTime startDate = Convert.ToDateTime(dgvPackages.CurrentRow.Cells["PkgStartDate"].Value);
-            txtPkgStartDate.Text = startDate.ToString("yyyy-MM-dd");
+            dtpPkgStartDate.Text = startDate.ToString("yyyy-MM-dd");
             DateTime endDate = Convert.ToDateTime(dgvPackages.CurrentRow.Cells["PkgEndDate"].Value);
-            txtPkgEndDate.Text = endDate.ToString("yyyy-MM-dd");
+            dtpPkgEndDate.Text = endDate.ToString("yyyy-MM-dd");
             txtPkgDesc.Text = dgvPackages.CurrentRow.Cells["PkgDesc"].Value.ToString();
             decimal basePrice = Convert.ToDecimal(dgvPackages.CurrentRow.Cells["PkgBasePrice"].Value);
             txtPkgBasePrice.Text = basePrice.ToString("c");
@@ -53,8 +53,8 @@ public partial class ucManagePackages : UserControl
         txtPkgAgcyCom.ReadOnly = false;
         txtPkgBasePrice.ReadOnly = false;
         txtPkgDesc.ReadOnly = false;
-        txtPkgStartDate.ReadOnly = false;
-        txtPkgEndDate.ReadOnly = false;
+        dtpPkgStartDate.Enabled = true;
+        dtpPkgEndDate.Enabled = true;
         txtPkgName.Focus();
         btnAdd.Enabled = false;
         btnEdit.Enabled = false;
@@ -78,8 +78,8 @@ public partial class ucManagePackages : UserControl
         txtPkgId.ReadOnly = true;
         txtPkgName.ReadOnly = false;
         txtPkgName.Focus();
-        txtPkgStartDate.ReadOnly = false;
-        txtPkgEndDate.ReadOnly = false;
+        dtpPkgStartDate.Enabled = true;
+        dtpPkgEndDate.Enabled = true;
         txtPkgDesc.ReadOnly = false;
         txtPkgBasePrice.ReadOnly = false;
         txtPkgAgcyCom.ReadOnly = false;
@@ -140,10 +140,8 @@ public partial class ucManagePackages : UserControl
 
 
                     addedPackage.PkgName = txtPkgName.Text;
-                    DateTime pkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
-                    addedPackage.PkgStartDate = pkgStartDate;
-                    DateTime pkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
-                    addedPackage.PkgEndDate = pkgEndDate;
+                    addedPackage.PkgStartDate = dtpPkgStartDate.Value;
+                    addedPackage.PkgEndDate = dtpPkgEndDate.Value;
                     addedPackage.PkgDesc = txtPkgDesc.Text;
                     addedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
                     addedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
@@ -174,10 +172,8 @@ public partial class ucManagePackages : UserControl
                     Package editedPackage = new Package();
                     editedPackage.PackageId = Convert.ToInt32(txtPkgId.Text);
                     editedPackage.PkgName = txtPkgName.Text;
-                    DateTime pkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
-                    editedPackage.PkgStartDate = pkgStartDate;
-                    DateTime pkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
-                    editedPackage.PkgEndDate = pkgEndDate;
+                    editedPackage.PkgStartDate = dtpPkgStartDate.Value;
+                    editedPackage.PkgEndDate = dtpPkgEndDate.Value;
                     editedPackage.PkgDesc = txtPkgDesc.Text;
                     editedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
 
@@ -258,8 +254,8 @@ public partial class ucManagePackages : UserControl
         txtPkgAgcyCom.ReadOnly = true;
         txtPkgBasePrice.ReadOnly = true;
         txtPkgDesc.ReadOnly = true;
-        txtPkgStartDate.ReadOnly = true;
-        txtPkgEndDate.ReadOnly = true;
+        dtpPkgStartDate.Enabled = false;
+        dtpPkgEndDate.Enabled = false;
         btnAdd.Enabled = true;
         btnDiscard.Enabled = false;
         btnSave.Enabled = false;
@@ -305,8 +301,8 @@ public partial class ucManagePackages : UserControl
         txtPkgId.ReadOnly = true;
         txtPkgName.ReadOnly = false;
         txtPkgName.Focus();
-        txtPkgStartDate.ReadOnly = false;
-        txtPkgEndDate.ReadOnly = false;
+        dtpPkgStartDate.Enabled = false;
+        dtpPkgEndDate.Enabled = false;
         txtPkgDesc.ReadOnly = false;
         txtPkgBasePrice.ReadOnly = false;
         txtPkgAgcyCom.ReadOnly = false;
@@ -316,8 +312,8 @@ public partial class ucManagePackages : UserControl
     {
         txtPkgId.Clear();
         txtPkgName.Clear();
-        txtPkgStartDate.Clear();
-        txtPkgEndDate.Clear();
+        dtpPkgStartDate.Value = dtpPkgStartDate.MinDate;
+        dtpPkgEndDate.Value = dtpPkgEndDate.MinDate;
         txtPkgDesc.Clear();
         txtPkgBasePrice.Clear();
         txtPkgAgcyCom.Clear();
@@ -340,10 +336,10 @@ public partial class ucManagePackages : UserControl
                TextBoxValidator.IsPresent(txtPkgName) &&
                TextBoxValidator.IsPresent(txtPkgDesc) &&
                TextBoxValidator.IsPresent(txtPkgBasePrice) &&
-               TextBoxValidator.IsPresent(txtPkgStartDate) &&
-               TextBoxValidator.IsPresent(txtPkgEndDate) &&
+               //TextBoxValidator.IsPresent(txtPkgStartDate) &&
+               //TextBoxValidator.IsPresent(txtPkgEndDate) &&
                TextBoxValidator.IsPresent(txtPkgAgcyCom) &&
-               TextBoxValidator.ValidatePackageEndDate(txtPkgStartDate, txtPkgEndDate) &&
+               //TextBoxValidator.ValidatePackageEndDate(txtPkgStartDate, txtPkgEndDate) &&
                TextBoxValidator.ValidateAgencyCommission(txtPkgAgcyCom, txtPkgBasePrice);
     }
 
