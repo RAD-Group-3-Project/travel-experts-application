@@ -36,6 +36,15 @@ SET is_active = 1;
 
 --Nov 20
 
+UPDATE Packages_Products_Suppliers
+SET is_active = 1;
+
+-- Nov 19
+alter table Products add 
+is_active bit default 1
+
+UPDATE Products
+SET is_active = 1;
 alter table Packages add 
 is_active bit default 1
 go
