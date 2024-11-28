@@ -171,6 +171,4 @@ public static class TextBoxValidator
 
         return true;
     }
-
-
 }

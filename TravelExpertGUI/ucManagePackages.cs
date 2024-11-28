@@ -256,7 +256,10 @@ public partial class ucManagePackages : UserControl
         txtPkgDesc.ReadOnly = true;
         dtpPkgStartDate.Enabled = false;
         dtpPkgEndDate.Enabled = false;
+
+        // Enable All Buttons
         btnAdd.Enabled = true;
+        btnEdit.Enabled = true;
         btnDiscard.Enabled = false;
         btnSave.Enabled = false;
 
@@ -312,8 +315,8 @@ public partial class ucManagePackages : UserControl
     {
         txtPkgId.Clear();
         txtPkgName.Clear();
-        dtpPkgStartDate.Value = dtpPkgStartDate.MinDate;
-        dtpPkgEndDate.Value = dtpPkgEndDate.MinDate;
+        dtpPkgStartDate.Value = DateTime.Now;
+        dtpPkgEndDate.Value = DateTime.Now;
         txtPkgDesc.Clear();
         txtPkgBasePrice.Clear();
         txtPkgAgcyCom.Clear();
@@ -336,10 +339,8 @@ public partial class ucManagePackages : UserControl
                TextBoxValidator.IsPresent(txtPkgName) &&
                TextBoxValidator.IsPresent(txtPkgDesc) &&
                TextBoxValidator.IsPresent(txtPkgBasePrice) &&
-               //TextBoxValidator.IsPresent(txtPkgStartDate) &&
-               //TextBoxValidator.IsPresent(txtPkgEndDate) &&
                TextBoxValidator.IsPresent(txtPkgAgcyCom) &&
-               //TextBoxValidator.ValidatePackageEndDate(txtPkgStartDate, txtPkgEndDate) &&
+               DateTimePickerValidator.ValidatePackageEndDate(dtpPkgStartDate, dtpPkgEndDate) &&
                TextBoxValidator.ValidateAgencyCommission(txtPkgAgcyCom, txtPkgBasePrice);
     }
 
