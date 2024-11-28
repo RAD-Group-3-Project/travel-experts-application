@@ -53,6 +53,7 @@
             lblClearIcon = new Label();
             lblSearchIcon = new Label();
             btnSearch = new Button();
+            lblTableName = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).BeginInit();
             SuspendLayout();
             // 
@@ -61,11 +62,11 @@
             dgvAgencies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAgencies.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvAgencies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAgencies.Location = new Point(35, 249);
+            dgvAgencies.Location = new Point(35, 318);
             dgvAgencies.Name = "dgvAgencies";
             dgvAgencies.ReadOnly = true;
             dgvAgencies.RowHeadersWidth = 51;
-            dgvAgencies.Size = new Size(832, 229);
+            dgvAgencies.Size = new Size(832, 160);
             dgvAgencies.TabIndex = 11;
             dgvAgencies.DataBindingComplete += dgvAgencies_DataBindingComplete;
             dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
@@ -104,7 +105,7 @@
             // lblAgencyId
             // 
             lblAgencyId.AutoSize = true;
-            lblAgencyId.Location = new Point(73, 29);
+            lblAgencyId.Location = new Point(70, 88);
             lblAgencyId.Name = "lblAgencyId";
             lblAgencyId.Size = new Size(86, 20);
             lblAgencyId.TabIndex = 39;
@@ -112,7 +113,7 @@
             // 
             // txtAgencyId
             // 
-            txtAgencyId.Location = new Point(166, 27);
+            txtAgencyId.Location = new Point(163, 86);
             txtAgencyId.Name = "txtAgencyId";
             txtAgencyId.ReadOnly = true;
             txtAgencyId.Size = new Size(228, 27);
@@ -120,7 +121,7 @@
             // 
             // txtAgencyAddress
             // 
-            txtAgencyAddress.Location = new Point(166, 71);
+            txtAgencyAddress.Location = new Point(163, 130);
             txtAgencyAddress.Name = "txtAgencyAddress";
             txtAgencyAddress.ReadOnly = true;
             txtAgencyAddress.Size = new Size(228, 27);
@@ -129,7 +130,7 @@
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(87, 73);
+            lblAddress.Location = new Point(84, 132);
             lblAddress.Name = "lblAddress";
             lblAddress.Size = new Size(73, 20);
             lblAddress.TabIndex = 42;
@@ -138,7 +139,7 @@
             // lblCity
             // 
             lblCity.AutoSize = true;
-            lblCity.Location = new Point(109, 120);
+            lblCity.Location = new Point(106, 179);
             lblCity.Name = "lblCity";
             lblCity.Size = new Size(41, 20);
             lblCity.TabIndex = 43;
@@ -147,7 +148,7 @@
             // lblProv
             // 
             lblProv.AutoSize = true;
-            lblProv.Location = new Point(78, 167);
+            lblProv.Location = new Point(75, 226);
             lblProv.Name = "lblProv";
             lblProv.Size = new Size(72, 20);
             lblProv.TabIndex = 44;
@@ -156,7 +157,7 @@
             // lblPostal
             // 
             lblPostal.AutoSize = true;
-            lblPostal.Location = new Point(485, 29);
+            lblPostal.Location = new Point(482, 88);
             lblPostal.Name = "lblPostal";
             lblPostal.Size = new Size(94, 20);
             lblPostal.TabIndex = 45;
@@ -165,7 +166,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(507, 73);
+            label4.Location = new Point(504, 132);
             label4.Name = "label4";
             label4.Size = new Size(71, 20);
             label4.TabIndex = 46;
@@ -174,7 +175,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(518, 120);
+            label5.Location = new Point(515, 179);
             label5.Name = "label5";
             label5.Size = new Size(61, 20);
             label5.TabIndex = 47;
@@ -183,7 +184,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(542, 163);
+            label6.Location = new Point(539, 222);
             label6.Name = "label6";
             label6.Size = new Size(37, 20);
             label6.TabIndex = 48;
@@ -191,7 +192,7 @@
             // 
             // txtCity
             // 
-            txtCity.Location = new Point(166, 117);
+            txtCity.Location = new Point(163, 176);
             txtCity.Name = "txtCity";
             txtCity.ReadOnly = true;
             txtCity.Size = new Size(228, 27);
@@ -199,7 +200,7 @@
             // 
             // txtProv
             // 
-            txtProv.Location = new Point(166, 163);
+            txtProv.Location = new Point(163, 222);
             txtProv.Name = "txtProv";
             txtProv.ReadOnly = true;
             txtProv.Size = new Size(228, 27);
@@ -207,7 +208,7 @@
             // 
             // txtPostal
             // 
-            txtPostal.Location = new Point(584, 27);
+            txtPostal.Location = new Point(581, 86);
             txtPostal.Name = "txtPostal";
             txtPostal.ReadOnly = true;
             txtPostal.Size = new Size(257, 27);
@@ -215,7 +216,7 @@
             // 
             // txtCountry
             // 
-            txtCountry.Location = new Point(584, 71);
+            txtCountry.Location = new Point(581, 130);
             txtCountry.Name = "txtCountry";
             txtCountry.ReadOnly = true;
             txtCountry.Size = new Size(257, 27);
@@ -223,7 +224,7 @@
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(584, 113);
+            txtPhone.Location = new Point(581, 172);
             txtPhone.Name = "txtPhone";
             txtPhone.ReadOnly = true;
             txtPhone.Size = new Size(257, 27);
@@ -231,7 +232,7 @@
             // 
             // txtFax
             // 
-            txtFax.Location = new Point(584, 160);
+            txtFax.Location = new Point(581, 219);
             txtFax.Name = "txtFax";
             txtFax.ReadOnly = true;
             txtFax.Size = new Size(257, 27);
@@ -263,7 +264,7 @@
             // 
             lblClearIcon.AutoSize = true;
             lblClearIcon.Font = new Font("Segoe UI", 15F);
-            lblClearIcon.Location = new Point(823, 209);
+            lblClearIcon.Location = new Point(820, 268);
             lblClearIcon.Name = "lblClearIcon";
             lblClearIcon.Size = new Size(49, 35);
             lblClearIcon.TabIndex = 50;
@@ -276,7 +277,7 @@
             // 
             lblSearchIcon.AutoSize = true;
             lblSearchIcon.Font = new Font("Segoe UI", 15F);
-            lblSearchIcon.Location = new Point(781, 209);
+            lblSearchIcon.Location = new Point(778, 268);
             lblSearchIcon.Name = "lblSearchIcon";
             lblSearchIcon.Size = new Size(49, 35);
             lblSearchIcon.TabIndex = 49;
@@ -296,11 +297,22 @@
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
+            // lblTableName
+            // 
+            lblTableName.AutoSize = true;
+            lblTableName.Font = new Font("Segoe UI", 20F);
+            lblTableName.Location = new Point(70, 17);
+            lblTableName.Name = "lblTableName";
+            lblTableName.Size = new Size(195, 46);
+            lblTableName.TabIndex = 74;
+            lblTableName.Text = "Table Name";
+            // 
             // ucManageAgencies
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
+            Controls.Add(lblTableName);
             Controls.Add(btnSearch);
             Controls.Add(lblClearIcon);
             Controls.Add(lblSearchIcon);
@@ -361,5 +373,6 @@
         private Label lblClearIcon;
         private Label lblSearchIcon;
         private Button btnSearch;
+        private Label lblTableName;
     }
 }

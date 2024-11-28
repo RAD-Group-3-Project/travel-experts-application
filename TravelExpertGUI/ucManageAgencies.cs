@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TravelExpertData.Data;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
@@ -20,14 +11,16 @@ namespace TravelExpertGUI
         private List<Agency> agencies = null;
         private bool suppressSelectionChanged = false;
 
+        public string TableName { get; set; } = "Agencies";
 
         public ucManageAgencies()
         {
             InitializeComponent();
+            lblTableName.Text = TableName;
         }
+
         // Initialize our string for button functions
         string function;
-
 
         private void ucManageAgencies_Load(object sender, EventArgs e)
         {
@@ -89,7 +82,7 @@ namespace TravelExpertGUI
 
         // Sets our textboxes to the selected row
         private void dgvAgencies_SelectionChanged(object sender, EventArgs e)
-        { 
+        {
             // Suppress the event if the flag is set
             if (suppressSelectionChanged)
             {

@@ -41,6 +41,7 @@ partial class ucManageSuppliers
         lblClearIcon = new Label();
         lblSearchIcon = new Label();
         btnSearch = new Button();
+        lblTableName = new Label();
         ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
         SuspendLayout();
         // 
@@ -102,18 +103,18 @@ partial class ucManageSuppliers
         dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvSuppliers.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvSuppliers.Location = new Point(57, 167);
+        dgvSuppliers.Location = new Point(57, 204);
         dgvSuppliers.Name = "dgvSuppliers";
         dgvSuppliers.ReadOnly = true;
         dgvSuppliers.RowHeadersWidth = 51;
-        dgvSuppliers.Size = new Size(800, 312);
+        dgvSuppliers.Size = new Size(800, 275);
         dgvSuppliers.TabIndex = 38;
         dgvSuppliers.SelectionChanged += dgvSuppliers_SelectionChanged;
         // 
         // lblSupID
         // 
         lblSupID.AutoSize = true;
-        lblSupID.Location = new Point(93, 67);
+        lblSupID.Location = new Point(57, 103);
         lblSupID.Name = "lblSupID";
         lblSupID.Size = new Size(90, 20);
         lblSupID.TabIndex = 42;
@@ -121,7 +122,7 @@ partial class ucManageSuppliers
         // 
         // txtSupID
         // 
-        txtSupID.Location = new Point(189, 64);
+        txtSupID.Location = new Point(153, 100);
         txtSupID.Name = "txtSupID";
         txtSupID.ReadOnly = true;
         txtSupID.Size = new Size(201, 27);
@@ -130,7 +131,7 @@ partial class ucManageSuppliers
         // lblSupName
         // 
         lblSupName.AutoSize = true;
-        lblSupName.Location = new Point(502, 67);
+        lblSupName.Location = new Point(466, 103);
         lblSupName.Name = "lblSupName";
         lblSupName.Size = new Size(115, 20);
         lblSupName.TabIndex = 44;
@@ -138,7 +139,7 @@ partial class ucManageSuppliers
         // 
         // txtSupName
         // 
-        txtSupName.Location = new Point(623, 64);
+        txtSupName.Location = new Point(587, 100);
         txtSupName.Name = "txtSupName";
         txtSupName.ReadOnly = true;
         txtSupName.Size = new Size(201, 27);
@@ -148,7 +149,7 @@ partial class ucManageSuppliers
         // 
         lblClearIcon.AutoSize = true;
         lblClearIcon.Font = new Font("Segoe UI", 15F);
-        lblClearIcon.Location = new Point(811, 127);
+        lblClearIcon.Location = new Point(808, 151);
         lblClearIcon.Name = "lblClearIcon";
         lblClearIcon.Size = new Size(49, 35);
         lblClearIcon.TabIndex = 72;
@@ -161,7 +162,7 @@ partial class ucManageSuppliers
         // 
         lblSearchIcon.AutoSize = true;
         lblSearchIcon.Font = new Font("Segoe UI", 15F);
-        lblSearchIcon.Location = new Point(769, 127);
+        lblSearchIcon.Location = new Point(766, 151);
         lblSearchIcon.Name = "lblSearchIcon";
         lblSearchIcon.Size = new Size(49, 35);
         lblSearchIcon.TabIndex = 71;
@@ -181,11 +182,22 @@ partial class ucManageSuppliers
         btnSearch.UseVisualStyleBackColor = true;
         btnSearch.Click += btnSearch_Click;
         // 
+        // lblTableName
+        // 
+        lblTableName.AutoSize = true;
+        lblTableName.Font = new Font("Segoe UI", 20F);
+        lblTableName.Location = new Point(57, 39);
+        lblTableName.Name = "lblTableName";
+        lblTableName.Size = new Size(195, 46);
+        lblTableName.TabIndex = 74;
+        lblTableName.Text = "Table Name";
+        // 
         // ucManageSuppliers
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(lblTableName);
         Controls.Add(btnSearch);
         Controls.Add(lblClearIcon);
         Controls.Add(lblSearchIcon);
@@ -222,4 +234,5 @@ partial class ucManageSuppliers
     private Label lblClearIcon;
     private Label lblSearchIcon;
     private Button btnSearch;
+    private Label lblTableName;
 }

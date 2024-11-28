@@ -11,10 +11,12 @@ public partial class ucManagePackages : UserControl
     private List<Package> packages = null;
     private bool suppressSelectionChanged;
     private string function = "";
+    public string TableName { get; set; } = "Packages";
 
     public ucManagePackages()
     {
         InitializeComponent();
+        lblTableName.Text = TableName;
     }
 
     private void ucManagePackages_Load(object sender, EventArgs e)

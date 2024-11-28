@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using System.Data;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
@@ -18,10 +9,12 @@ public partial class ucManageProducts : UserControl
     private List<Product> products = null;
     private bool suppressSelectionChanged;
     string function;
+    public string TableName { get; set; } = "Products";
 
     public ucManageProducts()
     {
         InitializeComponent();
+        lblTableName.Text = TableName;
     }
     private void ucManageProducts_Load_1(object sender, EventArgs e)
     {
@@ -69,7 +62,7 @@ public partial class ucManageProducts : UserControl
         dgvProducts.Enabled = true;
     }
 
-     private void btnAdd_Click(object sender, EventArgs e)
+    private void btnAdd_Click(object sender, EventArgs e)
     {
         txtProdId.ReadOnly = true;
 
@@ -169,7 +162,7 @@ public partial class ucManageProducts : UserControl
                 {
                     // Makes new product and apply the attributes
                     Product addedProduct = new Product();
-                                   
+
                     addedProduct.ProdName = txtProdName.Text;
                     addedProduct.IsActive = true;
 
@@ -307,5 +300,10 @@ public partial class ucManageProducts : UserControl
             txtProdId.Text = dgvProducts.CurrentRow.Cells["ProductId"].Value.ToString();
             txtProdName.Text = dgvProducts.CurrentRow.Cells["ProdName"].Value.ToString();
         }
+    }
+
+    private void txtProdName_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }

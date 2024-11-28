@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
@@ -16,26 +8,29 @@ public partial class ucManageSuppliers : UserControl
 {
     private List<Supplier> suppliers = null;
     private bool suppressSelectionChanged;
+    public string TableName { get; set; } = "Suppliers";
+
     public ucManageSuppliers()
     {
         InitializeComponent();
+        lblTableName.Text = TableName;
     }
     // Initializes our function string
     string function;
 
     private void ucManageSuppliers_Load(object sender, EventArgs e)
-    {   
+    {
         // Loads our list into the data grid view 
         populateSuppliers();
 
     }
     // populates the starting point for our list
     private void populateSuppliers()
-    {   
-        
+    {
+
         lblSearchIcon.Visible = false;
         // Sets textboxes and buttons to appropriate status
-            txtSupID.ReadOnly = true;
+        txtSupID.ReadOnly = true;
         txtSupName.ReadOnly = true;
         btnAdd.Enabled = true;
         btnDelete.Enabled = true;
@@ -76,7 +71,7 @@ public partial class ucManageSuppliers : UserControl
             return;
         }
         if (dgvSuppliers.SelectedRows != null)
-        {   
+        {
             // Sets our textboxes to what we have selected 
             txtSupID.Text = dgvSuppliers.CurrentRow.Cells["SupplierId"].Value.ToString();
             txtSupName.Text = dgvSuppliers.CurrentRow.Cells["SupName"].Value.ToString();
@@ -107,7 +102,7 @@ public partial class ucManageSuppliers : UserControl
     }
     // Gets us the last id from all suppliers and adds one 
     private static int lastID_PlusOne()
-    {   
+    {
         // Gets a list of all suppliers including non-active
         List<Supplier> supplierData = SupplierRepository.getAllSuppliers();
         // Gets the last id, adds one and returns it 
@@ -117,7 +112,7 @@ public partial class ucManageSuppliers : UserControl
     }
     // Preps our window to edit selected 
     private void btnEdit_Click(object sender, EventArgs e)
-    {   
+    {
         // allows form manipulation
         txtSupID.ReadOnly = true;
         txtSupName.ReadOnly = false;
@@ -141,12 +136,12 @@ public partial class ucManageSuppliers : UserControl
     private void btnSave_Click(object sender, EventArgs e)
     {
         switch (function)
-        {   
+        {
             // Checks our function 
             case "ADD":
                 // Validates the text box for id and name
                 if (TextBoxValidator.IsPresent(txtSupName) && TextBoxValidator.IsInteger(txtSupID))
-                {   
+                {
                     // Makes new supplier and applies attributes
                     Supplier addedSupplier = new Supplier();
                     // Finds our last id again in case it has changed 
@@ -158,9 +153,9 @@ public partial class ucManageSuppliers : UserControl
                     try
                     {
                         SupplierRepository.addSupplier(addedSupplier);
-                    }   
+                    }
                     // Catches and displays error 
-                    catch (Exception ex )
+                    catch (Exception ex)
                     {
 
                         MessageBox.Show($"Error: {ex.Message}", "Supplier Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -168,10 +163,10 @@ public partial class ucManageSuppliers : UserControl
                     // Reloads our list 
                     populateSuppliers();
                     // Escapes the switch
-                    break; 
+                    break;
                 }
                 // Gives error if validation has failed 
-                else 
+                else
                 {
                     MessageBox.Show("Please input a Supplier Name");
                     break;
@@ -180,7 +175,7 @@ public partial class ucManageSuppliers : UserControl
             case "EDIT":
                 // Validates Our Text boxes 
                 if (TextBoxValidator.IsPresent(txtSupName) && TextBoxValidator.IsInteger(txtSupID))
-                {   
+                {
                     // Makes a new supplier and sets attributes 
                     Supplier editedSupplier = new Supplier();
                     editedSupplier.SupplierId = Convert.ToInt32(txtSupID.Text);
@@ -190,17 +185,17 @@ public partial class ucManageSuppliers : UserControl
                     try
                     {
                         SupplierRepository.updateSupplier(editedSupplier);
-                    }  
+                    }
                     // Catch and display Edit error
                     catch (Exception ex)
                     {
 
                         MessageBox.Show($"Error: {ex.Message}", "Supplier Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }   
+                    }
                     // Refresh List
                     populateSuppliers();
                     // Escape switch
-                    break; 
+                    break;
                 }
                 // Catches error for validation
                 else
@@ -213,7 +208,7 @@ public partial class ucManageSuppliers : UserControl
     }
     // Delete Function 
     private void btnDelete_Click(object sender, EventArgs e)
-    {   
+    {
         // Finds our selected row and supplier
         DataGridViewRow selectedRow = dgvSuppliers.CurrentRow;
         int selectedSupplier = Convert.ToInt32(selectedRow.Cells[0].Value);
@@ -225,13 +220,13 @@ public partial class ucManageSuppliers : UserControl
             MessageBoxIcon.Question);
         // If they say yes : 
         if (result == DialogResult.Yes)
-        {       
-        // Try delete 
+        {
+            // Try delete 
             try
             {
-                    SupplierRepository.deleteSupplier(selectedSupplier);
+                SupplierRepository.deleteSupplier(selectedSupplier);
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Supplier Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

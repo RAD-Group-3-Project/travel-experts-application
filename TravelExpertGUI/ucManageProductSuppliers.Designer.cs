@@ -43,6 +43,7 @@ partial class ucManageProductSuppliers
         btnSearch = new Button();
         lblClearIcon = new Label();
         lblSearchIcon = new Label();
+        lblTableName = new Label();
         ((System.ComponentModel.ISupportInitialize)dgvProductSupplier).BeginInit();
         SuspendLayout();
         // 
@@ -102,7 +103,7 @@ partial class ucManageProductSuppliers
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(67, 64);
+        label1.Location = new Point(65, 92);
         label1.Name = "label1";
         label1.Size = new Size(139, 20);
         label1.TabIndex = 48;
@@ -111,7 +112,7 @@ partial class ucManageProductSuppliers
         // txtProductSupplierId
         // 
         txtProductSupplierId.BackColor = SystemColors.Control;
-        txtProductSupplierId.Location = new Point(227, 61);
+        txtProductSupplierId.Location = new Point(225, 89);
         txtProductSupplierId.Margin = new Padding(3, 4, 3, 4);
         txtProductSupplierId.Name = "txtProductSupplierId";
         txtProductSupplierId.Size = new Size(114, 27);
@@ -120,7 +121,7 @@ partial class ucManageProductSuppliers
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(67, 116);
+        label2.Location = new Point(65, 144);
         label2.Name = "label2";
         label2.Size = new Size(107, 20);
         label2.TabIndex = 50;
@@ -129,7 +130,7 @@ partial class ucManageProductSuppliers
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(67, 176);
+        label3.Location = new Point(65, 204);
         label3.Name = "label3";
         label3.Size = new Size(111, 20);
         label3.TabIndex = 52;
@@ -139,7 +140,7 @@ partial class ucManageProductSuppliers
         // 
         cboProductName.BackColor = SystemColors.Control;
         cboProductName.FormattingEnabled = true;
-        cboProductName.Location = new Point(227, 116);
+        cboProductName.Location = new Point(225, 144);
         cboProductName.Margin = new Padding(3, 4, 3, 4);
         cboProductName.Name = "cboProductName";
         cboProductName.Size = new Size(236, 28);
@@ -149,7 +150,7 @@ partial class ucManageProductSuppliers
         // 
         cboSupplierName.BackColor = SystemColors.Control;
         cboSupplierName.FormattingEnabled = true;
-        cboSupplierName.Location = new Point(227, 173);
+        cboSupplierName.Location = new Point(225, 201);
         cboSupplierName.Margin = new Padding(3, 4, 3, 4);
         cboSupplierName.Name = "cboSupplierName";
         cboSupplierName.Size = new Size(236, 28);
@@ -160,12 +161,12 @@ partial class ucManageProductSuppliers
         dgvProductSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvProductSupplier.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvProductSupplier.Location = new Point(49, 239);
+        dgvProductSupplier.Location = new Point(49, 275);
         dgvProductSupplier.Margin = new Padding(3, 4, 3, 4);
         dgvProductSupplier.Name = "dgvProductSupplier";
         dgvProductSupplier.ReadOnly = true;
         dgvProductSupplier.RowHeadersWidth = 51;
-        dgvProductSupplier.Size = new Size(817, 233);
+        dgvProductSupplier.Size = new Size(817, 197);
         dgvProductSupplier.TabIndex = 56;
         dgvProductSupplier.SelectionChanged += dgvProductSupplier_SelectionChanged;
         // 
@@ -184,7 +185,7 @@ partial class ucManageProductSuppliers
         // 
         lblClearIcon.AutoSize = true;
         lblClearIcon.Font = new Font("Segoe UI", 15F);
-        lblClearIcon.Location = new Point(821, 197);
+        lblClearIcon.Location = new Point(819, 225);
         lblClearIcon.Name = "lblClearIcon";
         lblClearIcon.Size = new Size(49, 35);
         lblClearIcon.TabIndex = 72;
@@ -197,7 +198,7 @@ partial class ucManageProductSuppliers
         // 
         lblSearchIcon.AutoSize = true;
         lblSearchIcon.Font = new Font("Segoe UI", 15F);
-        lblSearchIcon.Location = new Point(778, 197);
+        lblSearchIcon.Location = new Point(776, 225);
         lblSearchIcon.Name = "lblSearchIcon";
         lblSearchIcon.Size = new Size(49, 35);
         lblSearchIcon.TabIndex = 71;
@@ -206,11 +207,22 @@ partial class ucManageProductSuppliers
         lblSearchIcon.MouseLeave += lblSearchIcon_MouseLeave;
         lblSearchIcon.MouseHover += lblSearchIcon_MouseHover;
         // 
+        // lblTableName
+        // 
+        lblTableName.AutoSize = true;
+        lblTableName.Font = new Font("Segoe UI", 20F);
+        lblTableName.Location = new Point(67, 25);
+        lblTableName.Name = "lblTableName";
+        lblTableName.Size = new Size(195, 46);
+        lblTableName.TabIndex = 73;
+        lblTableName.Text = "Table Name";
+        // 
         // ucManageProductSuppliers
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(lblTableName);
         Controls.Add(lblClearIcon);
         Controls.Add(lblSearchIcon);
         Controls.Add(btnSearch);
@@ -252,4 +264,5 @@ partial class ucManageProductSuppliers
     private Button btnSearch;
     private Label lblClearIcon;
     private Label lblSearchIcon;
+    private Label lblTableName;
 }

@@ -15,10 +15,12 @@ public partial class ucManageProductSuppliers : UserControl
     private bool isAddition;
 
     private List<ProductSupplierDTO> productsSupplierList = null;
+    public string TableName { get; set; } = "Product Supplier";
 
     public ucManageProductSuppliers()
     {
         InitializeComponent();
+        lblTableName.Text = TableName;
     }
 
     private void ucManageProductSuppliers_Load(object sender, EventArgs e)

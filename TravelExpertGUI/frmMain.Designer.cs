@@ -108,7 +108,7 @@ partial class frmMain
         contentPanel.BackgroundImageLayout = ImageLayout.Zoom;
         contentPanel.Location = new Point(0, 68);
         contentPanel.Name = "contentPanel";
-        contentPanel.Size = new Size(914, 562);
+        contentPanel.Size = new Size(914, 560);
         contentPanel.TabIndex = 1;
         // 
         // frmMain

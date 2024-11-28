@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
-using static System.Windows.Forms.AxHost;
 
 namespace TravelExpertGUI;
 public partial class ucManageAgents : UserControl
 {
     private List<Agent> agents = null;
+    public string TableName { get; set; } = "Agents";
+
     public ucManageAgents()
     {
         InitializeComponent();
+        lblTableName.Text = TableName;
     }
 
     private void ucManageAgents_Load(object sender, EventArgs e)

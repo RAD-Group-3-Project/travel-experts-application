@@ -51,13 +51,14 @@ partial class ucManagePackages
         txtPkgAgcyCom = new TextBox();
         dtpPkgEndDate = new DateTimePicker();
         dtpPkgStartDate = new DateTimePicker();
+        lblTableName = new Label();
         ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
         SuspendLayout();
         // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(73, 51);
+        label1.Location = new Point(48, 90);
         label1.Name = "label1";
         label1.Size = new Size(83, 20);
         label1.TabIndex = 0;
@@ -66,7 +67,7 @@ partial class ucManagePackages
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new Point(73, 87);
+        label2.Location = new Point(48, 126);
         label2.Name = "label2";
         label2.Size = new Size(110, 20);
         label2.TabIndex = 2;
@@ -75,7 +76,7 @@ partial class ucManagePackages
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(73, 127);
+        label3.Location = new Point(48, 166);
         label3.Name = "label3";
         label3.Size = new Size(137, 20);
         label3.TabIndex = 4;
@@ -84,7 +85,7 @@ partial class ucManagePackages
         // label4
         // 
         label4.AutoSize = true;
-        label4.Location = new Point(73, 165);
+        label4.Location = new Point(48, 204);
         label4.Name = "label4";
         label4.Size = new Size(131, 20);
         label4.TabIndex = 6;
@@ -93,7 +94,7 @@ partial class ucManagePackages
         // label5
         // 
         label5.AutoSize = true;
-        label5.Location = new Point(73, 203);
+        label5.Location = new Point(48, 242);
         label5.Name = "label5";
         label5.Size = new Size(146, 20);
         label5.TabIndex = 8;
@@ -102,7 +103,7 @@ partial class ucManagePackages
         // label6
         // 
         label6.AutoSize = true;
-        label6.Location = new Point(497, 51);
+        label6.Location = new Point(472, 90);
         label6.Name = "label6";
         label6.Size = new Size(137, 20);
         label6.TabIndex = 10;
@@ -111,7 +112,7 @@ partial class ucManagePackages
         // label7
         // 
         label7.AutoSize = true;
-        label7.Location = new Point(497, 91);
+        label7.Location = new Point(472, 130);
         label7.Name = "label7";
         label7.Size = new Size(204, 20);
         label7.TabIndex = 12;
@@ -122,10 +123,10 @@ partial class ucManagePackages
         dgvPackages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         dgvPackages.BackgroundColor = SystemColors.GradientActiveCaption;
         dgvPackages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvPackages.Location = new Point(49, 249);
+        dgvPackages.Location = new Point(49, 286);
         dgvPackages.Name = "dgvPackages";
         dgvPackages.RowHeadersWidth = 51;
-        dgvPackages.Size = new Size(802, 236);
+        dgvPackages.Size = new Size(802, 199);
         dgvPackages.TabIndex = 14;
         dgvPackages.SelectionChanged += dgvPackages_SelectionChanged;
         // 
@@ -186,7 +187,7 @@ partial class ucManagePackages
         // 
         lblClearIcon.AutoSize = true;
         lblClearIcon.Font = new Font("Segoe UI", 15F);
-        lblClearIcon.Location = new Point(806, 203);
+        lblClearIcon.Location = new Point(802, 239);
         lblClearIcon.Name = "lblClearIcon";
         lblClearIcon.Size = new Size(49, 35);
         lblClearIcon.TabIndex = 60;
@@ -199,7 +200,7 @@ partial class ucManagePackages
         // 
         lblSearchIcon.AutoSize = true;
         lblSearchIcon.Font = new Font("Segoe UI", 15F);
-        lblSearchIcon.Location = new Point(763, 203);
+        lblSearchIcon.Location = new Point(759, 239);
         lblSearchIcon.Name = "lblSearchIcon";
         lblSearchIcon.Size = new Size(49, 35);
         lblSearchIcon.TabIndex = 59;
@@ -221,7 +222,7 @@ partial class ucManagePackages
         // 
         // txtPkgId
         // 
-        txtPkgId.Location = new Point(222, 48);
+        txtPkgId.Location = new Point(197, 87);
         txtPkgId.Name = "txtPkgId";
         txtPkgId.ReadOnly = true;
         txtPkgId.Size = new Size(125, 27);
@@ -229,7 +230,7 @@ partial class ucManagePackages
         // 
         // txtPkgName
         // 
-        txtPkgName.Location = new Point(222, 84);
+        txtPkgName.Location = new Point(197, 123);
         txtPkgName.Name = "txtPkgName";
         txtPkgName.ReadOnly = true;
         txtPkgName.Size = new Size(185, 27);
@@ -237,7 +238,7 @@ partial class ucManagePackages
         // 
         // txtPkgDesc
         // 
-        txtPkgDesc.Location = new Point(225, 200);
+        txtPkgDesc.Location = new Point(200, 239);
         txtPkgDesc.Name = "txtPkgDesc";
         txtPkgDesc.ReadOnly = true;
         txtPkgDesc.Size = new Size(356, 27);
@@ -245,7 +246,7 @@ partial class ucManagePackages
         // 
         // txtPkgBasePrice
         // 
-        txtPkgBasePrice.Location = new Point(718, 44);
+        txtPkgBasePrice.Location = new Point(693, 83);
         txtPkgBasePrice.Name = "txtPkgBasePrice";
         txtPkgBasePrice.ReadOnly = true;
         txtPkgBasePrice.Size = new Size(125, 27);
@@ -253,7 +254,7 @@ partial class ucManagePackages
         // 
         // txtPkgAgcyCom
         // 
-        txtPkgAgcyCom.Location = new Point(718, 88);
+        txtPkgAgcyCom.Location = new Point(693, 127);
         txtPkgAgcyCom.Name = "txtPkgAgcyCom";
         txtPkgAgcyCom.ReadOnly = true;
         txtPkgAgcyCom.Size = new Size(125, 27);
@@ -261,7 +262,7 @@ partial class ucManagePackages
         // 
         // dtpPkgEndDate
         // 
-        dtpPkgEndDate.Location = new Point(222, 160);
+        dtpPkgEndDate.Location = new Point(197, 199);
         dtpPkgEndDate.Name = "dtpPkgEndDate";
         dtpPkgEndDate.Size = new Size(125, 27);
         dtpPkgEndDate.TabIndex = 76;
@@ -269,17 +270,28 @@ partial class ucManagePackages
         // 
         // dtpPkgStartDate
         // 
-        dtpPkgStartDate.Location = new Point(222, 122);
+        dtpPkgStartDate.Location = new Point(197, 161);
         dtpPkgStartDate.Name = "dtpPkgStartDate";
         dtpPkgStartDate.Size = new Size(125, 27);
         dtpPkgStartDate.TabIndex = 77;
         dtpPkgStartDate.ValueChanged += dtpPkgStartDate_ValueChanged;
+        // 
+        // lblTableName
+        // 
+        lblTableName.AutoSize = true;
+        lblTableName.Font = new Font("Segoe UI", 20F);
+        lblTableName.Location = new Point(48, 25);
+        lblTableName.Name = "lblTableName";
+        lblTableName.Size = new Size(195, 46);
+        lblTableName.TabIndex = 78;
+        lblTableName.Text = "Table Name";
         // 
         // ucManagePackages
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(lblTableName);
         Controls.Add(dtpPkgStartDate);
         Controls.Add(dtpPkgEndDate);
         Controls.Add(txtPkgAgcyCom);
@@ -336,4 +348,5 @@ partial class ucManagePackages
     private TextBox txtPkgAgcyCom;
     private DateTimePicker dtpPkgEndDate;
     private DateTimePicker dtpPkgStartDate;
+    private Label lblTableName;
 }

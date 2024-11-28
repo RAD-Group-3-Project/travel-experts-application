@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
@@ -20,10 +10,12 @@ namespace TravelExpertGUI
         private List<PackagesProductsSupplierView> ppsList = null;
         private bool isAddition;
         private bool suppressSelectionChanged;
+        public string TableName { get; set; } = "Package Products Suppliers";
 
         public ucManagePackageProductSupplier()
         {
             InitializeComponent();
+            lblTableName.Text = TableName;
         }
         // Populates our list with active PPS
         private void ucManagePackageProductSupplier_Load(object sender, EventArgs e)
@@ -69,7 +61,7 @@ namespace TravelExpertGUI
             btnEdit.Enabled = true;
             btnDisc.Enabled = false;
             btnSave.Enabled = false;
-       
+
         }
         // Gets our current row and changes selected PPS
         private void dgvPackageProductSupplier_SelectionChanged(object sender, EventArgs e)
@@ -118,7 +110,7 @@ namespace TravelExpertGUI
         }
         // Start of Add Function
         private void btnAdd_Click(object sender, EventArgs e)
-        {   
+        {
             // Makes our dgv inactive and allows us to enter new values 
             dgvPackageProductSupplier.Enabled = false;
             dgvPackageProductSupplier.ReadOnly = true;
@@ -137,7 +129,7 @@ namespace TravelExpertGUI
 
         // Saves our changes 
         private void btnSave_Click(object sender, EventArgs e)
-        {   
+        {
             // Checks function 
             if (isAddition)
             {
@@ -188,7 +180,7 @@ namespace TravelExpertGUI
         }
         // Our Edit Function
         private void btnEdit_Click(object sender, EventArgs e)
-        {   
+        {
             // Makes appropriate buttons and boxes available
             dgvPackageProductSupplier.Enabled = false;
             txtPackageProductSupplierId.ReadOnly = true;
@@ -204,13 +196,13 @@ namespace TravelExpertGUI
         }
         // Discard Button
         private void btnDisc_Click(object sender, EventArgs e)
-        {   
+        {
             // Resets form
             populatePPS();
         }
         // Delete Function
         private void btnDelete_Click(object sender, EventArgs e)
-        {   
+        {
             // Gets our selected row
             DataGridViewRow selectedRow = dgvPackageProductSupplier.CurrentRow;
             // Saves an int of the id 
@@ -223,25 +215,25 @@ namespace TravelExpertGUI
             MessageBoxIcon.Question);
             // If yes delete
             if (result == DialogResult.Yes)
+            {
+                try
                 {
-                    try
-                    {
-                        PackagesProductsSuppliersRepository.DeletePPS(selectedPPS);
-                        populatePPS();
-                    }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show($"Error: {ex.Message}", "PPS Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    PackagesProductsSuppliersRepository.DeletePPS(selectedPPS);
+                    populatePPS();
                 }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"Error: {ex.Message}", "PPS Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             // make search icon visible
             lblSearchIcon.Visible = true;
-            
+
             EnableEditableFields();
 
             txtPackageProductSupplierId.ReadOnly = false;  // for searching purpose
