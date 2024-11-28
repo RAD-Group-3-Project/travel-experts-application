@@ -354,8 +354,13 @@ public partial class ucManagePackages : UserControl
             return;
         }
 
-        var filteredList = packages.Where(package => (string.IsNullOrWhiteSpace(txtPkgId.Text) || package.PackageId == Convert.ToInt32(txtPkgId.Text) &&
-        (string.IsNullOrWhiteSpace(txtPkgName.Text) || package.PkgName.ToLower().Contains(txtPkgName.Text.ToLower())))).ToList();
+        var filteredList = packages.Where(package =>
+            (string.IsNullOrWhiteSpace(txtPkgId.Text) || package.PackageId == Convert.ToInt32(txtPkgId.Text)) &&
+            (string.IsNullOrWhiteSpace(txtPkgName.Text) || package.PkgName.ToLower().Contains(txtPkgName.Text.ToLower())) &&
+            (string.IsNullOrWhiteSpace(txtPkgDesc.Text) || package.PkgDesc.ToLower().Contains(txtPkgDesc.Text.ToLower())) &&
+            (string.IsNullOrWhiteSpace(txtPkgBasePrice.Text) || package.PkgBasePrice == Convert.ToDecimal(txtPkgBasePrice.Text)) &&
+            (string.IsNullOrWhiteSpace(txtPkgAgcyCom.Text) || package.PkgAgencyCommission == Convert.ToDecimal(txtPkgAgcyCom.Text))
+        ).ToList();
 
         if (filteredList.Count == 0)
         {
@@ -364,6 +369,4 @@ public partial class ucManagePackages : UserControl
 
         dgvPackages.DataSource = filteredList;
     }
-
-
 }
