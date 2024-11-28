@@ -1,4 +1,6 @@
 ﻿using System.Data;
+using System.Diagnostics;
+using System.Globalization;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
@@ -8,7 +10,7 @@ public partial class ucManagePackages : UserControl
 {
     private List<Package> packages = null;
     private bool suppressSelectionChanged;
-    string function;
+    private string function = "";
 
     public ucManagePackages()
     {
@@ -45,6 +47,9 @@ public partial class ucManagePackages : UserControl
 
     private void btnAdd_Click(object sender, EventArgs e)
     {
+        // Changes the save name to "ADD"
+        function = "ADD";
+
         txtPkgId.ReadOnly = true;
 
         EnableEditableFields();
@@ -66,8 +71,7 @@ public partial class ucManagePackages : UserControl
         int lastRowColumnValue = lastID_PlusOne();
         txtPkgId.Text = lastRowColumnValue.ToString();
 
-        // Changes the save name to "ADD"
-        function = "ADD";
+
 
         // Locks the database grid view
         dgvPackages.Enabled = false;
@@ -75,6 +79,8 @@ public partial class ucManagePackages : UserControl
 
     private void btnEdit_Click(object sender, EventArgs e)
     {
+        function = "EDIT";
+
         txtPkgId.ReadOnly = true;
         txtPkgName.ReadOnly = false;
         txtPkgName.Focus();
@@ -88,7 +94,6 @@ public partial class ucManagePackages : UserControl
         btnDelete.Enabled = false;
         btnSave.Enabled = true;
         btnDiscard.Enabled = true;
-        function = "EDIT";
 
         // Locks the database grid view
         dgvPackages.Enabled = false;
@@ -200,6 +205,8 @@ public partial class ucManagePackages : UserControl
 
     private void btnSearch_Click(object sender, EventArgs e)
     {
+        function = "SEARCH";
+
         lblSearchIcon.Visible = true;
 
         EnableEditableFields();
@@ -284,10 +291,12 @@ public partial class ucManagePackages : UserControl
         dgvPackages.Columns[5].DefaultCellStyle.Format = "c";
         dgvPackages.Columns[6].DefaultCellStyle.Format = "c";
 
-
-
         // Unlocks the dgv so it can be click
         dgvPackages.Enabled = true;
+
+        // Set DateTimePicker format
+        dtpPkgStartDate.Format = DateTimePickerFormat.Short;
+        dtpPkgEndDate.Format = DateTimePickerFormat.Short;
     }
 
     private void EnableEditableFields()
@@ -296,8 +305,8 @@ public partial class ucManagePackages : UserControl
         txtPkgId.ReadOnly = true;
         txtPkgName.ReadOnly = false;
         txtPkgName.Focus();
-        dtpPkgStartDate.Enabled = false;
-        dtpPkgEndDate.Enabled = false;
+        dtpPkgStartDate.Enabled = true;
+        dtpPkgEndDate.Enabled = true;
         txtPkgDesc.ReadOnly = false;
         txtPkgBasePrice.ReadOnly = false;
         txtPkgAgcyCom.ReadOnly = false;
@@ -307,11 +316,25 @@ public partial class ucManagePackages : UserControl
     {
         txtPkgId.Clear();
         txtPkgName.Clear();
-        dtpPkgStartDate.Value = DateTime.Now;
-        dtpPkgEndDate.Value = DateTime.Now;
         txtPkgDesc.Clear();
         txtPkgBasePrice.Clear();
         txtPkgAgcyCom.Clear();
+
+        switch (function)
+        {
+            case "ADD":
+                dtpPkgStartDate.Value = DateTime.Now;
+                dtpPkgEndDate.Value = DateTime.Now;
+                break;
+            default:
+                dtpPkgStartDate.CustomFormat = " ";
+                dtpPkgEndDate.CustomFormat = " ";
+                dtpPkgStartDate.Format = DateTimePickerFormat.Custom;
+                dtpPkgEndDate.Format = DateTimePickerFormat.Custom;
+                dtpPkgStartDate.Value = dtpPkgStartDate.MinDate;
+                dtpPkgEndDate.Value = dtpPkgEndDate.MinDate;
+                break;
+        }
     }
 
     private static int lastID_PlusOne()
@@ -343,12 +366,33 @@ public partial class ucManagePackages : UserControl
             return;
         }
 
+        decimal pkgBasePrice = 0, pkgAgencyCommission = 0;
+        if (!string.IsNullOrWhiteSpace(txtPkgBasePrice.Text))
+        {
+            if (!decimal.TryParse(txtPkgBasePrice.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out pkgBasePrice))
+            {
+                Debug.WriteLine("Can't parse BasePrice to decimal");
+                return;
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(txtPkgAgcyCom.Text))
+        {
+            if (!decimal.TryParse(txtPkgAgcyCom.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out pkgAgencyCommission))
+            {
+                Debug.WriteLine("Can't parse AgencyCommission to decimal");
+                return;
+            }
+        }
+
         var filteredList = packages.Where(package =>
             (string.IsNullOrWhiteSpace(txtPkgId.Text) || package.PackageId == Convert.ToInt32(txtPkgId.Text)) &&
             (string.IsNullOrWhiteSpace(txtPkgName.Text) || package.PkgName.ToLower().Contains(txtPkgName.Text.ToLower())) &&
             (string.IsNullOrWhiteSpace(txtPkgDesc.Text) || package.PkgDesc.ToLower().Contains(txtPkgDesc.Text.ToLower())) &&
-            (string.IsNullOrWhiteSpace(txtPkgBasePrice.Text) || package.PkgBasePrice == Convert.ToDecimal(txtPkgBasePrice.Text)) &&
-            (string.IsNullOrWhiteSpace(txtPkgAgcyCom.Text) || package.PkgAgencyCommission == Convert.ToDecimal(txtPkgAgcyCom.Text))
+            (string.IsNullOrWhiteSpace(txtPkgBasePrice.Text) || package.PkgBasePrice == pkgBasePrice) &&
+            (string.IsNullOrWhiteSpace(txtPkgAgcyCom.Text) || package.PkgAgencyCommission == pkgAgencyCommission) &&
+            (dtpPkgStartDate.Value.Equals(dtpPkgStartDate.MinDate)) || package.PkgStartDate == dtpPkgStartDate.Value &&
+            (dtpPkgEndDate.Value.Equals(dtpPkgEndDate.MinDate)) || package.PkgEndDate == dtpPkgEndDate.Value
         ).ToList();
 
         if (filteredList.Count == 0)
@@ -357,5 +401,22 @@ public partial class ucManagePackages : UserControl
         }
 
         dgvPackages.DataSource = filteredList;
+    }
+
+
+    private void dtpPkgStartDate_ValueChanged(object sender, EventArgs e)
+    {
+        if (dtpPkgStartDate.Value != dtpPkgStartDate.MinDate)
+        {
+            dtpPkgStartDate.Format = DateTimePickerFormat.Short;
+        }
+    }
+
+    private void dtpPkgEndDate_ValueChanged(object sender, EventArgs e)
+    {
+        if (dtpPkgEndDate.Value != dtpPkgEndDate.MinDate)
+        {
+            dtpPkgEndDate.Format = DateTimePickerFormat.Short;
+        }
     }
 }

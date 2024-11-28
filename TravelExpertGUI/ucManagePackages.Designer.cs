@@ -232,7 +232,7 @@ partial class ucManagePackages
         txtPkgName.Location = new Point(222, 84);
         txtPkgName.Name = "txtPkgName";
         txtPkgName.ReadOnly = true;
-        txtPkgName.Size = new Size(212, 27);
+        txtPkgName.Size = new Size(185, 27);
         txtPkgName.TabIndex = 72;
         // 
         // txtPkgDesc
@@ -263,15 +263,17 @@ partial class ucManagePackages
         // 
         dtpPkgEndDate.Location = new Point(222, 160);
         dtpPkgEndDate.Name = "dtpPkgEndDate";
-        dtpPkgEndDate.Size = new Size(250, 27);
+        dtpPkgEndDate.Size = new Size(125, 27);
         dtpPkgEndDate.TabIndex = 76;
+        dtpPkgEndDate.ValueChanged += dtpPkgEndDate_ValueChanged;
         // 
         // dtpPkgStartDate
         // 
         dtpPkgStartDate.Location = new Point(222, 122);
         dtpPkgStartDate.Name = "dtpPkgStartDate";
-        dtpPkgStartDate.Size = new Size(250, 27);
+        dtpPkgStartDate.Size = new Size(125, 27);
         dtpPkgStartDate.TabIndex = 77;
+        dtpPkgStartDate.ValueChanged += dtpPkgStartDate_ValueChanged;
         // 
         // ucManagePackages
         // 
