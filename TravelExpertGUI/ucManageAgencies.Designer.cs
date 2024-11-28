@@ -61,11 +61,11 @@
             dgvAgencies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAgencies.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvAgencies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAgencies.Location = new Point(31, 187);
-            dgvAgencies.Margin = new Padding(3, 2, 3, 2);
+            dgvAgencies.Location = new Point(35, 249);
             dgvAgencies.Name = "dgvAgencies";
+            dgvAgencies.ReadOnly = true;
             dgvAgencies.RowHeadersWidth = 51;
-            dgvAgencies.Size = new Size(728, 172);
+            dgvAgencies.Size = new Size(832, 229);
             dgvAgencies.TabIndex = 11;
             dgvAgencies.DataBindingComplete += dgvAgencies_DataBindingComplete;
             dgvAgencies.SelectionChanged += dgvAgencies_SelectionChanged;
@@ -73,10 +73,9 @@
             // btnDelete
             // 
             btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
-            btnDelete.Location = new Point(206, 375);
-            btnDelete.Margin = new Padding(3, 2, 3, 2);
+            btnDelete.Location = new Point(235, 500);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(69, 22);
+            btnDelete.Size = new Size(79, 29);
             btnDelete.TabIndex = 38;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -84,10 +83,9 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(131, 375);
-            btnEdit.Margin = new Padding(3, 2, 3, 2);
+            btnEdit.Location = new Point(150, 500);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(69, 22);
+            btnEdit.Size = new Size(79, 29);
             btnEdit.TabIndex = 37;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
@@ -95,10 +93,9 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(31, 375);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Location = new Point(35, 500);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(69, 22);
+            btnAdd.Size = new Size(79, 29);
             btnAdd.TabIndex = 36;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -107,154 +104,145 @@
             // lblAgencyId
             // 
             lblAgencyId.AutoSize = true;
-            lblAgencyId.Location = new Point(64, 22);
+            lblAgencyId.Location = new Point(73, 29);
             lblAgencyId.Name = "lblAgencyId";
-            lblAgencyId.Size = new Size(69, 15);
+            lblAgencyId.Size = new Size(86, 20);
             lblAgencyId.TabIndex = 39;
             lblAgencyId.Text = "Agency Id : ";
             // 
             // txtAgencyId
             // 
-            txtAgencyId.Location = new Point(145, 20);
-            txtAgencyId.Margin = new Padding(3, 2, 3, 2);
+            txtAgencyId.Location = new Point(166, 27);
             txtAgencyId.Name = "txtAgencyId";
             txtAgencyId.ReadOnly = true;
-            txtAgencyId.Size = new Size(200, 23);
+            txtAgencyId.Size = new Size(228, 27);
             txtAgencyId.TabIndex = 0;
             // 
             // txtAgencyAddress
             // 
-            txtAgencyAddress.Location = new Point(145, 53);
-            txtAgencyAddress.Margin = new Padding(3, 2, 3, 2);
+            txtAgencyAddress.Location = new Point(166, 71);
             txtAgencyAddress.Name = "txtAgencyAddress";
             txtAgencyAddress.ReadOnly = true;
-            txtAgencyAddress.Size = new Size(200, 23);
+            txtAgencyAddress.Size = new Size(228, 27);
             txtAgencyAddress.TabIndex = 1;
             // 
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(76, 55);
+            lblAddress.Location = new Point(87, 73);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(58, 15);
+            lblAddress.Size = new Size(73, 20);
             lblAddress.TabIndex = 42;
             lblAddress.Text = "Address : ";
             // 
             // lblCity
             // 
             lblCity.AutoSize = true;
-            lblCity.Location = new Point(95, 90);
+            lblCity.Location = new Point(109, 120);
             lblCity.Name = "lblCity";
-            lblCity.Size = new Size(34, 15);
+            lblCity.Size = new Size(41, 20);
             lblCity.TabIndex = 43;
             lblCity.Text = "City :";
             // 
             // lblProv
             // 
             lblProv.AutoSize = true;
-            lblProv.Location = new Point(68, 125);
+            lblProv.Location = new Point(78, 167);
             lblProv.Name = "lblProv";
-            lblProv.Size = new Size(59, 15);
+            lblProv.Size = new Size(72, 20);
             lblProv.TabIndex = 44;
             lblProv.Text = "Province :";
             // 
             // lblPostal
             // 
             lblPostal.AutoSize = true;
-            lblPostal.Location = new Point(424, 22);
+            lblPostal.Location = new Point(485, 29);
             lblPostal.Name = "lblPostal";
-            lblPostal.Size = new Size(76, 15);
+            lblPostal.Size = new Size(94, 20);
             lblPostal.TabIndex = 45;
             lblPostal.Text = "Postal Code :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(444, 55);
+            label4.Location = new Point(507, 73);
             label4.Name = "label4";
-            label4.Size = new Size(59, 15);
+            label4.Size = new Size(71, 20);
             label4.TabIndex = 46;
             label4.Text = "Country : ";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(453, 90);
+            label5.Location = new Point(518, 120);
             label5.Name = "label5";
-            label5.Size = new Size(50, 15);
+            label5.Size = new Size(61, 20);
             label5.TabIndex = 47;
             label5.Text = "Phone : ";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(474, 122);
+            label6.Location = new Point(542, 163);
             label6.Name = "label6";
-            label6.Size = new Size(31, 15);
+            label6.Size = new Size(37, 20);
             label6.TabIndex = 48;
             label6.Text = "Fax :";
             // 
             // txtCity
             // 
-            txtCity.Location = new Point(145, 88);
-            txtCity.Margin = new Padding(3, 2, 3, 2);
+            txtCity.Location = new Point(166, 117);
             txtCity.Name = "txtCity";
             txtCity.ReadOnly = true;
-            txtCity.Size = new Size(200, 23);
+            txtCity.Size = new Size(228, 27);
             txtCity.TabIndex = 2;
             // 
             // txtProv
             // 
-            txtProv.Location = new Point(145, 122);
-            txtProv.Margin = new Padding(3, 2, 3, 2);
+            txtProv.Location = new Point(166, 163);
             txtProv.Name = "txtProv";
             txtProv.ReadOnly = true;
-            txtProv.Size = new Size(200, 23);
+            txtProv.Size = new Size(228, 27);
             txtProv.TabIndex = 3;
             // 
             // txtPostal
             // 
-            txtPostal.Location = new Point(511, 20);
-            txtPostal.Margin = new Padding(3, 2, 3, 2);
+            txtPostal.Location = new Point(584, 27);
             txtPostal.Name = "txtPostal";
             txtPostal.ReadOnly = true;
-            txtPostal.Size = new Size(225, 23);
+            txtPostal.Size = new Size(257, 27);
             txtPostal.TabIndex = 4;
             // 
             // txtCountry
             // 
-            txtCountry.Location = new Point(511, 53);
-            txtCountry.Margin = new Padding(3, 2, 3, 2);
+            txtCountry.Location = new Point(584, 71);
             txtCountry.Name = "txtCountry";
             txtCountry.ReadOnly = true;
-            txtCountry.Size = new Size(225, 23);
+            txtCountry.Size = new Size(257, 27);
             txtCountry.TabIndex = 5;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(511, 85);
-            txtPhone.Margin = new Padding(3, 2, 3, 2);
+            txtPhone.Location = new Point(584, 113);
             txtPhone.Name = "txtPhone";
             txtPhone.ReadOnly = true;
-            txtPhone.Size = new Size(225, 23);
+            txtPhone.Size = new Size(257, 27);
             txtPhone.TabIndex = 6;
             // 
             // txtFax
             // 
-            txtFax.Location = new Point(511, 120);
-            txtFax.Margin = new Padding(3, 2, 3, 2);
+            txtFax.Location = new Point(584, 160);
             txtFax.Name = "txtFax";
             txtFax.ReadOnly = true;
-            txtFax.Size = new Size(225, 23);
+            txtFax.Size = new Size(257, 27);
             txtFax.TabIndex = 7;
             // 
             // btnSave
             // 
             btnSave.Enabled = false;
-            btnSave.Location = new Point(616, 375);
-            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Location = new Point(704, 500);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(143, 22);
+            btnSave.Size = new Size(163, 29);
             btnSave.TabIndex = 8;
             btnSave.Text = "&Save Changes";
             btnSave.UseVisualStyleBackColor = true;
@@ -263,10 +251,9 @@
             // btnDiscard
             // 
             btnDiscard.Enabled = false;
-            btnDiscard.Location = new Point(453, 374);
-            btnDiscard.Margin = new Padding(3, 2, 3, 2);
+            btnDiscard.Location = new Point(518, 499);
             btnDiscard.Name = "btnDiscard";
-            btnDiscard.Size = new Size(143, 22);
+            btnDiscard.Size = new Size(163, 29);
             btnDiscard.TabIndex = 9;
             btnDiscard.Text = "Discard Chan&ges";
             btnDiscard.UseVisualStyleBackColor = true;
@@ -276,9 +263,9 @@
             // 
             lblClearIcon.AutoSize = true;
             lblClearIcon.Font = new Font("Segoe UI", 15F);
-            lblClearIcon.Location = new Point(720, 157);
+            lblClearIcon.Location = new Point(823, 209);
             lblClearIcon.Name = "lblClearIcon";
-            lblClearIcon.Size = new Size(39, 28);
+            lblClearIcon.Size = new Size(49, 35);
             lblClearIcon.TabIndex = 50;
             lblClearIcon.Text = "✖";
             lblClearIcon.Click += lblClearIcon_Click;
@@ -289,9 +276,9 @@
             // 
             lblSearchIcon.AutoSize = true;
             lblSearchIcon.Font = new Font("Segoe UI", 15F);
-            lblSearchIcon.Location = new Point(683, 157);
+            lblSearchIcon.Location = new Point(781, 209);
             lblSearchIcon.Name = "lblSearchIcon";
-            lblSearchIcon.Size = new Size(39, 28);
+            lblSearchIcon.Size = new Size(49, 35);
             lblSearchIcon.TabIndex = 49;
             lblSearchIcon.Text = "🔍";
             lblSearchIcon.Click += lblSearchIcon_Click;
@@ -300,9 +287,10 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(308, 374);
+            btnSearch.Location = new Point(352, 499);
+            btnSearch.Margin = new Padding(3, 4, 3, 4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(111, 23);
+            btnSearch.Size = new Size(127, 31);
             btnSearch.TabIndex = 51;
             btnSearch.Text = "&Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -310,7 +298,7 @@
             // 
             // ucManageAgencies
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             Controls.Add(btnSearch);
@@ -338,9 +326,8 @@
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
             Controls.Add(dgvAgencies);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "ucManageAgencies";
-            Size = new Size(800, 422);
+            Size = new Size(914, 563);
             Load += ucManageAgencies_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAgencies).EndInit();
             ResumeLayout(false);

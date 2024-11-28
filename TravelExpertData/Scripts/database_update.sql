@@ -22,7 +22,7 @@ ALTER TABLE Agents
 -- Nov 13
 alter table Suppliers add 
 is_active bit default 1
-
+go
 UPDATE Suppliers
 SET is_active = 1;
 
@@ -30,6 +30,11 @@ SET is_active = 1;
 
 alter table Packages_Products_Suppliers add 
 is_active bit default 1
+go
+UPDATE Packages_Products_Suppliers
+SET is_active = 1;
+
+--Nov 20
 
 UPDATE Packages_Products_Suppliers
 SET is_active = 1;
@@ -39,4 +44,9 @@ alter table Products add
 is_active bit default 1
 
 UPDATE Products
+SET is_active = 1;
+alter table Packages add 
+is_active bit default 1
+go
+UPDATE Packages
 SET is_active = 1;

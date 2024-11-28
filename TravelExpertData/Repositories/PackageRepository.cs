@@ -45,8 +45,8 @@ namespace TravelExpertData.Repositories
         {
             using (TravelExpertContext ctx = new TravelExpertContext())
             {
-                //var packages = ctx.Packages.Where(package => package.IsActive == true);
-                return ctx.Packages.ToList();
+                var packages = ctx.Packages.Where(package => package.IsActive == true);
+                return packages.ToList();
             }
         }
 
@@ -99,7 +99,7 @@ namespace TravelExpertData.Repositories
                 using (TravelExpertContext ctx = new TravelExpertContext())
                 {
                     Package package = ctx.Packages.Find(id);
-                    //package.IsActive = false;
+                    package.IsActive = false;
 
                     if (package == null)
                     {

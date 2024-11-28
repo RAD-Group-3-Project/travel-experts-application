@@ -33,15 +33,15 @@ partial class ucManageProducts
         btnDelete = new Button();
         btnEdit = new Button();
         btnAdd = new Button();
-        dgvSuppliers = new DataGridView();
-        txtSupName = new TextBox();
+        dgvProducts = new DataGridView();
+        txtProdName = new TextBox();
         label1 = new Label();
-        txtSupID = new TextBox();
+        txtProdId = new TextBox();
         label2 = new Label();
         btnSearch = new Button();
         lblClearIcon = new Label();
         lblSearchIcon = new Label();
-        ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
         SuspendLayout();
         // 
         // btnDisc
@@ -97,24 +97,26 @@ partial class ucManageProducts
         btnAdd.UseVisualStyleBackColor = true;
         btnAdd.Click += btnAdd_Click;
         // 
-        // dgvSuppliers
+        // dgvProducts
         // 
-        dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        dgvSuppliers.BackgroundColor = SystemColors.GradientActiveCaption;
-        dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgvSuppliers.Location = new Point(46, 161);
-        dgvSuppliers.Name = "dgvSuppliers";
-        dgvSuppliers.RowHeadersWidth = 51;
-        dgvSuppliers.Size = new Size(824, 311);
-        dgvSuppliers.TabIndex = 44;
+        dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvProducts.BackgroundColor = SystemColors.GradientActiveCaption;
+        dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvProducts.Location = new Point(46, 161);
+        dgvProducts.Name = "dgvProducts";
+        dgvProducts.ReadOnly = true;
+        dgvProducts.RowHeadersWidth = 51;
+        dgvProducts.Size = new Size(824, 311);
+        dgvProducts.TabIndex = 44;
+        dgvProducts.SelectionChanged += dgvProducts_SelectionChanged;
         // 
-        // txtSupName
+        // txtProdName
         // 
-        txtSupName.Location = new Point(615, 69);
-        txtSupName.Name = "txtSupName";
-        txtSupName.ReadOnly = true;
-        txtSupName.Size = new Size(201, 27);
-        txtSupName.TabIndex = 53;
+        txtProdName.Location = new Point(615, 69);
+        txtProdName.Name = "txtProdName";
+        txtProdName.ReadOnly = true;
+        txtProdName.Size = new Size(201, 27);
+        txtProdName.TabIndex = 53;
         // 
         // label1
         // 
@@ -125,13 +127,13 @@ partial class ucManageProducts
         label1.TabIndex = 52;
         label1.Text = "Product Name :";
         // 
-        // txtSupID
+        // txtProdId
         // 
-        txtSupID.Location = new Point(181, 69);
-        txtSupID.Name = "txtSupID";
-        txtSupID.ReadOnly = true;
-        txtSupID.Size = new Size(201, 27);
-        txtSupID.TabIndex = 51;
+        txtProdId.Location = new Point(181, 69);
+        txtProdId.Name = "txtProdId";
+        txtProdId.ReadOnly = true;
+        txtProdId.Size = new Size(201, 27);
+        txtProdId.TabIndex = 51;
         // 
         // label2
         // 
@@ -183,20 +185,20 @@ partial class ucManageProducts
         Controls.Add(lblClearIcon);
         Controls.Add(lblSearchIcon);
         Controls.Add(btnSearch);
-        Controls.Add(txtSupName);
+        Controls.Add(txtProdName);
         Controls.Add(label1);
-        Controls.Add(txtSupID);
+        Controls.Add(txtProdId);
         Controls.Add(label2);
         Controls.Add(btnDisc);
         Controls.Add(btnSave);
         Controls.Add(btnDelete);
         Controls.Add(btnEdit);
         Controls.Add(btnAdd);
-        Controls.Add(dgvSuppliers);
+        Controls.Add(dgvProducts);
         Name = "ucManageProducts";
         Size = new Size(914, 563);
-        Load += ucManageProducts_Load;
-        ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
+        Load += ucManageProducts_Load_1;
+        ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -208,10 +210,10 @@ partial class ucManageProducts
     private Button btnDelete;
     private Button btnEdit;
     private Button btnAdd;
-    private DataGridView dgvSuppliers;
-    private TextBox txtSupName;
+    private DataGridView dgvProducts;
+    private TextBox txtProdName;
     private Label label1;
-    private TextBox txtSupID;
+    private TextBox txtProdId;
     private Label label2;
     private Button btnSearch;
     private Label lblClearIcon;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using TravelExpertData.Data;
 using TravelExpertData.Models;
 
@@ -11,11 +12,15 @@ namespace TravelExpertData.Repositories
 {
     public class ProductRepository
     {
-        public static void CreateProduct(Product product)
+        public static void CreateProduct(Product addedProduct)
         {
             try
             {
-
+                using (TravelExpertContext conn = new TravelExpertContext())
+                {
+                     conn.Products.Add(addedProduct);
+                    conn.SaveChanges();
+                }
             }
             catch (DbUpdateException dbEx)
             {
@@ -49,7 +54,7 @@ namespace TravelExpertData.Repositories
         {
             using (TravelExpertContext ctx = new TravelExpertContext())
             {
-                return ctx.Products.ToList();
+                return ctx.Products.Where(p => p.IsActive.HasValue && p.IsActive.Value).ToList();
             }
         }
 
@@ -83,7 +88,7 @@ namespace TravelExpertData.Repositories
                         throw new Exception($"Unable to find the product with the ID of {id}");
                     }
 
-                    //product.IsActive = false;
+                    product.IsActive = false;
                     ctx.Products.Update(product);
                     ctx.SaveChanges();
                 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using TravelExpertData.Models;
-
+using System.Configuration;
 namespace TravelExpertData.Data;
 
 public partial class TravelExpertContext : DbContext
@@ -60,7 +60,7 @@ public partial class TravelExpertContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExpertsConnection"].ConnectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -173,12 +173,13 @@ public partial class TravelExpertContext : DbContext
                 .HasName("aaaaaPackages_PK")
                 .IsClustered(false);
 
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.PkgAgencyCommission).HasDefaultValue(0m);
         });
 
         modelBuilder.Entity<PackagesProductsSupplier>(entity =>
         {
-            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED997B14926F");
+            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED99A4B633EA");
 
             entity.Property(e => e.IsActive).HasDefaultValue(true);
 
@@ -196,6 +197,8 @@ public partial class TravelExpertContext : DbContext
             entity.HasKey(e => e.ProductId)
                 .HasName("aaaaaProducts_PK")
                 .IsClustered(false);
+
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
         });
 
         modelBuilder.Entity<ProductsSupplier>(entity =>

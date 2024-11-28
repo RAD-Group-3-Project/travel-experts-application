@@ -49,35 +49,36 @@
             // txtPackageProductSupplierId
             // 
             txtPackageProductSupplierId.BackColor = SystemColors.Control;
-            txtPackageProductSupplierId.Location = new Point(251, 64);
+            txtPackageProductSupplierId.Location = new Point(287, 85);
+            txtPackageProductSupplierId.Margin = new Padding(3, 4, 3, 4);
             txtPackageProductSupplierId.Name = "txtPackageProductSupplierId";
-            txtPackageProductSupplierId.Size = new Size(100, 23);
+            txtPackageProductSupplierId.Size = new Size(114, 27);
             txtPackageProductSupplierId.TabIndex = 51;
             // 
             // lblPackageProductSupplierID
             // 
             lblPackageProductSupplierID.AutoSize = true;
-            lblPackageProductSupplierID.Location = new Point(71, 67);
+            lblPackageProductSupplierID.Location = new Point(81, 89);
             lblPackageProductSupplierID.Name = "lblPackageProductSupplierID";
-            lblPackageProductSupplierID.Size = new Size(159, 15);
+            lblPackageProductSupplierID.Size = new Size(199, 20);
             lblPackageProductSupplierID.TabIndex = 50;
             lblPackageProductSupplierID.Text = "Package Product Supplier ID:";
             // 
             // lblPackageID
             // 
             lblPackageID.AutoSize = true;
-            lblPackageID.Location = new Point(162, 97);
+            lblPackageID.Location = new Point(185, 129);
             lblPackageID.Name = "lblPackageID";
-            lblPackageID.Size = new Size(68, 15);
+            lblPackageID.Size = new Size(85, 20);
             lblPackageID.TabIndex = 52;
             lblPackageID.Text = "Package ID:";
             // 
             // lblProductSupplierID
             // 
             lblProductSupplierID.AutoSize = true;
-            lblProductSupplierID.Location = new Point(118, 130);
+            lblProductSupplierID.Location = new Point(135, 173);
             lblProductSupplierID.Name = "lblProductSupplierID";
-            lblProductSupplierID.Size = new Size(112, 15);
+            lblProductSupplierID.Size = new Size(141, 20);
             lblProductSupplierID.TabIndex = 54;
             lblProductSupplierID.Text = "Product Supplier ID:";
             // 
@@ -86,20 +87,21 @@
             dgvPackageProductSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPackageProductSupplier.BackgroundColor = SystemColors.GradientActiveCaption;
             dgvPackageProductSupplier.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPackageProductSupplier.Location = new Point(50, 179);
+            dgvPackageProductSupplier.Location = new Point(57, 239);
+            dgvPackageProductSupplier.Margin = new Padding(3, 4, 3, 4);
             dgvPackageProductSupplier.Name = "dgvPackageProductSupplier";
+            dgvPackageProductSupplier.ReadOnly = true;
             dgvPackageProductSupplier.RowHeadersWidth = 51;
-            dgvPackageProductSupplier.Size = new Size(702, 177);
+            dgvPackageProductSupplier.Size = new Size(802, 236);
             dgvPackageProductSupplier.TabIndex = 57;
             dgvPackageProductSupplier.SelectionChanged += dgvPackageProductSupplier_SelectionChanged;
             // 
             // btnDisc
             // 
             btnDisc.Enabled = false;
-            btnDisc.Location = new Point(459, 377);
-            btnDisc.Margin = new Padding(3, 2, 3, 2);
+            btnDisc.Location = new Point(525, 503);
             btnDisc.Name = "btnDisc";
-            btnDisc.Size = new Size(143, 22);
+            btnDisc.Size = new Size(163, 29);
             btnDisc.TabIndex = 62;
             btnDisc.Text = "Discard Chan&ges";
             btnDisc.UseVisualStyleBackColor = true;
@@ -108,10 +110,9 @@
             // btnSave
             // 
             btnSave.Enabled = false;
-            btnSave.Location = new Point(608, 378);
-            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Location = new Point(695, 504);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(143, 22);
+            btnSave.Size = new Size(163, 29);
             btnSave.TabIndex = 61;
             btnSave.Text = "Save Changes";
             btnSave.UseVisualStyleBackColor = true;
@@ -120,10 +121,9 @@
             // btnDelete
             // 
             btnDelete.ForeColor = Color.FromArgb(192, 0, 0);
-            btnDelete.Location = new Point(218, 378);
-            btnDelete.Margin = new Padding(3, 2, 3, 2);
+            btnDelete.Location = new Point(249, 504);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(69, 22);
+            btnDelete.Size = new Size(79, 29);
             btnDelete.TabIndex = 60;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -131,10 +131,9 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(143, 378);
-            btnEdit.Margin = new Padding(3, 2, 3, 2);
+            btnEdit.Location = new Point(163, 504);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(69, 22);
+            btnEdit.Size = new Size(79, 29);
             btnEdit.TabIndex = 59;
             btnEdit.Text = "&Edit";
             btnEdit.UseVisualStyleBackColor = true;
@@ -142,10 +141,9 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(50, 378);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Location = new Point(57, 504);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(69, 22);
+            btnAdd.Size = new Size(79, 29);
             btnAdd.TabIndex = 58;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
@@ -155,29 +153,27 @@
             // 
             cmbPackageID.BackColor = SystemColors.Control;
             cmbPackageID.FormattingEnabled = true;
-            cmbPackageID.Location = new Point(251, 97);
-            cmbPackageID.Margin = new Padding(3, 2, 3, 2);
+            cmbPackageID.Location = new Point(287, 129);
             cmbPackageID.Name = "cmbPackageID";
-            cmbPackageID.Size = new Size(100, 23);
+            cmbPackageID.Size = new Size(114, 28);
             cmbPackageID.TabIndex = 63;
             // 
             // cmbProductSupplierID
             // 
             cmbProductSupplierID.BackColor = SystemColors.Control;
             cmbProductSupplierID.FormattingEnabled = true;
-            cmbProductSupplierID.Location = new Point(251, 130);
-            cmbProductSupplierID.Margin = new Padding(3, 2, 3, 2);
+            cmbProductSupplierID.Location = new Point(287, 173);
             cmbProductSupplierID.Name = "cmbProductSupplierID";
-            cmbProductSupplierID.Size = new Size(100, 23);
+            cmbProductSupplierID.Size = new Size(114, 28);
             cmbProductSupplierID.TabIndex = 64;
             // 
             // lblClearIcon
             // 
             lblClearIcon.AutoSize = true;
             lblClearIcon.Font = new Font("Segoe UI", 15F);
-            lblClearIcon.Location = new Point(712, 148);
+            lblClearIcon.Location = new Point(814, 197);
             lblClearIcon.Name = "lblClearIcon";
-            lblClearIcon.Size = new Size(39, 28);
+            lblClearIcon.Size = new Size(49, 35);
             lblClearIcon.TabIndex = 66;
             lblClearIcon.Text = "✖";
             lblClearIcon.Click += lblClearIcon_Click;
@@ -188,9 +184,9 @@
             // 
             lblSearchIcon.AutoSize = true;
             lblSearchIcon.Font = new Font("Segoe UI", 15F);
-            lblSearchIcon.Location = new Point(675, 148);
+            lblSearchIcon.Location = new Point(771, 197);
             lblSearchIcon.Name = "lblSearchIcon";
-            lblSearchIcon.Size = new Size(39, 28);
+            lblSearchIcon.Size = new Size(49, 35);
             lblSearchIcon.TabIndex = 65;
             lblSearchIcon.Text = "🔍";
             lblSearchIcon.Click += lblSearchIcon_Click;
@@ -199,9 +195,10 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(314, 377);
+            btnSearch.Location = new Point(359, 503);
+            btnSearch.Margin = new Padding(3, 4, 3, 4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(111, 23);
+            btnSearch.Size = new Size(127, 31);
             btnSearch.TabIndex = 67;
             btnSearch.Text = "&Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -209,7 +206,7 @@
             // 
             // ucManagePackageProductSupplier
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             Controls.Add(btnSearch);
@@ -227,9 +224,8 @@
             Controls.Add(lblPackageID);
             Controls.Add(txtPackageProductSupplierId);
             Controls.Add(lblPackageProductSupplierID);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "ucManagePackageProductSupplier";
-            Size = new Size(800, 422);
+            Size = new Size(914, 563);
             Load += ucManagePackageProductSupplier_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPackageProductSupplier).EndInit();
             ResumeLayout(false);

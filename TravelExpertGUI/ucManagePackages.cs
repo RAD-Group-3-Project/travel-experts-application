@@ -28,7 +28,7 @@ public partial class ucManagePackages : UserControl
         populatePackages();
     }
 
-    private void dgvPackges_SelectionChanged(object sender, EventArgs e)
+    private void dgvPackages_SelectionChanged(object sender, EventArgs e)
     {
         if (suppressSelectionChanged)
         {
@@ -37,8 +37,17 @@ public partial class ucManagePackages : UserControl
 
         if (dgvPackages.SelectedRows != null)
         {
-            txtPkgId.Text = dgvPackages.CurrentRow.Cells["PackageID"].Value.ToString();
-            txtPkgName.Text = dgvPackages.CurrentRow.Cells["PackName"].Value.ToString();
+            txtPkgId.Text = dgvPackages.CurrentRow.Cells["PackageId"].Value.ToString();
+            txtPkgName.Text = dgvPackages.CurrentRow.Cells["PkgName"].Value.ToString();
+            DateTime startDate = Convert.ToDateTime(dgvPackages.CurrentRow.Cells["PkgStartDate"].Value);
+            txtPkgStartDate.Text = startDate.ToString("yyyy-MM-dd");
+            DateTime endDate = Convert.ToDateTime(dgvPackages.CurrentRow.Cells["PkgEndDate"].Value);
+            txtPkgEndDate.Text = endDate.ToString("yyyy-MM-dd");
+            txtPkgDesc.Text = dgvPackages.CurrentRow.Cells["PkgDesc"].Value.ToString();
+            decimal basePrice = Convert.ToDecimal(dgvPackages.CurrentRow.Cells["PkgBasePrice"].Value);
+            txtPkgBasePrice.Text = basePrice.ToString("c");
+            decimal commission = Convert.ToDecimal(dgvPackages.CurrentRow.Cells["PkgAgencyCommission"].Value);
+            txtPkgAgcyCom.Text = commission.ToString("c");
         }
     }
 
@@ -47,7 +56,13 @@ public partial class ucManagePackages : UserControl
         txtPkgId.ReadOnly = true;
 
         EnableEditableFields();
-
+        txtPkgId.ReadOnly = true;
+        txtPkgName.ReadOnly = false;
+        txtPkgAgcyCom.ReadOnly = false;
+        txtPkgBasePrice.ReadOnly = false;
+        txtPkgDesc.ReadOnly = false;
+        txtPkgStartDate.ReadOnly = false;
+        txtPkgEndDate.ReadOnly = false;
         txtPkgName.Focus();
         btnAdd.Enabled = false;
         btnEdit.Enabled = false;
@@ -117,18 +132,30 @@ public partial class ucManagePackages : UserControl
 
     private void btnSave_Click(object sender, EventArgs e)
     {
+        string basePr = txtPkgBasePrice.Text;
+        string basePriceFormat = basePr.Replace("$", "");
+        txtPkgBasePrice.Text = basePriceFormat;
+        string baseComm = txtPkgAgcyCom.Text;
+        string baseCommFormat = baseComm.Replace("$", "");
+        txtPkgAgcyCom.Text = baseCommFormat;
         switch (function)
         {
+
             case "ADD":
                 if (ValidateRequiredFieldsAndBizLogic())
                 {
                     Package addedPackage = new Package();
-                    int lastRowColumnValue = lastID_PlusOne();
-                    addedPackage.PackageId = lastRowColumnValue;
-                    addedPackage.PkgName = txtPkgName.Text;
-                    //addedPackage.PkgStartDate = DateTime.TryParse(txtPkgStartDate.Text);
 
-                    //addedPackage.IsActive = true;
+
+                    addedPackage.PkgName = txtPkgName.Text;
+                    DateTime pkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
+                    addedPackage.PkgStartDate = pkgStartDate;
+                    DateTime pkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
+                    addedPackage.PkgEndDate = pkgEndDate;
+                    addedPackage.PkgDesc = txtPkgDesc.Text;
+                    addedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
+                    addedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
+                    addedPackage.IsActive = true;
 
                     try
                     {
@@ -155,6 +182,14 @@ public partial class ucManagePackages : UserControl
                     Package editedPackage = new Package();
                     editedPackage.PackageId = Convert.ToInt32(txtPkgId.Text);
                     editedPackage.PkgName = txtPkgName.Text;
+                    DateTime pkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
+                    editedPackage.PkgStartDate = pkgStartDate;
+                    DateTime pkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
+                    editedPackage.PkgEndDate = pkgEndDate;
+                    editedPackage.PkgDesc = txtPkgDesc.Text;
+                    editedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
+
+                    editedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
 
                     try
                     {
@@ -198,24 +233,7 @@ public partial class ucManagePackages : UserControl
         btnDiscard.Enabled = true;
     }
 
-    private void lblSearchIcon_Click(object sender, EventArgs e)
-    {
-        if (!string.IsNullOrWhiteSpace(txtPkgId.Text) && !TextBoxValidator.IsInteger(txtPkgId))
-        {
-            return;
-        }
-
-        var filteredList = packages.Where(package => (string.IsNullOrWhiteSpace(txtPkgId.Text) || package.PackageId == Convert.ToInt32(txtPkgId.Text) &&
-        (string.IsNullOrWhiteSpace(txtPkgName.Text) || package.PkgName.ToLower().Contains(txtPkgName.Text.ToLower())))).ToList();
-
-        if (filteredList.Count == 0)
-        {
-            suppressSelectionChanged = true;
-        }
-
-        dgvPackages.DataSource = filteredList;
-    }
-
+   
     private void lblSearchIcon_MouseHover(object sender, MouseEventArgs e)
     {
         lblSearchIcon.Cursor = Cursors.Hand;
@@ -277,10 +295,14 @@ public partial class ucManagePackages : UserControl
         dgvPackages.RowHeadersVisible = false;
 
         // Hides additional columns
-        dgvPackages.Columns[2].Visible = false;
-        dgvPackages.Columns[3].Visible = false;
-        dgvPackages.Columns[4].Visible = false;
-        dgvPackages.Columns[1].Width = 350;
+        dgvPackages.Columns[7].Visible = false;
+        dgvPackages.Columns[8].Visible = false;
+        dgvPackages.Columns[8].Visible = false;
+        // Format certain columns to be currency 
+        dgvPackages.Columns[5].DefaultCellStyle.Format = "c";
+        dgvPackages.Columns[6].DefaultCellStyle.Format = "c";
+
+
 
         // Unlocks the dgv so it can be click
         dgvPackages.Enabled = true;
@@ -289,8 +311,9 @@ public partial class ucManagePackages : UserControl
     private void EnableEditableFields()
     {
         ClearAllInputFields();
-
+        txtPkgId.ReadOnly = true;
         txtPkgName.ReadOnly = false;
+        txtPkgName.Focus();
         txtPkgStartDate.ReadOnly = false;
         txtPkgEndDate.ReadOnly = false;
         txtPkgDesc.ReadOnly = false;
@@ -322,14 +345,32 @@ public partial class ucManagePackages : UserControl
 
     private bool ValidateRequiredFieldsAndBizLogic()
     {
-        return !TextBoxValidator.IsPresent(txtPkgId) ||
-               !TextBoxValidator.IsPresent(txtPkgName) ||
-               !TextBoxValidator.IsPresent(txtPkgDesc) ||
-               !TextBoxValidator.IsPresent(txtPkgBasePrice) ||
-               !TextBoxValidator.IsPresent(txtPkgStartDate) ||
-               !TextBoxValidator.IsPresent(txtPkgEndDate) ||
-               !TextBoxValidator.IsPresent(txtPkgAgcyCom) ||
-               !TextBoxValidator.ValidatePackageEndDate(txtPkgStartDate, txtPkgEndDate) ||
-               !TextBoxValidator.ValidateAgencyCommission(txtPkgAgcyCom, txtPkgBasePrice);
+        return TextBoxValidator.IsPresent(txtPkgId) &&
+               TextBoxValidator.IsPresent(txtPkgName) &&
+               TextBoxValidator.IsPresent(txtPkgDesc) &&
+               TextBoxValidator.IsPresent(txtPkgBasePrice) &&
+               TextBoxValidator.IsPresent(txtPkgStartDate) &&
+               TextBoxValidator.IsPresent(txtPkgEndDate) &&
+               TextBoxValidator.IsPresent(txtPkgAgcyCom) &&
+               TextBoxValidator.ValidatePackageEndDate(txtPkgStartDate, txtPkgEndDate) &&
+               TextBoxValidator.ValidateAgencyCommission(txtPkgAgcyCom, txtPkgBasePrice);
+    }
+
+    private void lblSearchIcon_Click_1(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrWhiteSpace(txtPkgId.Text) && !TextBoxValidator.IsInteger(txtPkgId))
+        {
+            return;
+        }
+
+        var filteredList = packages.Where(package => (string.IsNullOrWhiteSpace(txtPkgId.Text) || package.PackageId == Convert.ToInt32(txtPkgId.Text) &&
+        (string.IsNullOrWhiteSpace(txtPkgName.Text) || package.PkgName.ToLower().Contains(txtPkgName.Text.ToLower())))).ToList();
+
+        if (filteredList.Count == 0)
+        {
+            suppressSelectionChanged = true;
+        }
+
+        dgvPackages.DataSource = filteredList;
     }
 }

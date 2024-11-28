@@ -29,19 +29,12 @@ partial class ucManagePackages
     private void InitializeComponent()
     {
         label1 = new Label();
-        txtPkgId = new TextBox();
-        txtPkgName = new TextBox();
         label2 = new Label();
-        txtPkgStartDate = new TextBox();
         label3 = new Label();
-        txtPkgEndDate = new TextBox();
         label4 = new Label();
-        txtPkgDesc = new TextBox();
         label5 = new Label();
         label6 = new Label();
-        txtPkgBasePrice = new TextBox();
         label7 = new Label();
-        txtPkgAgcyCom = new TextBox();
         dgvPackages = new DataGridView();
         btnAdd = new Button();
         btnEdit = new Button();
@@ -51,6 +44,13 @@ partial class ucManagePackages
         lblClearIcon = new Label();
         lblSearchIcon = new Label();
         btnSearch = new Button();
+        txtPkgStartDate = new TextBox();
+        txtPkgEndDate = new TextBox();
+        txtPkgId = new TextBox();
+        txtPkgName = new TextBox();
+        txtPkgDesc = new TextBox();
+        txtPkgBasePrice = new TextBox();
+        txtPkgAgcyCom = new TextBox();
         ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
         SuspendLayout();
         // 
@@ -59,83 +59,43 @@ partial class ucManagePackages
         label1.AutoSize = true;
         label1.Location = new Point(73, 51);
         label1.Name = "label1";
-        label1.Size = new Size(84, 20);
+        label1.Size = new Size(83, 20);
         label1.TabIndex = 0;
         label1.Text = "Package Id:";
-        // 
-        // txtPkgId
-        // 
-        txtPkgId.BackColor = SystemColors.Control;
-        txtPkgId.Location = new Point(222, 47);
-        txtPkgId.Name = "txtPkgId";
-        txtPkgId.Size = new Size(125, 27);
-        txtPkgId.TabIndex = 1;
-        // 
-        // txtPkgName
-        // 
-        txtPkgName.BackColor = SystemColors.Control;
-        txtPkgName.Location = new Point(222, 84);
-        txtPkgName.Name = "txtPkgName";
-        txtPkgName.Size = new Size(125, 27);
-        txtPkgName.TabIndex = 3;
         // 
         // label2
         // 
         label2.AutoSize = true;
         label2.Location = new Point(73, 87);
         label2.Name = "label2";
-        label2.Size = new Size(111, 20);
+        label2.Size = new Size(110, 20);
         label2.TabIndex = 2;
         label2.Text = "Package Name:";
-        // 
-        // txtPkgStartDate
-        // 
-        txtPkgStartDate.BackColor = SystemColors.Control;
-        txtPkgStartDate.Location = new Point(222, 121);
-        txtPkgStartDate.Name = "txtPkgStartDate";
-        txtPkgStartDate.Size = new Size(125, 27);
-        txtPkgStartDate.TabIndex = 5;
         // 
         // label3
         // 
         label3.AutoSize = true;
         label3.Location = new Point(73, 127);
         label3.Name = "label3";
-        label3.Size = new Size(138, 20);
+        label3.Size = new Size(137, 20);
         label3.TabIndex = 4;
         label3.Text = "Package Start Date:";
-        // 
-        // txtPkgEndDate
-        // 
-        txtPkgEndDate.BackColor = SystemColors.Control;
-        txtPkgEndDate.Location = new Point(222, 159);
-        txtPkgEndDate.Name = "txtPkgEndDate";
-        txtPkgEndDate.Size = new Size(125, 27);
-        txtPkgEndDate.TabIndex = 7;
         // 
         // label4
         // 
         label4.AutoSize = true;
         label4.Location = new Point(73, 165);
         label4.Name = "label4";
-        label4.Size = new Size(132, 20);
+        label4.Size = new Size(131, 20);
         label4.TabIndex = 6;
         label4.Text = "Package End Date:";
-        // 
-        // txtPkgDesc
-        // 
-        txtPkgDesc.BackColor = SystemColors.Control;
-        txtPkgDesc.Location = new Point(222, 196);
-        txtPkgDesc.Name = "txtPkgDesc";
-        txtPkgDesc.Size = new Size(125, 27);
-        txtPkgDesc.TabIndex = 9;
         // 
         // label5
         // 
         label5.AutoSize = true;
         label5.Location = new Point(73, 203);
         label5.Name = "label5";
-        label5.Size = new Size(147, 20);
+        label5.Size = new Size(146, 20);
         label5.TabIndex = 8;
         label5.Text = "Package Description:";
         // 
@@ -144,34 +104,18 @@ partial class ucManagePackages
         label6.AutoSize = true;
         label6.Location = new Point(456, 55);
         label6.Name = "label6";
-        label6.Size = new Size(138, 20);
+        label6.Size = new Size(137, 20);
         label6.TabIndex = 10;
         label6.Text = "Package Base Price:";
-        // 
-        // txtPkgBasePrice
-        // 
-        txtPkgBasePrice.BackColor = SystemColors.Control;
-        txtPkgBasePrice.Location = new Point(665, 51);
-        txtPkgBasePrice.Name = "txtPkgBasePrice";
-        txtPkgBasePrice.Size = new Size(125, 27);
-        txtPkgBasePrice.TabIndex = 11;
         // 
         // label7
         // 
         label7.AutoSize = true;
         label7.Location = new Point(456, 95);
         label7.Name = "label7";
-        label7.Size = new Size(205, 20);
+        label7.Size = new Size(204, 20);
         label7.TabIndex = 12;
         label7.Text = "Package Agency Commission:";
-        // 
-        // txtPkgAgcyCom
-        // 
-        txtPkgAgcyCom.BackColor = SystemColors.Control;
-        txtPkgAgcyCom.Location = new Point(665, 87);
-        txtPkgAgcyCom.Name = "txtPkgAgcyCom";
-        txtPkgAgcyCom.Size = new Size(125, 27);
-        txtPkgAgcyCom.TabIndex = 13;
         // 
         // dgvPackages
         // 
@@ -183,6 +127,7 @@ partial class ucManagePackages
         dgvPackages.RowHeadersWidth = 51;
         dgvPackages.Size = new Size(802, 236);
         dgvPackages.TabIndex = 14;
+        dgvPackages.SelectionChanged += dgvPackages_SelectionChanged;
         // 
         // btnAdd
         // 
@@ -257,6 +202,7 @@ partial class ucManagePackages
         lblSearchIcon.Size = new Size(49, 35);
         lblSearchIcon.TabIndex = 59;
         lblSearchIcon.Text = "🔍";
+        lblSearchIcon.Click += lblSearchIcon_Click_1;
         // 
         // btnSearch
         // 
@@ -269,11 +215,74 @@ partial class ucManagePackages
         btnSearch.UseVisualStyleBackColor = true;
         btnSearch.Click += btnSearch_Click;
         // 
+        // txtPkgStartDate
+        // 
+        txtPkgStartDate.Location = new Point(222, 124);
+        txtPkgStartDate.Name = "txtPkgStartDate";
+        txtPkgStartDate.ReadOnly = true;
+        txtPkgStartDate.Size = new Size(125, 27);
+        txtPkgStartDate.TabIndex = 69;
+        // 
+        // txtPkgEndDate
+        // 
+        txtPkgEndDate.Location = new Point(222, 162);
+        txtPkgEndDate.Name = "txtPkgEndDate";
+        txtPkgEndDate.ReadOnly = true;
+        txtPkgEndDate.Size = new Size(125, 27);
+        txtPkgEndDate.TabIndex = 70;
+        // 
+        // txtPkgId
+        // 
+        txtPkgId.Location = new Point(222, 48);
+        txtPkgId.Name = "txtPkgId";
+        txtPkgId.ReadOnly = true;
+        txtPkgId.Size = new Size(125, 27);
+        txtPkgId.TabIndex = 71;
+        // 
+        // txtPkgName
+        // 
+        txtPkgName.Location = new Point(222, 84);
+        txtPkgName.Name = "txtPkgName";
+        txtPkgName.ReadOnly = true;
+        txtPkgName.Size = new Size(125, 27);
+        txtPkgName.TabIndex = 72;
+        // 
+        // txtPkgDesc
+        // 
+        txtPkgDesc.Location = new Point(225, 200);
+        txtPkgDesc.Name = "txtPkgDesc";
+        txtPkgDesc.ReadOnly = true;
+        txtPkgDesc.Size = new Size(125, 27);
+        txtPkgDesc.TabIndex = 73;
+        // 
+        // txtPkgBasePrice
+        // 
+        txtPkgBasePrice.Location = new Point(677, 48);
+        txtPkgBasePrice.Name = "txtPkgBasePrice";
+        txtPkgBasePrice.ReadOnly = true;
+        txtPkgBasePrice.Size = new Size(125, 27);
+        txtPkgBasePrice.TabIndex = 74;
+        // 
+        // txtPkgAgcyCom
+        // 
+        txtPkgAgcyCom.Location = new Point(677, 92);
+        txtPkgAgcyCom.Name = "txtPkgAgcyCom";
+        txtPkgAgcyCom.ReadOnly = true;
+        txtPkgAgcyCom.Size = new Size(125, 27);
+        txtPkgAgcyCom.TabIndex = 75;
+        // 
         // ucManagePackages
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(txtPkgAgcyCom);
+        Controls.Add(txtPkgBasePrice);
+        Controls.Add(txtPkgDesc);
+        Controls.Add(txtPkgName);
+        Controls.Add(txtPkgId);
+        Controls.Add(txtPkgEndDate);
+        Controls.Add(txtPkgStartDate);
         Controls.Add(btnSearch);
         Controls.Add(lblClearIcon);
         Controls.Add(lblSearchIcon);
@@ -283,19 +292,12 @@ partial class ucManagePackages
         Controls.Add(btnEdit);
         Controls.Add(btnAdd);
         Controls.Add(dgvPackages);
-        Controls.Add(txtPkgAgcyCom);
         Controls.Add(label7);
-        Controls.Add(txtPkgBasePrice);
         Controls.Add(label6);
-        Controls.Add(txtPkgDesc);
         Controls.Add(label5);
-        Controls.Add(txtPkgEndDate);
         Controls.Add(label4);
-        Controls.Add(txtPkgStartDate);
         Controls.Add(label3);
-        Controls.Add(txtPkgName);
         Controls.Add(label2);
-        Controls.Add(txtPkgId);
         Controls.Add(label1);
         Name = "ucManagePackages";
         Size = new Size(914, 563);
@@ -308,19 +310,12 @@ partial class ucManagePackages
     #endregion
 
     private Label label1;
-    private TextBox txtPkgId;
-    private TextBox txtPkgName;
     private Label label2;
-    private TextBox txtPkgStartDate;
     private Label label3;
-    private TextBox txtPkgEndDate;
     private Label label4;
-    private TextBox txtPkgDesc;
     private Label label5;
     private Label label6;
-    private TextBox txtPkgBasePrice;
     private Label label7;
-    private TextBox txtPkgAgcyCom;
     private DataGridView dgvPackages;
     private Button btnAdd;
     private Button btnEdit;
@@ -330,4 +325,11 @@ partial class ucManagePackages
     private Label lblClearIcon;
     private Label lblSearchIcon;
     private Button btnSearch;
+    private TextBox txtPkgStartDate;
+    private TextBox txtPkgEndDate;
+    private TextBox txtPkgId;
+    private TextBox txtPkgName;
+    private TextBox txtPkgDesc;
+    private TextBox txtPkgBasePrice;
+    private TextBox txtPkgAgcyCom;
 }
