@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using static TravelExpertData.Repositories.ProductSuppliersRepository;
 
 namespace TravelExpertGUI;
@@ -43,6 +33,14 @@ public partial class ucManageProductSuppliers : UserControl
         GetProductSuppliers();
         LoadProducts();
         LoadSupplier();
+
+        // Styling
+        dgvProductSupplier.EnableHeadersVisualStyles = false;
+        dgvProductSupplier.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+        dgvProductSupplier.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        dgvProductSupplier.ColumnHeadersDefaultCellStyle.BackColor = Color.SlateBlue;
+        dgvProductSupplier.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        dgvProductSupplier.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
     }
 
     private void dgvProductSupplier_SelectionChanged(object sender, EventArgs e)
