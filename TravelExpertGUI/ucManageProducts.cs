@@ -15,6 +15,7 @@ public partial class ucManageProducts : UserControl
     {
         InitializeComponent();
         lblTableName.Text = TableName;
+        lblTableName.Location = Constants.UI.LABEL_TABLE_NAME_LOCATION;
     }
     private void ucManageProducts_Load_1(object sender, EventArgs e)
     {

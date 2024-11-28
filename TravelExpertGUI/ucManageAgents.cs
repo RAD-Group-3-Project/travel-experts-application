@@ -13,6 +13,7 @@ public partial class ucManageAgents : UserControl
     {
         InitializeComponent();
         lblTableName.Text = TableName;
+        lblTableName.Location = Constants.UI.LABEL_TABLE_NAME_LOCATION;
     }
 
     private void ucManageAgents_Load(object sender, EventArgs e)

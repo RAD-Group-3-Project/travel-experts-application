@@ -14,6 +14,7 @@ public partial class ucManageSuppliers : UserControl
     {
         InitializeComponent();
         lblTableName.Text = TableName;
+        lblTableName.Location = Constants.UI.LABEL_TABLE_NAME_LOCATION;
     }
     // Initializes our function string
     string function;

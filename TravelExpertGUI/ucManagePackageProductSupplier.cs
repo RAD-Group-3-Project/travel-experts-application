@@ -16,6 +16,7 @@ namespace TravelExpertGUI
         {
             InitializeComponent();
             lblTableName.Text = TableName;
+            lblTableName.Location = Constants.UI.LABEL_TABLE_NAME_LOCATION;
         }
         // Populates our list with active PPS
         private void ucManagePackageProductSupplier_Load(object sender, EventArgs e)
