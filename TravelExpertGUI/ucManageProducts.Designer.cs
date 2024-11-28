@@ -167,6 +167,8 @@ partial class ucManageProducts
         lblClearIcon.TabIndex = 70;
         lblClearIcon.Text = "✖";
         lblClearIcon.Click += lblClearIcon_Click;
+        lblClearIcon.MouseHover += lblClearIcon_MouseHover;
+        lblClearIcon.MouseLeave += lblClearIcon_MouseLeave;
         // 
         // lblSearchIcon
         // 
@@ -178,6 +180,8 @@ partial class ucManageProducts
         lblSearchIcon.TabIndex = 69;
         lblSearchIcon.Text = "🔍";
         lblSearchIcon.Click += lblSearchIcon_Click;
+        lblSearchIcon.MouseHover += lblSearchIcon_MouseHover;
+        lblSearchIcon.MouseLeave += lblSearchIcon_MouseLeave;
         // 
         // lblTableName
         // 

@@ -239,7 +239,7 @@ public partial class ucManageProducts : UserControl
         dgvProducts.DataSource = filteredList;
     }
 
-    private void lblSearchIcon_MouseHover(object sender, MouseEventArgs e)
+    private void lblSearchIcon_MouseHover(object sender, EventArgs e)
     {
         lblSearchIcon.Cursor = Cursors.Hand;
     }
