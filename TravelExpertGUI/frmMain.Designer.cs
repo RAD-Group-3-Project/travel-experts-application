@@ -64,7 +64,7 @@ partial class frmMain
         // exitToolStripMenuItem
         // 
         exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-        exitToolStripMenuItem.Size = new Size(224, 30);
+        exitToolStripMenuItem.Size = new Size(128, 30);
         exitToolStripMenuItem.Text = "Exit";
         exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
         // 
@@ -108,16 +108,13 @@ partial class frmMain
         contentPanel.BackgroundImageLayout = ImageLayout.Zoom;
         contentPanel.Location = new Point(0, 68);
         contentPanel.Name = "contentPanel";
-
         contentPanel.Size = new Size(914, 562);
-
         contentPanel.TabIndex = 1;
         // 
         // frmMain
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-
         ClientSize = new Size(914, 627);
         ControlBox = false;
         Controls.Add(contentPanel);
@@ -129,7 +126,6 @@ partial class frmMain
         ShowIcon = false;
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Travel Expert Management";
-        TopMost = true;
         FormClosed += frmMain_FormClosed;
         Load += frmMain_Load;
         menuStrip1.ResumeLayout(false);
