@@ -192,6 +192,8 @@ partial class ucManagePackages
         lblClearIcon.TabIndex = 60;
         lblClearIcon.Text = "✖";
         lblClearIcon.Click += lblClearIcon_Click;
+        lblClearIcon.MouseLeave += lblClearIcon_MouseLeave;
+        lblClearIcon.MouseHover += lblClearIcon_MouseHover;
         // 
         // lblSearchIcon
         // 
@@ -203,6 +205,8 @@ partial class ucManagePackages
         lblSearchIcon.TabIndex = 59;
         lblSearchIcon.Text = "🔍";
         lblSearchIcon.Click += lblSearchIcon_Click_1;
+        lblSearchIcon.MouseLeave += lblSearchIcon_MouseLeave;
+        lblSearchIcon.MouseHover += lblSearchIcon_MouseHover;
         // 
         // btnSearch
         // 

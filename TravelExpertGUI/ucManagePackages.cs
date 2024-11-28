@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
@@ -232,11 +224,10 @@ public partial class ucManagePackages : UserControl
         btnEdit.Enabled = false;
         btnDiscard.Enabled = true;
     }
-
-   
-    private void lblSearchIcon_MouseHover(object sender, MouseEventArgs e)
+    private void lblSearchIcon_MouseHover(object sender, EventArgs e)
     {
         lblSearchIcon.Cursor = Cursors.Hand;
+
     }
 
     private void lblSearchIcon_MouseLeave(object sender, EventArgs e)
@@ -249,7 +240,7 @@ public partial class ucManagePackages : UserControl
         ClearAllInputFields();
     }
 
-    private void lblClearIcon_MouseHover(Object sender, MouseEventArgs e)
+    private void lblClearIcon_MouseHover(object sender, EventArgs e)
     {
         lblClearIcon.Cursor = Cursors.Hand;
     }
@@ -373,4 +364,6 @@ public partial class ucManagePackages : UserControl
 
         dgvPackages.DataSource = filteredList;
     }
+
+
 }
