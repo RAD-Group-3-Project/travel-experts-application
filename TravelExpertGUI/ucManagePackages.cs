@@ -176,8 +176,8 @@ public partial class ucManagePackages : UserControl
                     editedPackage.PkgEndDate = dtpPkgEndDate.Value;
                     editedPackage.PkgDesc = txtPkgDesc.Text;
                     editedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-
                     editedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
+                    editedPackage.IsActive = true;
 
                     try
                     {
