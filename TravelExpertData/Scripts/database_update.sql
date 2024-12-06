@@ -58,18 +58,7 @@ GO
 ALTER TABLE Customers
 ADD ProfileImg VARCHAR(20);
 GO
--- adds users table and fk 
-ALTER TABLE Users
-ADD CustomerId INT(5);
-GO
+-- Rename the Users table : 
+sp_rename 'Users','App_Users';
 
-ALTER TABLE Users
-ADD CONSTRAINT fk_CustomerId FOREIGN KEY (CustomerId) 
-REFERENCES Customers(CustomerId);
-GO
---Copies user customer info into user table
-INSERT INTO Users (User_Login, User_Password, CustomerId, is_admin)
-SELECT Customers.custemail, Customers.custlastname, Customers.CustomerId, 0
-FROM Customers
-WHERE Customers.CustomerId IS NOT NULL;
-GO
+
