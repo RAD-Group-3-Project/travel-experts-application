@@ -19,13 +19,13 @@ namespace TravelExpertData.Repositories
             using (TravelExpertContext ctx = new TravelExpertContext())
             {
                 CurrentUser user1 = new();
-                var user = ctx.App_Users
-                .FirstOrDefault(u => u.UserLogin == login && u.UserPassword == password);
+                var user = ctx.AspNetUsers
+                .FirstOrDefault(u => u.UserName == login && u.PasswordHash == password);
 
                 if (user != null)
                 {
-                    user1.Username = user.UserLogin;
-                    user1.Password = user.UserPassword;
+                    user1.Username = user.UserName;
+                    user1.Password = user.PasswordHash;
                     user1.IS_Admin = user.IsAdmin;
                 }
 

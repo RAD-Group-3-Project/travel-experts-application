@@ -51,6 +51,8 @@ partial class ucManagePackages
         txtPkgDesc = new TextBox();
         txtPkgBasePrice = new TextBox();
         txtPkgAgcyCom = new TextBox();
+        openFileDialog1 = new OpenFileDialog();
+        btnUploadImage = new Button();
         ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
         SuspendLayout();
         // 
@@ -271,11 +273,27 @@ partial class ucManagePackages
         txtPkgAgcyCom.Size = new Size(125, 27);
         txtPkgAgcyCom.TabIndex = 75;
         // 
+        // openFileDialog1
+        // 
+        openFileDialog1.FileName = "openFileDialog1";
+        // 
+        // btnUploadImage
+        // 
+        btnUploadImage.Location = new Point(456, 144);
+        btnUploadImage.Name = "btnUploadImage";
+        btnUploadImage.Size = new Size(264, 62);
+        btnUploadImage.TabIndex = 76;
+        btnUploadImage.Text = "Upload Package Image";
+        btnUploadImage.UseVisualStyleBackColor = true;
+        btnUploadImage.Visible = false;
+        btnUploadImage.Click += btnUploadImage_Click;
+        // 
         // ucManagePackages
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(btnUploadImage);
         Controls.Add(txtPkgAgcyCom);
         Controls.Add(txtPkgBasePrice);
         Controls.Add(txtPkgDesc);
@@ -332,4 +350,6 @@ partial class ucManagePackages
     private TextBox txtPkgDesc;
     private TextBox txtPkgBasePrice;
     private TextBox txtPkgAgcyCom;
+    private OpenFileDialog openFileDialog1;
+    private Button btnUploadImage;
 }

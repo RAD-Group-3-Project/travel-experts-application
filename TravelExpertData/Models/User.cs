@@ -9,15 +9,15 @@ namespace TravelExpertData.Models;
 [Keyless]
 public partial class User
 {
-    [Column("userid")]
-    public int Userid { get; set; }
+    [Column("CustomerId")]
+    public int? Userid { get; set; }
 
-    [Column("user_login")]
+    [Column("UserName")]
     [StringLength(50)]
     [Unicode(false)]
     public string UserLogin { get; set; } = null!;
 
-    [Column("user_password")]
+    [Column("PasswordHash")]
     [StringLength(50)]
     [Unicode(false)]
     public string UserPassword { get; set; } = null!;
