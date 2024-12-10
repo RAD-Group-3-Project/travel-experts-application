@@ -103,6 +103,9 @@ public partial class ucManagePackages : UserControl
         btnDiscard.Enabled = true;
         function = "EDIT";
 
+        dgvPackages.Enabled = false;
+        btnUploadImage.Enabled = true;
+        btnUploadImage.Visible = true;
         // Locks the database grid view
         dgvPackages.Enabled = false;
     }
@@ -171,6 +174,7 @@ public partial class ucManagePackages : UserControl
                         PackageRepository.AddPackage(addedPackage);
                         btnUploadImage.Enabled = false;
                         btnUploadImage.Visible = false;
+                        imgPicture.Visible = false;
                     }
                     catch (Exception ex)
                     {
@@ -199,14 +203,20 @@ public partial class ucManagePackages : UserControl
                     editedPackage.PkgEndDate = pkgEndDate;
                     editedPackage.PkgDesc = txtPkgDesc.Text;
                     editedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-
+                    editedPackage.PkgImage = imageName;
+                    editedPackage.IsActive = true;
                     editedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
 
                     try
                     {
+                        
                         PackageRepository.UpdatePackage(editedPackage);
+                        File.Copy(openFileDialog1.FileName, destinationpath, true);
+                        
                         btnUploadImage.Enabled = false;
                         btnUploadImage.Visible = false;
+                        imgPicture.Visible = false;
+
                     }
                     catch (Exception ex)
                     {
@@ -228,6 +238,9 @@ public partial class ucManagePackages : UserControl
 
     private void btnDiscard_Click(object sender, EventArgs e)
     {
+        btnUploadImage.Enabled = false;
+        btnUploadImage.Visible = false;
+        imgPicture.Visible = false;
         populatePackages();
     }
 
@@ -285,6 +298,8 @@ public partial class ucManagePackages : UserControl
         btnAdd.Enabled = true;
         btnDiscard.Enabled = false;
         btnSave.Enabled = false;
+        btnEdit.Enabled = true;
+        btnDelete.Enabled = true;
 
         // Clear list
         dgvPackages.Columns.Clear();
@@ -309,8 +324,9 @@ public partial class ucManagePackages : UserControl
 
         // Hides additional columns
         dgvPackages.Columns[7].Visible = false;
-        dgvPackages.Columns[8].Visible = false;
-        dgvPackages.Columns[8].Visible = false;
+        dgvPackages.Columns[9].Visible = false;
+        dgvPackages.Columns[10].Visible = false;
+        dgvPackages.Columns[11].Visible = false;
         // Format certain columns to be currency 
         dgvPackages.Columns[5].DefaultCellStyle.Format = "c";
         dgvPackages.Columns[6].DefaultCellStyle.Format = "c";
@@ -389,9 +405,11 @@ public partial class ucManagePackages : UserControl
 
     private void btnUploadImage_Click(object sender, EventArgs e)
     {
+        
         DialogResult result = openFileDialog1.ShowDialog();
         if (result == DialogResult.OK) // Check if the user selected a file
-        {
+        {   
+
             var extension = Path.GetExtension(openFileDialog1.FileName);
             var permittedExtensions = new[] { ".jpg", ".png", ".gif", ".jpeg" };
             string localpath = @"C:\Users\acide\Desktop\RAD - Threaded Project Pt 2\Threaded Project - C#\travel-experts-jsp-server-web-app\TravelExpertMVC\wwwroot\images";
@@ -402,6 +420,7 @@ public partial class ucManagePackages : UserControl
             }
             else
             {
+                
                 // Get the file name and create a full path for the destination
                 string filename = Path.GetFileName(openFileDialog1.FileName);
                 destinationpath = Path.Combine(localpath, filename); // Combine localpath with the filename
@@ -409,6 +428,8 @@ public partial class ucManagePackages : UserControl
                 // Copy the file from the openFileDialog location to the destination path
                 //File.Copy(openFileDialog1.FileName, destinationPath, true);
                 imageName = Path.GetFileName(openFileDialog1.FileName);
+                imgPicture.Image = Image.FromFile(openFileDialog1.FileName);
+                imgPicture.Visible = true;
             }
         }
     }

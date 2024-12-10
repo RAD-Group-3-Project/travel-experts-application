@@ -39,6 +39,8 @@ public partial class ucManageProducts : UserControl
         btnEdit.Enabled = true;
         btnDisc.Enabled = false;
         btnSave.Enabled = false;
+        btnDelete.Enabled = true;
+        btnEdit.Enabled = true;
 
         // Clears the list
         dgvProducts.Columns.Clear();

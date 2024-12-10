@@ -53,7 +53,9 @@ partial class ucManagePackages
         txtPkgAgcyCom = new TextBox();
         openFileDialog1 = new OpenFileDialog();
         btnUploadImage = new Button();
+        imgPicture = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)imgPicture).BeginInit();
         SuspendLayout();
         // 
         // label1
@@ -281,18 +283,28 @@ partial class ucManagePackages
         // 
         btnUploadImage.Location = new Point(456, 144);
         btnUploadImage.Name = "btnUploadImage";
-        btnUploadImage.Size = new Size(264, 62);
+        btnUploadImage.Size = new Size(90, 83);
         btnUploadImage.TabIndex = 76;
         btnUploadImage.Text = "Upload Package Image";
         btnUploadImage.UseVisualStyleBackColor = true;
         btnUploadImage.Visible = false;
         btnUploadImage.Click += btnUploadImage_Click;
         // 
+        // imgPicture
+        // 
+        imgPicture.Location = new Point(576, 144);
+        imgPicture.Name = "imgPicture";
+        imgPicture.Size = new Size(181, 83);
+        imgPicture.SizeMode = PictureBoxSizeMode.Zoom;
+        imgPicture.TabIndex = 77;
+        imgPicture.TabStop = false;
+        // 
         // ucManagePackages
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(imgPicture);
         Controls.Add(btnUploadImage);
         Controls.Add(txtPkgAgcyCom);
         Controls.Add(txtPkgBasePrice);
@@ -321,6 +333,7 @@ partial class ucManagePackages
         Size = new Size(914, 563);
         Load += ucManagePackages_Load;
         ((System.ComponentModel.ISupportInitialize)dgvPackages).EndInit();
+        ((System.ComponentModel.ISupportInitialize)imgPicture).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -352,4 +365,5 @@ partial class ucManagePackages
     private TextBox txtPkgAgcyCom;
     private OpenFileDialog openFileDialog1;
     private Button btnUploadImage;
+    private PictureBox imgPicture;
 }
