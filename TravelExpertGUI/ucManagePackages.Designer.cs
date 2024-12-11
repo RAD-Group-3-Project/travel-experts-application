@@ -248,6 +248,7 @@ partial class ucManagePackages
         // txtPkgName
         // 
         txtPkgName.Location = new Point(222, 84);
+        txtPkgName.MaxLength = 50;
         txtPkgName.Name = "txtPkgName";
         txtPkgName.ReadOnly = true;
         txtPkgName.Size = new Size(125, 27);
@@ -256,6 +257,7 @@ partial class ucManagePackages
         // txtPkgDesc
         // 
         txtPkgDesc.Location = new Point(225, 200);
+        txtPkgDesc.MaxLength = 50;
         txtPkgDesc.Name = "txtPkgDesc";
         txtPkgDesc.ReadOnly = true;
         txtPkgDesc.Size = new Size(125, 27);
