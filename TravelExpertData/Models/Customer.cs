@@ -44,16 +44,33 @@ public partial class Customer
 
     public int? AgentId { get; set; }
 
+    [StringLength(20)]
+    [Unicode(false)]
+    public string? Prefs { get; set; }
+
+    [StringLength(20)]
+    [Unicode(false)]
+    public string? ProfileImg { get; set; }
+
     [ForeignKey("AgentId")]
     [InverseProperty("Customers")]
     public virtual Agent? Agent { get; set; }
 
     [InverseProperty("Customer")]
+    public virtual ICollection<AspNetUser> AspNetUsers { get; set; } = new List<AspNetUser>();
+
+    [InverseProperty("Customer")]
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+
+    [InverseProperty("Customer")]
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     [InverseProperty("Customer")]
     public virtual ICollection<CreditCard> CreditCards { get; set; } = new List<CreditCard>();
 
     [InverseProperty("Customer")]
     public virtual ICollection<CustomersReward> CustomersRewards { get; set; } = new List<CustomersReward>();
+
+    [InverseProperty("Customer")]
+    public virtual ICollection<Wallet> Wallets { get; set; } = new List<Wallet>();
 }

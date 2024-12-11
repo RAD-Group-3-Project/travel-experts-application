@@ -32,8 +32,14 @@ public partial class Package
     [Column("is_active")]
     public bool? IsActive { get; set; }
 
+    [StringLength(50)]
+    public string PkgImage { get; set; } = null!;
+
     [InverseProperty("Package")]
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+
+    [InverseProperty("Package")]
+    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
     [InverseProperty("Package")]
     public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; } = new List<PackagesProductsSupplier>();

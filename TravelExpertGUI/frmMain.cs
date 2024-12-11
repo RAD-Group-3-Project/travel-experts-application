@@ -151,4 +151,9 @@ public partial class frmMain : Form
         Application.Exit();
 
     }
+
+    private void frmMain_MouseDown(object sender, MouseEventArgs e)
+    {
+
+    }
 }
