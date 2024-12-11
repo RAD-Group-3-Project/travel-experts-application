@@ -14,7 +14,7 @@ using TravelExpertGUI.Helpers;
 namespace TravelExpertGUI;
 public partial class ucManagePackages : UserControl
 {
-    string imageName;
+    string imageName = "";
     private List<Package> packages = null;
     private bool suppressSelectionChanged;
     string function;
@@ -50,6 +50,7 @@ public partial class ucManagePackages : UserControl
             txtPkgBasePrice.Text = basePrice.ToString("c");
             decimal commission = Convert.ToDecimal(dgvPackages.CurrentRow.Cells["PkgAgencyCommission"].Value);
             txtPkgAgcyCom.Text = commission.ToString("c");
+            lblImage.Text = dgvPackages.CurrentRow.Cells["PkgImage"].Value.ToString();
 
         }
     }
@@ -166,15 +167,30 @@ public partial class ucManagePackages : UserControl
                     addedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
                     addedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
                     addedPackage.IsActive = true;
-                    addedPackage.PkgImage = imageName;
+                    if (!string.IsNullOrEmpty(openFileDialog1.FileName) && File.Exists(openFileDialog1.FileName))
+                    {
+                        addedPackage.PkgImage = imageName;
+                    }
+                    else
+                    {
+                        addedPackage.PkgImage = "defaultPackage.jpg";
+                    }
 
                     try
                     {
-                        File.Copy(openFileDialog1.FileName, destinationpath, true);
+
+                        if (!string.IsNullOrEmpty(openFileDialog1.FileName) && File.Exists(openFileDialog1.FileName))
+                        {
+                            // Ensure the destination path is set correctly before copying
+                            File.Copy(openFileDialog1.FileName, destinationpath, true); // Overwrite if exists
+                        }
+
+
                         PackageRepository.AddPackage(addedPackage);
                         btnUploadImage.Enabled = false;
                         btnUploadImage.Visible = false;
                         imgPicture.Visible = false;
+                        imageName = "";
                     }
                     catch (Exception ex)
                     {
@@ -203,7 +219,14 @@ public partial class ucManagePackages : UserControl
                     editedPackage.PkgEndDate = pkgEndDate;
                     editedPackage.PkgDesc = txtPkgDesc.Text;
                     editedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-                    editedPackage.PkgImage = imageName;
+                    if (imageName != "")
+                    {
+                        editedPackage.PkgImage = imageName;
+                    }
+                    else
+                    {
+                        editedPackage.PkgImage = lblImage.Text;
+                    }
                     editedPackage.IsActive = true;
                     editedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
 
@@ -211,11 +234,14 @@ public partial class ucManagePackages : UserControl
                     {
                         
                         PackageRepository.UpdatePackage(editedPackage);
-                        File.Copy(openFileDialog1.FileName, destinationpath, true);
-                        
+                        if (imageName != "")
+                        {
+                            File.Copy(openFileDialog1.FileName, destinationpath, true);
+                        }
                         btnUploadImage.Enabled = false;
                         btnUploadImage.Visible = false;
                         imgPicture.Visible = false;
+                        imageName = "";
 
                     }
                     catch (Exception ex)
@@ -300,6 +326,7 @@ public partial class ucManagePackages : UserControl
         btnSave.Enabled = false;
         btnEdit.Enabled = true;
         btnDelete.Enabled = true;
+        imageName = "";
 
         // Clear list
         dgvPackages.Columns.Clear();
@@ -359,6 +386,7 @@ public partial class ucManagePackages : UserControl
         txtPkgDesc.Clear();
         txtPkgBasePrice.Clear();
         txtPkgAgcyCom.Clear();
+        lblImage.Text = string.Empty;
     }
 
     private static int lastID_PlusOne()

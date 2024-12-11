@@ -88,7 +88,7 @@ namespace TravelExpertData.Repositories
             catch (DbUpdateException dbEx)
             {
                 Console.WriteLine($"Database update error: {dbEx.Message}");
-                throw new Exception("An error occurred while updating the package in the database.", dbEx);
+                throw new Exception("An error occurred while editing the package in the database.", dbEx);
             }
         }
 

@@ -54,6 +54,8 @@ partial class ucManagePackages
         openFileDialog1 = new OpenFileDialog();
         btnUploadImage = new Button();
         imgPicture = new PictureBox();
+        label8 = new Label();
+        lblImage = new Label();
         ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
         ((System.ComponentModel.ISupportInitialize)imgPicture).BeginInit();
         SuspendLayout();
@@ -281,7 +283,7 @@ partial class ucManagePackages
         // 
         // btnUploadImage
         // 
-        btnUploadImage.Location = new Point(456, 144);
+        btnUploadImage.Location = new Point(456, 155);
         btnUploadImage.Name = "btnUploadImage";
         btnUploadImage.Size = new Size(90, 83);
         btnUploadImage.TabIndex = 76;
@@ -292,18 +294,37 @@ partial class ucManagePackages
         // 
         // imgPicture
         // 
-        imgPicture.Location = new Point(576, 144);
+        imgPicture.Location = new Point(576, 155);
         imgPicture.Name = "imgPicture";
         imgPicture.Size = new Size(181, 83);
         imgPicture.SizeMode = PictureBoxSizeMode.Zoom;
         imgPicture.TabIndex = 77;
         imgPicture.TabStop = false;
         // 
+        // label8
+        // 
+        label8.AutoSize = true;
+        label8.Location = new Point(456, 127);
+        label8.Name = "label8";
+        label8.Size = new Size(86, 20);
+        label8.TabIndex = 78;
+        label8.Text = "Img Name: ";
+        // 
+        // lblImage
+        // 
+        lblImage.AutoSize = true;
+        lblImage.Location = new Point(677, 127);
+        lblImage.Name = "lblImage";
+        lblImage.Size = new Size(0, 20);
+        lblImage.TabIndex = 79;
+        // 
         // ucManagePackages
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(lblImage);
+        Controls.Add(label8);
         Controls.Add(imgPicture);
         Controls.Add(btnUploadImage);
         Controls.Add(txtPkgAgcyCom);
@@ -366,4 +387,6 @@ partial class ucManagePackages
     private OpenFileDialog openFileDialog1;
     private Button btnUploadImage;
     private PictureBox imgPicture;
+    private Label label8;
+    private Label lblImage;
 }
