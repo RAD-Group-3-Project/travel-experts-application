@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Azure.Storage.Blobs;
+using System.Configuration;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using TravelExpertData.Models;
 using TravelExpertData.Repositories;
 using TravelExpertGUI.Helpers;
@@ -14,15 +8,30 @@ using TravelExpertGUI.Helpers;
 namespace TravelExpertGUI;
 public partial class ucManagePackages : UserControl
 {
-    string imageName = "";
     private List<Package> packages = null;
     private bool suppressSelectionChanged;
-    string function;
-    string destinationpath;
+    private string function;
+
+    // Image upload
+    private string imageName;
+    private string imageFullPath;
+    private const string CHRIS_LOCAL_PATH =
+        @"C:\Users\acide\Desktop\RAD - Threaded Project Pt 2\Threaded Project - C#\travel-experts-jsp-server-web-app\TravelExpertMVC\wwwroot\images";
+
+    private string blobConnectionString;
+    private string containerName;
 
     public ucManagePackages()
     {
         InitializeComponent();
+
+        blobConnectionString = ConfigurationManager.ConnectionStrings["AzureStorageConnection"].ConnectionString;
+        if (string.IsNullOrEmpty(blobConnectionString))
+        {
+            MessageBox.Show("Azure Blob Storage connection string is missing. Please add it to the App.config file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+        containerName = "travel-expert-main";
     }
 
     private void ucManagePackages_Load(object sender, EventArgs e)
@@ -141,124 +150,110 @@ public partial class ucManagePackages : UserControl
 
     private void btnSave_Click(object sender, EventArgs e)
     {
-        string basePr = txtPkgBasePrice.Text;
-        string basePriceFormat = basePr.Replace("$", "");
-        txtPkgBasePrice.Text = basePriceFormat;
-        string baseComm = txtPkgAgcyCom.Text;
-        string baseCommFormat = baseComm.Replace("$", "");
-        txtPkgAgcyCom.Text = baseCommFormat;
-
-        switch (function)
+        try
         {
+            string basePr = txtPkgBasePrice.Text;
+            string basePriceFormat = basePr.Replace("$", "");
+            txtPkgBasePrice.Text = basePriceFormat;
+            string baseComm = txtPkgAgcyCom.Text;
+            string baseCommFormat = baseComm.Replace("$", "");
+            txtPkgAgcyCom.Text = baseCommFormat;
 
-            case "ADD":
-                
-                if (ValidateRequiredFieldsAndBizLogic())
-                {
-                    Package addedPackage = new Package();
+            if (!ValidateRequiredFieldsAndBizLogic())
+            {
+                return;
+            }
 
+            // set the package properties
+            var package = new Package
+            {
+                PkgName = txtPkgName.Text,
+                PkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text),
+                PkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text),
+                PkgDesc = txtPkgDesc.Text,
+                PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text),
+                PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text),
+                IsActive = true
+            };
 
-                    addedPackage.PkgName = txtPkgName.Text;
-                    DateTime pkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
-                    addedPackage.PkgStartDate = pkgStartDate;
-                    DateTime pkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
-                    addedPackage.PkgEndDate = pkgEndDate;
-                    addedPackage.PkgDesc = txtPkgDesc.Text;
-                    addedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-                    addedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
-                    addedPackage.IsActive = true;
-                    if (!string.IsNullOrEmpty(openFileDialog1.FileName) && File.Exists(openFileDialog1.FileName))
+            string resultUrl;
+            switch (function)
+            {
+                case "ADD":
+
+                    if (!string.IsNullOrEmpty(imageName) && File.Exists(imageFullPath))
                     {
-                        addedPackage.PkgImage = imageName;
+                        package.PkgImage = imageName;
                     }
                     else
                     {
-                        addedPackage.PkgImage = "defaultPackage.jpg";
+                        package.PkgImage = "defaultPackage.jpg";
                     }
 
-                    try
+                    // Upload the image to Azure Blob Storage
+                    resultUrl = UploadImageToBlob(package.PackageId.ToString(), package.PkgName, imageName, imageFullPath);
+                    if (!string.IsNullOrEmpty(resultUrl))
                     {
-
-                        if (!string.IsNullOrEmpty(openFileDialog1.FileName) && File.Exists(openFileDialog1.FileName))
-                        {
-                            // Ensure the destination path is set correctly before copying
-                            File.Copy(openFileDialog1.FileName, destinationpath, true); // Overwrite if exists
-                        }
-
-
-                        PackageRepository.AddPackage(addedPackage);
-                        btnUploadImage.Enabled = false;
-                        btnUploadImage.Visible = false;
-                        imgPicture.Visible = false;
-                        imageName = "";
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error: {ex.Message}", "Package Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        package.PkgImage = resultUrl;
                     }
 
-                    // Refresh list
-                    populatePackages();
+                    // Add the package to the database
+                    PackageRepository.AddPackage(package);
+
                     break;
-                }
-                else
-                {
-                    MessageBox.Show("Please input a Package Name");
-                    break;
-                }
 
-            case "EDIT":
-                if (ValidateRequiredFieldsAndBizLogic())
-                {
-                    Package editedPackage = new Package();
-                    editedPackage.PackageId = Convert.ToInt32(txtPkgId.Text);
-                    editedPackage.PkgName = txtPkgName.Text;
-                    DateTime pkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
-                    editedPackage.PkgStartDate = pkgStartDate;
-                    DateTime pkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
-                    editedPackage.PkgEndDate = pkgEndDate;
-                    editedPackage.PkgDesc = txtPkgDesc.Text;
-                    editedPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-                    if (imageName != "")
+                case "EDIT":
+
+                    if (!string.IsNullOrEmpty(imageName) && File.Exists(imageFullPath))
                     {
-                        editedPackage.PkgImage = imageName;
+                        package.PkgImage = imageName;
                     }
                     else
                     {
-                        editedPackage.PkgImage = lblImage.Text;
+                        package.PkgImage = lblImage.Text;
                     }
-                    editedPackage.IsActive = true;
-                    editedPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text);
 
-                    try
+                    package.PackageId = Convert.ToInt32(txtPkgId.Text);
+
+                    resultUrl = UploadImageToBlob(package.PackageId.ToString(), package.PkgName, imageName, imageFullPath);
+                    if (!string.IsNullOrEmpty(resultUrl))
                     {
-                        
-                        PackageRepository.UpdatePackage(editedPackage);
-                        if (imageName != "")
-                        {
-                            File.Copy(openFileDialog1.FileName, destinationpath, true);
-                        }
-                        btnUploadImage.Enabled = false;
-                        btnUploadImage.Visible = false;
-                        imgPicture.Visible = false;
-                        imageName = "";
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error: {ex.Message}", "Package Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        package.PkgImage = resultUrl;
                     }
 
-                    // Refresh list
-                    populatePackages();
+                    // Update the package in the database
+                    PackageRepository.UpdatePackage(package);
 
                     break;
-                }
-                else
-                {
-                    MessageBox.Show("Please input a Package Name");
-                    break;
-                }
+            }
+
+            // Refresh list
+            populatePackages();
+
+            // reset
+            btnUploadImage.Enabled = false;
+            btnUploadImage.Visible = false;
+            imgPicture.Visible = false;
+            imageName = "";
+
+        }
+        catch (Exception exception)
+        {
+            MessageBox.Show(
+                $"Error: {exception.Message}",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            );
+
+            // Refresh list
+            populatePackages();
+
+            // reset
+            btnUploadImage.Enabled = false;
+            btnUploadImage.Visible = false;
+            imgPicture.Visible = false;
+            imageName = "";
         }
     }
 
@@ -433,32 +428,85 @@ public partial class ucManagePackages : UserControl
 
     private void btnUploadImage_Click(object sender, EventArgs e)
     {
-        
         DialogResult result = openFileDialog1.ShowDialog();
         if (result == DialogResult.OK) // Check if the user selected a file
-        {   
-
+        {
             var extension = Path.GetExtension(openFileDialog1.FileName);
             var permittedExtensions = new[] { ".jpg", ".png", ".gif", ".jpeg" };
-            string localpath = @"C:\Users\acide\Desktop\RAD - Threaded Project Pt 2\Threaded Project - C#\travel-experts-jsp-server-web-app\TravelExpertMVC\wwwroot\images";
 
             if (string.IsNullOrEmpty(extension) || !permittedExtensions.Contains(extension))
             {
-                MessageBox.Show("Please upload an image file");
-            }
-            else
-            {
-                
-                // Get the file name and create a full path for the destination
-                string filename = Path.GetFileName(openFileDialog1.FileName);
-                destinationpath = Path.Combine(localpath, filename); // Combine localpath with the filename
+                MessageBox.Show(
+                    "Please upload an image file",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
 
-                // Copy the file from the openFileDialog location to the destination path
-                //File.Copy(openFileDialog1.FileName, destinationPath, true);
-                imageName = Path.GetFileName(openFileDialog1.FileName);
-                imgPicture.Image = Image.FromFile(openFileDialog1.FileName);
-                imgPicture.Visible = true;
+                return;
             }
+
+            imageName = Path.GetFileName(openFileDialog1.FileName);
+            imageFullPath = openFileDialog1.FileName;
+            imgPicture.Image = Image.FromFile(imageFullPath);
+            imgPicture.Visible = true;
         }
     }
+
+    /// <summary>
+    /// Uploads an image file to Azure Blob Storage and returns the URL of the uploaded image.
+    /// </summary>
+    /// <param name="filename">The name of the file to be uploaded.</param>
+    /// <param name="destinationPath">The destination path of the file to be uploaded.</param>
+    /// <returns>The URL of the uploaded image.</returns>
+    private string UploadImageToBlob(string packageId, string packageName, string filename, string destinationPath)
+    {
+        var blobServiceClient = new BlobServiceClient(blobConnectionString);
+        var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
+        var blobClient = blobContainerClient.GetBlobClient(GenerateBlobName(packageId, packageName, Path.GetExtension(destinationPath)));
+        using (var fileStream = File.OpenRead(destinationPath))
+        {
+            var res = blobClient.Upload(fileStream, true);
+
+            if (res.GetRawResponse().Status != 201)
+            {
+                MessageBox.Show(
+                    "Got some error during the uploading the image. Save to local machine instead",
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                // Copy the image to Chris's local path
+                var chrisImagePath = Path.Combine(CHRIS_LOCAL_PATH, filename);
+                File.Copy(openFileDialog1.FileName, chrisImagePath, true);
+
+                return string.Empty;
+            }
+
+            MessageBox.Show(
+                "Image uploaded successfully to Azure Blob Storage.",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+
+            return blobClient.Uri.ToString();
+        }
+    }
+
+    private string GenerateSlug(string packageName)
+    {
+        return string.Join("-", packageName
+            .ToLower()
+            .Split(new[] { ' ', '_', ',' }, StringSplitOptions.RemoveEmptyEntries));
+    }
+
+    private string GenerateBlobName(string packageId, string packageName, string fileExtension)
+    {
+        string timestamp = DateTime.UtcNow.ToString("yyyyMMdd-HHmmss");
+        string slug = GenerateSlug(packageName);
+        return $"{packageId}/{timestamp}-{slug}{fileExtension}";
+    }
+
 }
