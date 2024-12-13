@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TravelExpertGUI.Helpers;
+﻿namespace TravelExpertGUI.Helpers;
 public static class TextBoxValidator
 {
     /// <summary>
@@ -163,7 +157,7 @@ public static class TextBoxValidator
         if (!DateTime.TryParse(txtPackageStartDate.Text, out DateTime packageStartDate) ||
             !DateTime.TryParse(txtPackageEndDate.Text, out DateTime PackageEndDate))
         {
-            ShowWarningMessageBox("Please enter valid numbers for Base Price and Agency Commission.", "Input Error");
+            ShowWarningMessageBox("Please enter valid dates for Package Start Date and Package End Date.", "Input Error");
             return false;
         }
 
