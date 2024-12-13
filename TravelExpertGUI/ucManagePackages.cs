@@ -203,7 +203,7 @@ public partial class ucManagePackages : UserControl
                     break;
 
                 case "EDIT":
-
+                    bool skipUpload = false;
                     if (!string.IsNullOrEmpty(imageName) && File.Exists(imageFullPath))
                     {
                         package.PkgImage = imageName;
@@ -211,14 +211,18 @@ public partial class ucManagePackages : UserControl
                     else
                     {
                         package.PkgImage = lblImage.Text;
+                        skipUpload = true;
                     }
 
                     package.PackageId = Convert.ToInt32(txtPkgId.Text);
 
-                    resultUrl = UploadImageToBlob(package.PackageId.ToString(), package.PkgName, imageName, imageFullPath);
-                    if (!string.IsNullOrEmpty(resultUrl))
+                    if (!skipUpload)
                     {
-                        package.PkgImage = resultUrl;
+                        resultUrl = UploadImageToBlob(package.PackageId.ToString(), package.PkgName, imageName, imageFullPath);
+                        if (!string.IsNullOrEmpty(resultUrl))
+                        {
+                            package.PkgImage = resultUrl;
+                        }
                     }
 
                     // Update the package in the database
