@@ -44,8 +44,6 @@ partial class ucManagePackages
         lblClearIcon = new Label();
         lblSearchIcon = new Label();
         btnSearch = new Button();
-        txtPkgStartDate = new TextBox();
-        txtPkgEndDate = new TextBox();
         txtPkgId = new TextBox();
         txtPkgName = new TextBox();
         txtPkgDesc = new TextBox();
@@ -56,6 +54,8 @@ partial class ucManagePackages
         imgPicture = new PictureBox();
         label8 = new Label();
         lblImage = new Label();
+        dtpEndDate = new DateTimePicker();
+        dtpStartDate = new DateTimePicker();
         ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
         ((System.ComponentModel.ISupportInitialize)imgPicture).BeginInit();
         SuspendLayout();
@@ -221,22 +221,6 @@ partial class ucManagePackages
         btnSearch.UseVisualStyleBackColor = true;
         btnSearch.Click += btnSearch_Click;
         // 
-        // txtPkgStartDate
-        // 
-        txtPkgStartDate.Location = new Point(222, 124);
-        txtPkgStartDate.Name = "txtPkgStartDate";
-        txtPkgStartDate.ReadOnly = true;
-        txtPkgStartDate.Size = new Size(125, 27);
-        txtPkgStartDate.TabIndex = 69;
-        // 
-        // txtPkgEndDate
-        // 
-        txtPkgEndDate.Location = new Point(222, 162);
-        txtPkgEndDate.Name = "txtPkgEndDate";
-        txtPkgEndDate.ReadOnly = true;
-        txtPkgEndDate.Size = new Size(125, 27);
-        txtPkgEndDate.TabIndex = 70;
-        // 
         // txtPkgId
         // 
         txtPkgId.Location = new Point(222, 48);
@@ -320,11 +304,30 @@ partial class ucManagePackages
         lblImage.Size = new Size(0, 20);
         lblImage.TabIndex = 79;
         // 
+        // dtpEndDate
+        // 
+        dtpEndDate.CustomFormat = "yyyy-MM-dd";
+        dtpEndDate.Enabled = false;
+        dtpEndDate.Location = new Point(222, 160);
+        dtpEndDate.Name = "dtpEndDate";
+        dtpEndDate.Size = new Size(128, 27);
+        dtpEndDate.TabIndex = 80;
+        // 
+        // dtpStartDate
+        // 
+        dtpStartDate.Enabled = false;
+        dtpStartDate.Location = new Point(222, 122);
+        dtpStartDate.Name = "dtpStartDate";
+        dtpStartDate.Size = new Size(128, 27);
+        dtpStartDate.TabIndex = 81;
+        // 
         // ucManagePackages
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.GradientInactiveCaption;
+        Controls.Add(dtpStartDate);
+        Controls.Add(dtpEndDate);
         Controls.Add(lblImage);
         Controls.Add(label8);
         Controls.Add(imgPicture);
@@ -334,8 +337,6 @@ partial class ucManagePackages
         Controls.Add(txtPkgDesc);
         Controls.Add(txtPkgName);
         Controls.Add(txtPkgId);
-        Controls.Add(txtPkgEndDate);
-        Controls.Add(txtPkgStartDate);
         Controls.Add(btnSearch);
         Controls.Add(lblClearIcon);
         Controls.Add(lblSearchIcon);
@@ -379,8 +380,6 @@ partial class ucManagePackages
     private Label lblClearIcon;
     private Label lblSearchIcon;
     private Button btnSearch;
-    private TextBox txtPkgStartDate;
-    private TextBox txtPkgEndDate;
     private TextBox txtPkgId;
     private TextBox txtPkgName;
     private TextBox txtPkgDesc;
@@ -391,4 +390,6 @@ partial class ucManagePackages
     private PictureBox imgPicture;
     private Label label8;
     private Label lblImage;
+    private DateTimePicker dtpEndDate;
+    private DateTimePicker dtpStartDate;
 }

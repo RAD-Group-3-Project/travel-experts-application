@@ -26,6 +26,18 @@ public static class TextBoxValidator
 
         return true;
     }
+    public static bool IsPresent(DateTimePicker textBox)
+    {
+        if (string.IsNullOrWhiteSpace(textBox.Text))
+        {
+            ShowWarningMessageBox($"Please enter a value for {textBox.Tag}.", "Input Required");
+            textBox.Select();
+            textBox.Focus();
+            return false;
+        }
+
+        return true;
+    }
 
     public static bool IsDouble(TextBox textBox)
     {
@@ -158,7 +170,7 @@ public static class TextBoxValidator
         return true;
     }
 
-    public static bool ValidatePackageEndDate(TextBox txtPackageStartDate, TextBox txtPackageEndDate)
+    public static bool ValidatePackageEndDate(DateTimePicker txtPackageStartDate, DateTimePicker txtPackageEndDate)
     {
         if (!DateTime.TryParse(txtPackageStartDate.Text, out DateTime packageStartDate) ||
             !DateTime.TryParse(txtPackageEndDate.Text, out DateTime PackageEndDate))
@@ -170,7 +182,7 @@ public static class TextBoxValidator
         if (PackageEndDate.CompareTo(packageStartDate) < 0) // earlier
         {
             ShowWarningMessageBox("The Package End Date must be later than Package Start Date", "Validation Error");
-            txtPackageEndDate.SelectAll();
+            txtPackageEndDate.Select();
             txtPackageEndDate.Focus();
             return false;
         }
