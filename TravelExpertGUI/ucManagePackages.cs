@@ -20,6 +20,7 @@ public partial class ucManagePackages : UserControl
     string function;
     string destinationpath;
 
+
     public ucManagePackages()
     {
         InitializeComponent();
@@ -28,6 +29,12 @@ public partial class ucManagePackages : UserControl
     private void ucManagePackages_Load(object sender, EventArgs e)
     {
         populatePackages();
+        // Set the same format for both DateTimePickers
+        dtpEndDate.Format = DateTimePickerFormat.Custom;
+        dtpEndDate.CustomFormat = "MM/dd/yyyy";  // Set the custom date format
+
+        dtpStartDate.Format = DateTimePickerFormat.Custom;
+        dtpStartDate.CustomFormat = "MM/dd/yyyy";  // Set the custom date format
     }
 
 
@@ -74,13 +81,9 @@ public partial class ucManagePackages : UserControl
         btnDelete.Enabled = false;
         btnSave.Enabled = true;
         btnDiscard.Enabled = true;
-        // End date formatting
-        dtpEndDate.Format = DateTimePickerFormat.Custom;
-        dtpEndDate.CustomFormat = "MM/dd/yyyy";
+      
         dtpEndDate.Enabled = true;
-        // Start date formatting
-        dtpStartDate.Format = DateTimePickerFormat.Custom;
-        dtpStartDate.CustomFormat = "MM/dd/yyyy";
+       
         dtpStartDate.Enabled = true;
 
         // Finds last package ID and populate the box
@@ -101,8 +104,6 @@ public partial class ucManagePackages : UserControl
         txtPkgId.ReadOnly = true;
         txtPkgName.ReadOnly = false;
         txtPkgName.Focus();
-        //txtPkgStartDate.ReadOnly = false;
-        //dtpEndDate.ReadOnly = false;
         txtPkgDesc.ReadOnly = false;
         txtPkgBasePrice.ReadOnly = false;
         txtPkgAgcyCom.ReadOnly = false;
@@ -112,14 +113,8 @@ public partial class ucManagePackages : UserControl
         btnSave.Enabled = true;
         btnDiscard.Enabled = true;
         function = "EDIT";
-        dtpEndDate.Format = DateTimePickerFormat.Custom;
-        dtpEndDate.CustomFormat = "MM/dd/yyyy";
         dtpEndDate.Enabled = true;
-
-        dtpStartDate.Format = DateTimePickerFormat.Custom;
-        dtpStartDate.CustomFormat = "MM/dd/yyyy";
         dtpStartDate.Enabled = true;
-
         dgvPackages.Enabled = false;
         btnUploadImage.Enabled = true;
         btnUploadImage.Visible = true;
@@ -335,20 +330,14 @@ public partial class ucManagePackages : UserControl
         txtPkgAgcyCom.ReadOnly = true;
         txtPkgBasePrice.ReadOnly = true;
         txtPkgDesc.ReadOnly = true;
-        //txtPkgStartDate.ReadOnly = true;
-        //txtPkgEndDate.ReadOnly = true;
         btnAdd.Enabled = true;
         btnDiscard.Enabled = false;
         btnSave.Enabled = false;
         btnEdit.Enabled = true;
         btnDelete.Enabled = true;
         imageName = "";
-        dtpEndDate.Format = DateTimePickerFormat.Custom;
-        dtpEndDate.CustomFormat = "MM/dd/yyyy";
         dtpEndDate.Enabled = false;
         // Start date formatting
-        dtpStartDate.Format = DateTimePickerFormat.Custom;
-        dtpStartDate.CustomFormat = "MM/dd/yyyy";
         dtpStartDate.Enabled = false;
 
         // Clear list
@@ -392,18 +381,10 @@ public partial class ucManagePackages : UserControl
         ClearAllInputFields();
         txtPkgId.ReadOnly = true;
         txtPkgName.ReadOnly = false;
-        txtPkgName.Focus();
-        //txtPkgStartDate.ReadOnly = false;
-        //txtPkgEndDate.ReadOnly = false;
         txtPkgDesc.ReadOnly = false;
         txtPkgBasePrice.ReadOnly = false;
         txtPkgAgcyCom.ReadOnly = false;
-        dtpEndDate.Format = DateTimePickerFormat.Custom;
-        dtpEndDate.CustomFormat = "MM/dd/yyyy";
         dtpEndDate.Enabled = true;
-
-        dtpEndDate.Format = DateTimePickerFormat.Custom;
-        dtpEndDate.CustomFormat = "MM/dd/yyyy";
         dtpEndDate.Enabled = true;
 
     }
@@ -412,7 +393,6 @@ public partial class ucManagePackages : UserControl
     {
         txtPkgId.Clear();
         txtPkgName.Clear();
-        //txtPkgStartDate.Clear();
         dtpStartDate.Value = DateTime.Today;
         dtpEndDate.Value = DateTime.Today;
         txtPkgDesc.Clear();
@@ -438,8 +418,8 @@ public partial class ucManagePackages : UserControl
                TextBoxValidator.IsPresent(txtPkgName) &&
                TextBoxValidator.IsPresent(txtPkgDesc) &&
                TextBoxValidator.IsPresent(txtPkgBasePrice) &&
-               //TextBoxValidator.IsPresent(txtPkgStartDate) &&
-               //TextBoxValidator.IsPresent(dtpEndDate) &&
+               TextBoxValidator.IsPresent(dtpStartDate) &&
+               TextBoxValidator.IsPresent(dtpEndDate) &&
                TextBoxValidator.IsPresent(txtPkgAgcyCom) &&
                TextBoxValidator.ValidatePackageEndDate(dtpStartDate, dtpEndDate) &&
                TextBoxValidator.ValidateAgencyCommission(txtPkgAgcyCom, txtPkgBasePrice);
