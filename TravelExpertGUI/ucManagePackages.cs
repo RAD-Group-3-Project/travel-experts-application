@@ -82,16 +82,16 @@ public partial class ucManagePackages : UserControl
         txtPkgBasePrice.ReadOnly = false;
         txtPkgDesc.ReadOnly = false;
         //txtPkgStartDate.ReadOnly = false;
-        
+
         txtPkgName.Focus();
         btnAdd.Enabled = false;
         btnEdit.Enabled = false;
         btnDelete.Enabled = false;
         btnSave.Enabled = true;
         btnDiscard.Enabled = true;
-      
+
         dtpEndDate.Enabled = true;
-       
+
         dtpStartDate.Enabled = true;
 
         // Finds last package ID and populate the box
@@ -178,8 +178,8 @@ public partial class ucManagePackages : UserControl
             var package = new Package
             {
                 PkgName = txtPkgName.Text,
-                PkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text),
-                PkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text),
+                PkgStartDate = Convert.ToDateTime(dtpStartDate.Text),
+                PkgEndDate = Convert.ToDateTime(dtpEndDate.Text),
                 PkgDesc = txtPkgDesc.Text,
                 PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text),
                 PkgAgencyCommission = Convert.ToDecimal(txtPkgAgcyCom.Text),
