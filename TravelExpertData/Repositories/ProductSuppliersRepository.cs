@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TravelExpertData.Data;
 using TravelExpertData.Models;
 
@@ -59,6 +54,7 @@ public class ProductSuppliersRepository
                     ps => ps.ProductId,
                     p => p.ProductId,
                     (ps, p) => new { ps, p })
+                .Where(pps => pps.p.IsActive == true)
                 .Join(ctx.Suppliers,
                     x => x.ps.SupplierId,
                     s => s.SupplierId,
@@ -68,8 +64,10 @@ public class ProductSuppliersRepository
                         pss.p.ProductId,
                         pss.p.ProdName,
                         s.SupplierId,
-                        s.SupName
+                        s.SupName,
+                        s.IsActive
                     })
+                .Where(psps => psps.IsActive == true)
                 .Select(joined => new ProductSupplierDTO(joined.ProductSupplierId, joined.ProductId,
                     joined.ProdName, joined.SupplierId, joined.SupName))
                 .ToList(); ;
